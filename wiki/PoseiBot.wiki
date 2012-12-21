@@ -2,9 +2,9 @@
 
 = Introduction =
 
-An underwater robot platforma develop for Mechatronic Research Group of Simon Bolivar University.
+An underwater robot platform develop for Mechatronic Research Group of Simon Bolivar University.
 
-https://www.youtube.com/watch?v=Xa_rWEAlU-o
+http://code.google.com/ https://www.youtube.com/watch?v=Xa_rWEAlU-o
 
 = Details =
 
