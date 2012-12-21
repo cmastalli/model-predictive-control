@@ -4,6 +4,7 @@
 
 An underwater robot platforma develop for Mechatronic Research Group of Simon Bolivar University.
 
+https://www.youtube.com/watch?v=Xa_rWEAlU-o
 
 = Details =
 
