@@ -1,0 +1,15 @@
+<package>
+  <description brief="mpc">
+
+     mpc
+
+  </description>
+  <author>cmastalli</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/mpc</url>
+  <depend package="roscpp"/>
+
+</package>
+
+
