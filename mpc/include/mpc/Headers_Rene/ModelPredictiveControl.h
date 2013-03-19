@@ -1,7 +1,7 @@
 #ifndef MPC_MODELPREDICTIVECONTROL_H
 #define MPC_MODELPREDICTIVECONTROL_H
 
-namespace mpc
+namespace MPC
 {
 
     class ModelPredictiveControl
