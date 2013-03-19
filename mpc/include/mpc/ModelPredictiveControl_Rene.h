@@ -9,7 +9,8 @@ namespace mpc
      */
     class ModelPredictiveControl
     {
-	      public:
+        public:
+        
             /**
              @brief Constructor function
              */
