@@ -1,7 +1,7 @@
 #ifndef MPC_SIMULATOR_H
 #define MPC_SIMULATOR_H
 
-namespace mpc
+namespace MPC
 {
 
     class Simulator

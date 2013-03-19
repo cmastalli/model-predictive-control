@@ -1,7 +1,7 @@
 #ifndef MPC_OPTIMIZER_H
 #define MPC_OPTIMIZER_H
 
-namespace mpc
+namespace MPC
 {
 
     class Optimizer		
