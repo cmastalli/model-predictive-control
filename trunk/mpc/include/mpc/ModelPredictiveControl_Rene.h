@@ -16,7 +16,6 @@ namespace mpc
              */
             ModelPredictiveControl();
 
-
             /**
              @brief Constructor function
              */
