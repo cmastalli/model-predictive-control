@@ -35,6 +35,16 @@ namespace mpc
 	*/
 	
 	virtual void setOptProblem();
+
+	/*
+
+	@brief function that defines the behavior of the process model
+	@param 
+	@param
+
+	*/
+
+	virtual void setDynamicFunction();
         
 
         protected:

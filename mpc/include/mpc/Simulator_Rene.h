@@ -19,11 +19,11 @@ namespace mpc
 
 	    /**
 	     @brief				function used to obtain the predictions from the process model for a time horizon
-	     @param int *horizon		pointer to the time horizon 
+	     @param int *horizonPtr		pointer to the time horizon 
 	     @param MPC::Model *myModel 	pointer to the process model class "Model"
 	    
 	     */
-	    void predictState(MPC::Model *myModel, int *horizon);
+	    void predictState(MPC::Model *myModel, int *horizonPtr);
 
 
 	protected:
