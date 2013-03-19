@@ -3,48 +3,44 @@
 
 namespace mpc
 {
-
+    /**
+     @class Model
+     @brief Abstract class to define the model of the process and the optimal control problem to be solved
+     */
     class Model
     {
-	public:
-        
-        // Constructor
+        public:
+            /**
+             @brief Constructor function
+             */
+            Model();
 
-        Model();
-
-        // Destructor
-
-        ~Model();
+            /**
+             @brief Destructor function
+             */
+            ~Model();
 	
-	/*
+	          /*
+             @brief function to define the cost function associated to the MPC problem 
+             @param H
+             @param z
+             @param g
+             */
+            virtual void setCostFunction();
 
-	@brief function to define the cost function associated to the MPC problem 
-	@param H
-	@param z
-	@param g
-	
-	*/
-        virtual void setCostFunction();
-
-
-	/*
-
-	@brief function to set the whole optimization problem according to the documentation presented by qpOASES
-	@param
-	@param
-	*/
-	
-	virtual void setOptProblem();
-
-	/*
-
-	@brief function that defines the behavior of the process model
-	@param 
-	@param
-
-	*/
-
-	virtual void setDynamicFunction();
+            /*
+             @brief function to set the whole optimization problem according to the documentation presented by qpOASES
+             @param
+             @param
+             */
+            virtual void setOptProblem();
+ 
+            /*
+             @brief function that defines the behavior of the process model
+             @param 
+             @param
+             */
+            virtual void setDynamicFunction();
         
 
         protected:
