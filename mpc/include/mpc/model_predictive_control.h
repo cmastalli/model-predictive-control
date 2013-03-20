@@ -23,11 +23,11 @@ namespace mpc
 
             /*
              @brief Function to specify the settings of all variables within the MPC problem (optimization library, horizon, etc.)
-             @param MPC::Model *myModel		pointer to the model of the plant to be used in the algorithm
-             @param MPC::Optimizer *qpOASES		pointer to the optimization library to be used in the algorithm
-             @param MPC::Simulator *mySimulator	pointer to the simulator class used to predict the states
+             @param mpc::model::Model *model pointer to the model of the plant to be used in the algorithm
+             @param mpc::optimizer::Optimizer *qpOASES pointer to the optimization library to be used in the algorithm
+             @param mpc::model::Simulator *simulator pointer to the simulator class used to predict the states
              */
-            void resetMPC( MPC::Model *myModel, MPC::Optimizer *qpOASES, MPC::Simulator *mySimulator);
+            void resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *qpOASES, mpc::model::Simulator *simulator);
 
             /*
              @brief function to initialize the calculation of the MPC algorithm
@@ -50,6 +50,7 @@ namespace mpc
         private:
 
 
-    }; // Model Predictive Control class
+    }; //@class ModelPredictiveControl
 
-}; // mpc namespace
+}; //@namespace mpc
+
