@@ -20,9 +20,9 @@ namespace mpc
 	    public:
 		/**
 		 @brief Constructor
-		 @param mpc::Model *model pointer to process model class
+		 @param mpc::model::Model *model pointer to process model class
 		 */
-		virtual Simulator(mpc::Model *model);
+		virtual Simulator(mpc::model::Model *model);
 
 		/**
 		 @brief Destructor
@@ -30,20 +30,20 @@ namespace mpc
 		virtual ~Simulator();
 
 		/**
-		 This function initializes the class yane::Model::Simulator object.
+		 This function initializes the class mpc::model::Simulator object.
 		 @param t Time instant
 		 @param x State vector
 		 @param u Control vector
-		 @brief Function to initialize the class yane::Model::Simulator object
+		 @brief Function to initialize the class mpc::model::Simulator object
 		 */
 		virtual void initialize(double t, double *x, double *u);
 
 		/**
 		 @brief Function used to obtain the predictions from the process model for a time horizon
-		 @param int *prediction_horizon pointer to the time horizon of prediction 
-		 @param mpc::Model *model pointer to the process model class "Model
+		 @param int *prediction_horizon 	pointer to the time horizon of prediction 
+		 @param mpc::model::Model *model 	pointer to the process model class "Model"
 		 */
-		virtual void predictState(int *prediction_horizon);
+		virtual void predictState(int *prediction_horizon, mpc::model::Model *model);
 
 
 	    protected:
