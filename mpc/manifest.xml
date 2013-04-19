@@ -9,6 +9,8 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/mpc</url>
   <depend package="roscpp"/>
+  <depend package="common_rosdeps" />
+  <rosdep name="eigen" />
 
 </package>
 

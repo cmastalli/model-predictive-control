@@ -4,7 +4,7 @@
 namespace mpc
 {
 
-    namespace optimizater
+    namespace optimizer
     {
 
 	/**
@@ -25,6 +25,12 @@ namespace mpc
 		 */
 		~Optimizer();
 	
+                /**
+		 @brief Function to perform the manipulation of the model parameters to be ready for the solver
+		 @param mpc::Model *model pointer to the process model class "Model"
+		 */
+
+                 void setOptimizationParams(MPC::Model *model);
 
 		/**
 		 @brief Function to define the cost function associated to the MPC problem 
@@ -34,12 +40,15 @@ namespace mpc
 		 */
 		virtual void computeOpt(MPC::Model *model, int &nWSR, double *cputime);
 
+		 int &nWSR;	//number of working set recalculations
 
 	    protected:
 
 
 
 	    private:
+
+	        
 
 
     }; //@class Optimizer
