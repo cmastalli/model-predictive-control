@@ -41,13 +41,13 @@ namespace mpc
 		virtual ~Model();
 
 		/**
-		 @brief Function that defines the behavior of the process model
-		 @param t Time instant
-		 @param x State vector
-		 @param u Control vector
-		 @param x_dot Values of the derivatives
+		 @brief Function that provides the model matrices for each time instant for Linear Time Variant models. Polymorphism is used to 		implement this function for Linear Time Invariant models as well.
+		 @param curent_time 	Time instant
+		 @param &A 				Reference to the A matrix
+		 @param &B 				Reference to the B matrix
+		 @param &C 				Reference to the C matrix 
 		 */
-		virtual void dynamicFunction(double t, double *x, double *u, double *x_dot);
+		virtual void getModelParameters(int current_time, MatrixXd& A, MatrixXd& B, MatrixXd& C);
 	
 		/**
 		 @brief Function to define the cost function associated to the MPC problem 
