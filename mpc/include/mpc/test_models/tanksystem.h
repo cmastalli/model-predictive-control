@@ -1,7 +1,7 @@
 #ifndef TANKSYSTEM_H
 #define TANKSYSTEM_H
 
-#include "model/model.h"
+#include "model.h"
 #include <Eigen/Dense>
 
 namespace mpc
@@ -13,6 +13,17 @@ namespace mpc
 		{
 
 		public:
+			/*
+			@brief Function that provides the model matrices for the LTI Tank system.
+			(Linearized around the operation point: H1 = 10 cm and H2 = 10 cm)
+		 	@param curent_time 		Time instant
+		 	@param &A 				Reference to the A matrix
+		 	@param &B 				Reference to the B matrix
+		 	@param &C 				Reference to the C matrix 
+			*/
+			getModelParameters(int current_time, MatrixXd& A, MatrixXd& B, MatrixXd& C);
+
+		private:
 
 			/* 
 				Matrices of the state space representation
@@ -31,8 +42,6 @@ namespace mpc
 			// The real Css matrix is the transpose of this vector so when using it, it must be used as Css.transpose()
 			Vector2d Css<< 0.0000,
 			1.0000;
-
-		private:
 
 		} // Class tanksystem
 	
