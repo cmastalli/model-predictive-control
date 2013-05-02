@@ -9,7 +9,7 @@ namespace mpc
 	namespace test_models
 	{
 
-		class tanksystem : public mpc::model::model
+		class tanksystem : public mpc::model::Model
 		{
 
 		public:
