@@ -21,14 +21,28 @@ namespace mpc
 			~Tanksystem();
 			
 			/*
-			@brief Function that provides the model matrices for the LTI Tank system.
+			@brief Function that provides the model A matrix for the LTI Tank system.
 			(Linearized around the operation point: H1 = 10 cm and H2 = 10 cm)
 		 	@param current_time 		Time instant
 		 	@param &A 				Reference to the A matrix
-		 	@param &B 				Reference to the B matrix
-		 	@param &C 				Reference to the C matrix 
 			*/
-			virtual void getModelParameters(int current_time, MatrixXd& A, MatrixXd& B, MatrixXd& C);
+			virtual void getModelParameterA(int current_time, MatrixXd& A);
+
+			/*
+			@brief Function that provides the model B matrix for the LTI Tank system.
+			(Linearized around the operation point: H1 = 10 cm and H2 = 10 cm)
+		 	@param current_time 		Time instant
+		 	@param &B 				Reference to the B matrix
+			*/
+			virtual void getModelParameterB(int current_time, MatrixXd& B);
+
+			/*
+			@brief Function that provides the model C matrix for the LTI Tank system.
+			(Linearized around the operation point: H1 = 10 cm and H2 = 10 cm)
+		 	@param current_time 		Time instant
+		 	@param &C 				Reference to the C matrix
+			*/
+			virtual void getModelParameterC(int current_time, MatrixXd& C);
 
 		private:
 
