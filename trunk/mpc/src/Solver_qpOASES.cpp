@@ -13,6 +13,7 @@ void setOptimizationParams(mpc::model::Model *model, MatrixXd &H_, MatrixXd &F_)
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+MatrixXd A((np+1)*n, n);
 MatrixXd An(n,n);
 
     //Assign the identity matrix to the first position of the matrix A
@@ -36,6 +37,8 @@ MatrixXd An(n,n);
 //CREATION OF THE B MATRIX
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+MatrixXd B((np+1)*n, np*p);
 
 //Creation of the standard vector to define the first row
 std::vector<MatrixXd> base;
@@ -102,6 +105,8 @@ for(int j=0; j < np; j++){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+MatrixXd Q((np+1)*n, (np+1)*n);
+
 for (int q=0; q<np+1; q++){
 		
 	for (int qq=0; qq<np+1; qq++){
@@ -124,6 +129,8 @@ for (int q=0; q<np+1; q++){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
+MatrixXd R(np*p, np*p)
+
 for (int r=0; r<np; r++){
 		
 	for (int rr=0; rr<np; rr++){
@@ -140,6 +147,11 @@ for (int r=0; r<np; r++){
 }
 
  //TODO create the routine that computes matrix H and F in the optimization problem
+
+H_ = B.transpose()*Q*B + R;
+
+F_ = B.transpose()*Q*A;
+
 
 } // End of routine setOptimizationParams
 
