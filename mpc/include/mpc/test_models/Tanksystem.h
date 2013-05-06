@@ -40,7 +40,7 @@ namespace mpc
 			@brief Function that provides the model C matrix for the LTI Tank system.
 			(Linearized around the operation point: H1 = 10 cm and H2 = 10 cm)
 		 	@param current_time 		Time instant
-		 	@param &C 				Reference to the C matrix
+		 	@param &C 				Reference to the C matrix (already transposed, the function gives the row vector)
 			*/
 			virtual void getModelParameterC(int current_time, MatrixXd& C);
 
@@ -60,7 +60,7 @@ namespace mpc
 			0.0000;
 
 			// C matrix
-			// The real Css matrix is the transpose of this vector so when using it, it must be used as Css.transpose()
+			// The real Css matrix is the transpose of this vector, the function getModelParameterC does this.
 			Vector2d Css<< 0.0000,
 			1.0000;
 
