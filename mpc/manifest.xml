@@ -10,6 +10,7 @@
   <url>http://ros.org/wiki/mpc</url>
   <depend package="roscpp"/>
   <depend package="common_rosdeps" />
+  <depend package="qpOASES" />
   <rosdep name="eigen" />
 
 </package>
