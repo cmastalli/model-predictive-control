@@ -37,7 +37,7 @@
 
 
 /** Example for qpOASES main function using the QProblem class. */
-int main( )
+int main(int argc, char **argv)
 {
 	USING_NAMESPACE_QPOASES
 
