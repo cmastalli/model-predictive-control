@@ -1,25 +1,25 @@
-#ifndef SOLVER_QPOASES_H
-#define SOLVER_QPOASES_H
+#ifndef QPOASES_H
+#define QPOASES_H
 
 #include <Eigen/Dense>
-#include "optimizer.h"
+#include "mpc/optimizer/optimizer.h"
 
 namespace mpc
 {
 	namespace optimizer
 	{
 	
-		class Solver_qpOASES : public mpc::optimizer::optimizer
+		class QPOASES : public mpc::optimizer::Optimizer
 		{
 
 
 			public:
 			
 			// Constructor
-			Solver_qpOASES();
+			QPOASES();
 
 			//Destructor
-			~Solver_qpOASES();
+			~QPOASES();
 
 			       /**
 		 @brief Function to perform the manipulation of the model parameters to be ready for the qpOASES active set method solver.
@@ -28,7 +28,7 @@ namespace mpc
 		 @param MatrixXd &F_				reference to a global variable that stores the matrix H of the 
 		 */
 
-		virtual void setOptimizationParams(mpc::model::Model *model, MatrixXd &H_, MatrixXd &F_);
+		virtual void setOptimizationParams(mpc::model::Model *model, double H_[], double F_[]);
 
 				   /**
 		 @brief Function to define the cost function associated to the MPC problem 
@@ -37,13 +37,13 @@ namespace mpc
 		 @param double *cputime 			pointer to the defined time to solve the optimization problem. If NULL, it provides on output the actual calculation time of the optimization problem. 
 		 */
 
-		virtual void computeOpt(MatrixXd &H_, MatrixXd &F_, int &nWSR, double *cputime);
+		virtual void computeOpt(Eigen::MatrixXd &H_, Eigen::MatrixXd &F_, int &nWSR, double *cputime);
 
 			private:
 
-		} // class Solver_qpOASES
+		}; // class QPOASES
 
 	} // namespace optimizer
 
 } // namespace mpc
-
+#endif

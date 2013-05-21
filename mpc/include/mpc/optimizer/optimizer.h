@@ -1,6 +1,9 @@
 #ifndef MPC_OPTIMIZER_OPTIMIZER_H
 #define MPC_OPTIMIZER_OPTIMIZER_H
 
+#include <Eigen/Dense>
+#include <mpc/model/model.h>
+
 namespace mpc
 {
 
@@ -30,7 +33,7 @@ namespace mpc
 		 @param mpc::Model *model pointer to the process model class "Model"
 		 */
 
-         virtual void setOptimizationParams(mpc::model::Model *model, MatrixXd &H_, MatrixXd &F_);
+         virtual void setOptimizationParams(mpc::model::Model *model, double H_[], double F_[]);
 
 		/**
 		 @brief Function to define the cost function associated to the MPC problem 
@@ -38,7 +41,7 @@ namespace mpc
 		 @param int &nWSR number of working set recalculations
 		 @param double *cputime pointer to the defined time to solve the optimization problem. If NULL, it provides on output the actual calculation time of the optimization problem.
 		 */
-		 virtual void computeOpt(MatrixXd &H_, MatrixXd &F_, int &nWSR, double *cputime); // TODO include the matrices from the constraints
+		 virtual void computeOpt(Eigen::MatrixXd &H_, Eigen::MatrixXd &F_, int &nWSR, double *cputime); // TODO include the matrices from the constraints
 																						  // 	  as arguments as well
 		 int &nWSR;	//number of working set recalculations
 
@@ -56,5 +59,5 @@ namespace mpc
     } //@namepace optimizer
 
 }; //@namespace mpc
-
+#endif
 
