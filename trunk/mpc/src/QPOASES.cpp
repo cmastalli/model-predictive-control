@@ -2,10 +2,24 @@
 #include <Eigen/Dense>
 #include <vector>
 #include <ros/ros.h>
-#include "Solver_qpOASES"
+#include <mpc/optimizer/QPOASES.h>
+#include <mpc/model/model.h>
+#include <mpc/optimizer/optimizer.h>
 
-void setOptimizationParams(mpc::model::Model *model, MatrixXd &H_, MatrixXd &F_)
+using namespace Eigen;
+
+void QPOASES::setOptimizationParams(mpc::model::Model *model_ptr, double H_[], double F_[])
 {
+
+// Obtention of the model parameters
+
+MatrixXd Ass(n,n);
+getModelParameterA(Ass);
+
+MatrixXd Bss(n,p);
+getModelParameterB(Bss);
+
+// TODO methods to obtain the matrices Q, P and R to create the extended matrices
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -146,16 +160,31 @@ for (int r=0; r<np; r++){
 	}
 }
 
- //TODO create the routine that computes matrix H and F in the optimization problem
+// Creation of the H and F matrices and assignment to a standard C array
+MatrixXd H(np*p, np*p);
+H = B.transpose()*Q*B + R;
 
-H_ = B.transpose()*Q*B + R;
+MatrixXd F(np*p, np*p);
+F = B.transpose()*Q*A;
 
-F_ = B.transpose()*Q*A;
+
+double * H_ptr;
+double * F_ptr;
+
+H_ptr = H.data();
+F_ptr = F.data();
+
+for (int t=0; t < (H.rows()*H.cols()); t++){	
+		H_[t] = *H_ptr;
+		F_[t] = *F_ptr;
+		H_ptr++;
+		F_ptr++;
+}
 
 
 } // End of routine setOptimizationParams
 
-void computeMPC(mpc::model::Model *model, int &nWSR, double *cputime)
+void QPOASES::computeMPC(mpc::model::Model *model, int &nWSR, double *cputime)
 {
 
 
