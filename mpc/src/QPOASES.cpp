@@ -1,19 +1,19 @@
-#include <iostream>
-#include <Eigen/Dense>
-#include <vector>
 #include <ros/ros.h>
+#include <iostream>
+#include <vector>
+#include <Eigen/Dense>
+
 #include <mpc/optimizer/QPOASES.h>
 #include <mpc/model/model.h>
 #include <mpc/optimizer/optimizer.h>
 
-using namespace Eigen;
 
 mpc::optimizer::QPOASES::QPOASES(mpc::model::Model *model_ptr)
 {
 	model_ = model_ptr;
 }
 
-void mpc::optimizer::QPOASES::setOptimizationParams(int n, int np, int p, double H_[], double F_[])//mpc::model::Model *model_ptr
+void mpc::optimizer::QPOASES::setOptimizationParams(int n, int np, int p, double H_matrix[], double F_matrix[])
 {
 	Eigen::MatrixXd Ass(n,n);
 	Eigen::MatrixXd Bss(n,p);
@@ -118,7 +118,7 @@ void mpc::optimizer::QPOASES::setOptimizationParams(int n, int np, int p, double
 			if (q == qq)
 				Q.block(q*n,qq*n,n,n) = Qss;	
 			else
-				Q.block(q*n,qq*n,n,n) = MatrixXd::Zero(n,n);
+				Q.block(q*n,qq*n,n,n) = Eigen::MatrixXd::Zero(n,n);
 		}
 	}
 
@@ -133,7 +133,7 @@ void mpc::optimizer::QPOASES::setOptimizationParams(int n, int np, int p, double
 			if (r == rr)
 				R.block(r*p,rr*p,p,p) = Rss;
 			else
-				R.block(r*p,rr*p,p,p) = MatrixXd::Zero(p,p);
+				R.block(r*p,rr*p,p,p) = Eigen::MatrixXd::Zero(p,p);
 		}
 	}
 
@@ -152,8 +152,8 @@ void mpc::optimizer::QPOASES::setOptimizationParams(int n, int np, int p, double
 	F_ptr = F.data();
 
 	for (int t = 0; t < (H.rows() * H.cols()); t++) {
-		H_[t] = *H_ptr;
-		F_[t] = *F_ptr;
+		H_matrix[t] = *H_ptr;
+		F_matrix[t] = *F_ptr;
 		H_ptr++;
 		F_ptr++;
 	}
@@ -163,7 +163,5 @@ void mpc::optimizer::QPOASES::setOptimizationParams(int n, int np, int p, double
 
 /*void QPOASES::computeMPC(mpc::model::Model *model, int &nWSR, double *cputime)
 {
-
-
 
 }*/
