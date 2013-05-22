@@ -16,7 +16,7 @@ namespace mpc
 			public:
 			
 			// Constructor
-			QPOASES();
+			QPOASES(mpc::model::Model model_ptr);
 
 			//Destructor
 			~QPOASES();
@@ -28,7 +28,7 @@ namespace mpc
 		 @param MatrixXd &F_				reference to a global variable that stores the matrix H of the 
 		 */
 
-		virtual void setOptimizationParams(mpc::model::Model *model, double H_[], double F_[]);
+		virtual void setOptimizationParams(int n, int np, int p, mpc::model::Model *model, double H_[], double F_[]);
 
 				   /**
 		 @brief Function to define the cost function associated to the MPC problem 
@@ -40,6 +40,8 @@ namespace mpc
 		virtual void computeOpt(Eigen::MatrixXd &H_, Eigen::MatrixXd &F_, int &nWSR, double *cputime);
 
 			private:
+
+			mpc::model::Model model_;
 
 		}; // class QPOASES
 
