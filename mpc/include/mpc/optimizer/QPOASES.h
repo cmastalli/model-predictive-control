@@ -16,7 +16,7 @@ namespace mpc
 			public:
 			
 			// Constructor
-			QPOASES(mpc::model::Model model_ptr);
+			QPOASES(mpc::model::Model *model_ptr);
 
 			//Destructor
 			~QPOASES();
