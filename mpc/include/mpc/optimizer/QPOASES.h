@@ -28,7 +28,7 @@ namespace mpc
 		 @param MatrixXd &F_				reference to a global variable that stores the matrix H of the 
 		 */
 
-		virtual void setOptimizationParams(int n, int np, int p, mpc::model::Model *model, double H_[], double F_[]);
+		virtual void setOptimizationParams(int n, int np, int p, double H_[], double F_[]);
 
 				   /**
 		 @brief Function to define the cost function associated to the MPC problem 
@@ -41,7 +41,7 @@ namespace mpc
 
 			private:
 
-			mpc::model::Model model_;
+			mpc::model::Model *model_;
 
 		}; // class QPOASES
 
