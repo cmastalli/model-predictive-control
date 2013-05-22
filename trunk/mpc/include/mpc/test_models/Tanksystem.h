@@ -42,7 +42,7 @@ namespace mpc
 		 	@param current_time 		Time instant
 		 	@param &C 				Reference to the C matrix (already transposed, the function gives the row vector)
 			*/
-			virtual void getModelParameterC( Eigen::MatrixXd& C); /*int current_time,*/
+			virtual void getModelParameterC(Eigen::MatrixXd& C); /*int current_time,*/
 
 		private:
 

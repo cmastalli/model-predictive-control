@@ -5,9 +5,10 @@
 
 #include <qpOASES.hpp>
 #include "mpc/optimizer/optimizer.h"
+#include "mpc/optimizer/QPOASES.h"
 #include "mpc/model/model.h"
 #include "mpc/test_models/Tanksystem.h"
-#include "mpc/optimizer/QPOASES.h"
+
 
 
 /** Example for qpOASES main function using the QProblem class. */
@@ -28,12 +29,12 @@ int main(int argc, char **argv)
 	// Create the pointer to the Model class
 	
 	mpc::model::Model *model_ptr = new mpc::test_models::Tanksystem ();
-	mpc::optimizer::Optimizer *solver_ptr = new mpc::optimizer::QPOASES (model_ptr);
+	//mpc::optimizer::Optimizer *solver_ptr = new mpc::optimizer::QPOASES (model_ptr);
 
-	solver_ptr->setOptimizationParams(n, np, p, H_, F_);
-	for (int i=0; i<(np*p*np*p); i++){
-	std::cout<< "H_["<< i <<"]:" << H_[i] <<"and 		F_["<< i <<"]:\n"<< F_[i]<< std::endl;
-	}
+	//solver_ptr->setOptimizationParams(n, np, p, H_, F_);
+	//for (int i=0; i<(np*p*np*p); i++){
+	//std::cout<< "H_["<< i <<"]:" << H_[i] <<"and 		F_["<< i <<"]:\n"<< F_[i]<< std::endl;
+	//}
 
 	
 	return 0;
