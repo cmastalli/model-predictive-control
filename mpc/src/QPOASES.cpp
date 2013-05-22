@@ -110,6 +110,7 @@ USING THE BASE VECTOR TO FILL UP THE B MATRIX
 
 // Loop to assign and resize the base vector to matrix B
 for(int j=0; j < np; j++){
+	int z=0;
 	// Assignment of each individual element of the base vector
 	ROS_INFO("Base size: %i", (int) base.size());
 	//TODO: I dont remember whe I can initialize int k!!!
