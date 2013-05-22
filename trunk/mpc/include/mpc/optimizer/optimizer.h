@@ -19,39 +19,36 @@ namespace mpc
             public:
         
         	/**
-		 @brief Constructor function
+			 @brief Constructor function
 	         */
-			 Optimizer();
+			 Optimizer() {};
 
-		/**
-		 @brief Destructor function
-		 */
+			/**
+			 @brief Destructor function
+			 */
 			~Optimizer();
 	
-                /**
-		 @brief Function to perform the manipulation of the model parameters to be ready for the solver
-		 @param mpc::Model *model pointer to the process model class "Model"
-		 */
+			/**
+			 @brief Function to perform the manipulation of the model parameters to be ready for the solver
+			 @param mpc::Model *model pointer to the process model class "Model"
+			 */
+    	     virtual void setOptimizationParams(int n, int np, int p, double H_[], double F_[]) = 0;
 
-         virtual void setOptimizationParams(int n, int np, int p, double H_[], double F_[]) = 0;
-
-		/**
-		 @brief Function to define the cost function associated to the MPC problem 
-		 @param mpc::Model *model pointer to the process model class "Model"
-		 @param int &nWSR number of working set recalculations
-		 @param double *cputime pointer to the defined time to solve the optimization problem. If NULL, it provides on output the actual calculation time of the optimization problem.
-		 */
-//		 virtual void computeOpt(Eigen::MatrixXd &H_, Eigen::MatrixXd &F_, int &nWSR, double *cputime); // TODO include the matrices from the constraints
+			/**
+			 @brief Function to define the cost function associated to the MPC problem 
+			 @param mpc::Model *model pointer to the process model class "Model"
+			 @param int &nWSR number of working set recalculations
+			 @param double *cputime pointer to the defined time to solve the optimization problem. If NULL, it provides on output the actual calculation time of the optimization problem.
+			 */
+//			 virtual void computeOpt(Eigen::MatrixXd &H_, Eigen::MatrixXd &F_, int &nWSR, double *cputime); // TODO include the matrices from the constraints
 																						  // 	  as arguments as well
-		 int &nWSR;	//number of working set recalculations
 
-	    protected:
-
+		    protected:
 
 
-	    private:
+		    private:
 
-	        
+      
 
 
     }; //@class Optimizer
@@ -59,5 +56,6 @@ namespace mpc
     } //@namepace optimizer
 
 }; //@namespace mpc
+
 #endif
 

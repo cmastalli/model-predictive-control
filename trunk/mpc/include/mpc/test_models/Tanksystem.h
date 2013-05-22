@@ -11,9 +11,7 @@ namespace mpc
 
 		class Tanksystem : public mpc::model::Model
 		{
-
-		public:
-
+			public:
 			// Constructor
 			Tanksystem();
 
@@ -44,8 +42,7 @@ namespace mpc
 			*/
 			virtual void getModelParameterC(Eigen::MatrixXd& C); /*int current_time,*/
 
-		private:
-
+			private:
 			/* 
 				Matrices of the state space representation
 				Discrete state space model obtained with a sampling time of Ts=0.01s from MATLAB
@@ -54,18 +51,15 @@ namespace mpc
 			// A matrix
 			Eigen::Matrix2d Ass_;
 
-			// B matrix
-			Eigen::Vector2d Bss_;
-
-			// C matrix
+			// B and C vector
 			// The real Css matrix is the transpose of this vector, the function getModelParameterC does this.
-			Eigen::Vector2d Css_;
+			Eigen::Vector2d Bss_, Css_;
 
-		}; // Class Tanksystem
+		}; // @class Tanksystem
 	
-	} // Namespace test_models
+	} // @namespace test_models
 
-} // Namespace mpc
+} // @namespace mpc
 
 #endif
 		
