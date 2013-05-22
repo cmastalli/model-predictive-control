@@ -19,10 +19,10 @@ void mpc::optimizer::QPOASES::setOptimizationParams(int n, int np, int p, double
 // Obtention of the model parameters
 
 MatrixXd Ass(n,n);
-model_.getModelParameterA(Ass);
+model_->getModelParameterA(Ass);
 
 MatrixXd Bss(n,p);
-model_.getModelParameterB(Bss);
+model_->getModelParameterB(Bss);
 
 MatrixXd Qss(n,n);
 Qss = MatrixXd::Identity(n,n);
@@ -111,8 +111,8 @@ USING THE BASE VECTOR TO FILL UP THE B MATRIX
 // Loop to assign and resize the base vector to matrix B
 for(int j=0; j < np; j++){
 	// Assignment of each individual element of the base vector
-	int z = 0;
 	ROS_INFO("Base size: %i", (int) base.size());
+	//TODO: I dont remember whe I can initialize int k!!!
 	for(int k=j; k < (int)base.size(); k++){
 			
 		B.block(k*n, j*p, n, p) = base[z];
