@@ -33,7 +33,7 @@ namespace mpc
 		 @param mpc::Model *model pointer to the process model class "Model"
 		 */
 
-         virtual void setOptimizationParams(int n, int np, int p, mpc::model::Model *model, double H_[], double F_[]);
+         virtual void setOptimizationParams(int n, int np, int p, double H_[], double F_[]);
 
 		/**
 		 @brief Function to define the cost function associated to the MPC problem 
