@@ -46,21 +46,21 @@ namespace mpc
 		 @param curent_time 	Time instant
 		 @param &A 				Reference to the A matrix
 		 */
-		virtual void getModelParameterA(/*int current_time,*/Eigen::MatrixXd& A);
+		virtual void getModelParameterA(Eigen::MatrixXd& A);
 
 /**
 		 @brief Function that provides the model matrix B for each time instant for Linear Time Variant models. Polymorphism is used to 		implement this function for Linear Time Invariant models as well.
 		 @param curent_time 	Time instant
 		 @param &B 				Reference to the B matrix
 		 */
-		virtual void getModelParameterB(/*int current_time,*/ Eigen::MatrixXd& B);
+		virtual void getModelParameterB(Eigen::MatrixXd& B);
 
 /**
 		 @brief Function that provides the model matrix C for each time instant for Linear Time Variant models. Polymorphism is used to 		implement this function for Linear Time Invariant models as well.
 		 @param curent_time 	Time instant
 		 @param &C 				Reference to the C matrix 
 		 */
-		virtual void getModelParameterC(/*int current_time,*/ Eigen::MatrixXd& C);
+		virtual void getModelParameterC(Eigen::MatrixXd& C);
 	
 		/**
 		 @brief Function to define the cost function associated to the MPC problem 
