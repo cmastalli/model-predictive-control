@@ -8,12 +8,12 @@
 
 using namespace Eigen;
 
-mpc::optimizer::QPOASES::QPOASES(mpc::model::Model model_ptr)
+mpc::optimizer::QPOASES::QPOASES(mpc::model::Model *model_ptr)
 {
-	model_ = *model_ptr;
+	model_ = model_ptr;
 }
 
-void mpc::optimizer::QPOASES::setOptimizationParams(int n, int np, int p, mpc::model::Model *model_ptr, double H_[], double F_[])
+void mpc::optimizer::QPOASES::setOptimizationParams(int n, int np, int p, double H_[], double F_[])//mpc::model::Model *model_ptr
 {
 
 // Obtention of the model parameters
