@@ -32,7 +32,7 @@ void mpc::test_models::Tanksystem::getModelParameterA(Eigen::MatrixXd& A)
 			std::cout<< "The number of columns of the destination matrix variable and the model matrix A is different!\n" << std::endl;
 		}
 	else {
-			A = /*mpc::test_models::Tanksystem*/ Ass_;
+			A = Ass_;
 		}
 } // end of routine getModelParameterA
 
@@ -47,7 +47,7 @@ void mpc::test_models::Tanksystem::getModelParameterB(Eigen::MatrixXd& B)
 			std::cout<< "The number of columns of the destination matrix variable and the model matrix B is different!\n" << std::endl;
 		}
 	else {
-			B = /*mpc::test_models::Tanksystem*/ Bss_;
+			B = Bss_;
 		}
 } // end of routine getModelParameterB
 
@@ -62,6 +62,6 @@ void mpc::test_models::Tanksystem::getModelParameterC(Eigen::MatrixXd& C)
 			std::cout<< "The number of columns of the destination matrix variable and the model matrix C is different!\n" << std::endl;
 		}
 	else {
-			C = /*mpc::test_models::Tanksystem*/ Css_.transpose(); 
+			C = Css_.transpose(); 
 		}
 } // end of routine getModelParameterC
