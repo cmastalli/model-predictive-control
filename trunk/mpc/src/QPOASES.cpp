@@ -8,16 +8,26 @@
 
 using namespace Eigen;
 
-void QPOASES::setOptimizationParams(mpc::model::Model *model_ptr, double H_[], double F_[])
+mpc::optimizer::QPOASES::QPOASES(mpc::model::Model model_ptr)
+{
+	model_ = *model_ptr;
+}
+
+void mpc::optimizer::QPOASES::setOptimizationParams(int n, int np, int p, mpc::model::Model *model_ptr, double H_[], double F_[])
 {
 
 // Obtention of the model parameters
 
 MatrixXd Ass(n,n);
-getModelParameterA(Ass);
+model_.getModelParameterA(Ass);
 
 MatrixXd Bss(n,p);
-getModelParameterB(Bss);
+model_.getModelParameterB(Bss);
+
+MatrixXd Qss(n,n);
+Qss = MatrixXd::Identity(n,n);
+MatrixXd Rss(n,n);
+Rss = MatrixXd::Identity(n,n);
 
 // TODO methods to obtain the matrices Q, P and R to create the extended matrices
 
@@ -143,7 +153,7 @@ for (int q=0; q<np+1; q++){
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-MatrixXd R(np*p, np*p)
+MatrixXd R(np*p, np*p);
 
 for (int r=0; r<np; r++){
 		
@@ -184,9 +194,9 @@ for (int t=0; t < (H.rows()*H.cols()); t++){
 
 } // End of routine setOptimizationParams
 
-void QPOASES::computeMPC(mpc::model::Model *model, int &nWSR, double *cputime)
+/*void QPOASES::computeMPC(mpc::model::Model *model, int &nWSR, double *cputime)
 {
 
 
 
-}
+}*/
