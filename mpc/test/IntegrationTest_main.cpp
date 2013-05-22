@@ -28,12 +28,15 @@ int main(int argc, char **argv)
 	// Create the pointer to the Model class
 	
 	mpc::model::Model *model_ptr = new mpc::test_models::Tanksystem ();
-	mpc::optimizer::Optimizer *solver_ptr = new mpc::optimizer::QPOASES ();
+	mpc::optimizer::Optimizer *solver_ptr = new mpc::optimizer::QPOASES (model_ptr);
 
-	solver_ptr->setOptimizationParams(model_ptr, H_, F_);
+	solver_ptr->setOptimizationParams(n, np, p, model_ptr, H_, F_);
 	for (int i=0; i<(np*p*np*p); i++){
 	std::cout<< "H_["<< i <<"]:" << H_[i] <<"and 		F_["<< i <<"]:\n"<< F_[i]<< std::endl;
 	}
+
+	delete model_ptr;
+	delete solver_ptr;
 	
 	return 0;
 }
