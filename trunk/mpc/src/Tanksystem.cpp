@@ -14,13 +14,12 @@ mpc::test_models::Tanksystem::Tanksystem()
 	Ass_(1,1) = 1.001;
 
 	// B matrix
-	Bss_(0) = 0.002551;
-	Bss_(1) = 0.0000;
+	Bss_(0,0) = 0.002551;
+	Bss_(1,0) = 0.0000;
 			
 	// C matrix
-	// The real Css matrix is the transpose of this vector, the function getModelParameterC does this.
-	Css_(0) = 0.0000;
-	Css_(0) = 1.0000;
+	Css_(0,0) = 0.0000;
+	Css_(0,1) = 1.0000;
 }
 
 void mpc::test_models::Tanksystem::getModelParameterA(Eigen::MatrixXd& A)
@@ -54,6 +53,6 @@ void mpc::test_models::Tanksystem::getModelParameterC(Eigen::MatrixXd& C)
 	else if (C.cols() != Css_.cols())
 		std::cout<< "The number of columns of the destination matrix variable and the model matrix C is different!\n" << std::endl;
 	else
-		C = Css_.transpose(); 
+		C = Css_; 
 
 } // end of routine getModelParameterC

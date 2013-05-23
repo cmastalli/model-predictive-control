@@ -103,7 +103,7 @@ void mpc::optimizer::QPOASES::setOptimizationParams(int n, int np, int p, double
 		for(int k = j; k < (int) base.size(); k++) {
 			B.block(k*n, j*p, n, p) = base[z];
 			
-			//FIXME DEBUGGING CODE std::cout<< "Here is the"<< z <<"th element of vector B:\n"<< base[z] << std::endl;			
+			std::cout<< "Here is the"<< z <<"th element of vector B:\n"<< base[z] << std::endl;			
 			z++;
 		}
 	}
@@ -141,7 +141,7 @@ void mpc::optimizer::QPOASES::setOptimizationParams(int n, int np, int p, double
 	Eigen::MatrixXd H(np*p, np*p);
 	H = B.transpose()*Q*B + R;
 
-	Eigen::MatrixXd F(np*p, np*p);
+	Eigen::MatrixXd F(np*p, n);
 	F = B.transpose()*Q*A;
 
 
@@ -153,8 +153,11 @@ void mpc::optimizer::QPOASES::setOptimizationParams(int n, int np, int p, double
 
 	for (int t = 0; t < (H.rows() * H.cols()); t++) {
 		H_matrix[t] = *H_ptr;
-		F_matrix[t] = *F_ptr;
-		H_ptr++;
+		H_ptr++;	
+	}
+
+	for (int v = 0; v < (F.rows() * F.cols()); v++){
+		F_matrix[v] = *F_ptr;
 		F_ptr++;
 	}
 
