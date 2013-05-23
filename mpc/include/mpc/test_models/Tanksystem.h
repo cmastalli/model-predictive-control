@@ -49,11 +49,13 @@ namespace mpc
 			*/		
 
 			// A matrix
-			Eigen::Matrix2d Ass_;
+			Eigen::MatrixXd Ass_(n,n);
 
 			// B and C vector
 			// The real Css matrix is the transpose of this vector, the function getModelParameterC does this.
-			Eigen::Vector2d Bss_, Css_;
+			Eigen::MatrixXd Bss_(n,p), 
+
+			Eigen::MatrixXd Css_(q,n);
 
 		}; // @class Tanksystem
 	

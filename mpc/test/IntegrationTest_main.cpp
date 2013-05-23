@@ -15,15 +15,16 @@
 int main(int argc, char **argv)
 {
 	// Creation of the global variables to be used
-	int n = 2;
-	int np = 1;
-	int p = 5;
+	int n = 2;		// number of states
+	int np = 5;		// prediction horizon size in samples
+	int p = 1;		// number of inputs
+	int q = 2;		// number of outputs
 	double H[np*n*np*n];
 	double F[np*n*np*n];	
 	
 	// Create the pointer to the Model class
 	mpc::model::Model *model_ptr = new mpc::test_models::Tanksystem ();
-	mpc::optimizer::Optimizer *solver_ptr = new mpc::optimizer::QPOASES (model_ptr);
+	//mpc::optimizer::Optimizer *solver_ptr = new mpc::optimizer::QPOASES (model_ptr);
 
 	solver_ptr->setOptimizationParams(n, np, p, H, F);
 	for (int i=0; i<(np*p*np*p); i++) {
