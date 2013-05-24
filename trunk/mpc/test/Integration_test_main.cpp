@@ -31,8 +31,8 @@ int main(int argc, char **argv)
 		std::cout<< "H[" << i << "] = "<< H[i] << std::endl;
 	}
 
-	for (int j = 0; j < horizon * p * n; i++) {
-		std::cout<< "H[" << j << "] = "<< H[j] << std::endl;
+	for (int j = 0; j < horizon * p * n; j++) {
+		std::cout<< "F[" << j << "] = "<< F[j] << std::endl;
 	}
 
 	return 0;
