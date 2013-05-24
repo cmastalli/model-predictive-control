@@ -7,6 +7,13 @@
 
 mpc::test_models::Tanksystem::Tanksystem()
 {
+	int n = 2;
+	int p = 1;
+	int q = 2;
+	Ass_ = Eigen::MatrixXd::Zero(n,n);
+	Bss_ = Eigen::MatrixXd::Zero(n,p);
+	Css_ = Eigen::MatrixXd::Zero(q,n);
+
 	// A matrix
 	Ass_(0,0) = 0.9992;
 	Ass_(0,1) = 0.0000;

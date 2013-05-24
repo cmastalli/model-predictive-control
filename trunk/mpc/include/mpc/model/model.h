@@ -40,7 +40,7 @@ namespace mpc
 			/**
 			 @brief Destructor function
 			 */
-			~Model();
+			~Model() {};
 
 			/**
 			 @brief Function that provides the model matrix A for each time instant for Linear Time Variant models. Polymorphism is used to 		implement this function for Linear Time Invariant models as well.

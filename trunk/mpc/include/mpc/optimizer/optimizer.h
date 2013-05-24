@@ -32,7 +32,7 @@ namespace mpc
 			 @brief Function to perform the manipulation of the model parameters to be ready for the solver
 			 @param mpc::Model *model pointer to the process model class "Model"
 			 */
-    	     virtual void setOptimizationParams(int n, int np, int p, double H_[], double F_[]) = 0;
+    	     virtual void setOptimizationParams(int n, int horizon, int p, double H_[], double F_[]) = 0;
 
 			/**
 			 @brief Function to define the cost function associated to the MPC problem 
