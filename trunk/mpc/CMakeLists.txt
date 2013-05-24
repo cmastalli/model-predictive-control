@@ -29,7 +29,7 @@ rosbuild_add_library(${PROJECT_NAME} 	src/QPOASES.cpp
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 #rosbuild_add_executable(example examples/example.cpp)
 
-rosbuild_add_executable(IntegrationTest_main test/IntegrationTest_main.cpp)
+rosbuild_add_executable(IntegrationTest_main test/Integration_test_main.cpp)
 #												src/QPOASES.cpp
 #												src/Tanksystem.cpp)
 target_link_libraries(IntegrationTest_main ${PROJECT_NAME})
