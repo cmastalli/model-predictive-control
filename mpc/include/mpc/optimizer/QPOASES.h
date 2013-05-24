@@ -23,7 +23,7 @@ namespace mpc
 			 @param MatrixXd &H_matrix				reference to a global variable that stores the matrix H of the optimization problem.
 			 @param MatrixXd &F_matrix				reference to a global variable that stores the matrix H of the 
 			 */
-			virtual void setOptimizationParams(int n, int np, int p, double H_matrix[], double F_matrix[]);
+			virtual void setOptimizationParams(int n, int horizon, int p, double H_matrix[], double F_matrix[]);
 
 		   /**
 			 @brief Function to define the cost function associated to the MPC problem 
