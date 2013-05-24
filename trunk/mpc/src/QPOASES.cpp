@@ -50,6 +50,8 @@ void mpc::optimizer::QPOASES::setOptimizationParams(int n, int horizon, int p, d
 		A.block(i*n,0,n,n) = An;
     }
 
+std::cout << A <<" = A_bar" << std::endl;
+
 
 	//CREATION OF THE B MATRIX
 	Eigen::MatrixXd B((horizon + 1) * n, horizon * p);
@@ -107,7 +109,7 @@ void mpc::optimizer::QPOASES::setOptimizationParams(int n, int horizon, int p, d
 		}
 	}
 
-
+	std::cout << Q << " = Q_bar" << std::endl;
 
 	//CREATION OF THE R MATRIX
 	Eigen::MatrixXd R(horizon * p, horizon * p);
@@ -121,14 +123,16 @@ void mpc::optimizer::QPOASES::setOptimizationParams(int n, int horizon, int p, d
 		}
 	}
 
-
+	std::cout << R << " = R_bar" << std::endl;
 
 	// Creation of the H and F matrices and assignment to a standard C array
 	Eigen::MatrixXd H(horizon * p, horizon * p);
 	H = B.transpose()*Q*B + R;
+	std::cout << H << " = H" << std::endl;
 
 	Eigen::MatrixXd F(horizon * p, n);
 	F = B.transpose()*Q*A;
+	std::cout << F << " = F" << std::endl;
 
 
 	double * H_ptr;
