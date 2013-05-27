@@ -1,5 +1,5 @@
-#ifndef MPC_MODEL_SIMULATOR_H
-#define MPC_MODEL_SIMULATOR_H
+#ifndef MPC_MODEL_TANKSYSTEMSIM_H
+#define MPC_MODEL_TANKSYSTEMSIM_H
 
 
 namespace mpc
@@ -15,26 +15,26 @@ namespace mpc
 	 on a fixed prediction horizon interval \f$ [t_0, t_N] \f$ with initial value \f$ x(t_0, x_0) = x_0 \f$ and given control \f$ u(\cdot, x_0) \f$. That is, for a given class mpc::model::Model object and a given control \f$ u \f$ the simulator can solve the differential or difference equation forward in time.
 	 @brief This class provides methods to simulate a given model of a process defined by a class mpc::model::Model object
 	 */
-	class Simulator
+	class TanksystemSim : public mpc::model::Simulator
 	{
 	    public:
 		/**
 		 @brief Constructor
 		 @param mpc::model::Model *model pointer to process model class
 		 */
-		virtual Simulator(mpc::model::Model *model);
+		virtual TanksystemSim(mpc::model::Model *model);
 
 		/**
 		 @brief Destructor
 		 */
-		virtual ~Simulator();
+		virtual ~TanksystemSim();
 
 
 		/**
 		 @brief Function used to simulate the specified plant 
 		 @param mpc::model::Model *model 	pointer to the process model class "Model"
 		 */
-		virtual void simulatePlant(mpc::model::Model *model) = 0;
+		virtual void simulatePlant(mpc::model::Model *model);
 
 
 	    protected:
@@ -43,7 +43,7 @@ namespace mpc
 	    private:
 
 	  
-	};  //@class ModelPredictiveControl
+	};  //@class TanksystemSim
 
     }  //@namespace model
 
