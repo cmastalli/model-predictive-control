@@ -2,7 +2,7 @@
 #define QPOASES_H
 
 #include <Eigen/Dense>
-#include "mpc/optimizer/optimizer.h"
+#include <mpc/optimizer/optimizer.h>
 
 namespace mpc
 {

@@ -36,7 +36,7 @@ namespace mpc
 		 @brief Function used to simulate the specified plant 
 		 @param mpc::model::Model *model 	pointer to the process model class "Model"
 		 */
-		virtual void simulatePlant(double states[], double input, double samplingTime, double output);
+		void simulatePlant(double states[], double input, double samplingTime, double &output);
 
 
 	    protected:
@@ -45,6 +45,8 @@ namespace mpc
 	    private:
 
 		mpc::model::Model *model_;
+
+		double param1_, param2_;
 
 	  
 	};  //@class TanksystemSim
