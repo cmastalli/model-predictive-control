@@ -1,6 +1,8 @@
 #ifndef MPC_MODEL_TANKSYSTEMSIM_H
 #define MPC_MODEL_TANKSYSTEMSIM_H
 
+#include <mpc/model/model.h>
+#include <mpc/model/simulator.h>
 
 namespace mpc
 {
@@ -22,25 +24,27 @@ namespace mpc
 		 @brief Constructor
 		 @param mpc::model::Model *model pointer to process model class
 		 */
-		virtual TanksystemSim(mpc::model::Model *model);
+		TanksystemSim(mpc::model::Model *model_ptr);
 
 		/**
 		 @brief Destructor
 		 */
-		virtual ~TanksystemSim();
+		~TanksystemSim();
 
 
 		/**
 		 @brief Function used to simulate the specified plant 
 		 @param mpc::model::Model *model 	pointer to the process model class "Model"
 		 */
-		virtual void simulatePlant(mpc::model::Model *model);
+		virtual void simulatePlant(double states[], double input, double samplingTime, double output);
 
 
 	    protected:
 
 
 	    private:
+
+		mpc::model::Model *model_;
 
 	  
 	};  //@class TanksystemSim
