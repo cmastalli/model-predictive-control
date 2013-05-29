@@ -1,6 +1,7 @@
 #ifndef MPC_MODEL_SIMULATOR_H
 #define MPC_MODEL_SIMULATOR_H
 
+#include <mpc/model/model.h>
 
 namespace mpc
 {
@@ -22,7 +23,7 @@ namespace mpc
 		 @brief Constructor
 		 @param mpc::model::Model *model pointer to process model class
 		 */
-		Simulator(){};
+		Simulator() {};
 
 		/**
 		 @brief Destructor
@@ -34,7 +35,7 @@ namespace mpc
 		 @brief Function used to simulate the specified plant 
 		 @param mpc::model::Model *model 	pointer to the process model class "Model"
 		 */
-		virtual void simulatePlant(double states[], double input, double samplingTime, double output) = 0;
+		virtual void simulatePlant(double states[], double input, double samplingTime, double &output) = 0;
 
 
 	    protected:

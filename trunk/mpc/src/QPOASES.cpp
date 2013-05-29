@@ -138,8 +138,15 @@ std::cout << A <<" = A_bar" << std::endl;
 	H = B.transpose()*Q*B + R;
 	std::cout << H << " = H" << std::endl;
 
-	Eigen::MatrixXd g(horizon_ * p_, n_);
-	g = B.transpose()*Q*A*x_k - B.transpose()*Q*x_ref;
+	Eigen::MatrixXd g(horizon_ * p_, 1);
+
+	Eigen::MatrixXd x_ref_bar(n_ * (horizon_ + 1), 1);	
+	for (int i=0; i<(horizon_ + 1); i++){
+		x_ref_bar.block(n_*i, 0, n_, 1) = x_ref;
+	}
+	std::cout << x_ref_bar << " = x_ref_bar" << std::endl;
+
+	g = B.transpose()*Q*A*x_k - B.transpose()*Q*x_ref_bar;
 	std::cout << g << " = g" << std::endl;
 
 
@@ -150,7 +157,7 @@ std::cout << A <<" = A_bar" << std::endl;
 	g_ptr = g.data();
 
 	double H_array[horizon_*p_*horizon_*p_];
-	double g_array[horizon_*p_*n_];	
+	double g_array[horizon_*p_];	
 
 	for (int t = 0; t < (H.rows() * H.cols()); t++) {
 		H_array[t] = *H_ptr;
@@ -166,7 +173,8 @@ std::cout << A <<" = A_bar" << std::endl;
 		std::cout<< "H[" << i << "] = "<< H_array[i] << std::endl;
 	}
 
-	for (int j = 0; j < horizon_ * p_ * n_; j++) {
+	for (int j = 0; j < horizon_ * p_; j++) {
 		std::cout<< "g[" << j << "] = "<< g_array[j] << std::endl;
 	}
+
 }
