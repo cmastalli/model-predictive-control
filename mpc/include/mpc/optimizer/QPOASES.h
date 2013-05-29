@@ -13,29 +13,24 @@ namespace mpc
 		{
 			public:
 			// Constructor
-			QPOASES(mpc::model::Model *model_ptr);
+			QPOASES(mpc::model::Model *model_ptr, int n, int p, int horizon);
 
 			//Destructor
 			~QPOASES();
 
-			/**
-			 @brief Function to perform the manipulation of the model parameters to be ready for the qpOASES active set method solver.
-			 @param MatrixXd &H_matrix				reference to a global variable that stores the matrix H of the optimization problem.
-			 @param MatrixXd &F_matrix				reference to a global variable that stores the matrix H of the 
-			 */
-			virtual void setOptimizationParams(int n, int horizon, int p, double H_matrix[], double F_matrix[]);
 
 		   /**
-			 @brief Function to define the cost function associated to the MPC problem 
-			 @param mpc::Model *model 			pointer to the process model class
-			 @param int &nWSR 					number of working set recalculations
-			 @param double *cputime 			pointer to the defined time to solve the optimization problem. If NULL, it provides on output the actual calculation time of the optimization problem. 
+			 @brief Function to solve the optimization problem formulated in the MPC  
+			 @param Eigen::VectorXd x_k 		state vector
+			 @param Eigen::VectorXd x_ref		reference vector 
 			 */
-//			virtual void computeOpt(Eigen::MatrixXd &H_, Eigen::MatrixXd &F_, int &nWSR, double *cputime);
+			virtual void computeMPC(Eigen::VectorXd x_k, Eigen::VectorXd x_ref);
 
 			private:
 
 			mpc::model::Model *model_;
+			
+			int n_, p_, horizon_;
 			
 			//int &nWSR;	//number of working set recalculations
 

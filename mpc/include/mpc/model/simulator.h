@@ -22,19 +22,19 @@ namespace mpc
 		 @brief Constructor
 		 @param mpc::model::Model *model pointer to process model class
 		 */
-		virtual Simulator(mpc::model::Model *model);
+		Simulator(mpc::model::Model *model);
 
 		/**
 		 @brief Destructor
 		 */
-		virtual ~Simulator();
+		~Simulator();
 
 
 		/**
 		 @brief Function used to simulate the specified plant 
 		 @param mpc::model::Model *model 	pointer to the process model class "Model"
 		 */
-		virtual void simulatePlant(mpc::model::Model *model) = 0;
+		virtual void simulatePlant(double states[], double input, double samplingTime, double output) = 0;
 
 
 	    protected:

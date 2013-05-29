@@ -19,21 +19,24 @@ int main(int argc, char **argv)
 	int horizon = 5;		// prediction horizon size in samples
 	int p = 1;		// number of inputs
 	//int q = 2;		// number of outputs
-	double H[horizon * n * horizon * n];
-	double F[horizon * p * n];	
+
+	
+
+	Eigen::VectorXd x_k(n);
+	x_k(0) = 8;
+	x_k(1) = 12;
+
+	Eigen::VectorXd x_ref(n);
+	x_ref(0) = 7;
+	x_ref(1) = 7;
+	 
 	
 	// Create the pointer to the Model class
 	mpc::model::Model *model_ptr = new mpc::test_models::Tanksystem ();
-	mpc::optimizer::Optimizer *solver_ptr = new mpc::optimizer::QPOASES (model_ptr);
+	mpc::optimizer::Optimizer *solver_ptr = new mpc::optimizer::QPOASES (model_ptr, n, p, horizon);
 
-	solver_ptr->setOptimizationParams(n, horizon, p, H, F);
-	for (int i = 0; i < horizon * p * horizon * p; i++) {
-		std::cout<< "H[" << i << "] = "<< H[i] << std::endl;
-	}
-
-	for (int j = 0; j < horizon * p * n; j++) {
-		std::cout<< "F[" << j << "] = "<< F[j] << std::endl;
-	}
+	solver_ptr->computeMPC(x_k, x_ref);
+	
 
 	return 0;
 }
