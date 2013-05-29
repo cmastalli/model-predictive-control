@@ -22,7 +22,7 @@ namespace mpc
 		 @brief Constructor
 		 @param mpc::model::Model *model pointer to process model class
 		 */
-		Simulator(mpc::model::Model *model);
+		Simulator(){};
 
 		/**
 		 @brief Destructor
