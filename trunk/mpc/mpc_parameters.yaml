@@ -1,0 +1,17 @@
+mpc:
+
+ horizon: 5  
+
+ optimizer:
+   Qss_one_one: 2.0000 
+   Qss_one_two: 0.0000 
+   Qss_two_one: 0.0000
+   Qss_two_two: 2.0000
+
+   Rss_one_one: 3.0000
+
+   Pss_one_one: 2.0000 
+   Pss_one_two: 0.0000 
+   Pss_two_one: 0.0000
+   Pss_two_two: 2.0000
+

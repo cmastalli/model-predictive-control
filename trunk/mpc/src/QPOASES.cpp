@@ -1,4 +1,4 @@
-#include <ros/ros.h>
+ 	#include <ros/ros.h>
 #include <iostream>
 #include <vector>
 #include <Eigen/Dense>
@@ -31,11 +31,66 @@ void mpc::optimizer::QPOASES::computeMPC(Eigen::VectorXd x_k, Eigen::VectorXd x_
 	model_->getModelParameterB(Bss);
 
 	Eigen::MatrixXd Qss(n_,n_);
+	Eigen::MatrixXd Pss(n_,n_);
 	Eigen::MatrixXd Rss(p_,p_);
-	Qss = Eigen::MatrixXd::Identity(n_,n_);
-	Rss = Eigen::MatrixXd::Identity(p_,p_);
+	//Qss = Eigen::MatrixXd::Identity(n_,n_);
+	//Rss = Eigen::MatrixXd::Identity(p_,p_);
 
-	// TODO methods to obtain the matrices Q, P and R to create the extended matrices
+
+	
+	ros::NodeHandle n;
+
+	//Fetch parameters for matrix Q
+	if (n.getParam("/mpc/optimizer/Qss_one_one", Qss(0,0)))
+	{
+		ROS_INFO("Got param: %f", Qss(0,0));
+	}
+	
+	if (n.getParam("mpc/optimizer/Qss_one_two", Qss(0,1)))
+	{
+		ROS_INFO("Got param: %f", Qss(1,0)); //Qss(1,0) = Qss_two_one;
+	}
+
+	if (n.getParam("mpc/optimizer/Qss_two_one", Qss(1,0)))
+	{
+		ROS_INFO("Got param: %f", Qss(1,0)); //Qss(1,1) = Qss_two_two;
+	}
+	
+	if (n.getParam("mpc/optimizer/Qss_two_two", Qss(1,1)))
+	{
+		ROS_INFO("Got param: %f", Qss(1,1)); //Qss(1,1) = Qss_two_two;
+	}
+
+	// Fetch parameters for matrix R
+	if (n.getParam("mpc/optimizer/Rss_one_one", Rss(0,0)))
+	{
+  		ROS_INFO("Got param: %f", Rss(0,0)); //Rss(0,0) = Rss_one_one;
+	}
+
+	// Fetch parameters for matrix P
+	if (n.getParam("mpc/optimizer/Pss_one_one", Pss(0,0)))
+	{
+  		ROS_INFO("Got param: %f", Pss(0,0)); //Pss(0,0) = Pss_one_one;
+	}
+
+	if (n.getParam("mpc/optimizer/Pss_one_two", Pss(0,1)))
+	{
+  		ROS_INFO("Got param: %f", Pss(0,1)); //Pss(0,0) = Pss_one_one;
+	}
+
+	if (n.getParam("mpc/optimizer/Pss_two_one", Pss(1,0)))
+	{
+  		ROS_INFO("Got param: %f", Pss(1,0)); //Pss(0,0) = Pss_one_one;
+	}
+
+	if (n.getParam("mpc/optimizer/Pss_tow_two", Pss(1,1)))
+	{
+  		ROS_INFO("Got param: %f", Pss(1,1)); //Pss(0,0) = Pss_one_one;
+	}
+
+std::cout << Qss <<" = Qss" << std::endl;
+std::cout << Pss <<" = Pss" << std::endl;
+std::cout << Rss <<" = Rss" << std::endl;
 
 
 
