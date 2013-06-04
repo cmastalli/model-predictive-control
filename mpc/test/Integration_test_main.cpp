@@ -21,7 +21,7 @@ int main(int argc, char **argv)
 	//int q = 2;		// number of outputs
 
 	
-
+	ros::init(argc, argv, "mpc");
 	Eigen::VectorXd x_k(n);
 	x_k(0) = 8;
 	x_k(1) = 12;
