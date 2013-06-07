@@ -2,7 +2,7 @@
 #define TANKSYSTEM_H
 
 #include "mpc/model/model.h"
-#include <Eigen/Dense>
+
 
 namespace mpc
 {
@@ -13,7 +13,7 @@ namespace mpc
 		{
 			public:
 			// Constructor
-			Tanksystem();
+			Tanksystem(ros::NodeHandle node);
 
 			// Destructor
 			~Tanksystem();
@@ -43,6 +43,7 @@ namespace mpc
 			virtual void getModelParameterC(Eigen::MatrixXd& C); /*int current_time,*/
 
 			private:
+			ros::NodeHandle n_;
 			/* 
 				Matrices of the state space representation
 				Discrete state space model obtained with a sampling time of Ts=0.01s from MATLAB

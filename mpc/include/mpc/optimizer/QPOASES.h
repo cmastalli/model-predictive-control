@@ -1,8 +1,8 @@
 #ifndef QPOASES_H
 #define QPOASES_H
 
-#include <Eigen/Dense>
 #include <mpc/optimizer/optimizer.h>
+#include <ros/ros.h>
 
 namespace mpc
 {
@@ -13,7 +13,7 @@ namespace mpc
 		{
 			public:
 			// Constructor
-			QPOASES(mpc::model::Model *model_ptr, int n, int p, int horizon);
+			QPOASES(ros::NodeHandle node, mpc::model::Model *model_ptr);
 
 			//Destructor
 			~QPOASES();
@@ -30,8 +30,10 @@ namespace mpc
 
 			mpc::model::Model *model_;
 			
-			int n_, p_, horizon_;
-			
+			int states_, inputs_, horizon_;
+
+			ros::NodeHandle n_;
+
 			//int &nWSR;	//number of working set recalculations
 
 		}; // @class QPOASES

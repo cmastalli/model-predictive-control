@@ -1,17 +1,15 @@
 mpc:
-
- horizon: 5  
+ states: 2
+ inputs: 1
+ outputs: 2
+ horizon: 5
 
  optimizer:
-   Qss_one_one: 2.0000 
-   Qss_one_two: 0.0000 
-   Qss_two_one: 0.0000
-   Qss_two_two: 2.0000
+   states_error_weight_matrix:
+     data: [1.0000, 0.0000, 0.0000, 1.0000]
 
-   Rss_one_one: 3.0000
+   input_error_weight_matrix:
+     data: [1.0000]
 
-   Pss_one_one: 2.0000 
-   Pss_one_two: 0.0000 
-   Pss_two_one: 0.0000
-   Pss_two_two: 2.0000
-
+   terminal_state_weight_matrix:
+     data: [1.0000, 0.0000, 0.0000, 1.0000]

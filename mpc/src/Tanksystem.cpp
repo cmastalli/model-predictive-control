@@ -1,18 +1,31 @@
 #include <ros/ros.h>
 #include <iostream>
-#include <Eigen/Dense>
 
 #include "mpc/test_models/Tanksystem.h"
 
 
-mpc::test_models::Tanksystem::Tanksystem()
+mpc::test_models::Tanksystem::Tanksystem(ros::NodeHandle node) : n_(node)
 {
-	int n = 2;
-	int p = 1;
-	int q = 2;
-	Ass_ = Eigen::MatrixXd::Zero(n,n);
-	Bss_ = Eigen::MatrixXd::Zero(n,p);
-	Css_ = Eigen::MatrixXd::Zero(q,n);
+	
+	int states, inputs, outputs;
+	if (n_.getParam("states", states))
+	{
+		ROS_INFO("Got param: states");
+	}
+
+	if (n_.getParam("inputs", inputs))
+	{
+		ROS_INFO("Got param: inputs");
+	}	
+	
+	if (n_.getParam("outputs", outputs))
+	{
+		ROS_INFO("Got param: outputs");
+	}
+
+	Ass_ = Eigen::MatrixXd::Zero(states,states);
+	Bss_ = Eigen::MatrixXd::Zero(states,inputs);
+	Css_ = Eigen::MatrixXd::Zero(outputs,states);
 
 	// A matrix
 	Ass_(0,0) = 0.9992;
@@ -27,6 +40,8 @@ mpc::test_models::Tanksystem::Tanksystem()
 	// C matrix
 	Css_(0,0) = 0.0000;
 	Css_(0,1) = 1.0000;
+
+	ROS_INFO("Tanksystem class successfully initialized");
 }
 
 void mpc::test_models::Tanksystem::getModelParameterA(Eigen::MatrixXd& A)
