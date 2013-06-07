@@ -1,7 +1,7 @@
 #ifndef MPC_OPTIMIZER_OPTIMIZER_H
 #define MPC_OPTIMIZER_OPTIMIZER_H
 
-#include <Eigen/Dense>
+
 #include <mpc/model/model.h>
 
 namespace mpc
@@ -26,7 +26,7 @@ namespace mpc
 			/**
 			 @brief Destructor function
 			 */
-			~Optimizer();
+			~Optimizer() {};
 
 
 			/**
