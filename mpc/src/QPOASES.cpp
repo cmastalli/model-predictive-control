@@ -41,6 +41,10 @@ mpc::optimizer::QPOASES::QPOASES(ros::NodeHandle node, mpc::model::Model *model_
 		ROS_INFO("Got param: %d", horizon_);
 		
 	}
+
+	qss = new double [states_*states_];
+	pss = new double [states_*states_];
+	rss = new double [inputs_*inputs_];
 	
 	ROS_INFO("QPOASES class successfully initialized");
 }
@@ -58,17 +62,9 @@ void mpc::optimizer::QPOASES::computeMPC(Eigen::VectorXd x_k, Eigen::VectorXd x_
 	// Obtention of the model parameters
 	model_->getModelParameterA(Ass);
 	model_->getModelParameterB(Bss);
-
-
-//	Eigen::MatrixXd Qss(states_,states_);
-//	Eigen::MatrixXd Pss(states_,states_);
-//	Eigen::MatrixXd Rss(inputs_,inputs_);	
+	
 
 	//Fetch problem parameters
-	double qss[states_*states_];	//TODO change to global
-	
-	double pss[states_*states_];
-	double rss[inputs_*inputs_];
 
 	// Fetch matrix Q
 	XmlRpc::XmlRpcValue getQ, getR, getP;
@@ -169,9 +165,6 @@ void mpc::optimizer::QPOASES::computeMPC(Eigen::VectorXd x_k, Eigen::VectorXd x_
 		base.push_back(aux);
 	}
 
-for (int i=0; i< base.size(); i++){
-		std::cout<< "The "<< i <<" element of the base vector is:\n" << base[i] << std::endl;
-}
 
 
 	//USING THE BASE VECTOR TO FILL UP THE B MATRIX

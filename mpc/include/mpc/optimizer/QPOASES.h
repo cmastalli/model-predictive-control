@@ -34,6 +34,11 @@ namespace mpc
 
 			ros::NodeHandle n_;
 
+			double * qss;	//TODO change to global
+	
+			double * pss;
+			double * rss;
+
 			//int &nWSR;	//number of working set recalculations
 
 		}; // @class QPOASES
