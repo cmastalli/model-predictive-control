@@ -22,7 +22,8 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
 #common commands for building c++ executables and libraries
 #rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
-rosbuild_add_library(${PROJECT_NAME} 	src/QPOASES.cpp
+rosbuild_add_library(${PROJECT_NAME} 	src/mpc/lbmpc.cpp
+										src/QPOASES.cpp
 										src/Tanksystem.cpp
 										src/TanksystemSim.cpp)
 #target_link_libraries(${PROJECT_NAME} another_library)
