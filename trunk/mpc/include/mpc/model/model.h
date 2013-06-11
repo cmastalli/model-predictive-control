@@ -32,36 +32,51 @@ namespace mpc
 		class Model
 		{
 			public:
-        	/**
-        	 @brief Constructor function
-	 		 */
-			Model() {};
+	        	/**
+	        	 @brief Constructor function
+		 		 */
+				Model() {};
 
-			/**
-			 @brief Destructor function
-			 */
-			~Model() {};
+				/**
+				 @brief Destructor function
+				 */
+				~Model() {};
+			
+			
+				virtual bool computeDynamicModel(Eigen::MatrixXd& A, Eigen::MatrixXd& B, Eigen::MatrixXd& C) = 0;
+
+
+				virtual int getStatesNumber() const;
+				
+				
+				virtual int getInputsNumber() const;
+				
+				
+				virtual int getOutputsNumber() const;
 
 			/**
 			 @brief Function that provides the model matrix A for each time instant for Linear Time Variant models. Polymorphism is used to 		implement this function for Linear Time Invariant models as well.
 			 @param curent_time 	Time instant
 			 @param &A 				Reference to the A matrix
 			 */
-			virtual void getModelParameterA(Eigen::MatrixXd& A) = 0;
+//			virtual void getModelParameterA(Eigen::MatrixXd& A) = 0;
 
 			/**
 			 @brief Function that provides the model matrix B for each time instant for Linear Time Variant models. Polymorphism is used to 		implement this function for Linear Time Invariant models as well.
 			 @param curent_time 	Time instant
 			 @param &B 				Reference to the B matrix
 			 */
-			virtual void getModelParameterB(Eigen::MatrixXd& B) = 0;
+//			virtual void getModelParameterB(Eigen::MatrixXd& B) = 0;
 
 			/**
 			 @brief Function that provides the model matrix C for each time instant for Linear Time Variant models. Polymorphism is used to 		implement this function for Linear Time Invariant models as well.
 			 @param curent_time 	Time instant
 			 @param &C 				Reference to the C matrix 
 			 */
-			virtual void getModelParameterC(Eigen::MatrixXd& C) = 0;
+//			virtual void getModelParameterC(Eigen::MatrixXd& C) = 0;
+
+
+
 	
 			/**
 			 @brief Function to define the cost function associated to the MPC problem 
@@ -80,7 +95,9 @@ namespace mpc
  
 
             protected:
-
+				int states_, inputs_, outputs_;
+				
+				Eigen::MatrixXd A_, B_, C_;
 
 
             private:
@@ -91,6 +108,21 @@ namespace mpc
     } //@namespace model
 
 } //@namespace mpc
+
+inline int mpc::model::Model::getStatesNumber() const
+{
+	return states_;
+}
+
+inline int mpc::model::Model::getInputsNumber() const
+{
+	return inputs_;
+}
+
+inline int mpc::model::Model::getOutputsNumber() const
+{
+	return outputs_;
+}
 
 #endif
 
