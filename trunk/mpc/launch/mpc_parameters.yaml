@@ -1,0 +1,15 @@
+mpc:
+ states: 2
+ inputs: 1
+ outputs: 2
+ horizon: 5
+
+ optimizer:
+   states_error_weight_matrix:
+     data: [1.0000, 0.0000, 0.0000, 1.0000]
+
+   input_error_weight_matrix:
+     data: [1.0000]
+
+   terminal_state_weight_matrix:
+     data: [1.0000, 0.0000, 0.0000, 1.0000]
