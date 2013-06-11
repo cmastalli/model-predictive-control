@@ -36,6 +36,8 @@ namespace mpc
 			 @param double *cputime pointer to the defined time to solve the optimization problem. If NULL, it provides on output the actual calculation time of the optimization problem.
 			 */
 			 virtual void computeMPC(Eigen::VectorXd x_k, Eigen::VectorXd x_ref) = 0;
+			 
+			 
 
 		    protected:
 
@@ -45,7 +47,7 @@ namespace mpc
       
 
 
-    }; //@class Optimizer
+	    }; //@class Optimizer
 
     } //@namepace optimizer
 
