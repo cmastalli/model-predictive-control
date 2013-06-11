@@ -27,17 +27,41 @@ namespace mpc
 			virtual void computeMPC(Eigen::VectorXd x_k, Eigen::VectorXd x_ref);
 
 			private:
-
+			
+			/** Pointer to a Model object **/
 			mpc::model::Model *model_;
 			
+			/** Global variables that define the optimization problem **/
 			int states_, inputs_, horizon_;
-
+			
+			/** Utility to perform ROS actions (subscribe from/publish to a topic, read the parameter server..) **/
 			ros::NodeHandle n_;
-
-			double * qss;	//TODO change to global
-	
+			
+			/** Arrays that store the weight matrices read from the configuration file **/
+			double * qss;	
 			double * pss;
 			double * rss;
+
+			/**  Number of constraints **/
+			int nConst_;
+	
+			/** Number of variables ( = horizon_*inputs_) **/
+			int nVar_;
+
+			/** Constraint vectors**/
+			double * lbA_, *ubA_;
+
+			/** Bound vectors **/
+			double * lb_, * ub_;
+
+			/** Extended constraint vectors **/
+			double * lbA_bar_, * ubA_bar_;
+
+			/** Extended bound vectors **/
+			double * lb_bar_, * ub_bar_;
+
+			/** Extended constraint matrix **/
+			double * G_bar_; 
 
 			//int &nWSR;	//number of working set recalculations
 
