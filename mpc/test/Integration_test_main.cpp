@@ -4,9 +4,9 @@
 #include <ros/ros.h>
 
 #include <qpOASES.hpp>
-#include "mpc/optimizer/QPOASES.h"
+#include "mpc/optimizer/qpOASES.h"
 
-#include "mpc/test_models/Tanksystem.h"
+#include "mpc/example_models/tanks_system.h"
 
 
 /** Example for qpOASES main function using the QProblem class. */
@@ -30,9 +30,9 @@ int main(int argc, char **argv)
 	 
 	
 	// Create the pointer to the Model class
-	ros::NodeHandle n("mpc");
-	mpc::model::Model *model_ptr = new mpc::test_models::Tanksystem (n);
-	mpc::optimizer::Optimizer *solver_ptr = new mpc::optimizer::QPOASES (n, model_ptr);
+	ros::NodeHandle node_handle("mpc");
+	mpc::model::Model *model_ptr = new mpc::example_models::TanksSystem(node_handle);
+	mpc::optimizer::Optimizer *solver_ptr = new mpc::optimizer::qpOASES(node_handle, model_ptr);
 
 	solver_ptr->computeMPC(x_k, x_ref);
 	
