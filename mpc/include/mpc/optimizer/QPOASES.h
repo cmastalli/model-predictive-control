@@ -12,58 +12,55 @@ namespace mpc
 		class QPOASES : public mpc::optimizer::Optimizer
 		{
 			public:
-			// Constructor
-			QPOASES(ros::NodeHandle node, mpc::model::Model *model_ptr);
+				// Constructor
+				QPOASES(ros::NodeHandle node_handle, mpc::model::Model *model_ptr);
 
-			//Destructor
-			~QPOASES();
+				//Destructor
+				~QPOASES();
 
 
-		   /**
-			 @brief Function to solve the optimization problem formulated in the MPC  
-			 @param Eigen::VectorXd x_k 		state vector
-			 @param Eigen::VectorXd x_ref		reference vector 
-			 */
-			virtual void computeMPC(Eigen::VectorXd x_k, Eigen::VectorXd x_ref);
+			   /**
+				 @brief Function to solve the optimization problem formulated in the MPC  
+				 @param Eigen::VectorXd x_k 		state vector
+				 @param Eigen::VectorXd x_ref		reference vector 
+				 */
+				virtual void computeMPC(Eigen::VectorXd x_k, Eigen::VectorXd x_ref);
+
 
 			private:
+				ros::NodeHandle nh_;
+
+				mpc::model::Model *model_;
 			
-			/** Pointer to a Model object **/
-			mpc::model::Model *model_;
-			
-			/** Global variables that define the optimization problem **/
-			int states_, inputs_, horizon_;
-			
-			/** Utility to perform ROS actions (subscribe from/publish to a topic, read the parameter server..) **/
-			ros::NodeHandle n_;
-			
-			/** Arrays that store the weight matrices read from the configuration file **/
-			double * qss;	
-			double * pss;
-			double * rss;
+				int states_, inputs_, outputs_, horizon_;
 
-			/**  Number of constraints **/
-			int nConst_;
-	
-			/** Number of variables ( = horizon_*inputs_) **/
-			int nVar_;
+				/** Arrays that store the weight matrices read from the configuration file **/
+				double *qss_;
+				double *pss_;
+				double *rss_;
 
-			/** Constraint vectors**/
-			double * lbA_, *ubA_;
+				/** Number of constraints **/
+				int nConst_;
 
-			/** Bound vectors **/
-			double * lb_, * ub_;
+				/** Number of variables (= horizon_*inputs_) **/
+				int nVar_;
 
-			/** Extended constraint vectors **/
-			double * lbA_bar_, * ubA_bar_;
+				/** Constraint vectors**/
+				double *lbA_, *ubA_;
 
-			/** Extended bound vectors **/
-			double * lb_bar_, * ub_bar_;
+				/** Bound vectors **/
+				double *lb_, *ub_;
 
-			/** Extended constraint matrix **/
-			double * G_bar_; 
+				/** Extended constraint vectors **/
+				double *lbA_bar_, *ubA_bar_;
 
-			//int &nWSR;	//number of working set recalculations
+				/** Extended bound vectors **/
+				double *lb_bar_, *ub_bar_;
+
+				/** Extended constraint matrix **/
+				double *G_bar_; 
+
+				//int &nWSR;	//number of working set recalculations
 
 		}; // @class QPOASES
 
