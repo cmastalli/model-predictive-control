@@ -9,14 +9,14 @@ namespace mpc
 	namespace optimizer
 	{
 	
-		class QPOASES : public mpc::optimizer::Optimizer
+		class qpOASES : public mpc::optimizer::Optimizer
 		{
 			public:
 				// Constructor
-				QPOASES(ros::NodeHandle node_handle, mpc::model::Model *model_ptr);
+				qpOASES(ros::NodeHandle node_handle, mpc::model::Model *model_ptr);
 
 				//Destructor
-				~QPOASES();
+				~qpOASES();
 
 
 			   /**
@@ -62,7 +62,7 @@ namespace mpc
 
 				//int &nWSR;	//number of working set recalculations
 
-		}; // @class QPOASES
+		}; // @class qpOASES
 
 	} // @namespace optimizer
 
