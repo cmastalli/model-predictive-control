@@ -34,37 +34,40 @@ namespace mpc
              @param mpc::optimizer::Optimizer *optimizer pointer to the optimization library to be used in the algorithm
              @param mpc::model::Simulator *simulator pointer to the simulator class used to predict the states
              */
-            void resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator);
+            virtual void resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator) = 0;
 
             /*
              @brief function to initialize the calculation of the MPC algorithm
              @param
              @param
              */
-            virtual void initMPC();
+            virtual bool initMPC() = 0;
 
             /*
              @brief function to update the MPC algorithm for the next iteration 
              @param
              @param
              */
-            virtual void updateMPC(double* x_measured, double* x_reference);
+            virtual void updateMPC(double* x_measured, double* x_reference) = 0;
 
 
 
-        private:
+        protected:
 			mpc::model::Model *model_;
 			
 			mpc::model::Simulator *simulator_;
 			
-			mpc::model::Optimizer *optimizer_;
+			mpc::optimizer::Optimizer *optimizer_;
 			
 			int states_, inputs_, outputs_, horizon_;
 			
 			Eigen::MatrixXd Q_, P_, R_;
 			
+		private:
+		
 
     }; //@class ModelPredictiveControl
 
 }; //@namespace mpc
 
+#endif

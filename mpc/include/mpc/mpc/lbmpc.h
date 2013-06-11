@@ -5,20 +5,23 @@
 
 #include <mpc/mpc/model_predictive_control.h>
 
+#include <Eigen/Dense>
 
 
 namespace mpc
 {
 
-	class LBMPC : public mpc::ModelPredictiveControl
+	class LBMPC : protected mpc::ModelPredictiveControl
 	{
 
 		public:
-			LBMPC(int n, int p, int horizon);
+			LBMPC(ros::NodeHandle node);
 			
 			~LBMPC() {};
 			
-			virtual void initMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator);
+			virtual void resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator);
+			
+			virtual bool initMPC();			
 			
 			/**
 			 @brief Function to solve the optimization problem formulated in the MPC  
@@ -39,7 +42,7 @@ namespace mpc
 			
 			Eigen::MatrixXd B_estimated_, B_nominal_;
 			
-			Eigen::MatrixXd d_nominal_, d_estimated_
+			Eigen::MatrixXd d_nominal_, d_estimated_;
 			
 			Eigen::MatrixXd K_;
 			
