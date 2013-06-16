@@ -30,7 +30,24 @@ mpc::optimizer::qpOASES::qpOASES(ros::NodeHandle node_handle, mpc::model::Model 
 		ROS_INFO("Got param: %d", horizon_);
 		
 	}
-	
+
+	if (nh_.getParam("optimizer/number_constraints", nConst_))
+	{
+		//horizon_ = horizon;
+		ROS_INFO("Got param: number of constraints = %d", nConst_);
+		
+	}
+
+	if (nh_.getParam("optimizer/number_variables", nVar_))
+	{
+		if (nVar_ == horizon_*inputs_){
+			ROS_INFO("Got param: number of variables = %d", nVar_);
+		}
+		else {
+			ROS_INFO("Number of variables != Prediction Horizon x number of Inputs --> Invalid number of variables");
+		}
+	}
+
 	qss_ = new double [states_ * states_];
 	pss_ = new double [states_ * states_];
 	rss_ = new double [inputs_ * inputs_];
@@ -264,7 +281,7 @@ void mpc::optimizer::qpOASES::computeMPC(Eigen::VectorXd x_k, Eigen::VectorXd x_
 	nh_.getParam("optimizer/constraints/constraint_vector_upp", getuppX);        
 	ROS_ASSERT(getuppX.getType() == XmlRpc::XmlRpcValue::TypeArray);
 
-
+	
 	if (getuppX.size() == getlowX.size()) {
 		for (int i = 0; i < getuppX.size(); ++i) {
 			ROS_ASSERT(getlowX[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
@@ -280,7 +297,7 @@ void mpc::optimizer::qpOASES::computeMPC(Eigen::VectorXd x_k, Eigen::VectorXd x_
 	Eigen::Map<Eigen::VectorXd> LbA(lbA_,nConst_);
 	Eigen::Map<Eigen::VectorXd> UbA(ubA_,nConst_);
 
-
+	
 	// Reading the bound vectors
 	XmlRpc::XmlRpcValue getlowU, getuppU;
 	nh_.getParam("optimizer/constraints/bound_vector_low", getlowU);
@@ -314,16 +331,16 @@ void mpc::optimizer::qpOASES::computeMPC(Eigen::VectorXd x_k, Eigen::VectorXd x_
 		ROS_ASSERT(getmatrixM[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
 		m[i] = static_cast<double>(getmatrixM[i]);
 	}
-
+	ROS_INFO("nConst= %d states = %d", nConst_, states_);
 	Eigen::Map<Eigen::Matrix<double,3,2,Eigen::RowMajor> > M(m, nConst_, states_);
 
-/*
+	
 	std::cout << LbA << " = LbA" << std::endl;
 	std::cout << UbA << " = UbA" << std::endl;
 	std::cout << Ub << " = Lb" << std::endl;
 	std::cout << Lb << " = Ub" << std::endl;
 	std::cout << M << " = M" << std::endl;
-*/
+
 	Eigen::Map<Eigen::VectorXd> LbA_bar(lbA_bar_,nConst_*horizon_);
 	Eigen::Map<Eigen::VectorXd> UbA_bar(ubA_bar_,nConst_*horizon_);
 
