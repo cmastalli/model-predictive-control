@@ -24,6 +24,7 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
 rosbuild_add_library(${PROJECT_NAME} 	src/mpc/lbmpc.cpp
 										src/mpc/stdmpc.cpp
+										src/optimizer/qpOASES.cpp
 										src/example_models/tanks_system.cpp
 										src/example_models/tanks_system_simulator.cpp)
 #target_link_libraries(${PROJECT_NAME} another_library)
