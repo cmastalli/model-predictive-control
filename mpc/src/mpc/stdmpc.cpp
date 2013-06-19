@@ -16,35 +16,32 @@ cannot take a variable as an argument.
 
 
 
-mpc::STDMPC::STDMPC(ros::NodeHandle node_handle, mpc::model::Model *model) : nh_(node_handle)
+mpc::STDMPC::STDMPC(ros::NodeHandle node_handle) : nh_(node_handle)
 {
-	model_ = model;
+	model_ = 0;
+	optimizer_ = 0;
+	simulator_ = 0;
 
-	states_ = model_->getStatesNumber();
-	inputs_ = model_->getInputsNumber();
-	outputs_ = model_->getInputsNumber();
-
-
-	if (nh_.getParam("horizon", horizon_))
-	{
-		//horizon_ = horizon;
-		ROS_INFO("Got param: %d", horizon_);
+	
+	if (nh_.getParam("horizon", horizon_)){
 		
+		ROS_INFO("Got param: %d", horizon_);		
 	}
 
-	if (nh_.getParam("optimizer/number_constraints", nConst_))
-	{
-		//horizon_ = horizon;
+	if (nh_.getParam("optimizer/number_constraints", nConst_)){
+		
 		ROS_INFO("Got param: number of constraints = %d", nConst_);
-		
 	}
 
-	if (nh_.getParam("optimizer/number_variables", nVar_))
-	{
+	if (nh_.getParam("optimizer/number_variables", nVar_)){
+		
 		if (nVar_ == horizon_*inputs_){
+
 			ROS_INFO("Got param: number of variables = %d", nVar_);
 		}
+
 		else {
+
 			ROS_INFO("Number of variables != Prediction Horizon x number of Inputs --> Invalid number of variables");
 		}
 	}
@@ -70,13 +67,44 @@ mpc::STDMPC::STDMPC(ros::NodeHandle node_handle, mpc::model::Model *model) : nh_
 	ROS_INFO("QPOASES class successfully initialized");
 }
 
+/************************************************************************************************************
+	mpc::STDMPC::resetMPC() function
+************************************************************************************************************/
 
+void mpc::STDMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator)
+{
 
+	if (model_ == 0){
+		ROS_INFO("Argument model_ pointer must not be NULL");
+	}
 
-// TODO Define a function to read from a .yaml file to get nWSR and cputime variables
+	if (optimizer_ == 0){
+		ROS_INFO("Argument optimizer_ pointer must not be NULL");
+	}
+
+	if (simulator_ == 0){
+		ROS_INFO("Argument simulator_ pointer must not be NULL");
+	}
+
+	model_ = model;
+	optimizer_ = optimizer;
+	simulator_ = simulator;
+
+}
+
+/************************************************************************************************************
+	mpc::STDMPC::initMPC() function
+************************************************************************************************************/
 
 bool mpc::STDMPC::initMPC()
 {
+
+	// Reading of the problem variables
+	states_ = model_->getStatesNumber();
+	inputs_ = model_->getInputsNumber();
+	outputs_ = model_->getInputsNumber();	
+
+	// Initialization of state space matrices
 	Eigen::MatrixXd Ass(states_, states_);
 	Eigen::MatrixXd Bss(states_, inputs_);
 	Eigen::MatrixXd Css(outputs_, states_);
@@ -245,7 +273,12 @@ bool mpc::STDMPC::initMPC()
 	
 	return true;
 }
-//////////////////////////////////////////////////////////////////////////////////////////////
+
+/************************************************************************************************************
+	mpc::STDMPC::updateMPC() function
+************************************************************************************************************/
+
+
 void mpc::STDMPC::updateMPC(Eigen::MatrixXd x_k, Eigen::MatrixXd x_ref)
 {
 
