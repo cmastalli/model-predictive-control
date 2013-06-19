@@ -15,11 +15,11 @@ namespace mpc
 	{
 
 		public:
-			STDMPC(ros::NodeHandle node_handle, mpc::model::Model *model);
+			STDMPC(ros::NodeHandle node_handle);
 			
 			~STDMPC() {};
 			
-			//virtual void resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator);
+			virtual void resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator);
 			
 			virtual bool initMPC();			
 			

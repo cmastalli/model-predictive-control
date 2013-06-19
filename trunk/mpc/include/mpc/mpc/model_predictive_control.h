@@ -34,7 +34,7 @@ namespace mpc
              @param mpc::optimizer::Optimizer *optimizer pointer to the optimization library to be used in the algorithm
              @param mpc::model::Simulator *simulator pointer to the simulator class used to predict the states
              */
-            //virtual void resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator) = 0;
+            virtual void resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator) = 0;
 
             /*
              @brief function to initialize the calculation of the MPC algorithm
