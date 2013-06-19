@@ -23,7 +23,7 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 #common commands for building c++ executables and libraries
 #rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
 rosbuild_add_library(${PROJECT_NAME} 	src/mpc/lbmpc.cpp
-										src/optimizer/qpOASES.cpp
+										src/mpc/stdmpc.cpp
 										src/example_models/tanks_system.cpp
 										src/example_models/tanks_system_simulator.cpp)
 #target_link_libraries(${PROJECT_NAME} another_library)
@@ -31,10 +31,10 @@ rosbuild_add_library(${PROJECT_NAME} 	src/mpc/lbmpc.cpp
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 #rosbuild_add_executable(example examples/example.cpp)
 
-rosbuild_add_executable(IntegrationTest_main test/Integration_test_main.cpp)
+rosbuild_add_executable(stdmpc_node test/stdmpc_node.cpp)
 #												src/QPOASES.cpp
 #												src/Tanksystem.cpp)
-target_link_libraries(IntegrationTest_main ${PROJECT_NAME})
+target_link_libraries(stdmpc_node ${PROJECT_NAME})
 
 
 
