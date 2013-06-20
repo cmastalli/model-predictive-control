@@ -16,53 +16,11 @@ cannot take a variable as an argument.
 
 
 
-mpc::STDMPC::STDMPC(ros::NodeHandle node_handle) : nh_(node_handle)
+mpc::STDMPC::STDMPC() 
 {
 	model_ = 0;
 	optimizer_ = 0;
 	simulator_ = 0;
-
-	
-	if (nh_.getParam("horizon", horizon_)){
-		
-		ROS_INFO("Got param: %d", horizon_);		
-	}
-
-	if (nh_.getParam("optimizer/number_constraints", nConst_)){
-		
-		ROS_INFO("Got param: number of constraints = %d", nConst_);
-	}
-
-	if (nh_.getParam("optimizer/number_variables", nVar_)){
-		
-		if (nVar_ == horizon_*inputs_){
-
-			ROS_INFO("Got param: number of variables = %d", nVar_);
-		}
-
-		else {
-
-			ROS_INFO("Number of variables != Prediction Horizon x number of Inputs --> Invalid number of variables");
-		}
-	}
-
-	qss_ = new double [states_ * states_];
-	pss_ = new double [states_ * states_];
-	rss_ = new double [inputs_ * inputs_];
-
-	lbA_ = new double [nConst_];
-	ubA_ = new double [nConst_];
-
-	lb_ = new double [inputs_];
-	ub_ = new double [inputs_];
-
-	lbA_bar_ = new double [nConst_ * horizon_];
-	ubA_bar_ = new double [nConst_ * horizon_];
-
-	lb_bar_ = new double [horizon_ * inputs_];
-	ub_bar_ = new double [horizon_ * inputs_];
-
-	G_bar_ = new double [horizon_ * nConst_ * horizon_ * inputs_];
 
 	ROS_INFO("QPOASES class successfully initialized");
 }
@@ -90,19 +48,60 @@ void mpc::STDMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *
 	optimizer_ = optimizer;
 	simulator_ = simulator;
 
+	
+
 }
 
 /************************************************************************************************************
 	mpc::STDMPC::initMPC() function
 ************************************************************************************************************/
 
-bool mpc::STDMPC::initMPC()
+bool mpc::STDMPC::initMPC(ros::NodeHandle node_handle)
 {
-
+	nh_ = node_handle;
 	// Reading of the problem variables
 	states_ = model_->getStatesNumber();
 	inputs_ = model_->getInputsNumber();
-	outputs_ = model_->getInputsNumber();	
+	outputs_ = model_->getOutputsNumber();	
+
+	// Reading of the horizon, number of constraints and number of variables from the yaml file
+	if (nh_.getParam("horizon", horizon_)){	
+		ROS_INFO("Got param: %d", horizon_);		
+	}
+
+	if (nh_.getParam("optimizer/number_constraints", nConst_)){	
+		ROS_INFO("Got param: number of constraints = %d", nConst_);
+	}
+
+	if (nh_.getParam("optimizer/number_variables", nVar_)){
+		
+		if (nVar_ == horizon_*inputs_){
+			ROS_INFO("Got param: number of variables = %d", nVar_);
+		}
+
+		else {
+			ROS_INFO("Number of variables != Prediction Horizon x number of Inputs --> Invalid number of variables");
+		}
+	}
+
+	// Initialization of global variables 
+	qss_ = new double [states_ * states_];
+	pss_ = new double [states_ * states_];
+	rss_ = new double [inputs_ * inputs_];
+
+	lbA_ = new double [nConst_];
+	ubA_ = new double [nConst_];
+
+	lb_ = new double [inputs_];
+	ub_ = new double [inputs_];
+
+	lbA_bar_ = new double [nConst_ * horizon_];
+	ubA_bar_ = new double [nConst_ * horizon_];
+
+	lb_bar_ = new double [horizon_ * inputs_];
+	ub_bar_ = new double [horizon_ * inputs_];
+
+	G_bar_ = new double [horizon_ * nConst_ * horizon_ * inputs_];
 
 	// Initialization of state space matrices
 	Eigen::MatrixXd Ass(states_, states_);
