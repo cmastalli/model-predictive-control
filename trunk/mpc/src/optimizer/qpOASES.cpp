@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-#include <mpc/optimizer/qpOASES.h>
+#include <mpc/optimizer/QPOASES.h>
 #include <mpc/model/model.h>
 #include <mpc/optimizer/optimizer.h>
 
