@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 	real_t ubA[1] = { 2.0 };
 
 	/* Setup data of second QP. */
-	real_t g_new[2] = { 1.0, 1.5 };
+	real_t g_new[2] = { 1.0, 1.5 }; 
 	real_t lb_new[2] = { 0.0, -1.0 };
 	real_t ub_new[2] = { 5.0, -0.5 };
 	real_t lbA_new[1] = { -2.0 };

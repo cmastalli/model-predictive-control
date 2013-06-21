@@ -16,13 +16,34 @@ cannot take a variable as an argument.
 
 
 
-mpc::STDMPC::STDMPC() 
+mpc::STDMPC::STDMPC(ros::NodeHandle node_handle) 
 {
 	model_ = 0;
 	optimizer_ = 0;
 	simulator_ = 0;
 
-	ROS_INFO("QPOASES class successfully initialized");
+	// Reading of the horizon, number of constraints and number of variables from the yaml file
+	if (nh_.getParam("horizon", horizon_)){	
+		ROS_INFO("Got param: %d", horizon_);		
+	}
+
+	if (nh_.getParam("optimizer/number_constraints", nConst_)){	
+		ROS_INFO("Got param: number of constraints = %d", nConst_);
+	}
+
+	if (nh_.getParam("optimizer/number_variables", nVar_)){
+		
+		if (nVar_ == horizon_*inputs_){
+			ROS_INFO("Got param: number of variables = %d", nVar_);
+		}
+
+		else {
+			ROS_INFO("Number of variables != Prediction Horizon x number of Inputs --> Invalid number of variables");
+		}
+	}
+
+
+	ROS_INFO("STDMPC class successfully initialized");
 }
 
 /************************************************************************************************************
@@ -64,25 +85,7 @@ bool mpc::STDMPC::initMPC(ros::NodeHandle node_handle)
 	inputs_ = model_->getInputsNumber();
 	outputs_ = model_->getOutputsNumber();	
 
-	// Reading of the horizon, number of constraints and number of variables from the yaml file
-	if (nh_.getParam("horizon", horizon_)){	
-		ROS_INFO("Got param: %d", horizon_);		
-	}
-
-	if (nh_.getParam("optimizer/number_constraints", nConst_)){	
-		ROS_INFO("Got param: number of constraints = %d", nConst_);
-	}
-
-	if (nh_.getParam("optimizer/number_variables", nVar_)){
-		
-		if (nVar_ == horizon_*inputs_){
-			ROS_INFO("Got param: number of variables = %d", nVar_);
-		}
-
-		else {
-			ROS_INFO("Number of variables != Prediction Horizon x number of Inputs --> Invalid number of variables");
-		}
-	}
+	
 
 	// Initialization of global variables 
 	qss_ = new double [states_ * states_];
