@@ -31,13 +31,16 @@ int main(int argc, char **argv)
 	
 	// Create the pointer to the Model class
 	ros::NodeHandle node_handle("mpc");
-	mpc::model::Model *model_ptr = new mpc::example_models::TanksSystem(node_handle);
-	//mpc::model::Simulator *simulator_ptr = new mpc::model::TanksSystemSimulator(model_ptr);
-	//mpc::optimizer::Optimizer *optimizer_ptr = new mpc::optimizer::qpOASES(node_handle, model_ptr);
-	mpc::ModelPredictiveControl *mpc_ptr = new mpc::STDMPC(node_handle);
+	mpc::ModelPredictiveControl *mpc_ptr = new mpc::STDMPC();
+	
 
-	//mpc_ptr->resetMPC(model_ptr, optimizer_ptr, simulator_ptr);
-	mpc_ptr->initMPC();
+	mpc::model::Model *model_ptr = new mpc::example_models::TanksSystem(node_handle);
+	mpc::model::Simulator *simulator_ptr = new mpc::model::TanksSystemSimulator(model_ptr);
+	mpc::optimizer::Optimizer *optimizer_ptr = new mpc::optimizer::qpOASES();
+	
+
+	mpc_ptr->resetMPC(model_ptr, optimizer_ptr, simulator_ptr);
+	mpc_ptr->initMPC(node_handle);
 	mpc_ptr->updateMPC(x_k, x_ref);
 
 	return 0;

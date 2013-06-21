@@ -2,7 +2,7 @@
 #include <iostream>
 #include <vector>
 
-#include <mpc/optimizer/QPOASES.h>
+#include <mpc/optimizer/qpOASES.h>
 #include <mpc/model/model.h>
 #include <mpc/optimizer/optimizer.h>
 
@@ -12,29 +12,45 @@ NOTE: in the mapping function specified below, the size of the correspondent mat
 cannot take a variable as an argument.
 
 *********************************************************************/
+USING_NAMESPACE_QPOASES
 
-
-bool mpc::optimizer::qpOASES::initSolver(int *nVar_,
-										int *nConst_,
-										double *H, 
-										double* g, 
-										double *G, 
-										double *lb, 
-										double *ub, 
-										double *lbA, 
-										double *ubA, 
-										int &nWSR, 
-										double *cputime)
+mpc::optimizer::qpOASES::qpOASES(nVar, nConst, horizon, inputs)
 {
-	qpOASES::QProblem solver_(nVar_, nConst_);
+nVar_ = nVar;
+nConst_ = nConst;
+horizon_ = horizon;
+inputs_ = inputs;
+
+}
+
+
+bool mpc::optimizer::qpOASES::initSolver(double *H, 
+										 double* g, 
+										 double *G, 
+										 double *lb, 
+										 double *ub, 
+										 double *lbA, 
+										 double *ubA, 
+										 int &nWSR, 
+										 double *cputime)
+{
+
+	solver_ = new QProblem (nVar_, nConst_);
+
 
 	/* Solve first QP. */
-	solver_.init( H,g,G,lb,ub,lbA,ubA, nWSR );
+	retval_ = solver_->init( H,g,G,lb,ub,lbA,ubA, nWSR );
+	
+	if (retval_ != SUCCESSFUL_RETURN){
+
+		ROS_ERROR("The qpOASES solver object could not be initialized");
+
+	}
 
 	return true;
 }
 
-void mpc::optimizer::qpOASES::hotstartSolver(double *g_new, 
+bool mpc::optimizer::qpOASES::hotstartSolver(double *g_new, 
 											double *G_new, 
 											double *lb_new, 
 											double *ub_new, 
@@ -42,23 +58,49 @@ void mpc::optimizer::qpOASES::hotstartSolver(double *g_new,
 											double *ubA_new, 
 											int &nWSR, 
 											double *cputime,
-											double &optSol_)
+											double &(*optSol))
 {
+	
 	/* Solve second QP. */
-	solver_.hotstart( g_new,lb_new,ub_new,lbA_new,ubA_new, nWSR );
+	retval_ = solver_->hotstart( g_new,lb_new,ub_new,lbA_new,ubA_new, nWSR );
 
+	if (retval_ != SUCCESSFUL_RETURN){
+
+		ROS_ERROR("The quadratic problem was not successfully solved");
+
+	}
 	/* Get and print solution of second QP. */
-	double xOpt[mpc::STDMPC::nVar_];
-	solver_.getPrimalSolution( xOpt );
+	/*if (optSol.rows () != horizon_){
+		ROS_ERROR("The rows of the solution matrix are not the same as the horizon");
+	}
+	
+	if (optSol.cols () != inputs_){
+		ROS_ERROR("The columns of the solution matrix are not the same as the number of inputs");
+	}*/
+	
+	// 
+	/*double * solution_ptr;
+	solution_ptr = optSol.data();
 
+	double sol_array[nVar_];	
+
+	for (int t = 0; t < nVar_; t++) {
+		sol_array[t] = *solution_ptr;
+		solution_ptr++;*/	
+
+	// Obtaining the solution
+	solver_->getPrimalSolution( optSol );
+	//Eigen::Map<Eigen::Matrix<double,5,1,Eigen::RowMajor> > optimalSolution(optSol,horizon_,inputs_);
+
+	
+	
 	for (int i=0; i<nVar_; i++){
-		std::cout <<"\nxOpt["<< i <<"] = "<< xOpt[i] << std::endl;
-		optSol_[i] = xOpt[i];
+		std::cout <<"\noptSol["<< i <<"] = "<< optSol[i] << std::endl;
 	}
 
 	
-		
-	std::cout <<"\nobjVal ="<< solver_.getObjVal() << std::endl;
+	//std::cout<<"Optimal Solution ="<< optimalSolution << std::endl;	
+	std::cout<<"objVal ="<< solver_->getObjVal() << std::endl;
 	
-
+	return true;
 }

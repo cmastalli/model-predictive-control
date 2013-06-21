@@ -15,7 +15,7 @@ namespace mpc
 	{
 
 		public:
-			STDMPC();
+			STDMPC(ros::NodeHandle node_handle);
 			
 			~STDMPC() {};
 			
