@@ -16,10 +16,10 @@ namespace mpc
 		{
 			public:
 				// Constructor
-				qpOASES();
+				qpOASES(ros::NodeHandle node_handle);
 
 				//Destructor
-				~qpOASES() {};
+				~qpOASES() {}
 
 
 			   /**
@@ -45,14 +45,13 @@ namespace mpc
 											double *ubA_new, 
 											int &nWSR, 
 											double *cputime,
-											double &(*optSol));
+											double **optSol);	// In here, the address of the solution array is passed (&optSol)
 
 			protected:
 
-				int nVar_, nConst_;
-				int horizon_, inputs_;
+				int nVar_, nConst_, horizon_;
 				returnValue retval_;
-
+				ros::NodeHandle nh_opt_;
 
 			private:
 				

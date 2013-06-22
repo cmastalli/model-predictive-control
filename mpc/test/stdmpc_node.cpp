@@ -34,13 +34,12 @@ int main(int argc, char **argv)
 	mpc::ModelPredictiveControl *mpc_ptr = new mpc::STDMPC();
 	
 
-	mpc::model::Model *model_ptr = new mpc::example_models::TanksSystem(node_handle);
+	mpc::model::Model *model_ptr = new mpc::example_models::TanksSystem();
+	mpc::optimizer::Optimizer *optimizer_ptr = new mpc::optimizer::qpOASES(node_handle);
 	mpc::model::Simulator *simulator_ptr = new mpc::model::TanksSystemSimulator(model_ptr);
-	mpc::optimizer::Optimizer *optimizer_ptr = new mpc::optimizer::qpOASES();
-	
 
 	mpc_ptr->resetMPC(model_ptr, optimizer_ptr, simulator_ptr);
-	mpc_ptr->initMPC(node_handle);
+	mpc_ptr->initMPC();
 	mpc_ptr->updateMPC(x_k, x_ref);
 
 	return 0;
