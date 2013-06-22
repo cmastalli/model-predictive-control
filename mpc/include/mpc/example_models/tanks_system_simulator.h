@@ -24,7 +24,7 @@ namespace mpc
 				 @brief Constructor
 				 @param mpc::model::Model *model pointer to process model class
 				 */
-				TanksSystemSimulator(mpc::model::Model *model_ptr);
+				TanksSystemSimulator();
 
 				/**
 				 @brief Destructor
@@ -43,8 +43,6 @@ namespace mpc
 
 
 		    private:
-
-				mpc::model::Model *model_;
 
 				double param1_, param2_;
 
