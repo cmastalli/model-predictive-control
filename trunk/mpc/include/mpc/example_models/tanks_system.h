@@ -13,7 +13,7 @@ namespace mpc
 		{
 			public:
 				// Constructor
-				TanksSystem(ros::NodeHandle node);
+				TanksSystem();
 				
 				
 				// Destructor
@@ -27,7 +27,7 @@ namespace mpc
 
 
 			private:
-				ros::NodeHandle nh_;
+				//ros::NodeHandle nh_;
 
 
 		}; //@class TanksSystem

@@ -12,17 +12,36 @@ NOTE: in the mapping function specified below, the size of the correspondent mat
 cannot take a variable as an argument.
 
 *********************************************************************/
-USING_NAMESPACE_QPOASES
 
-mpc::optimizer::qpOASES::qpOASES(nVar, nConst, horizon, inputs)
+
+mpc::optimizer::qpOASES::qpOASES(ros::NodeHandle node_handle) : nh_opt_(node_handle)
 {
-nVar_ = nVar;
-nConst_ = nConst;
-horizon_ = horizon;
-inputs_ = inputs;
+	
+	// Reading the parameters required for the solver
+	if (nh_opt_.getParam("horizon", horizon_)){	
+			ROS_INFO("Got param: %d", horizon_);		
+	}
+	
+	if (nh_opt_.getParam("optimizer/number_constraints", nConst_)){	
+		ROS_INFO("Got param: number of constraints = %d", nConst_);
+	}
+
+	if (nh_opt_.getParam("optimizer/number_variables", nVar_)){
+		
+		//if (nVar_ == horizon_*inputs_){
+			ROS_INFO("Got param: number of variables = %d", nVar_);	// TODO perform the check of nVar = horizon x inputs in the STDMPC class!!!
+		//}
+
+		//else {
+			//ROS_INFO("Number of variables != Prediction Horizon x number of Inputs --> Invalid number of variables");
+		//}
+	}
+
+	ROS_INFO("qpOASES solver class successfully initialized");
 
 }
 
+USING_NAMESPACE_QPOASES
 
 bool mpc::optimizer::qpOASES::initSolver(double *H, 
 										 double* g, 
@@ -58,7 +77,7 @@ bool mpc::optimizer::qpOASES::hotstartSolver(double *g_new,
 											double *ubA_new, 
 											int &nWSR, 
 											double *cputime,
-											double &(*optSol))
+											double **optSol)
 {
 	
 	/* Solve second QP. */
@@ -69,33 +88,23 @@ bool mpc::optimizer::qpOASES::hotstartSolver(double *g_new,
 		ROS_ERROR("The quadratic problem was not successfully solved");
 
 	}
-	/* Get and print solution of second QP. */
-	/*if (optSol.rows () != horizon_){
-		ROS_ERROR("The rows of the solution matrix are not the same as the horizon");
-	}
 	
-	if (optSol.cols () != inputs_){
-		ROS_ERROR("The columns of the solution matrix are not the same as the number of inputs");
-	}*/
+	/*double **address_array = 0;
+	*address_array = *optSol;
+	double *sol_array = 0;
+	*sol_array = **address_array;*/
 	
-	// 
-	/*double * solution_ptr;
-	solution_ptr = optSol.data();
+	
 
-	double sol_array[nVar_];	
-
-	for (int t = 0; t < nVar_; t++) {
-		sol_array[t] = *solution_ptr;
-		solution_ptr++;*/	
 
 	// Obtaining the solution
-	solver_->getPrimalSolution( optSol );
+	solver_->getPrimalSolution( *optSol );
 	//Eigen::Map<Eigen::Matrix<double,5,1,Eigen::RowMajor> > optimalSolution(optSol,horizon_,inputs_);
 
 	
 	
 	for (int i=0; i<nVar_; i++){
-		std::cout <<"\noptSol["<< i <<"] = "<< optSol[i] << std::endl;
+		std::cout <<"\noptSol["<< i <<"] = "<< **(optSol + i) << std::endl;
 	}
 
 	

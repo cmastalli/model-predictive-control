@@ -4,7 +4,7 @@
 #include "mpc/example_models/tanks_system.h"
 
 
-mpc::example_models::TanksSystem::TanksSystem(ros::NodeHandle node) : nh_(node)
+mpc::example_models::TanksSystem::TanksSystem()
 {
 	states_ = 2;
 	inputs_ = 1;
