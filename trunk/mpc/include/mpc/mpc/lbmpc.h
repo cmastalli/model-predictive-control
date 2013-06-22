@@ -11,7 +11,7 @@
 namespace mpc
 {
 
-	class LBMPC : protected mpc::ModelPredictiveControl
+	class LBMPC : public mpc::ModelPredictiveControl
 	{
 
 		public:
@@ -38,13 +38,19 @@ namespace mpc
 			
 			std::vector<Eigen::MatrixXd> A_p_BK_pow_;
 			
-			Eigen::MatrixXd A_estimated_, A_nominal_;
+			Eigen::MatrixXd A_nominal_, A_estimated_;
 			
-			Eigen::MatrixXd B_estimated_, B_nominal_;
+			Eigen::MatrixXd B_nominal_, B_estimated_;
+			
+			Eigen::MatrixXd C_nominal_;
 			
 			Eigen::MatrixXd d_nominal_, d_estimated_;
 			
 			Eigen::MatrixXd K_;
+			
+			Eigen::MatrixXd Q_bar_, R_bar_;
+			
+
 			
 			
 	}; //@class LearningBaseMPC
