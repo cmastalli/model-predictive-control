@@ -7,7 +7,7 @@
 namespace mpc
 {
 
-    namespace model
+    namespace example_models
     {
 
 		/**< @Class Simulator
