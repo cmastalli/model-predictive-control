@@ -1,11 +1,14 @@
 mpc:
 
-  states: 2
-  inputs: 1
-  outputs: 2
   horizon: 5
 
-  enable_learning: true
+  enable_learning_process: true
+
+  feedback_gain:
+    data: [1.0000, 1.0000]
+    
+  nominal_feedback_gain:
+    data: [1.0000, 1.0000]
 
   optimizer:
     states_error_weight_matrix:
@@ -15,4 +18,4 @@ mpc:
       data: [1.0000]
 
     terminal_state_weight_matrix:
-      data: [1.0000, 0.0000, 0.0000, 1.0000]
+      data: [2.0000, 0.0000, 0.0000, 2.0000]
