@@ -27,7 +27,6 @@ namespace mpc
 
 
 			private:
-				//ros::NodeHandle nh_;
 
 
 		}; //@class TanksSystem

@@ -1,6 +1,5 @@
 #include <ros/ros.h>
 
-#include <mpc/mpc/model_predictive_control.h>
 #include <mpc/mpc/lbmpc.h>
 
 #include <mpc/example_models/tanks_system.h>
@@ -15,9 +14,9 @@ int main(int argc, char **argv)
 	ros::NodeHandle node_handle("mpc");
 	
 	
-	mpc::model::Model *model = new mpc::example_models::TanksSystem(node_handle);
+	mpc::model::Model *model = new mpc::example_models::TanksSystem();
 	mpc::model::Simulator *simulator = new mpc::example_models::TanksSystemSimulator();
-	mpc::optimizer::Optimizer *optimizer = new mpc::optimizer::qpOASES(node_handle, model);
+	mpc::optimizer::Optimizer *optimizer = new mpc::optimizer::qpOASES(node_handle);
 	
 	
 	mpc::ModelPredictiveControl *mpc = new mpc::LBMPC(node_handle);

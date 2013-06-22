@@ -30,8 +30,8 @@ namespace mpc
 			 @param Eigen::VectorXd x_measured 		state vector
 			 @param Eigen::VectorXd x_reference		reference vector 
 			 */
-			//virtual void updateMPC(double* x_measured, double* x_reference);
-			virtual void updateMPC(Eigen::MatrixXd x_measured, Eigen::MatrixXd x_reference);
+			virtual void updateMPC(double* x_measured, double* x_reference);
+			//virtual void updateMPC(Eigen::MatrixXd x_measured, Eigen::MatrixXd x_reference);
 			
 		private:
 			ros::NodeHandle nh_;

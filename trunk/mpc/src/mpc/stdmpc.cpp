@@ -259,8 +259,12 @@ bool mpc::STDMPC::initMPC()
 ************************************************************************************************************/
 
 
-void mpc::STDMPC::updateMPC(Eigen::MatrixXd x_k, Eigen::MatrixXd x_ref)
+//void mpc::STDMPC::updateMPC(Eigen::MatrixXd x_meas, Eigen::MatrixXd x_ref)
+void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 {
+	Eigen::Map<Eigen::VectorXd> x_meas(x_measured, states_, 1);
+	Eigen::Map<Eigen::VectorXd> x_ref(x_reference, states_, 1);
+
 
 	// Constructing the extended reference vector
 	Eigen::MatrixXd x_ref_bar(states_ * (horizon_ + 1), 1);	
@@ -274,7 +278,7 @@ void mpc::STDMPC::updateMPC(Eigen::MatrixXd x_k, Eigen::MatrixXd x_ref)
 	Eigen::Map<Eigen::VectorXd> G_(g_, horizon_*inputs_);	
 
 
-	G_ = B_bar_.transpose() * Q_bar_ * A_bar_ * x_k - B_bar_.transpose() * Q_bar_ * x_ref_bar;
+	G_ = B_bar_.transpose() * Q_bar_ * A_bar_ * x_meas - B_bar_.transpose() * Q_bar_ * x_ref_bar;
 	std::cout << G_ << " = g" << std::endl;
 	
 /*	for (int v = 0; v < g.rows() * g.cols(); v++){
@@ -395,8 +399,8 @@ void mpc::STDMPC::updateMPC(Eigen::MatrixXd x_k, Eigen::MatrixXd x_ref)
 
 	//std::cout << M_bar << " = M_bar" << std::endl;
 
-	LbA_bar = LbA_bar - M_bar * A_bar_ * x_k;
-	UbA_bar = UbA_bar - M_bar * A_bar_ * x_k;
+	LbA_bar = LbA_bar - M_bar * A_bar_ * x_meas;
+	UbA_bar = UbA_bar - M_bar * A_bar_ * x_meas;
        
 	// Mapping of the extended constraint matrix G_bar_
 	Eigen::Map<Eigen::Matrix<double, 15, 5, Eigen::RowMajor> > G_bar(G_bar_, nConst_ * horizon_, horizon_ * inputs_);

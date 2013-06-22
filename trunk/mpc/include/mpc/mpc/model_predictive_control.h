@@ -48,8 +48,8 @@ namespace mpc
              @param
              @param
              */
-            //virtual void updateMPC(double* x_measured, double* x_reference) = 0;
-			virtual void updateMPC(Eigen::MatrixXd x_measured, Eigen::MatrixXd x_reference) = 0;
+            virtual void updateMPC(double* x_measured, double* x_reference) = 0;
+			//virtual void updateMPC(Eigen::MatrixXd x_measured, Eigen::MatrixXd x_reference) = 0;
 
 
         protected:
