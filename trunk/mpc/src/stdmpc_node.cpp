@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 
 	mpc::model::Model *model_ptr = new mpc::example_models::TanksSystem();
 	mpc::optimizer::Optimizer *optimizer_ptr = new mpc::optimizer::qpOASES(node_handle);
-	mpc::model::Simulator *simulator_ptr = new mpc::model::TanksSystemSimulator();
+	mpc::model::Simulator *simulator_ptr = new mpc::example_models::TanksSystemSimulator();
 
 	mpc_ptr->resetMPC(model_ptr, optimizer_ptr, simulator_ptr);
 	mpc_ptr->initMPC();
