@@ -8,14 +8,15 @@
 #include <mpc/example_models/tanks_system_simulator.h>
 //#include <mpc/model/model.h>
 
-mpc::model::TanksSystemSimulator::TanksSystemSimulator()
-{ 
+mpc::example_models::TanksSystemSimulator::TanksSystemSimulator(mpc::model::Model *model_ptr)
+{
+	model_ = model_ptr; 
 	param1_ = 0.2552;
 	param2_ = 0.0508; 
 }
 
 
-void mpc::model::TanksSystemSimulator::simulatePlant(double states[], double input, double samplingTime, double &output){
+void mpc::example_models::TanksSystemSimulator::simulatePlant(double states[], double input, double samplingTime, double &output){
 
 // Assignment of the readed variables
 
