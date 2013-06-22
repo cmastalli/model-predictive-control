@@ -8,9 +8,8 @@
 #include <mpc/example_models/tanks_system_simulator.h>
 //#include <mpc/model/model.h>
 
-mpc::example_models::TanksSystemSimulator::TanksSystemSimulator(mpc::model::Model *model_ptr)
+mpc::example_models::TanksSystemSimulator::TanksSystemSimulator()
 {
-	model_ = model_ptr; 
 	param1_ = 0.2552;
 	param2_ = 0.0508; 
 }

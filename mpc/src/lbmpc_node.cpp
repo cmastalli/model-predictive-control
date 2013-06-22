@@ -16,7 +16,7 @@ int main(int argc, char **argv)
 	
 	
 	mpc::model::Model *model = new mpc::example_models::TanksSystem(node_handle);
-	mpc::model::Simulator *simulator = new mpc::example_models::TanksSystemSimulator(model);
+	mpc::model::Simulator *simulator = new mpc::example_models::TanksSystemSimulator();
 	mpc::optimizer::Optimizer *optimizer = new mpc::optimizer::qpOASES(node_handle, model);
 	
 	
