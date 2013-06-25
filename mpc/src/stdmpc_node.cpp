@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 	mpc_ptr->resetMPC(model_ptr, optimizer_ptr, simulator_ptr);
 	mpc_ptr->initMPC();
 
-	double x_ref[2] = {7, 7};
+	/*double x_ref[2] = {7, 7};
 	double x_meas[2] = {8, 12};
 
     timespec start_rt, end_rt;
@@ -35,10 +35,8 @@ int main(int argc, char **argv)
 
 	clock_gettime(CLOCK_REALTIME, &end_rt);
 	double duration = (end_rt.tv_sec - start_rt.tv_sec) + 1e-9*(end_rt.tv_nsec - start_rt.tv_nsec);
-	ROS_INFO("The duration of computation of optimization problem is %f seg", duration);
+	ROS_INFO("The duration of computation of optimization problem is %f seg", duration);*/
 	
-	return 0;
-
 	return 0;
 }
 

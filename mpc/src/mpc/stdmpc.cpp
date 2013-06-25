@@ -33,20 +33,26 @@ void mpc::STDMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *
 {
 
 	if (model_ == 0){
+		model_ = model;
+	}
+	else{
 		ROS_INFO("Argument model_ pointer must not be NULL");
 	}
 
 	if (optimizer_ == 0){
+		optimizer_ = optimizer;;
+	}
+	else{
 		ROS_INFO("Argument optimizer_ pointer must not be NULL");
 	}
 
 	if (simulator_ == 0){
+		simulator_ = simulator;
+	}
+	else{
 		ROS_INFO("Argument simulator_ pointer must not be NULL");
 	}
 
-	model_ = model;
-	optimizer_ = optimizer;
-	simulator_ = simulator;
 
 	// Reading of the problem variables
 	states_ = model_->getStatesNumber();
@@ -56,6 +62,7 @@ void mpc::STDMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *
 	nConst_ = optimizer_->getConstraintNumber();
 	horizon_ = optimizer_->getHorizon();	
 
+	ROS_INFO("Reset successful");
 }
 
 /************************************************************************************************************
@@ -65,17 +72,18 @@ void mpc::STDMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *
 bool mpc::STDMPC::initMPC()
 {
 
+	ROS_INFO("states: %d inputs: %d constraints: %d horizon: %d", states_, inputs_, nConst_, horizon_);
+	Eigen::MatrixXd qss_(states_, states_);
+	Eigen::MatrixXd pss_(states_, states_);
+	Eigen::MatrixXd rss_(inputs_, inputs_);
+	ROS_INFO("se jodio la vaina");
 	// Initialization of global variables 
-	qss_ = new double [states_ * states_];
-	pss_ = new double [states_ * states_];
-	rss_ = new double [inputs_ * inputs_];
-
 	lbA_ = new double [nConst_];
 	ubA_ = new double [nConst_];
 
 	lb_ = new double [inputs_];
 	ub_ = new double [inputs_];
-
+	ROS_INFO("se jodio la vaina otra vez");
 	lbA_bar_ = new double [nConst_ * horizon_];
 	ubA_bar_ = new double [nConst_ * horizon_];
 
@@ -83,6 +91,7 @@ bool mpc::STDMPC::initMPC()
 	ub_bar_ = new double [horizon_ * inputs_];
 
 	G_bar_ = new double [horizon_ * nConst_ * horizon_ * inputs_];
+
 
 	// Initialization of state space matrices
 	Eigen::MatrixXd Ass(states_, states_);
@@ -93,48 +102,50 @@ bool mpc::STDMPC::initMPC()
 	model_->computeDynamicModel(Ass, Bss, Css);
 
 
-	// Fetch matrix Q
 	XmlRpc::XmlRpcValue getQ, getR, getP;
-	nh_.getParam("optimizer/states_error_weight_matrix/data", getQ);	
+
+	// Fetch matrix Q and P
+	nh_.getParam("optimizer/states_error_weight_matrix/data", getQ);
+	nh_.getParam("optimizer/terminal_state_weight_matrix/data", getP);	
 	ROS_ASSERT(getQ.getType() == XmlRpc::XmlRpcValue::TypeArray);
+	ROS_ASSERT(getP.getType() == XmlRpc::XmlRpcValue::TypeArray);
 	
-    
-	for (int i = 0; i < getQ.size(); ++i) {
-		ROS_ASSERT(getQ[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-		qss_[i] = static_cast<double>(getQ[i]);
+    int z=0;
+	for (int i = 0; i < states_; i++) {
+		for (int j = 0; j < states_; j++){
+			ROS_ASSERT(getQ[z].getType() == XmlRpc::XmlRpcValue::TypeDouble);
+			qss_(i,j) = static_cast<double>(getQ[z]);
+
+			ROS_ASSERT(getP[z].getType() == XmlRpc::XmlRpcValue::TypeDouble);
+			pss_(i,j) = static_cast<double>(getP[z]);
+			
+			z++;
+		}
 	}
 
-	Eigen::Map<Eigen::Matrix<double,2,2,Eigen::RowMajor> > Qss(qss_, states_, states_); //TODO manually enter the size of the matrix when changing model since the Map function cannot take variables as arguments
 
 	// Fetch matrix R
 	nh_.getParam("optimizer/input_error_weight_matrix/data", getR);	
 	ROS_ASSERT(getR.getType() == XmlRpc::XmlRpcValue::TypeArray);
 	
-    
-	for (int i = 0; i < getR.size(); ++i) {
-		ROS_ASSERT(getR[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-		rss_[i] = static_cast<double>(getR[i]);
+    z=0;
+	for (int i = 0; i < inputs_; i++) {
+		for (int j = 0; j < inputs_; j++){
+
+		ROS_ASSERT(getR[z].getType() == XmlRpc::XmlRpcValue::TypeDouble);
+		rss_(i,j) = static_cast<double>(getR[z]);
+		
+		z++;
+		}
 	}
 
-	Eigen::Map<Eigen::Matrix<double,1,1,Eigen::RowMajor> > Rss(rss_, inputs_, inputs_); //TODO manually enter the size of the matrix when changing model since the Map function cannot take variables as arguments
 
-	// Fetch matrix P
-	nh_.getParam("optimizer/terminal_state_weight_matrix/data", getP);	
-	ROS_ASSERT(getP.getType() == XmlRpc::XmlRpcValue::TypeArray);
-	
-    
-	for (int i = 0; i < getP.size(); ++i) {
-		ROS_ASSERT(getP[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-		pss_[i] = static_cast<double>(getP[i]);
-	}
-
-	Eigen::Map<Eigen::Matrix<double,2,2,Eigen::RowMajor> > Pss(pss_, states_, states_); //TODO manually enter the size of the matrix when changing model since the Map function cannot take variables as arguments
 
 	
 	
-	std::cout << Qss <<" = Qss" << std::endl;
-	std::cout << Pss <<" = Pss" << std::endl;
-	std::cout << Rss <<" = Rss" << std::endl;
+	std::cout << qss_ <<" = Qss" << std::endl;
+	std::cout << pss_ <<" = Pss" << std::endl;
+	std::cout << rss_ <<" = Rss" << std::endl;
 
 
 
@@ -206,14 +217,16 @@ bool mpc::STDMPC::initMPC()
 	//CREATION OF THE Q MATRIX
 	Eigen::MatrixXd Q((horizon_ + 1) * states_, (horizon_ + 1) * states_);
 
-	for (int q = 0; q < horizon_ + 1; q++) {
-		for (int qq = 0; qq < horizon_ + 1; qq++) {
-			if (q == qq)
-				Q.block(q * states_, qq * states_, states_, states_) = Qss;
+	for (int i = 0; i < horizon_ + 1; i++) {
+		for (int j = 0; j < horizon_ + 1; j++) {
+			if (i == j)
+				Q.block(i * states_, j * states_, states_, states_) = qss_;
+			else if ((i == horizon_ + 1) && (j == horizon_ + 1))
+				Q.block(i * states_, j * states_, states_, states_) = pss_;
 			else
-				Q.block(q * states_, qq * states_, states_, states_) = Eigen::MatrixXd::Zero(states_, states_);
+				Q.block(i * states_, j * states_, states_, states_) = Eigen::MatrixXd::Zero(states_, states_);
 		}
-	} // TODO add the P matrix to the last position of the Q matrix
+	} 
 
 	Q_bar_ = Q; 
 	std::cout << Q_bar_ << " = Q_bar" << std::endl;
@@ -221,12 +234,12 @@ bool mpc::STDMPC::initMPC()
 	//CREATION OF THE R MATRIX
 	Eigen::MatrixXd R(horizon_ * inputs_, horizon_ * inputs_);
 
-	for (int r = 0; r < horizon_; r++) {
-		for (int rr = 0; rr < horizon_; rr++) {
-			if (r == rr)
-				R.block(r * inputs_, rr * inputs_, inputs_, inputs_) = Rss;
+	for (int i = 0; i < horizon_; i++) {
+		for (int j = 0; j < horizon_; j++) {
+			if (i == j)
+				R.block(i * inputs_, j * inputs_, inputs_, inputs_) = rss_;
 			else
-				R.block(r * inputs_, rr * inputs_, inputs_, inputs_) = Eigen::MatrixXd::Zero(inputs_, inputs_);
+				R.block(i * inputs_, j * inputs_, inputs_, inputs_) = Eigen::MatrixXd::Zero(inputs_, inputs_);
 		}
 	}
 
