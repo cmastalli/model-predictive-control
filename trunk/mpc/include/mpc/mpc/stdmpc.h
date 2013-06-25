@@ -19,7 +19,21 @@ namespace mpc
 			STDMPC();
 			
 			// Destructor
-			~STDMPC() {}
+			~STDMPC() {
+				delete lbA_;
+				delete ubA_;
+
+				delete lb_;
+				delete ub_;
+
+				delete lbA_bar_;
+				delete ubA_bar_;
+
+				delete lb_bar_;
+				delete ub_bar_;
+				
+				delete G_bar_;
+			}
 			
 			virtual void resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator);
 			
@@ -33,6 +47,16 @@ namespace mpc
 			virtual void updateMPC(double* x_measured, double* x_reference);
 			//virtual void updateMPC(Eigen::MatrixXd x_measured, Eigen::MatrixXd x_reference);
 			
+		protected:
+			/** Number of constraints **/
+			int nConst_;
+
+			/** Number of variables (= horizon_*inputs_) **/
+			int nVar_;
+
+			/** Prediction horizon for the algorithm **/
+			int horizon_;
+
 		private:
 			ros::NodeHandle nh_;
 			
@@ -42,18 +66,7 @@ namespace mpc
 
 			mpc::model::Simulator *simulator_;
 			
-			int states_, inputs_, outputs_, horizon_;
-
-			/** Arrays that store the weight matrices read from the configuration file **/
-			double *qss_;
-			double *pss_;
-			double *rss_;
-
-			/** Number of constraints **/
-			int nConst_;
-
-			/** Number of variables (= horizon_*inputs_) **/
-			int nVar_;
+			int states_, inputs_, outputs_;
 
 			/** Constraint vectors**/
 			double *lbA_, *ubA_;

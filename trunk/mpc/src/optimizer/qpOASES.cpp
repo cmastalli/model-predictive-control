@@ -19,7 +19,7 @@ mpc::optimizer::qpOASES::qpOASES(ros::NodeHandle node_handle) : nh_opt_(node_han
 	
 	// Reading the parameters required for the solver
 	if (nh_opt_.getParam("horizon", horizon_)){	
-			ROS_INFO("Got param: %d", horizon_);		
+			ROS_INFO("Got param: horizon = %d", horizon_);		
 	}
 	
 	if (nh_opt_.getParam("optimizer/number_constraints", nConst_)){	
