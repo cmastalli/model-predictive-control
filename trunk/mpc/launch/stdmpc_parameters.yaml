@@ -7,6 +7,7 @@ mpc:
  optimizer:
    number_constraints: 3
    number_variables: 5
+   working_set_recalculations: 10
 
    states_error_weight_matrix:
      data: [1.0000, 0.0000, 0.0000, 1.0000]

@@ -16,7 +16,7 @@ namespace mpc
 
 		public:
 			// Constructor
-			STDMPC();
+			STDMPC(ros::NodeHandle node_handle);
 			
 			// Destructor
 			~STDMPC() {
@@ -98,6 +98,8 @@ namespace mpc
 			/** Gradient Matrix array **/
 			double *g_;
 
+			/** Optimal solution vector **/
+			double *optimalSol_;
 			
 			
 	}; //@class StandardMPC

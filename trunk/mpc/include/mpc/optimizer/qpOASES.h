@@ -27,29 +27,28 @@ namespace mpc
 				 @param Eigen::VectorXd x_k 		state vector
 				 @param Eigen::VectorXd x_ref		reference vector 
 				 */
-				virtual bool initSolver(double *H, 
-										double* g, 
+				virtual bool computeOpt(double *H, 
+										double *g, 
 										double *G, 
 										double *lb, 
 										double *ub, 
 										double *lbA, 
 										double *ubA, 
-										int &nWSR, 
-										double *cputime);
+										double *cputime,
+										double *optimalSol);
 
-				virtual bool hotstartSolver(double *g_new, 
-											double *G_new, 
+				/*virtual bool hotstartSolver(double *g_new,  
 											double *lb_new, 
 											double *ub_new, 
 											double *lbA_new, 
 											double *ubA_new, 
 											int &nWSR, 
 											double *cputime,
-											double **optSol);	// In here, the address of the solution array is passed (&optSol)
+											double *optimalSol);	// In here, the address of the solution array is passed (&optSol)*/
 
 			protected:
 
-				int nVar_, nConst_, horizon_;
+
 				returnValue retval_;
 				ros::NodeHandle nh_opt_;
 
@@ -58,7 +57,9 @@ namespace mpc
 
 				//int &nWSR;	//number of working set recalculations
 				/* QProblem object which is used to solve the quadratic problem */
-				QProblem * solver_;
+				SQProblem *solver_;
+				bool initOnce_;
+				int nWSR_;
 				
 		}; // @class qpOASES
 

@@ -16,7 +16,7 @@ cannot take a variable as an argument.
 
 
 
-mpc::STDMPC::STDMPC()
+mpc::STDMPC::STDMPC(ros::NodeHandle node_handle) : nh_(node_handle)
 {
 	model_ = 0;
 	optimizer_ = 0;
@@ -71,19 +71,20 @@ void mpc::STDMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *
 
 bool mpc::STDMPC::initMPC()
 {
+	
 
 	ROS_INFO("states: %d inputs: %d constraints: %d horizon: %d", states_, inputs_, nConst_, horizon_);
 	Eigen::MatrixXd qss_(states_, states_);
 	Eigen::MatrixXd pss_(states_, states_);
 	Eigen::MatrixXd rss_(inputs_, inputs_);
-	ROS_INFO("se jodio la vaina");
+
 	// Initialization of global variables 
 	lbA_ = new double [nConst_];
 	ubA_ = new double [nConst_];
 
 	lb_ = new double [inputs_];
 	ub_ = new double [inputs_];
-	ROS_INFO("se jodio la vaina otra vez");
+	
 	lbA_bar_ = new double [nConst_ * horizon_];
 	ubA_bar_ = new double [nConst_ * horizon_];
 
@@ -91,7 +92,7 @@ bool mpc::STDMPC::initMPC()
 	ub_bar_ = new double [horizon_ * inputs_];
 
 	G_bar_ = new double [horizon_ * nConst_ * horizon_ * inputs_];
-
+	optimalSol_ = new double[nVar_];
 
 	// Initialization of state space matrices
 	Eigen::MatrixXd Ass(states_, states_);
@@ -106,8 +107,9 @@ bool mpc::STDMPC::initMPC()
 
 	// Fetch matrix Q and P
 	nh_.getParam("optimizer/states_error_weight_matrix/data", getQ);
-	nh_.getParam("optimizer/terminal_state_weight_matrix/data", getP);	
-	ROS_ASSERT(getQ.getType() == XmlRpc::XmlRpcValue::TypeArray);
+	ROS_ASSERT(getQ.getType() == XmlRpc::XmlRpcValue::TypeArray);		
+
+	nh_.getParam("optimizer/terminal_state_weight_matrix/data", getP);
 	ROS_ASSERT(getP.getType() == XmlRpc::XmlRpcValue::TypeArray);
 	
     int z=0;
@@ -142,11 +144,11 @@ bool mpc::STDMPC::initMPC()
 
 
 	
-	
+/*	
 	std::cout << qss_ <<" = Qss" << std::endl;
 	std::cout << pss_ <<" = Pss" << std::endl;
 	std::cout << rss_ <<" = Rss" << std::endl;
-
+*/
 
 
 	//CREATION OF THE A MATRIX
@@ -169,7 +171,7 @@ bool mpc::STDMPC::initMPC()
     }
 
 	A_bar_ = A; 
-	std::cout << A_bar_ << " = A_bar" << std::endl;	
+	//std::cout << A_bar_ << " = A_bar" << std::endl;	
 
 	//CREATION OF THE B MATRIX
 	static Eigen::MatrixXd B = Eigen::MatrixXd::Zero((horizon_ + 1) * states_, horizon_ * inputs_); 
@@ -210,7 +212,7 @@ bool mpc::STDMPC::initMPC()
 		}
 	}
 	B_bar_ = B; 
-	std::cout << B_bar_ << " = B_bar" << std::endl;
+	//std::cout << B_bar_ << " = B_bar" << std::endl;
 	
 
 
@@ -229,7 +231,7 @@ bool mpc::STDMPC::initMPC()
 	} 
 
 	Q_bar_ = Q; 
-	std::cout << Q_bar_ << " = Q_bar" << std::endl;
+	//std::cout << Q_bar_ << " = Q_bar" << std::endl;
 
 	//CREATION OF THE R MATRIX
 	Eigen::MatrixXd R(horizon_ * inputs_, horizon_ * inputs_);
@@ -243,15 +245,15 @@ bool mpc::STDMPC::initMPC()
 		}
 	}
 
-	std::cout << R << " = R_bar" << std::endl;
+	//std::cout << R << " = R_bar" << std::endl;
 
 	// Initialization of the array and mapping into an Eigen object
 	H_bar_ = new double [horizon_ * inputs_ * horizon_ * inputs_];
-	Eigen::Map<Eigen::Matrix<double,5,5,Eigen::RowMajor> > H_bar(H_bar_, horizon_*inputs_, horizon_*inputs_);
+	Eigen::Map<Eigen::MatrixXd ,Eigen::RowMajor> H_bar(H_bar_, horizon_*inputs_, horizon_*inputs_);
 	
 	// Computing the values of the Hessian matrix
 	H_bar = B.transpose() * Q * B + R;	
-	std::cout << H_bar << " = H_bar" << std::endl;
+	//std::cout << H_bar << " = H_bar" << std::endl;
 	
 	
 /*	for (int t = 0; t < H.rows() * H.cols(); t++) {
@@ -284,15 +286,15 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	for (int i = 0; i < horizon_ + 1; i++) {
 		x_ref_bar.block(states_ * i, 0, states_, 1) = x_ref;
 	}
-	std::cout << x_ref_bar << " = x_ref_bar" << std::endl;
+	//std::cout << x_ref_bar << " = x_ref_bar" << std::endl;
 
 	// Constructing the gradient vector g
 	g_ = new double [horizon_ * inputs_ * 1];
-	Eigen::Map<Eigen::VectorXd> G_(g_, horizon_*inputs_);	
+	Eigen::Map<Eigen::VectorXd> g_eigen(g_, horizon_*inputs_);	
 
 
-	G_ = B_bar_.transpose() * Q_bar_ * A_bar_ * x_meas - B_bar_.transpose() * Q_bar_ * x_ref_bar;
-	std::cout << G_ << " = g" << std::endl;
+	g_eigen = B_bar_.transpose() * Q_bar_ * A_bar_ * x_meas - B_bar_.transpose() * Q_bar_ * x_ref_bar;
+	//std::cout << g_eigen << " = g" << std::endl;
 	
 /*	for (int v = 0; v < g.rows() * g.cols(); v++){
 		g_array[v] = *g_ptr;
@@ -367,16 +369,16 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 		ROS_ASSERT(getmatrixM[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
 		m[i] = static_cast<double>(getmatrixM[i]);
 	}
-	ROS_INFO("nConst= %d states = %d", nConst_, states_);
-	Eigen::Map<Eigen::Matrix<double,3,2,Eigen::RowMajor> > M(m, nConst_, states_);
+	//ROS_INFO("nConst= %d states = %d", nConst_, states_);
+	Eigen::Map<Eigen::MatrixXd ,Eigen::RowMajor> M(m, nConst_, states_);
 
-	
+	/*
 	std::cout << LbA << " = LbA" << std::endl;
 	std::cout << UbA << " = UbA" << std::endl;
 	std::cout << Ub << " = Lb" << std::endl;
 	std::cout << Lb << " = Ub" << std::endl;
 	std::cout << M << " = M" << std::endl;
-
+	*/
 	Eigen::Map<Eigen::VectorXd> LbA_bar(lbA_bar_,nConst_*horizon_);
 	Eigen::Map<Eigen::VectorXd> UbA_bar(ubA_bar_,nConst_*horizon_);
 
@@ -390,13 +392,13 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 		Lb_bar.block(i * inputs_, 0, inputs_, 1) = Lb;
 		Ub_bar.block(i * inputs_, 0, inputs_, 1) = Ub;
 	}
-
+	/*
 	std::cout << LbA_bar << " = LbA_bar" << std::endl;
 	std::cout << UbA_bar << " = UbA_bar" << std::endl;
 
 	std::cout << Lb_bar << " = Lb_bar" << std::endl;
 	std::cout << Ub_bar << " = Ub_bar" << std::endl;
- 
+ 	*/
    
 
 	// Creation of the extended constraint matrix G_bar_
@@ -416,10 +418,22 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	UbA_bar = UbA_bar - M_bar * A_bar_ * x_meas;
        
 	// Mapping of the extended constraint matrix G_bar_
-	Eigen::Map<Eigen::Matrix<double, 15, 5, Eigen::RowMajor> > G_bar(G_bar_, nConst_ * horizon_, horizon_ * inputs_);
+	Eigen::Map<Eigen::MatrixXd, Eigen::RowMajor> G_bar(G_bar_, nConst_ * horizon_, horizon_ * inputs_);
        
 	G_bar = M_bar * B_bar_;
 
-	std::cout << G_bar << " = G_bar" << std::endl;
+	//std::cout << G_bar << " = G_bar" << std::endl;
+
+	// defining a standard number of working set recalculations and cputime
+
+	double * cputime = NULL;
+	
+
+	optimizer_->computeOpt(H_bar_, g_, G_bar_, lb_bar_, ub_bar_, lbA_bar_, ubA_bar_, cputime, optimalSol_);
+	
+	/*for (int i=0; i<nVar_; i++){
+		std::cout <<"Solution vector: solution["<< i <<"] = " << **(optSol + i) << std::endl;
+	}*/
+	
         
 }
