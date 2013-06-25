@@ -25,6 +25,8 @@ mpc::optimizer::qpOASES::qpOASES(ros::NodeHandle node_handle) : nh_opt_(node_han
 	if (nh_opt_.getParam("optimizer/number_constraints", nConst_)){	
 		ROS_INFO("Got param: number of constraints = %d", nConst_);
 	}
+	
+	nh_opt_.param<int>("optimizer/working_set_recalculation", nWSR_, 10);
 
 	if (nh_opt_.getParam("optimizer/number_variables", nVar_)){
 		
@@ -36,6 +38,9 @@ mpc::optimizer::qpOASES::qpOASES(ros::NodeHandle node_handle) : nh_opt_(node_han
 			//ROS_INFO("Number of variables != Prediction Horizon x number of Inputs --> Invalid number of variables");
 		//}
 	}
+	
+	initOnce_ = false;
+	solver_ = new SQProblem (nVar_, nConst_);
 
 	ROS_INFO("qpOASES solver class successfully initialized");
 
@@ -43,73 +48,49 @@ mpc::optimizer::qpOASES::qpOASES(ros::NodeHandle node_handle) : nh_opt_(node_han
 
 USING_NAMESPACE_QPOASES
 
-bool mpc::optimizer::qpOASES::initSolver(double *H, 
-										 double* g, 
+bool mpc::optimizer::qpOASES::computeOpt(double *H, 
+										 double *g, 
 										 double *G, 
 										 double *lb, 
 										 double *ub, 
 										 double *lbA, 
-										 double *ubA, 
-										 int &nWSR, 
-										 double *cputime)
+										 double *ubA,  
+										 double *cputime,
+										 double *optimalSol)
 {
-
-	solver_ = new QProblem (nVar_, nConst_);
-
 
 	/* Solve first QP. */
-	retval_ = solver_->init( H,g,G,lb,ub,lbA,ubA, nWSR );
-	
-	if (retval_ != SUCCESSFUL_RETURN){
+	if (!initOnce_){
+		
+		retval_ = solver_->init( H,g,G,lb,ub,lbA,ubA, nWSR_ );
 
-		ROS_ERROR("The qpOASES solver object could not be initialized");
-
+		if (retval_ == SUCCESSFUL_RETURN){
+			ROS_INFO("qpOASES problem successfully initiated");
+			initOnce_ = true;
+		}
 	}
 
-	return true;
-}
+	else {
+		
+		retval_ = solver_->hotstart( g,lb,ub,lbA,ubA, nWSR_, cputime );
 
-bool mpc::optimizer::qpOASES::hotstartSolver(double *g_new, 
-											double *G_new, 
-											double *lb_new, 
-											double *ub_new, 
-											double *lbA_new, 
-											double *ubA_new, 
-											int &nWSR, 
-											double *cputime,
-											double **optSol)
-{
-	
-	/* Solve second QP. */
-	retval_ = solver_->hotstart( g_new,lb_new,ub_new,lbA_new,ubA_new, nWSR );
+		if (retval_ == SUCCESSFUL_RETURN){
 
-	if (retval_ != SUCCESSFUL_RETURN){
+			ROS_INFO("The quadratic problem was successfully solved");
+			solver_->getPrimalSolution( optimalSol );
 
-		ROS_ERROR("The quadratic problem was not successfully solved");
+			std::cout <<"\noptimal Solution = "<< optimalSol[0] << std::endl;
 
-	}
-	
-	/*double **address_array = 0;
-	*address_array = *optSol;
-	double *sol_array = 0;
-	*sol_array = **address_array;*/
-	
-	
+			std::cout<<"objVal ="<< solver_->getObjVal() << std::endl;
+		}
 
+		else if (retval_ == RET_MAX_NWSR_REACHED)
+			ROS_INFO("1");
 
-	// Obtaining the solution
-	solver_->getPrimalSolution( *optSol );
-	//Eigen::Map<Eigen::Matrix<double,5,1,Eigen::RowMajor> > optimalSolution(optSol,horizon_,inputs_);
-
-	
-	
-	for (int i=0; i<nVar_; i++){
-		std::cout <<"\noptSol["<< i <<"] = "<< **(optSol + i) << std::endl;
+		else 
+			ROS_INFO("2");
 	}
 
-	
-	//std::cout<<"Optimal Solution ="<< optimalSolution << std::endl;	
-	std::cout<<"objVal ="<< solver_->getObjVal() << std::endl;
-	
+		
 	return true;
 }
