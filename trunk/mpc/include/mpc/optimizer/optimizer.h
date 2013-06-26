@@ -35,9 +35,11 @@ namespace mpc
 			 @param int &nWSR number of working set recalculations
 			 @param double *cputime pointer to the defined time to solve the optimization problem. If NULL, it provides on output the actual calculation time of the optimization problem.
 			 */
-			virtual bool computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbA, double *ubA, double *cputime, double *optimalSol) = 0;
+			virtual bool computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbA, double *ubA, double *cputime) = 0;
 
 			//virtual bool hotstartSolver(double* g_new, double *lb_new, double *ub_new, double *lbA_new, double *ubA_new, int &nWSR, double *cputime, double *optimalSol) = 0;
+		
+			virtual double* getOptimalSolution() = 0;
 			 
 			virtual int getConstraintNumber() const;
 								

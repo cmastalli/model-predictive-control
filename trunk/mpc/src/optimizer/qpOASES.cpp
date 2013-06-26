@@ -41,6 +41,7 @@ mpc::optimizer::qpOASES::qpOASES(ros::NodeHandle node_handle) : nh_opt_(node_han
 	
 	initOnce_ = false;
 	solver_ = new SQProblem (nVar_, nConst_);
+	optimalSol_ = new double[nVar_];
 
 	ROS_INFO("qpOASES solver class successfully initialized");
 
@@ -55,8 +56,7 @@ bool mpc::optimizer::qpOASES::computeOpt(double *H,
 										 double *ub, 
 										 double *lbA, 
 										 double *ubA,  
-										 double *cputime,
-										 double *optimalSol)
+										 double *cputime)
 {
 
 	/* Solve first QP. */
@@ -77,20 +77,40 @@ bool mpc::optimizer::qpOASES::computeOpt(double *H,
 		if (retval_ == SUCCESSFUL_RETURN){
 
 			ROS_INFO("The quadratic problem was successfully solved");
-			solver_->getPrimalSolution( optimalSol );
+			solver_->getPrimalSolution( optimalSol_ );
 
-			std::cout <<"\noptimal Solution = "<< optimalSol[0] << std::endl;
-
+			// Solution printing
+			//std::cout <<"\noptimal Solution = "<< optimalSol_[0] << std::endl;
 			std::cout<<"objVal ="<< solver_->getObjVal() << std::endl;
+			return true;
 		}
 
-		else if (retval_ == RET_MAX_NWSR_REACHED)
+		else if (retval_ == RET_MAX_NWSR_REACHED){
 			ROS_INFO("1");
-
-		else 
+			return false;
+		}
+		else { 
 			ROS_INFO("2");
+			return false;
+		}
+
 	}
 
 		
-	return true;
+	
 }
+
+double* mpc::optimizer::qpOASES::getOptimalSolution()
+{
+	if (retval_ == SUCCESSFUL_RETURN){
+		return optimalSol_;
+	}
+	else{
+		return NULL;
+		ROS_ERROR("An optimal solution was not found");
+	}
+}
+
+
+
+

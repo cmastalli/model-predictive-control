@@ -99,7 +99,7 @@ namespace mpc
 			double *g_;
 
 			/** Optimal solution vector **/
-			double *optimalSol_;
+			double *STDMPCSol_;
 			
 			
 	}; //@class StandardMPC

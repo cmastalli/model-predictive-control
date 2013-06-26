@@ -12,27 +12,26 @@ mpc::example_models::TanksSystemSimulator::TanksSystemSimulator()
 {
 	param1_ = 0.2552;
 	param2_ = 0.0508; 
+	state_vect_ = new double[2];
 }
 
 
-void mpc::example_models::TanksSystemSimulator::simulatePlant(double states[], double input, double samplingTime, double &output){
+double* mpc::example_models::TanksSystemSimulator::simulatePlant(double *state_vect, double input_vect, double samplingTime	)
+{
 
 // Assignment of the readed variables
 
-double V_k = input;
+	//double Hone_k = *state_vect;	// Level of the first tank in the current time step
+	//double Htwo_k = *(state_vect + 1);	// Level of the second tank in the current time step
+	state_vect_ = state_vect;
 
-double Hone_k = states[0];	// Level of the first tank in the current time step
-double Htwo_k = states[1];	// Level of the second tank in the current time step
+	// Solve the difference equations recursively
 
+	*state_vect_ = *state_vect_ + samplingTime*param1_*input_vect - samplingTime*param2_*sqrt(*state_vect_);
 
-// Solve the difference equations recursively
-
-Hone_k = Hone_k + samplingTime*param1_*V_k - samplingTime*param2_*sqrt(Hone_k);
-
-Htwo_k = Htwo_k + samplingTime*param2_*sqrt(Hone_k) - samplingTime*param2_*sqrt(Htwo_k);
-
-output = Htwo_k;
+	*(state_vect_ + 1) = *(state_vect_ + 1) + samplingTime*param2_*sqrt(*(state_vect_)) - samplingTime*param2_*sqrt(*(state_vect_ + 1));
 
 
+	return state_vect_; 
 
 }
