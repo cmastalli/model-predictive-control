@@ -28,14 +28,14 @@ namespace mpc
 		/**
 		 @brief Destructor
 		 */
-		~Simulator();
+		~Simulator() {};
 
 
 		/**
 		 @brief Function used to simulate the specified plant 
 		 @param mpc::model::Model *model 	pointer to the process model class "Model"
 		 */
-		virtual void simulatePlant(double states[], double input, double samplingTime, double &output) = 0;
+		virtual double* simulatePlant(double *state_vect, double input_vect, double samplingTime) = 0;
 
 
 	    protected:

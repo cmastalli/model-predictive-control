@@ -29,14 +29,14 @@ namespace mpc
 				/**
 				 @brief Destructor
 				 */
-				~TanksSystemSimulator();
+				~TanksSystemSimulator() {};
 
 
 				/**
 				 @brief Function used to simulate the specified plant 
 				 @param mpc::model::Model *model 	pointer to the process model class "Model"
 				 */
-				void simulatePlant(double states[], double input, double samplingTime, double &output);
+				double* simulatePlant(double *state_vect, double input_vect, double samplingTime);
 
 
 		    protected:
@@ -45,6 +45,7 @@ namespace mpc
 		    private:
 
 				double param1_, param2_;
+				double * state_vect_;
 
 	  
 		};  //@class TanksSystemSimulator

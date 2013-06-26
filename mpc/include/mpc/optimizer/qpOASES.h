@@ -34,8 +34,7 @@ namespace mpc
 										double *ub, 
 										double *lbA, 
 										double *ubA, 
-										double *cputime,
-										double *optimalSol);
+										double *cputime);
 
 				/*virtual bool hotstartSolver(double *g_new,  
 											double *lb_new, 
@@ -46,9 +45,14 @@ namespace mpc
 											double *cputime,
 											double *optimalSol);	// In here, the address of the solution array is passed (&optSol)*/
 
+				/*
+				@brief When called, this function returns the optimal solution vector, optimalSol_
+				*/
+				double* getOptimalSolution();
+
 			protected:
 
-
+				double * optimalSol_;
 				returnValue retval_;
 				ros::NodeHandle nh_opt_;
 
@@ -56,10 +60,11 @@ namespace mpc
 				
 
 				//int &nWSR;	//number of working set recalculations
-				/* QProblem object which is used to solve the quadratic problem */
+				/* SQProblem object which is used to solve the quadratic problem */
 				SQProblem *solver_;
 				bool initOnce_;
 				int nWSR_;
+				
 				
 		}; // @class qpOASES
 

@@ -92,7 +92,7 @@ bool mpc::STDMPC::initMPC()
 	ub_bar_ = new double [horizon_ * inputs_];
 
 	G_bar_ = new double [horizon_ * nConst_ * horizon_ * inputs_];
-	optimalSol_ = new double[nVar_];
+	STDMPCSol_ = new double[nVar_];
 
 	// Initialization of state space matrices
 	Eigen::MatrixXd Ass(states_, states_);
@@ -428,12 +428,18 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 
 	double * cputime = NULL;
 	
+	bool success = false;
+	success = optimizer_->computeOpt(H_bar_, g_, G_bar_, lb_bar_, ub_bar_, lbA_bar_, ubA_bar_, cputime);
 
-	optimizer_->computeOpt(H_bar_, g_, G_bar_, lb_bar_, ub_bar_, lbA_bar_, ubA_bar_, cputime, optimalSol_);
+	if (success){
+
+		STDMPCSol_ = optimizer_->getOptimalSolution();
+		for (int i=0; i<nVar_; i++){
+			std::cout <<"Solution vector: solution["<< i <<"] = " << *(STDMPCSol_ + i) << std::endl;
+		}	
 	
-	/*for (int i=0; i<nVar_; i++){
-		std::cout <<"Solution vector: solution["<< i <<"] = " << **(optSol + i) << std::endl;
-	}*/
-	
+	}
+	else 
+		ROS_ERROR("An optimal solution could not be obtained");
         
 }
