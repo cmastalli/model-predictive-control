@@ -16,7 +16,7 @@ mpc::example_models::TanksSystemSimulator::TanksSystemSimulator()
 }
 
 
-double* mpc::example_models::TanksSystemSimulator::simulatePlant(double *state_vect, double input_vect, double samplingTime	)
+double* mpc::example_models::TanksSystemSimulator::simulatePlant(double *state_vect, double *input_vect, double samplingTime	)
 {
 
 // Assignment of the readed variables
@@ -27,7 +27,7 @@ double* mpc::example_models::TanksSystemSimulator::simulatePlant(double *state_v
 
 	// Solve the difference equations recursively
 
-	*state_vect_ = *state_vect_ + samplingTime*param1_*input_vect - samplingTime*param2_*sqrt(*state_vect_);
+	*state_vect_ = *state_vect_ + samplingTime*param1_*(*input_vect) - samplingTime*param2_*sqrt(*state_vect_);
 
 	*(state_vect_ + 1) = *(state_vect_ + 1) + samplingTime*param2_*sqrt(*(state_vect_)) - samplingTime*param2_*sqrt(*(state_vect_ + 1));
 

@@ -28,10 +28,17 @@ int main(int argc, char **argv)
 	double x_ref[2] = {8, 12};
 	double x_meas[2] = {0, 0};
 
+
+	double samplingTime = 0.02;
+	double *input_k;
+
     timespec start_rt, end_rt;
     clock_gettime(CLOCK_REALTIME, &start_rt);
-	for (int i = 0; i<5; i++)
+	for (int i = 0; i<5; i++){
 		mpc_ptr->updateMPC(x_meas, x_ref);
+		input_k = mpc_ptr->STDMPCSol_;
+		x_meas = simulator_ptr->simulatePlant(x_meas, input_k, samplingTime);
+	}
 
 	clock_gettime(CLOCK_REALTIME, &end_rt);
 	double duration = (end_rt.tv_sec - start_rt.tv_sec) + 1e-9*(end_rt.tv_nsec - start_rt.tv_nsec);
