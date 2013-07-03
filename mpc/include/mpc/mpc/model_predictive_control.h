@@ -52,6 +52,8 @@ namespace mpc
 			//virtual void updateMPC(Eigen::MatrixXd x_measured, Eigen::MatrixXd x_reference) = 0;
 
 
+			double * STDMPCSol_;
+
         protected:
 			mpc::model::Model *model_;
 			
@@ -62,6 +64,8 @@ namespace mpc
 			int states_, inputs_, outputs_, horizon_;
 			
 			Eigen::MatrixXd Q_, P_, R_;
+
+			
 			
 		private:
 		
