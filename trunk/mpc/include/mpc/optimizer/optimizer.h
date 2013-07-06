@@ -28,6 +28,10 @@ namespace mpc
 			 */
 			~Optimizer() {};
 
+			/**
+			 @brief Function to define the initialization of optimizer
+			 */
+			virtual bool init() = 0;
 
 			/**
 			 @brief Function to define the cost function associated to the MPC problem 
@@ -35,7 +39,7 @@ namespace mpc
 			 @param int &nWSR number of working set recalculations
 			 @param double *cputime pointer to the defined time to solve the optimization problem. If NULL, it provides on output the actual calculation time of the optimization problem.
 			 */
-			virtual bool computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbA, double *ubA, double *cputime) = 0;
+			virtual bool computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbA, double *ubA, double cputime) = 0;
 
 			//virtual bool hotstartSolver(double* g_new, double *lb_new, double *ub_new, double *lbA_new, double *ubA_new, int &nWSR, double *cputime, double *optimalSol) = 0;
 		
@@ -43,14 +47,18 @@ namespace mpc
 			 
 			virtual int getConstraintNumber() const;
 								
-			virtual int getVariableNumber() const; 
+			virtual int getVariableNumber() const;
 
-			virtual int getHorizon() const; 
+			virtual void setHorizon(int horizon);
 
-		    
+			virtual void setVariableNumber(int nVar);
+			
+   			int nVar_, nConst_, horizon_;
+   			
+   			
 			protected:
 			
-			int nVar_, nConst_, horizon_;
+
 
 		    private:
 
@@ -72,9 +80,14 @@ inline int mpc::optimizer::Optimizer::getVariableNumber() const
 	return nVar_;
 }
 
-inline int mpc::optimizer::Optimizer::getHorizon() const
+inline void mpc::optimizer::Optimizer::setHorizon(int horizon)
 {
-	return horizon_;
+	horizon_ = horizon;
+}
+
+inline void mpc::optimizer::Optimizer::setVariableNumber(int nVar)
+{
+	nVar_ = nVar;
 }
 
 #endif

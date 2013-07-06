@@ -34,7 +34,7 @@ namespace mpc
              @param mpc::optimizer::Optimizer *optimizer pointer to the optimization library to be used in the algorithm
              @param mpc::model::Simulator *simulator pointer to the simulator class used to predict the states
              */
-            virtual void resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator) = 0;
+            virtual bool resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator) = 0;
 
             /*
              @brief function to initialize the calculation of the MPC algorithm
@@ -50,9 +50,9 @@ namespace mpc
              */
             virtual void updateMPC(double* x_measured, double* x_reference) = 0;
 			//virtual void updateMPC(Eigen::MatrixXd x_measured, Eigen::MatrixXd x_reference) = 0;
+			
+			virtual double* getControlSignal() const;
 
-
-			double * STDMPCSol_;
 
         protected:
 			mpc::model::Model *model_;
@@ -65,7 +65,8 @@ namespace mpc
 			
 			Eigen::MatrixXd Q_, P_, R_;
 
-			
+			double* mpc_solution_;
+						
 			
 		private:
 		
@@ -75,7 +76,10 @@ namespace mpc
 }; //@namespace mpc
 
 
-
+inline double* mpc::ModelPredictiveControl::getControlSignal() const
+{
+	return mpc_solution_;
+}
 
 
 #endif

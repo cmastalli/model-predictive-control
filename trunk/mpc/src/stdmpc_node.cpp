@@ -8,11 +8,9 @@
 
 
 
-/** Example for qpOASES main function using the QProblem class. */
 int main(int argc, char **argv)
 {
 	ros::init(argc, argv, "mpc");
-
 	ros::NodeHandle node_handle("mpc");
 
 
@@ -22,22 +20,24 @@ int main(int argc, char **argv)
 
 	mpc::ModelPredictiveControl *mpc_ptr = new mpc::STDMPC(node_handle);
 
+
 	mpc_ptr->resetMPC(model_ptr, optimizer_ptr, simulator_ptr);
 	mpc_ptr->initMPC();
+
 
 	double x_ref[2] = {8, 12};
 	double x_meas[2] = {0, 0};
 
+//	double samplingTime = 0.02;
+	double *control_signal;
 
-	double samplingTime = 0.02;
-	double *input_k;
 
     timespec start_rt, end_rt;
     clock_gettime(CLOCK_REALTIME, &start_rt);
-	for (int i = 0; i<5; i++){
+	for (int i = 0; i < 5; i++) {
 		mpc_ptr->updateMPC(x_meas, x_ref);
-		input_k = mpc_ptr->STDMPCSol_;
-		x_meas = simulator_ptr->simulatePlant(x_meas, input_k, samplingTime);
+		control_signal = mpc_ptr->getControlSignal();
+//		x_meas = simulator_ptr->simulatePlant(x_meas, control_signal, samplingTime);
 	}
 
 	clock_gettime(CLOCK_REALTIME, &end_rt);
