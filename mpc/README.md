@@ -35,6 +35,7 @@ Prerequisites
 * [python-control](http://python-control.sourceforge.net/manual/index.html)
 * [Slycot](https://github.com/avventi/Slycot)
 * [PyYAML](http://pyyaml.org/wiki/PyYAMLDocumentation)
+* [CVXOPT](http://cvxopt.org/install/index.html) for ATLAS installation: (http://sciruby.com/docs/installation/atlas.html)
 
 Quadrotor example
 -----------------

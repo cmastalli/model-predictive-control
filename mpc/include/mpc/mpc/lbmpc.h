@@ -19,7 +19,7 @@ namespace mpc
 			
 			~LBMPC() {};
 			
-			virtual void resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator);
+			virtual bool resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator);
 			
 			virtual bool initMPC();			
 			

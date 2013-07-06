@@ -19,23 +19,9 @@ namespace mpc
 			STDMPC(ros::NodeHandle node_handle);
 			
 			// Destructor
-			~STDMPC() {
-				delete lbA_;
-				delete ubA_;
-
-				delete lb_;
-				delete ub_;
-
-				delete lbA_bar_;
-				delete ubA_bar_;
-
-				delete lb_bar_;
-				delete ub_bar_;
-				
-				delete G_bar_;
-			}
+			~STDMPC();
 			
-			virtual void resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator);
+			virtual bool resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator);
 			
 			virtual bool initMPC();			
 			
@@ -47,60 +33,41 @@ namespace mpc
 			virtual void updateMPC(double* x_measured, double* x_reference);
 			//virtual void updateMPC(Eigen::MatrixXd x_measured, Eigen::MatrixXd x_reference);
 			
+			
 		protected:
 			/** Number of constraints **/
-			int nConst_;
+			int constraints_;
 
 			/** Number of variables (= horizon_*inputs_) **/
-			int nVar_;
+			int variables_;
 
 			/** Prediction horizon for the algorithm **/
 			int horizon_;
-
+			
+			
 		private:
+			/** Node handle **/
 			ros::NodeHandle nh_;
 			
-			mpc::model::Model *model_;
+			Eigen::MatrixXd A_, B_, C_;
 
-			mpc::optimizer::Optimizer *optimizer_;
+			/** Extended A and B matrices **/
+			Eigen::MatrixXd A_bar_, B_bar_;
 
-			mpc::model::Simulator *simulator_;
+			/** Extended Q and R matrix **/
+			Eigen::MatrixXd Q_bar_, R_bar_;
 			
-			int states_, inputs_, outputs_;
 
-			/** Constraint vectors**/
-			double *lbA_, *ubA_;
-
-			/** Bound vectors **/
-			double *lb_, *ub_;
-
-			/** Extended constraint vectors **/
-			double *lbA_bar_, *ubA_bar_;
-
-			/** Extended bound vectors **/
-			double *lb_bar_, *ub_bar_;
-
-			/** Extended constraint matrix **/
-			double *G_bar_; 
-
-			/** Extended A matrix **/
-			Eigen::MatrixXd A_bar_;
-
-			/** Extended B matrix **/
-			Eigen::MatrixXd B_bar_;
-
-			/** Extended Q matrix **/
-			Eigen::MatrixXd Q_bar_;
-
-			/** Hessian Matrix array **/
-			double *H_bar_;
-
-			/** Gradient Matrix array **/
-			double *g_;
-
-			/** Optimal solution vector **/
-			double *STDMPCSol_;
+			Eigen::MatrixXd M_bar_;
 			
+
+			Eigen::VectorXd lbG_bar_, ubG_bar_;
+			
+
+			Eigen::VectorXd lb_bar_, ub_bar_;
+
+			
+			std::vector<Eigen::MatrixXd> A_pow_;
 			
 	}; //@class StandardMPC
 

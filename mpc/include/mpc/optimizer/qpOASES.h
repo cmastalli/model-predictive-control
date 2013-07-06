@@ -21,48 +21,39 @@ namespace mpc
 				//Destructor
 				~qpOASES() {}
 
+				/**
+				 @brief Function to define the initialization of qpOASES optimizer
+				 */
+				virtual bool init();
 
 			   /**
 				 @brief Function to solve the optimization problem formulated in the MPC  
 				 @param Eigen::VectorXd x_k 		state vector
 				 @param Eigen::VectorXd x_ref		reference vector 
 				 */
-				virtual bool computeOpt(double *H, 
-										double *g, 
-										double *G, 
-										double *lb, 
-										double *ub, 
-										double *lbA, 
-										double *ubA, 
-										double *cputime);
-
-				/*virtual bool hotstartSolver(double *g_new,  
-											double *lb_new, 
-											double *ub_new, 
-											double *lbA_new, 
-											double *ubA_new, 
-											int &nWSR, 
-											double *cputime,
-											double *optimalSol);	// In here, the address of the solution array is passed (&optSol)*/
+				virtual bool computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbA, double *ubA, double cputime);
 
 				/*
 				@brief When called, this function returns the optimal solution vector, optimalSol_
 				*/
 				double* getOptimalSolution();
 
+
 			protected:
 
-				double * optimalSol_;
+				double * optimal_solution_;
 				returnValue retval_;
-				ros::NodeHandle nh_opt_;
+
 
 			private:
-				
+				ros::NodeHandle nh_;				
 
 				//int &nWSR;	//number of working set recalculations
 				/* SQProblem object which is used to solve the quadratic problem */
 				SQProblem *solver_;
-				bool initOnce_;
+				
+				bool qpOASES_initialized_;
+				
 				int nWSR_;
 				
 				

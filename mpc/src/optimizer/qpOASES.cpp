@@ -6,109 +6,78 @@
 #include <mpc/model/model.h>
 #include <mpc/optimizer/optimizer.h>
 
-/********************************************************************
-
-NOTE: in the mapping function specified below, the size of the correspondent matrix must be entered manually, since the Map function
-cannot take a variable as an argument.
-
-*********************************************************************/
-
-
-mpc::optimizer::qpOASES::qpOASES(ros::NodeHandle node_handle) : nh_opt_(node_handle)
-{
-	
-	// Reading the parameters required for the solver
-	if (nh_opt_.getParam("horizon", horizon_)){	
-			ROS_INFO("Got param: horizon = %d", horizon_);		
-	}
-	
-	if (nh_opt_.getParam("optimizer/number_constraints", nConst_)){	
-		ROS_INFO("Got param: number of constraints = %d", nConst_);
-	}
-	
-	nh_opt_.param<int>("optimizer/working_set_recalculation", nWSR_, 10);
-
-	if (nh_opt_.getParam("optimizer/number_variables", nVar_)){
-		
-		//if (nVar_ == horizon_*inputs_){
-			ROS_INFO("Got param: number of variables = %d", nVar_);	// TODO perform the check of nVar = horizon x inputs in the STDMPC class!!!
-		//}
-
-		//else {
-			//ROS_INFO("Number of variables != Prediction Horizon x number of Inputs --> Invalid number of variables");
-		//}
-	}
-	
-	initOnce_ = false;
-	solver_ = new SQProblem (nVar_, nConst_);
-	optimalSol_ = new double[nVar_];
-
-	ROS_INFO("qpOASES solver class successfully initialized");
-
-}
 
 USING_NAMESPACE_QPOASES
 
-bool mpc::optimizer::qpOASES::computeOpt(double *H, 
-										 double *g, 
-										 double *G, 
-										 double *lb, 
-										 double *ub, 
-										 double *lbA, 
-										 double *ubA,  
-										 double *cputime)
+
+mpc::optimizer::qpOASES::qpOASES(ros::NodeHandle node_handle) : nh_(node_handle)
 {
+	nVar_ = 0;
+	nConst_ = 0;
+	horizon_ = 0;
+}
 
-	/* Solve first QP. */
-	if (!initOnce_){
-		
-		retval_ = solver_->init( H,g,G,lb,ub,lbA,ubA, nWSR_ );
+bool mpc::optimizer::qpOASES::init()
+{
+	// reading the parameters required for the solver
+	if (nh_.getParam("optimizer/number_constraints", nConst_)) {
+		ROS_INFO("Got param: number of constraints = %d", nConst_);
+	}
+	
+	nh_.param<int>("optimizer/working_set_recalculations", nWSR_, 10);
+	ROS_INFO("Got param: number of working set recalculations = %d", nWSR_);
+	
+	if (nVar_ == 0 || nConst_ == 0 || horizon_ == 0)
+		return false;
+	
+	qpOASES_initialized_ = false;
+	solver_ = new SQProblem(nVar_, nConst_, HST_SEMIDEF);
+/*	Options myOptions;
+	myOptions.setToReliable();
+	myOptions.printLevel = PL_LOW;
+	solver_->setOptions(myOptions);*/
+	
+	optimal_solution_ = new double[nVar_];
+	
+	
+	ROS_INFO("qpOASES solver class successfully initialized.");
+	return true;
+}
 
-		if (retval_ == SUCCESSFUL_RETURN){
-			ROS_INFO("qpOASES problem successfully initiated");
-			initOnce_ = true;
+
+bool mpc::optimizer::qpOASES::computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbA, double *ubA, double cputime)
+{
+	// solve first QP.
+	if (!qpOASES_initialized_) {
+		retval_ = solver_->init(H, g, G, lb, ub, lbA, ubA, nWSR_);
+		if (retval_ == SUCCESSFUL_RETURN) {
+			ROS_INFO("qpOASES problem successfully initialized");
+			qpOASES_initialized_ = true;
 		}
 	}
-
 	else {
-		
-		retval_ = solver_->hotstart( g,lb,ub,lbA,ubA, nWSR_, cputime );
+		retval_ = solver_->hotstart(g, lb, ub, lbA, ubA, nWSR_, &cputime);
 
-		if (retval_ == SUCCESSFUL_RETURN){
-
-			ROS_INFO("The quadratic problem was successfully solved");
-			solver_->getPrimalSolution( optimalSol_ );
-
-			// Solution printing
-			//std::cout <<"\noptimal Solution = "<< optimalSol_[0] << std::endl;
-			std::cout<<"objVal ="<< solver_->getObjVal() << std::endl;
+		if (retval_ == SUCCESSFUL_RETURN) {
+			solver_->getPrimalSolution(optimal_solution_);
 			return true;
 		}
-
-		else if (retval_ == RET_MAX_NWSR_REACHED){
-			ROS_INFO("1");
+		else if (retval_ == RET_MAX_NWSR_REACHED) {
+			ROS_WARN("The QP couldn't solve because the maximun number of WSR was reached.");
 			return false;
 		}
 		else { 
-			ROS_INFO("2");
+			ROS_WARN("The QP couldn't find the solution.");
 			return false;
 		}
-
 	}
-
-		
 	
+	return true;
 }
 
 double* mpc::optimizer::qpOASES::getOptimalSolution()
 {
-	if (retval_ == SUCCESSFUL_RETURN){
-		return optimalSol_;
-	}
-	else{
-		return NULL;
-		ROS_ERROR("An optimal solution was not found");
-	}
+		return optimal_solution_;
 }
 
 

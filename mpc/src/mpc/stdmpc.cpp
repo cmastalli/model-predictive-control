@@ -7,439 +7,285 @@
 
 
 
-/********************************************************************
 
-NOTE: in the mapping function specified below, the size of the correspondent matrix must be entered manually, since the Map function
-cannot take a variable as an argument.
-
-*********************************************************************/
-
-
-
-mpc::STDMPC::STDMPC(ros::NodeHandle node_handle) : nh_(node_handle)
+mpc::STDMPC::STDMPC(ros::NodeHandle node_handle) : nh_(node_handle)//, model_(0), optimizer_(0), simulator_(0)
 {
 	model_ = 0;
 	optimizer_ = 0;
 	simulator_ = 0;
-
-	ROS_INFO("STDMPC class successfully initialized");
 }
 
-/************************************************************************************************************
-	mpc::STDMPC::resetMPC() function
-************************************************************************************************************/
 
-void mpc::STDMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator)
+mpc::STDMPC::~STDMPC()
 {
 
-	if (model_ == 0){
-		model_ = model;
-	}
-	else{
-		ROS_INFO("Argument model_ pointer must not be NULL");
-	}
-
-	if (optimizer_ == 0){
-		optimizer_ = optimizer;;
-	}
-	else{
-		ROS_INFO("Argument optimizer_ pointer must not be NULL");
-	}
-
-	if (simulator_ == 0){
-		simulator_ = simulator;
-	}
-	else{
-		ROS_INFO("Argument simulator_ pointer must not be NULL");
-	}
+}
 
 
-	// Reading of the problem variables
+bool mpc::STDMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator)
+{
+	// setting of the pointer of the model, optimizer and simulator classes
+	model_ = model;
+	optimizer_ = optimizer;
+	simulator_ = simulator;
+	
+	// reading of the horizon value of the model predictive control algorithm
+	nh_.param<int>("horizon", horizon_, 30);
+	ROS_INFO("Got param: horizon = %d", horizon_);
+
+	// reading of the problem variables
 	states_ = model_->getStatesNumber();
 	inputs_ = model_->getInputsNumber();
 	outputs_ = model_->getOutputsNumber();
-	nVar_ = optimizer_->getVariableNumber();
-	nConst_ = optimizer_->getConstraintNumber();
-	horizon_ = optimizer_->getHorizon();	
 
-	ROS_INFO("Reset successful");
-}
+	variables_ = horizon_ * inputs_;
+	optimizer_->setHorizon(horizon_);
+	optimizer_->setVariableNumber(variables_);
 
-/************************************************************************************************************
-	mpc::STDMPC::initMPC() function
-************************************************************************************************************/
-
-bool mpc::STDMPC::initMPC()
-{
-	
-
-	ROS_INFO("states: %d inputs: %d constraints: %d horizon: %d", states_, inputs_, nConst_, horizon_);
-	Eigen::MatrixXd qss_(states_, states_);
-	Eigen::MatrixXd pss_(states_, states_);
-	Eigen::MatrixXd rss_(inputs_, inputs_);
-
-	// Initialization of global variables 
-	lbA_ = new double [nConst_];
-	ubA_ = new double [nConst_];
-
-	lb_ = new double [inputs_];
-	ub_ = new double [inputs_];
-	
-	lbA_bar_ = new double [nConst_ * horizon_];
-	ubA_bar_ = new double [nConst_ * horizon_];
-
-	lb_bar_ = new double [horizon_ * inputs_];
-	ub_bar_ = new double [horizon_ * inputs_];
-
-	G_bar_ = new double [horizon_ * nConst_ * horizon_ * inputs_];
-	STDMPCSol_ = new double[nVar_];
-
-	// Initialization of state space matrices
-	Eigen::MatrixXd Ass(states_, states_);
-	Eigen::MatrixXd Bss(states_, inputs_);
-	Eigen::MatrixXd Css(outputs_, states_);
-
-	// Obtention of the model parameters
-	model_->computeDynamicModel(Ass, Bss, Css);
-
-
-	XmlRpc::XmlRpcValue getQ, getR, getP;
-
-	// Fetch matrix Q and P
-	nh_.getParam("optimizer/states_error_weight_matrix/data", getQ);
-	ROS_ASSERT(getQ.getType() == XmlRpc::XmlRpcValue::TypeArray);		
-
-	nh_.getParam("optimizer/terminal_state_weight_matrix/data", getP);
-	ROS_ASSERT(getP.getType() == XmlRpc::XmlRpcValue::TypeArray);
-	
-    int z=0;
-	for (int i = 0; i < states_; i++) {
-		for (int j = 0; j < states_; j++){
-			ROS_ASSERT(getQ[z].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-			qss_(i,j) = static_cast<double>(getQ[z]);
-
-			ROS_ASSERT(getP[z].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-			pss_(i,j) = static_cast<double>(getP[z]);
-			
-			z++;
-		}
+	if (!optimizer_->init()) {
+		ROS_INFO("Could not initialized the optimizer class.");
+		return false;
 	}
+	constraints_ = optimizer_->getConstraintNumber();
 
 
-	// Fetch matrix R
-	nh_.getParam("optimizer/input_error_weight_matrix/data", getR);	
-	ROS_ASSERT(getR.getType() == XmlRpc::XmlRpcValue::TypeArray);
-	
-    z=0;
-	for (int i = 0; i < inputs_; i++) {
-		for (int j = 0; j < inputs_; j++){
-
-		ROS_ASSERT(getR[z].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-		rss_(i,j) = static_cast<double>(getR[z]);
-		
-		z++;
-		}
-	}
-
-
-
-	
-/*	
-	std::cout << qss_ <<" = Qss" << std::endl;
-	std::cout << pss_ <<" = Pss" << std::endl;
-	std::cout << rss_ <<" = Rss" << std::endl;
-*/
-
-
-	//CREATION OF THE A MATRIX
-	static Eigen::MatrixXd A((horizon_ + 1) * states_, states_);
-	Eigen::MatrixXd An(states_, states_);
-
-    //Assign the identity matrix to the first position of the matrix A
-    A.block(0, 0, states_, states_) = Eigen::MatrixXd::Identity(states_, states_); 
-
-    //Loop to fill the A matrix with the corresponding power of Ass
-	Eigen::MatrixXd temp_1(states_,states_);
-	temp_1 = Eigen::MatrixXd::Identity(states_,states_);
-    for (int i = 1; i <= horizon_; i++) {
-		// Loop to raise the current matrix to the j-th power
-		An = Ass;	
-		temp_1 = An * temp_1;
-		An = temp_1;
-	
-		A.block(i*states_,0,states_,states_) = An;
-    }
-
-	A_bar_ = A; 
-	//std::cout << A_bar_ << " = A_bar" << std::endl;	
-
-	//CREATION OF THE B MATRIX
-	static Eigen::MatrixXd B = Eigen::MatrixXd::Zero((horizon_ + 1) * states_, horizon_ * inputs_); 
-	Eigen::MatrixXd Bn(states_,states_);
-	Eigen::MatrixXd temp_2(states_,states_);
-	temp_2 = Eigen::MatrixXd::Identity(states_,states_);
-
-	//Creation of the standard vector to define the first row
-	std::vector<Eigen::MatrixXd> base;
-	base.push_back(Eigen::MatrixXd::Zero(states_,inputs_));
-	base.push_back(Bss);
-
-
-	//CREATING THE BASE VECTOR
-	Eigen::MatrixXd aux(states_,inputs_);
-	//Loop to fill the rest of the elements of the vector
-	for (int ii = 0; ii < horizon_ - 1; ii++) {
-		//Loop to perform the power raising of the A matrix in each case
-								
-		// Recursive multiplication to raise to the i-th power		
-		Bn = Ass;
-		temp_2 = Bn*temp_2;
-		Bn = temp_2;
-		
-		aux = Bn * Bss; 
-		base.push_back(aux);
-	}
-
-
-	//USING THE BASE VECTOR TO FILL UP THE B MATRIX
-	// Loop to assign and resize the base vector to matrix B
-	for (int j = 0; j < horizon_; j++) {
-		int z = 0;
-		// Assignment of each individual element of the base vector
-		for(int k = j; k < (int) base.size(); k++) {
-			B.block(k*states_, j*inputs_, states_, inputs_) = base[z];
-			z++;
-		}
-	}
-	B_bar_ = B; 
-	//std::cout << B_bar_ << " = B_bar" << std::endl;
-	
-
-
-	//CREATION OF THE Q MATRIX
-	Eigen::MatrixXd Q((horizon_ + 1) * states_, (horizon_ + 1) * states_);
-
-	for (int i = 0; i < horizon_ + 1; i++) {
-		for (int j = 0; j < horizon_ + 1; j++) {
-			if (i == j)
-				Q.block(i * states_, j * states_, states_, states_) = qss_;
-			else if ((i == horizon_ + 1) && (j == horizon_ + 1))
-				Q.block(i * states_, j * states_, states_, states_) = pss_;
-			else
-				Q.block(i * states_, j * states_, states_, states_) = Eigen::MatrixXd::Zero(states_, states_);
-		}
-	} 
-
-	Q_bar_ = Q; 
-	//std::cout << Q_bar_ << " = Q_bar" << std::endl;
-
-	//CREATION OF THE R MATRIX
-	Eigen::MatrixXd R(horizon_ * inputs_, horizon_ * inputs_);
-
-	for (int i = 0; i < horizon_; i++) {
-		for (int j = 0; j < horizon_; j++) {
-			if (i == j)
-				R.block(i * inputs_, j * inputs_, inputs_, inputs_) = rss_;
-			else
-				R.block(i * inputs_, j * inputs_, inputs_, inputs_) = Eigen::MatrixXd::Zero(inputs_, inputs_);
-		}
-	}
-
-	//std::cout << R << " = R_bar" << std::endl;
-
-	// Initialization of the array and mapping into an Eigen object
-	H_bar_ = new double [horizon_ * inputs_ * horizon_ * inputs_];
-	Eigen::Map<Eigen::MatrixXd ,Eigen::RowMajor> H_bar(H_bar_, horizon_*inputs_, horizon_*inputs_);
-	
-	// Computing the values of the Hessian matrix
-	H_bar = B.transpose() * Q * B + R;	
-	//std::cout << H_bar << " = H_bar" << std::endl;
-	
-	
-/*	for (int t = 0; t < H.rows() * H.cols(); t++) {
-		H_array[t] = *H_ptr;
-		H_ptr++;	
-	} 
-
-	for (int i = 0; i < horizon_ * inputs_ * horizon_ * inputs_; i++) {
-		std::cout<< "H[" << i << "] = "<< H_array[i] << std::endl;
-	}
-*/
-	
+	ROS_INFO("Reset successful.");
 	return true;
 }
 
-/************************************************************************************************************
-	mpc::STDMPC::updateMPC() function
-************************************************************************************************************/
 
 
-//void mpc::STDMPC::updateMPC(Eigen::MatrixXd x_meas, Eigen::MatrixXd x_ref)
-void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
+bool mpc::STDMPC::initMPC()
 {
-	Eigen::Map<Eigen::VectorXd> x_meas(x_measured, states_, 1);
-	Eigen::Map<Eigen::VectorXd> x_ref(x_reference, states_, 1);
-
-
-	// Constructing the extended reference vector
-	Eigen::MatrixXd x_ref_bar(states_ * (horizon_ + 1), 1);	
-	for (int i = 0; i < horizon_ + 1; i++) {
-		x_ref_bar.block(states_ * i, 0, states_, 1) = x_ref;
-	}
-	//std::cout << x_ref_bar << " = x_ref_bar" << std::endl;
-
-	// Constructing the gradient vector g
-	g_ = new double [horizon_ * inputs_ * 1];
-	Eigen::Map<Eigen::VectorXd> g_eigen(g_, horizon_*inputs_);	
-
-
-	g_eigen = B_bar_.transpose() * Q_bar_ * A_bar_ * x_meas - B_bar_.transpose() * Q_bar_ * x_ref_bar;
-	//std::cout << g_eigen << " = g" << std::endl;
+	ROS_INFO("states: %i inputs: %i constraints: %i horizon: %i variables: %i", states_, inputs_, constraints_, horizon_, variables_);
 	
-/*	for (int v = 0; v < g.rows() * g.cols(); v++){
-		g_array[v] = *g_ptr;
-		g_ptr++;
-	}
-*/
+	// Initialization of MPC solution
+	mpc_solution_ = new double[variables_];
+		
+	// Initialization of state space matrices
+	A_ = Eigen::MatrixXd::Zero(states_, states_);
+	B_ = Eigen::MatrixXd::Zero(states_, inputs_);
+	C_ = Eigen::MatrixXd::Zero(outputs_, states_);
 	
+	// Obtention of the model parameters
+	model_->computeDynamicModel(A_, B_, C_);
+	
+	
+	// Reading the weight matrices of the cost function
+	Q_ = Eigen::MatrixXd::Zero(states_, states_);
+	P_ = Eigen::MatrixXd::Zero(states_, states_);
+	R_ = Eigen::MatrixXd::Zero(inputs_, inputs_);
+	XmlRpc::XmlRpcValue Q_list, P_list, R_list;
+	nh_.getParam("optimizer/states_error_weight_matrix/data", Q_list);
+	ROS_ASSERT(Q_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
+	ROS_ASSERT(Q_list.size() == states_ * states_);
 
-
-
-	/******************************************************************************
-	CREATION OF THE EXTENDED VARIABLES FOR CONSTRAINT HANDLING
-	******************************************************************************/
-
-	// Reading the constraint variables from the configuration file and mapping them to Eigen objects
-
+	nh_.getParam("optimizer/terminal_state_weight_matrix/data", P_list);
+	ROS_ASSERT(P_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
+	ROS_ASSERT(P_list.size() == states_ * states_);
+	
+	int z = 0;
+	for (int i = 0; i < states_; i++) {
+		for (int j = 0; j < states_; j++) {
+			ROS_ASSERT(Q_list[z].getType() == XmlRpc::XmlRpcValue::TypeDouble);
+			Q_(i, j) = static_cast<double>(Q_list[z]);
+			
+			ROS_ASSERT(P_list[z].getType() == XmlRpc::XmlRpcValue::TypeDouble);
+			P_(i, j) = static_cast<double>(P_list[z]);
+			z++;
+		}
+	}
+	
+	nh_.getParam("optimizer/input_error_weight_matrix/data", R_list);
+	ROS_ASSERT(R_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
+	ROS_ASSERT(R_list.size() == inputs_ * inputs_);
+	z = 0;
+	for (int i = 0; i < inputs_; i++) {
+		for (int j = 0; j < inputs_; j++) {
+			ROS_ASSERT(R_list[z].getType() == XmlRpc::XmlRpcValue::TypeDouble);
+			R_(i, j) = static_cast<double>(R_list[z]);
+			z++;
+		}
+	}
+	
+	
+	// Creation of the states and inputs weight matrices for the quadratic program
+	Q_bar_ = Eigen::MatrixXd::Zero((horizon_ + 1) * states_, (horizon_ + 1) * states_);
+	R_bar_ = Eigen::MatrixXd::Zero(horizon_ * inputs_, horizon_ * inputs_);
+	for (int i = 0; i < horizon_; i++) {
+		Q_bar_.block(i * states_, i * states_, states_, states_) = Q_;
+		R_bar_.block(i * inputs_, i * inputs_, inputs_, inputs_) = R_;
+	}
+	Q_bar_.block(horizon_ * states_, horizon_ * states_, states_, states_) = P_;
+	
+	
 	// Reading the constraint vectors
-	XmlRpc::XmlRpcValue getlowX, getuppX;
-	nh_.getParam("optimizer/constraints/constraint_vector_low", getlowX);    
-	ROS_ASSERT(getlowX.getType() == XmlRpc::XmlRpcValue::TypeArray);
-       
-	nh_.getParam("optimizer/constraints/constraint_vector_upp", getuppX);        
-	ROS_ASSERT(getuppX.getType() == XmlRpc::XmlRpcValue::TypeArray);
-
-	
-	if (getuppX.size() == getlowX.size()) {
-		for (int i = 0; i < getuppX.size(); ++i) {
-			ROS_ASSERT(getlowX[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-			lbA_[i] = static_cast<double>(getlowX[i]);
-
-			ROS_ASSERT(getuppX[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-			ubA_[i] = static_cast<double>(getuppX[i]);
+	Eigen::VectorXd lbG = Eigen::VectorXd::Zero(constraints_);
+	Eigen::VectorXd ubG = Eigen::VectorXd::Zero(constraints_);
+	XmlRpc::XmlRpcValue lbG_list, ubG_list;
+	nh_.getParam("optimizer/constraints/constraint_vector_low", lbG_list);
+	ROS_ASSERT(lbG_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
+	nh_.getParam("optimizer/constraints/constraint_vector_upp", ubG_list);
+	ROS_ASSERT(ubG_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
+	if (ubG_list.size() == lbG_list.size()) {
+		for (int i = 0; i < ubG_list.size(); ++i) {
+			ROS_ASSERT(lbG_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
+			lbG(i) = static_cast<double>(lbG_list[i]);
+			
+			ROS_ASSERT(ubG_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
+			ubG(i) = static_cast<double>(ubG_list[i]);
 		}
 
 	}
-       
-	// Mapping the readed arrays into Eigen objects
-	Eigen::Map<Eigen::VectorXd> LbA(lbA_,nConst_);
-	Eigen::Map<Eigen::VectorXd> UbA(ubA_,nConst_);
-
 	
 	// Reading the bound vectors
-	XmlRpc::XmlRpcValue getlowU, getuppU;
-	nh_.getParam("optimizer/constraints/bound_vector_low", getlowU);
-	ROS_ASSERT(getlowU.getType() == XmlRpc::XmlRpcValue::TypeArray);
-
-	nh_.getParam("optimizer/constraints/bound_vector_upp", getuppU);
-	ROS_ASSERT(getuppU.getType() == XmlRpc::XmlRpcValue::TypeArray);
-       
-	if (getuppU.size() == getlowU.size()) {
-		for (int i = 0; i < getuppU.size(); ++i) {
-			ROS_ASSERT(getlowU[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-			lb_[i] = static_cast<double>(getlowU[i]);                              
-
-			ROS_ASSERT(getuppU[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-			ub_[i] = static_cast<double>(getuppU[i]);
+	Eigen::VectorXd lb = Eigen::VectorXd::Zero(inputs_);
+	Eigen::VectorXd ub = Eigen::VectorXd::Zero(inputs_);
+	XmlRpc::XmlRpcValue lb_list, ub_list;
+	nh_.getParam("optimizer/constraints/bound_vector_low", lb_list);
+	ROS_ASSERT(lb_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
+	nh_.getParam("optimizer/constraints/bound_vector_upp", ub_list);
+	ROS_ASSERT(ub_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
+	if (ub_list.size() == lb_list.size()) {
+		for (int i = 0; i < ub_list.size(); ++i) {
+			ROS_ASSERT(lb_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
+			lb(i) = static_cast<double>(lb_list[i]);                              
+			
+			ROS_ASSERT(ub_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
+			ub(i) = static_cast<double>(ub_list[i]);
 		}
 	}
-       
-	// Mapping the readed arrays into Eigen objects
-	Eigen::Map<Eigen::VectorXd> Lb(lb_, inputs_);
-	Eigen::Map<Eigen::VectorXd> Ub(ub_, inputs_);
-
-	double m[nConst_ * states_];
-       
-	XmlRpc::XmlRpcValue getmatrixM;
-	nh_.getParam("optimizer/constraints/constraint_matrix_M", getmatrixM);  
-	ROS_ASSERT(getmatrixM.getType() == XmlRpc::XmlRpcValue::TypeArray);
-       
-   
-	for (int i = 0; i < getmatrixM.size(); ++i) {
-		ROS_ASSERT(getmatrixM[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-		m[i] = static_cast<double>(getmatrixM[i]);
+	
+	// Reading the state bound matrix
+	double m[constraints_ * states_];
+	XmlRpc::XmlRpcValue M_list;
+	nh_.getParam("optimizer/constraints/constraint_matrix_M", M_list);  
+	ROS_ASSERT(M_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
+	for (int i = 0; i < M_list.size(); ++i) {
+		ROS_ASSERT(M_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
+		m[i] = static_cast<double>(M_list[i]);
 	}
-	//ROS_INFO("nConst= %d states = %d", nConst_, states_);
-	Eigen::Map<Eigen::MatrixXd ,Eigen::RowMajor> M(m, nConst_, states_);
-
-	/*
-	std::cout << LbA << " = LbA" << std::endl;
-	std::cout << UbA << " = UbA" << std::endl;
-	std::cout << Ub << " = Lb" << std::endl;
-	std::cout << Lb << " = Ub" << std::endl;
-	std::cout << M << " = M" << std::endl;
-	*/
-	Eigen::Map<Eigen::VectorXd> LbA_bar(lbA_bar_,nConst_*horizon_);
-	Eigen::Map<Eigen::VectorXd> UbA_bar(ubA_bar_,nConst_*horizon_);
-
-	Eigen::Map<Eigen::VectorXd> Lb_bar(lb_bar_,inputs_*horizon_);
-	Eigen::Map<Eigen::VectorXd> Ub_bar(ub_bar_,inputs_*horizon_);
-
+	Eigen::Map<Eigen::MatrixXd, Eigen::RowMajor> M(m, constraints_, states_);
+	
+	
+	// Creation of the extended constraint and bound vector
+	lbG_bar_ = Eigen::VectorXd::Zero(constraints_ * horizon_);
+	ubG_bar_ = Eigen::VectorXd::Zero(constraints_ * horizon_);
+	lb_bar_ = Eigen::VectorXd::Zero(inputs_ * horizon_);
+	ub_bar_ = Eigen::VectorXd::Zero(inputs_ * horizon_);
 	for (int i = 0; i < horizon_; i++) {
-		LbA_bar.block(i * nConst_, 0, nConst_, 1) = LbA;
-		UbA_bar.block(i * nConst_, 0, nConst_, 1) = UbA;
-
-		Lb_bar.block(i * inputs_, 0, inputs_, 1) = Lb;
-		Ub_bar.block(i * inputs_, 0, inputs_, 1) = Ub;
+		lbG_bar_.block(i * constraints_, 0, constraints_, 1) = lbG;
+		ubG_bar_.block(i * constraints_, 0, constraints_, 1) = ubG;
+		lb_bar_.block(i * inputs_, 0, inputs_, 1) = lb;
+		ub_bar_.block(i * inputs_, 0, inputs_, 1) = ub;
 	}
-	/*
-	std::cout << LbA_bar << " = LbA_bar" << std::endl;
-	std::cout << UbA_bar << " = UbA_bar" << std::endl;
-
-	std::cout << Lb_bar << " = Lb_bar" << std::endl;
-	std::cout << Ub_bar << " = Ub_bar" << std::endl;
- 	*/
-   
-
+	
 	// Creation of the extended constraint matrix G_bar_
-	Eigen::MatrixXd M_bar = Eigen::MatrixXd::Zero(nConst_*horizon_ , (horizon_ + 1)*states_);
-
+	M_bar_ = Eigen::MatrixXd::Zero(constraints_ * horizon_, (horizon_ + 1) * states_);
 	for (int i = 0; i < horizon_; i++) {
 		for (int j = 0; j < horizon_ + 1; j++) {
 			if (i == j) {
-				M_bar.block(i * nConst_,j * states_, nConst_, states_) = M;
+				M_bar_.block(i * constraints_, j * states_, constraints_, states_) = M;
 			}
 		}
-	}      
-
-	//std::cout << M_bar << " = M_bar" << std::endl;
-
-	LbA_bar = LbA_bar - M_bar * A_bar_ * x_meas;
-	UbA_bar = UbA_bar - M_bar * A_bar_ * x_meas;
-       
-	// Mapping of the extended constraint matrix G_bar_
-	Eigen::Map<Eigen::MatrixXd, Eigen::RowMajor> G_bar(G_bar_, nConst_ * horizon_, horizon_ * inputs_);
-       
-	G_bar = M_bar * B_bar_;
-
-	//std::cout << G_bar << " = G_bar" << std::endl;
-
-	// defining a standard number of working set recalculations and cputime
-
-	double * cputime = NULL;
-	
-	bool success = false;
-	success = optimizer_->computeOpt(H_bar_, g_, G_bar_, lb_bar_, ub_bar_, lbA_bar_, ubA_bar_, cputime);
-
-	if (success){
-
-		STDMPCSol_ = optimizer_->getOptimalSolution();
-		for (int i=0; i<nVar_; i++){
-			std::cout <<"Solution vector: solution["<< i <<"] = " << *(STDMPCSol_ + i) << std::endl;
-		}	
-	
 	}
-	else 
-		ROS_ERROR("An optimal solution could not be obtained");
-        
+	
+	
+	ROS_INFO("STDMPC class successfully initialized.");
+	return true;
 }
+
+
+
+void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
+{
+	Eigen::Map<Eigen::VectorXd> x_measured_eigen(x_measured, states_, 1);
+	Eigen::Map<Eigen::VectorXd> x_reference_eigen(x_reference, states_, 1);
+	
+	// Compute steady state control based on updated system matrices
+	Eigen::JacobiSVD<Eigen::MatrixXd> SVD_B(B_, Eigen::ComputeThinU | Eigen::ComputeThinV);
+	Eigen::MatrixXd u_reference = SVD_B.solve(x_reference_eigen - A_ * x_reference_eigen);
+	
+	// Creation of the base vector
+	A_pow_.push_back(Eigen::MatrixXd::Identity(states_, states_));
+	for (int i = 1; i < horizon_ + 1; i++) {
+		Eigen::MatrixXd A_pow_i = A_pow_[i-1] * A_;
+		A_pow_.push_back(A_pow_i);
+	}
+
+	// Compute the hessian matrix and gradient vector for the quadratic program	
+	A_bar_ = Eigen::MatrixXd::Zero((horizon_ + 1) * states_, states_);
+	B_bar_ = Eigen::MatrixXd::Zero((horizon_ + 1) * states_, horizon_ * inputs_);
+//	Eigen::MatrixXd H_x = Eigen::MatrixXd::Zero((horizon_ + 1) * states_, horizon_ * states_);
+	Eigen::MatrixXd x_ref_bar = Eigen::MatrixXd::Zero((horizon_ + 1) * states_, 1);
+	for (int i = 0; i < horizon_ + 1; i++) {
+		for (int j = 0; j < horizon_; j++) {
+			if (i == horizon_) {
+				if (j == 0)
+					A_bar_.block(i * states_, 0, states_, states_) = A_pow_[i];
+				if (j == 0)
+					x_ref_bar.block(i * states_, 0, states_, 1) = x_reference_eigen;
+				if (i > j) {
+					B_bar_.block(i * states_, j * inputs_, states_, inputs_) = A_pow_[i-j-1] * B_;
+//					H_x.block(i * states_, j * states_, states_, states_) = A_p_BK_pow_[i-j-1];
+				}
+			}
+			else {
+				if (j == 0) {
+					A_bar_.block(i * states_, 0, states_, states_) = A_pow_[i];
+					x_ref_bar.block(i * states_, 0, states_, 1) = x_reference_eigen;
+				}
+				if (i > j) {
+					B_bar_.block(i * states_, j * inputs_, states_, inputs_) = A_pow_[i-j-1] * B_;
+//					H_x.block(i * states_, j * states_, states_, states_) = A_p_BK_pow_[i-j-1];
+				}
+			}
+		}
+	}
+	double hessian_matrix[horizon_ * inputs_][horizon_ * inputs_];
+	double gradient_vector[horizon_ * inputs_];
+	Eigen::Map<Eigen::MatrixXd, Eigen::RowMajor> H(&hessian_matrix[0][0], horizon_ * inputs_, horizon_ * inputs_);
+	Eigen::Map<Eigen::MatrixXd> g(gradient_vector, horizon_ * inputs_, 1);
+	
+	// Computing the values of the Hessian matrix and Gradient vector
+	H = B_bar_.transpose() * Q_bar_ * B_bar_ + R_bar_;
+	g = B_bar_.transpose() * Q_bar_ * A_bar_ * x_measured_eigen - B_bar_.transpose() * Q_bar_ * x_ref_bar;
+	
+	
+	// Transforming constraints and bounds to array
+	double lbG_bar[constraints_ * horizon_];
+	double ubG_bar[constraints_ * horizon_];
+	double lb_bar[horizon_ * inputs_];
+	double ub_bar[horizon_ * inputs_];
+	Eigen::Map<Eigen::VectorXd> lbG_bar_eigen(lbG_bar, constraints_ * horizon_);
+	Eigen::Map<Eigen::VectorXd> ubG_bar_eigen(ubG_bar, constraints_ * horizon_);
+	Eigen::Map<Eigen::VectorXd> lb_bar_eigen(lb_bar, inputs_ * horizon_);
+	Eigen::Map<Eigen::VectorXd> ub_bar_eigen(ub_bar, inputs_ * horizon_);
+	lbG_bar_eigen = lbG_bar_ - M_bar_ * A_bar_ * x_measured_eigen;
+	ubG_bar_eigen = ubG_bar_ - M_bar_ * A_bar_ * x_measured_eigen;
+	lb_bar_eigen = lb_bar_;
+	ub_bar_eigen = ub_bar_;
+
+	
+	// Mapping of the extended constraint matrix G_bar_
+	double constraint_matrix[horizon_ * constraints_][horizon_ * inputs_];
+	Eigen::Map<Eigen::MatrixXd, Eigen::RowMajor> G_bar(&constraint_matrix[0][0], constraints_ * horizon_, horizon_ * inputs_);
+	G_bar = M_bar_ * B_bar_;
+	
+	
+	double cputime = 0;//1.0;//NULL;
+	bool success = false;
+	success = optimizer_->computeOpt(&hessian_matrix[0][0], gradient_vector, &constraint_matrix[0][0], lb_bar, ub_bar, lbG_bar, ubG_bar, cputime);
+	if (success){
+		mpc_solution_ = optimizer_->getOptimalSolution();
+		for (int i = 0; i < variables_; i++){
+			std::cout <<"Solution vector: solution["<< i <<"] = " << *(mpc_solution_ + i) << std::endl;
+		}
+	}
+	else {	
+		ROS_WARN("An optimal solution could not be obtained.");
+	}
+
+}
+
+

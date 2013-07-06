@@ -8,7 +8,7 @@ mpc::LBMPC::LBMPC(ros::NodeHandle node) : nh_(node)
 }
 
 
-void mpc::LBMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator)
+bool mpc::LBMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator)
 {
 	model_ = model;
 	optimizer_ = optimizer;
@@ -72,7 +72,6 @@ bool mpc::LBMPC::initMPC()
 	R_ = Eigen::MatrixXd::Zero(inputs_, inputs_);
 
 	//TODO: To get numerical values of Q, R and P matrices through the parameter serves
-	//To move a qpOASES class//////////////////////////////////////////////////////////
 	XmlRpc::XmlRpcValue Q_list, P_list, R_list;
 	nh_.getParam("optimizer/states_error_weight_matrix/data", Q_list);
 	ROS_ASSERT(Q_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
@@ -206,8 +205,8 @@ void mpc::LBMPC::updateMPC(double* x_measured, double* x_reference)
 	
 	double hessian_matrix[horizon_ * inputs_][horizon_ * inputs_];
 	double gradient_vector[horizon_ * inputs_];
-	Eigen::Map<Eigen::MatrixXd > H(&hessian_matrix[0][0], horizon_ * inputs_, horizon_ * inputs_);
-	Eigen::Map<Eigen::MatrixXd > g(gradient_vector, horizon_ * inputs_, 1);
+	Eigen::Map<Eigen::MatrixXd> H(&hessian_matrix[0][0], horizon_ * inputs_, horizon_ * inputs_);
+	Eigen::Map<Eigen::MatrixXd> g(gradient_vector, horizon_ * inputs_, 1);
 
 	H = B_x.transpose() * Q_bar_ * B_x + B_u.transpose() * R_bar_ * B_u;
 	g = B_x.transpose() * Q_bar_ * (A_x * x_measured_eigen + H_x * d_bar - x_s) + B_u.transpose() * R_bar_ * (A_u * x_measured_eigen + H_u * d_bar - u_s);
