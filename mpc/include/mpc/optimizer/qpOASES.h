@@ -1,59 +1,81 @@
 #ifndef QPOASES_H
 #define QPOASES_H
 
-#include <mpc/optimizer/optimizer.h>
 #include <ros/ros.h>
+
+#include <mpc/optimizer/optimizer.h>
 #include <qpOASES.hpp>
 
+
+
 USING_NAMESPACE_QPOASES
+
 
 namespace mpc
 {
 	namespace optimizer
 	{
-	
+		/**
+		 @class qpOASES
+		 @brief Class to interface the qpOASES library
+		 This class gives an interface with qpOASES library in order to implement a quadratic program using online active set strategy for MPC controller. qpOASES solve a convex optimization class of the following form
+		 \f[
+			\min_{\mathbf{x}} \frac{1}{2}\mathbf{x}^T\mathbf{H}\mathbf{x} + \mathbf{x}^T\mathbf{g(x_0)}
+         \f]
+         suject to
+         \f{eqnarray*}{
+         	lbG(\mathbf{x_0}) \leq &\mathbf{Gx}& \leq ubG(\mathbf{x_0}) \\
+         	lb(\mathbf{x_0})   \leq &\mathbf{x}&  \leq ub(\mathbf{x_0})
+         \f}
+		*/	
 		class qpOASES : public mpc::optimizer::Optimizer
 		{
 			public:
-				// Constructor
+				/** @brief Constructor function */
 				qpOASES(ros::NodeHandle node_handle);
 
-				//Destructor
+				/** @brief Destructor function */
 				~qpOASES() {}
 
-				/**
-				 @brief Function to define the initialization of qpOASES optimizer
-				 */
+				/** @brief Function to define the initialization of qpOASES optimizer */
 				virtual bool init();
 
 			   /**
 				 @brief Function to solve the optimization problem formulated in the MPC  
-				 @param Eigen::VectorXd x_k 		state vector
-				 @param Eigen::VectorXd x_ref		reference vector 
+				 @param double* H	Hessian matrix
+				 @param double* g	Gradient vector
+				 @param double* G	Constraint matrix
+				 @param double* lb	Low bound vector
+				 @param double* ub	Upper bound vector
+				 @param double* lbG	Low constraint vector
+				 @param double* lbG	Upper constraint vector
+				 @param double* cputime	CPU-time for computing the optimization
 				 */
-				virtual bool computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbA, double *ubA, double cputime);
+				virtual bool computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbG, double *ubG, double cputime);
 
-				/*
-				@brief When called, this function returns the optimal solution vector, optimalSol_
-				*/
+				/** @brief Get the optimal solution vector when it was solve the optimization problem */
 				double* getOptimalSolution();
 
 
 			protected:
-
-				double * optimal_solution_;
+				/** @brief Optimal solution obtained with the implementation of qpOASES */
+				double* optimal_solution_;
+				
+				/** @brief Return values of optimization process */
 				returnValue retval_;
 
 
 			private:
+				/** @brief Node handle */
 				ros::NodeHandle nh_;				
 
-				//int &nWSR;	//number of working set recalculations
-				/* SQProblem object which is used to solve the quadratic problem */
+				/** @brief SQProblem object which is used to solve the quadratic problem */
 				SQProblem *solver_;
 				
+				/** @brief Label that indicates if qpOASES had been initialized */
 				bool qpOASES_initialized_;
 				
+				/** @brief Number of Working Set Recalculations */
 				int nWSR_;
 				
 				

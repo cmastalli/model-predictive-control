@@ -13,6 +13,8 @@ bool mpc::LBMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *o
 	model_ = model;
 	optimizer_ = optimizer;
 	simulator_ = simulator;
+	
+	return true;
 }
 
 

@@ -12,32 +12,32 @@ USING_NAMESPACE_QPOASES
 
 mpc::optimizer::qpOASES::qpOASES(ros::NodeHandle node_handle) : nh_(node_handle)
 {
-	nVar_ = 0;
-	nConst_ = 0;
+	variables_ = 0;
+	constraints_ = 0;
 	horizon_ = 0;
 }
 
 bool mpc::optimizer::qpOASES::init()
 {
 	// reading the parameters required for the solver
-	if (nh_.getParam("optimizer/number_constraints", nConst_)) {
-		ROS_INFO("Got param: number of constraints = %d", nConst_);
+	if (nh_.getParam("optimizer/number_constraints", constraints_)) {
+		ROS_INFO("Got param: number of constraints = %d", constraints_);
 	}
 	
 	nh_.param<int>("optimizer/working_set_recalculations", nWSR_, 10);
 	ROS_INFO("Got param: number of working set recalculations = %d", nWSR_);
 	
-	if (nVar_ == 0 || nConst_ == 0 || horizon_ == 0)
+	if (variables_ == 0 || constraints_ == 0 || horizon_ == 0)
 		return false;
 	
 	qpOASES_initialized_ = false;
-	solver_ = new SQProblem(nVar_, nConst_, HST_SEMIDEF);
+	solver_ = new SQProblem(variables_, constraints_, HST_SEMIDEF);
 /*	Options myOptions;
 	myOptions.setToReliable();
 	myOptions.printLevel = PL_LOW;
 	solver_->setOptions(myOptions);*/
 	
-	optimal_solution_ = new double[nVar_];
+	optimal_solution_ = new double[variables_];
 	
 	
 	ROS_INFO("qpOASES solver class successfully initialized.");
