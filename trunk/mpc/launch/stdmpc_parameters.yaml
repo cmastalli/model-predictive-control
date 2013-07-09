@@ -1,24 +1,24 @@
 mpc:
-  horizon: 50
+  horizon: 10
 
   optimizer:
     number_constraints: 3
-    working_set_recalculations: 10
+    working_set_recalculations: 500
 
     states_error_weight_matrix:
-      data: [1.0000, 0.0000, 0.0000, 1.0000]
+      data: [300.0, 0.0, 0.0, 300.0]
 
     input_error_weight_matrix:
-      data: [1.0000]
+      data: [30.0]
 
     terminal_state_weight_matrix:
-      data: [1.0000, 0.0000, 0.0000, 1.0000]
+      data: [100.0, 0.0, 0.0, 100.0]
 
     constraints:
-      constraint_vector_low: [0.0000, 0.0000, 0.0000]
-      constraint_vector_upp: [25.0000, 28.0000, 0.0000]
+      constraint_vector_low: [0.0, 0.0, 0.0]
+      constraint_vector_upp: [25.0, 28.0, 0.0]
 
-      constraint_matrix_M: [1.0000, 0.0000, 0.0000, 1.0000, 0.0000, 0.0000]
+      constraint_matrix_M: [1.0, 0.0, 0.0, 1.0, 0.0, 0.0]
 
-      bound_vector_low: [0.0000]
-      bound_vector_upp: [10.0000]
+      bound_vector_low: [0.0]
+      bound_vector_upp: [10.0]

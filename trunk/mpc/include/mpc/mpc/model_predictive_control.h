@@ -83,8 +83,10 @@ namespace mpc
 			
 			Eigen::MatrixXd Q_, P_, R_;
 
-			double* mpc_solution_;
-						
+			double *mpc_solution_;
+			
+			double *control_signal_;
+			
 			
 		private:
 		
@@ -96,12 +98,10 @@ namespace mpc
 
 inline double* mpc::ModelPredictiveControl::getControlSignal() const
 {
+	for (int i = 0; i < inputs_; i++)
+		control_signal_[i] = mpc_solution_[i];
 
-	double ctrl_signal[inputs_];
-	for (int i = 0; i < (horizon_*inputs_); i++)
-		ctrl_signal[i] = *(mpc_solution_ + i);		
-
-	return ctrl_signal;
+	return control_signal_;
 }
 
 

@@ -10,30 +10,25 @@
 
 mpc::example_models::TanksSystemSimulator::TanksSystemSimulator()
 {
-	param1_ = 0.2552;
-	param2_ = 0.0508; 
-	state_vect_ = new double[2];
+	beta_ = 3.96;
+	cf_ = 0.178;
+	At_ = 15.52;
+	g_ = 981.;
+	new_state_ = new double[2];
 }
 
 
-double* mpc::example_models::TanksSystemSimulator::simulatePlant(double *state_vect, double *input_vect, double samplingTime	)
+double* mpc::example_models::TanksSystemSimulator::simulatePlant(double *current_state, double *current_input, double sampling_time)
 {
-
-// Assignment of the readed variables
-
-	//double Hone_k = *state_vect;	// Level of the first tank in the current time step
-	//double Htwo_k = *(state_vect + 1);	// Level of the second tank in the current time step
-
-	ROS_ASSERT(sizeof(state_vect_) == sizeof(state_vect));
-	state_vect_ = state_vect;
-
+	ROS_ASSERT(sizeof(new_state_) == sizeof(current_state));
+	
 	// Solve the difference equations recursively
+	double input = *current_input;
+	Eigen::Map<Eigen::VectorXd> x_current(current_state, 2, 1);
+	
+	new_state_[0] = x_current[0] + sampling_time * (beta_ * input - cf_ * sqrt(2 * g_ * x_current[0])) / At_;
+	new_state_[1] = x_current[1] + sampling_time * cf_ * (sqrt(2 * g_ * x_current[0]) - sqrt(2 * g_ * x_current[1])) / At_;
 
-	*state_vect_ = *state_vect_ + samplingTime*param1_*(*input_vect) - samplingTime*param2_*sqrt(*state_vect_);
-
-	*(state_vect_ + 1) = *(state_vect_ + 1) + samplingTime*param2_*sqrt(*(state_vect_)) - samplingTime*param2_*sqrt(*(state_vect_ + 1));
-
-
-	return state_vect_; 
-
+	
+	return new_state_;
 }

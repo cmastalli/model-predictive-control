@@ -97,6 +97,18 @@ namespace mpc
 			/** @brief Extended R matrix for quadratic programming */
 			Eigen::MatrixXd R_bar_;
 			
+			/** @brief Extended low constraint vector for quadratic programming */
+			Eigen::VectorXd lbG_bar_;
+			
+			/** @brief Extended upper constraint vector for quadratic programming */
+			Eigen::VectorXd ubG_bar_;
+			
+			/** @brief Extended low bound vector for quadratic programming */
+			Eigen::VectorXd lb_bar_;
+			
+			/** @brief Extended upper bound vector for quadratic programming */
+			Eigen::VectorXd ub_bar_;
+			
 
 			
 			

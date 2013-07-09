@@ -36,7 +36,7 @@ namespace mpc
 				 @brief Function used to simulate the specified plant 
 				 @param mpc::model::Model *model 	pointer to the process model class "Model"
 				 */
-				double* simulatePlant(double *state_vect, double *input_vect, double samplingTime);
+				double* simulatePlant(double *state_vect, double *input_vect, double sampling_time);
 
 
 		    protected:
@@ -44,8 +44,13 @@ namespace mpc
 
 		    private:
 
-				double param1_, param2_;
-				double * state_vect_;
+//				double param1_, param2_;
+				double beta_;
+				double At_;
+				double cf_;
+				double g_;
+				
+
 
 	  
 		};  //@class TanksSystemSimulator
