@@ -42,7 +42,7 @@ namespace mpc
 				 @param double* lbG	Upper constraint vector
 				 @param double* cputime	CPU-time for computing the optimization. If NULL, it provides on output the actual calculation time of the optimization problem.
 				 */
-				virtual bool computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbA, double *ubA, double cputime) = 0;
+				virtual bool computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbG, double *ubG, double cputime) = 0;
 				
 				/** @brief Get the optimal solution vector when it was solve the optimization problem */
 				virtual double* getOptimalSolution() = 0;

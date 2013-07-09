@@ -28,7 +28,7 @@ int main(int argc, char **argv)
 	double x_ref[2] = {8, 12};
 	double x_meas[2] = {0, 0}; 
 
-	double samplingTime = 0.02;
+	double sampling_time = 0.01;
 	double *control_signal;
 
 	double *new_state;
@@ -36,16 +36,15 @@ int main(int argc, char **argv)
 
     timespec start_rt, end_rt;
     clock_gettime(CLOCK_REALTIME, &start_rt);
-	for (int i = 0; i < 10; i++) {
+	for (int i = 0; i < 20; i++) {
 		mpc_ptr->updateMPC(x_meas, x_ref);
 		control_signal = mpc_ptr->getControlSignal();
-		new_state = simulator_ptr->simulatePlant(x_meas, control_signal, samplingTime);
-
-		x_meas[0] = *new_state;
-		x_meas[1] = *(new_state + 1);
-
+		new_state = simulator_ptr->simulatePlant(x_meas, control_signal, sampling_time);
+		
+		x_meas[0] = new_state[0];
+		x_meas[1] = new_state[1];
 		std::cout << "Control signal =====>> U = "<< *control_signal << std::endl;
-		std::cout << "Simulated States ======>> H1 =" << x_meas[0] << "   H2 =" << x_meas[1] << std::endl;
+		std::cout << "Simulated States ===>> H1 = " << x_meas[0] << "   H2 = " << x_meas[1] << std::endl;
 	}
 
 	clock_gettime(CLOCK_REALTIME, &end_rt);

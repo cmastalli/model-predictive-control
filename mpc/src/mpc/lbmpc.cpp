@@ -4,7 +4,9 @@
 
 mpc::LBMPC::LBMPC(ros::NodeHandle node) : nh_(node)
 {
-
+	model_ = 0;
+	optimizer_ = 0;
+	simulator_ = 0;
 }
 
 
@@ -106,8 +108,9 @@ bool mpc::LBMPC::initMPC()
 			z++;
 		}
 	}
-	/////////////////////////////////////////////////////////////////////////////////
 	
+	
+	// Creation of the states and inputs weight matrices for the quadratic program
 	Q_bar_ = Eigen::MatrixXd::Zero((horizon_ + 1) * states_, (horizon_ + 1) * states_);
 	R_bar_ = Eigen::MatrixXd::Zero(horizon_ * inputs_, horizon_ * inputs_);
 	for (int i = 0; i < horizon_; i++) {

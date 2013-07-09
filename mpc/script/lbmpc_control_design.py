@@ -52,6 +52,8 @@ B = np.array([[beta/At], [0.0]])
 d = np.array([[0.0],[0.0]])
 C = np.array([[0.0, 1.0]])
 
+sys_ss = ss(A,B,C,[0.0]);
+sys_d = c2d(sys_ss, 0.1, 'zoh')
 
 # Number of states, inputs and outputs
 states = len(A)
@@ -72,7 +74,7 @@ K_nom, S_nom, E_nom = lqr(A, B, Q, np.dot(nominal_feedback_weight, R))
 # Define a feedback policy K and corresponding terminal cost
 K, S, E = lqr(A, B, Q, np.dot(max_admissible_weight, R))
 
-P, L, G = dare(A + B * K, B, Q, np.dot(nominal_feedback_weight, R));
+P, L, G = dare(A + B * K, B, Q, np.dot(nominal_feedback_weight, R))
 
 
 # Define polytopic constraints on input F_u*x <= h_u and state F_x*x <= h_x.  Also define model uncertainty as a F_g*x <= h_g
