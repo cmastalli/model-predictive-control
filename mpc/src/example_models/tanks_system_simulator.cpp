@@ -23,6 +23,8 @@ double* mpc::example_models::TanksSystemSimulator::simulatePlant(double *state_v
 
 	//double Hone_k = *state_vect;	// Level of the first tank in the current time step
 	//double Htwo_k = *(state_vect + 1);	// Level of the second tank in the current time step
+
+	ROS_ASSERT(sizeof(state_vect_) == sizeof(state_vect));
 	state_vect_ = state_vect;
 
 	// Solve the difference equations recursively

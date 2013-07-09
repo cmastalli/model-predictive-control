@@ -199,9 +199,12 @@ bool mpc::STDMPC::initMPC()
 
 void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 {
+
 	Eigen::Map<Eigen::VectorXd> x_measured_eigen(x_measured, states_, 1);
 	Eigen::Map<Eigen::VectorXd> x_reference_eigen(x_reference, states_, 1);
 	
+	std::cout << "Measured states\n" << x_measured_eigen << std::endl;
+
 	// Compute steady state control based on updated system matrices
 	Eigen::JacobiSVD<Eigen::MatrixXd> SVD_B(B_, Eigen::ComputeThinU | Eigen::ComputeThinV);
 	Eigen::MatrixXd u_reference = SVD_B.solve(x_reference_eigen - A_ * x_reference_eigen);

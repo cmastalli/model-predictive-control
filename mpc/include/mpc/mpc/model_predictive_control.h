@@ -96,7 +96,12 @@ namespace mpc
 
 inline double* mpc::ModelPredictiveControl::getControlSignal() const
 {
-	return mpc_solution_;
+
+	double ctrl_signal[inputs_];
+	for (int i = 0; i < (horizon_*inputs_); i++)
+		ctrl_signal[i] = *(mpc_solution_ + i);		
+
+	return ctrl_signal;
 }
 
 
