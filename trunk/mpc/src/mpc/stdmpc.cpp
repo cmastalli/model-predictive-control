@@ -137,10 +137,10 @@ bool mpc::STDMPC::initMPC()
 	if (ubG_list.size() == lbG_list.size()) {
 		for (int i = 0; i < ubG_list.size(); ++i) {
 			ROS_ASSERT(lbG_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-			lbG(i) = -INFTY;//static_cast<double>(lbG_list[i]);
+			lbG(i) = -static_cast<double>(lbG_list[i]);
 			
 			ROS_ASSERT(ubG_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-			ubG(i) = INFTY;//static_cast<double>(ubG_list[i]);
+			ubG(i) = static_cast<double>(ubG_list[i]);
 		}
 	
 	}
@@ -156,10 +156,10 @@ bool mpc::STDMPC::initMPC()
 	if (ub_list.size() == lb_list.size()) {
 		for (int i = 0; i < ub_list.size(); ++i) {
 			ROS_ASSERT(lb_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-			lb(i) = -INFTY;//static_cast<double>(lb_list[i]);                              
+			lb(i) = static_cast<double>(lb_list[i]);                              
 			
 			ROS_ASSERT(ub_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-			ub(i) = INFTY;//static_cast<double>(ub_list[i]);
+			ub(i) = static_cast<double>(ub_list[i]);
 		}
 	}
 	
@@ -295,7 +295,7 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 		mpc_solution_ = optimizer_->getOptimalSolution();
 		infeasibility_counter_ = 0;
 		
-		for (int i = 0; i < variables_; i++) {
+/*		for (int i = 0; i < variables_; i++) {
 			if (i == 0)
 				std::cout << "Optimal solution = [" << mpc_solution_[i] << " ";
 			else {
@@ -304,7 +304,7 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 				else
 					std::cout << mpc_solution_[i] << " ";
 			}
-		}
+		}*/
 	}
 	else {
 		infeasibility_counter_++;

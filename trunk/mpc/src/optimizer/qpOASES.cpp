@@ -56,23 +56,21 @@ bool mpc::optimizer::qpOASES::init()
 bool mpc::optimizer::qpOASES::computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbG, double *ubG, double cputime)
 {
 	// solve first QP.
+	int nWSR = nWSR_;
 	returnValue retval;
 	if (!qpOASES_initialized_) {
-		retval = solver_->init(H, g, G, lb, ub, lbG, ubG, nWSR_, &cputime);
+		retval = solver_->init(H, g, G, lb, ub, lbG, ubG, nWSR, &cputime);
 		if (retval == SUCCESSFUL_RETURN) {
 			ROS_INFO("qpOASES problem successfully initialized.");
 			qpOASES_initialized_ = true;
 		}
 	}
 	else {
-		retval = solver_->hotstart(H, g, G, lb, ub, lbG, ubG, nWSR_, &cputime);
+		retval = solver_->hotstart(H, g, G, lb, ub, lbG, ubG, nWSR, &cputime);
 	}
 	if (solver_->isInfeasible())
 		ROS_WARN("The quadratic programming is infeasible.");
-	
-	ROS_INFO("Return value: %i", retval);
-	
-	
+		
 	if (retval == SUCCESSFUL_RETURN) {
 		solver_->getPrimalSolution(optimal_solution_);
 	}
@@ -88,6 +86,7 @@ bool mpc::optimizer::qpOASES::computeOpt(double *H, double *g, double *G, double
 	
 	return true;
 }
+
 
 double* mpc::optimizer::qpOASES::getOptimalSolution()
 {

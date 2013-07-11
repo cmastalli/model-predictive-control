@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 
     timespec start_rt, end_rt;
     clock_gettime(CLOCK_REALTIME, &start_rt);
-	for (int i = 0; i < 20; i++) {
+	while(ros::ok) {
 		mpc_ptr->updateMPC(x_meas, x_ref);
 		control_signal = mpc_ptr->getControlSignal();
 		new_state = simulator_ptr->simulatePlant(x_meas, control_signal, sampling_time);
