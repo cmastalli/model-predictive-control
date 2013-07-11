@@ -35,9 +35,12 @@ namespace mpc
 				qpOASES(ros::NodeHandle node_handle);
 
 				/** @brief Destructor function */
-				~qpOASES() {}
+				~qpOASES();
 
-				/** @brief Function to define the initialization of qpOASES optimizer */
+				/**
+				 @brief Function to define the initialization of qpOASES optimizer
+				 @return bool Label that indicates if the initialization of the optimizer is successful
+				 */
 				virtual bool init();
 
 			   /**
@@ -49,11 +52,15 @@ namespace mpc
 				 @param double* ub	Upper bound vector
 				 @param double* lbG	Low constraint vector
 				 @param double* lbG	Upper constraint vector
-				 @param double* cputime	CPU-time for computing the optimization
+				 @param double cputime	CPU-time for computing the optimization
+				 @return bool Label that indicates if the computation of the optimization is successful
 				 */
 				virtual bool computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbG, double *ubG, double cputime);
 
-				/** @brief Get the optimal solution vector when it was solve the optimization problem */
+				/**
+				 @brief Get the optimal solution vector when it was solve the optimization problem
+				 @return double* Optimal solution
+				 */
 				double* getOptimalSolution();
 
 
@@ -61,10 +68,7 @@ namespace mpc
 				/** @brief Optimal solution obtained with the implementation of qpOASES */
 				double* optimal_solution_;
 				
-				/** @brief Return values of optimization process */
-				returnValue retval_;
-
-
+				
 			private:
 				/** @brief Node handle */
 				ros::NodeHandle nh_;				

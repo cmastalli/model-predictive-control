@@ -39,52 +39,84 @@ namespace mpc
     class ModelPredictiveControl
     {
         public:
-        
-            /**
-             @brief Constructor function
-             */
+            /** @brief Constructor function */
             ModelPredictiveControl() {};
 
-            /**
-             @brief Constructor function
-             */
+            /** @brief Constructor function */
             ~ModelPredictiveControl() {};
 
-            /*
+            /**
              @brief Function to specify the settings of all variables within the MPC problem (optimization library, horizon, etc.)
-             @param mpc::model::Model *model pointer to the model of the plant to be used in the algorithm
-             @param mpc::optimizer::Optimizer *optimizer pointer to the optimization library to be used in the algorithm
-             @param mpc::model::Simulator *simulator pointer to the simulator class used to predict the states
+             @param mpc::model::Model *model	Pointer to the model of the plant to be used in the algorithm
+             @param mpc::optimizer::Optimizer *optimizer	Pointer to the optimization library to be used in the algorithm
+             @param mpc::model::Simulator *simulator	Pointer to the simulator class used to predict the states
              */
             virtual bool resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator) = 0;
 
-            /* @brief function to initialize the calculation of the MPC algorithm */
+            /**
+             @brief Function to initialize the calculation of the MPC algorithm
+             @return Label that indicates if the MPC is initialized with success
+              */
             virtual bool initMPC() = 0;
 
-            /*
-             @brief function to update the MPC algorithm for the next iteration 
-			 @param double* x_measured 		state vector
-			 @param double* x_reference		reference vector
+            /**
+             @brief Function to update the MPC algorithm for the next iteration 
+			 @param double* x_measured 		State vector
+			 @param double* x_reference		Reference vector
              */
             virtual void updateMPC(double* x_measured, double* x_reference) = 0;
 			
-			
+			/**
+			 @brief Function to get the control signal generates for the MPC
+			 @return double* Control signal
+			 */			
 			virtual double* getControlSignal() const;
 
 
         protected:
+        	/** @brief Pointer of dynamic model of the system */
 			mpc::model::Model *model_;
 			
+			/** @brief Pointer of the simulator of the system */
 			mpc::model::Simulator *simulator_;
 			
+			/** @brief Pointer of the optimizer of the MPC */
 			mpc::optimizer::Optimizer *optimizer_;
 			
-			int states_, inputs_, outputs_, horizon_;
+			/** @brief Number of states of the dynamic model */
+			int states_;
 			
-			Eigen::MatrixXd Q_, P_, R_;
-
+			/** @brief Number of inputs of the dynamic model */
+			int inputs_;
+			
+			/** @brief Number of outputs of the dynamic model */
+			int outputs_;
+			
+			/** @brief Horizon of prediction of the dynamic model */
+			int horizon_;
+			
+			/** @brief Infeasibility counter in the solution */
+			int infeasibility_counter_;
+			
+			/** @brief Maximun value of the infeasibility counter */
+			int infeasibility_hack_counter_max_;
+			
+			/** @brief States error weight matrix */
+			Eigen::MatrixXd Q_;
+			
+			/** @brief Terminal states error weight matrix */
+			Eigen::MatrixXd P_;
+			
+			/** @brief Input error weight matrix */
+			Eigen::MatrixXd R_;
+			
+			/** @brief Vector of the MPC solution */
 			double *mpc_solution_;
 			
+			/** @brief Stationary control signal for the reference state vector */
+			Eigen::MatrixXd u_reference_;
+			
+			/** @brief Control signal computes for MPC */
 			double *control_signal_;
 			
 			
@@ -98,8 +130,12 @@ namespace mpc
 
 inline double* mpc::ModelPredictiveControl::getControlSignal() const
 {
-	for (int i = 0; i < inputs_; i++)
-		control_signal_[i] = mpc_solution_[i];
+	for (int i = 0; i < inputs_; i++) {
+		if (infeasibility_counter_ < infeasibility_hack_counter_max_)
+			control_signal_[i] = mpc_solution_[infeasibility_counter_ * inputs_ + i];
+		else
+			control_signal_[i] = u_reference_(i);
+	}
 
 	return control_signal_;
 }

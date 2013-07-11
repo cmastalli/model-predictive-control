@@ -13,11 +13,11 @@ namespace mpc
 		 @class Optimizer
 		 @brief Abstract class to define the optimization algorithm for Model Predictive Control
 	 	 This class gives an abstract definition of the optimization problem in the context of Model Predictive Control
-	 	 	\f{eqnarray*}{
+	 	 \f{eqnarray*}{
 			\mbox{Minimize} \; F(x) && \\
 			\mbox{subject to} \; G(x) & = & 0 \\
 			H(x) & \geq & 0
-			\f}
+		\f}
 	 	*/
 		class Optimizer		
 		{
@@ -28,7 +28,10 @@ namespace mpc
 				/** @brief Destructor function */
 				~Optimizer() {};
 				
-				/** @brief Function to define the initialization of optimizer */
+				/**
+				 @brief Function to define the initialization of optimizer
+				 @return Label that indicates if the initialization of the optimizer is successful
+				 */
 				virtual bool init() = 0;
 				
 				/**
@@ -40,17 +43,27 @@ namespace mpc
 				 @param double* ub	Upper bound vector
 				 @param double* lbG	Low constraint vector
 				 @param double* lbG	Upper constraint vector
-				 @param double* cputime	CPU-time for computing the optimization. If NULL, it provides on output the actual calculation time of the optimization problem.
+				 @param double cputime	CPU-time for computing the optimization. If NULL, it provides on output the actual calculation time of the optimization problem.
+				 @return bool Label that indicates if the computation of the optimization is successful
 				 */
 				virtual bool computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbG, double *ubG, double cputime) = 0;
 				
-				/** @brief Get the optimal solution vector when it was solve the optimization problem */
+				/**
+				 @brief Get the optimal solution vector when it was solve the optimization problem
+				 @return double* Optimal solution
+				 */
 				virtual double* getOptimalSolution() = 0;
 				
-				/** @brief Get the number of constraints */
+				/**
+				 @brief Get the number of constraints
+				 @return int Number of constraints
+				  */
 				virtual int getConstraintNumber() const;
 				
-				/** @brief Get the number of variables, i.e inputs * horizon */
+				/**
+				 @brief Get the number of variables, i.e inputs * horizon
+				 @return int Number of variables
+				  */
 				virtual int getVariableNumber() const;
 				
 				/** @brief Set the horizon of the MPC */

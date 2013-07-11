@@ -1,4 +1,3 @@
-#include <ros/ros.h>
 #include <iostream>
 #include <vector>
 
@@ -17,6 +16,13 @@ mpc::optimizer::qpOASES::qpOASES(ros::NodeHandle node_handle) : nh_(node_handle)
 	horizon_ = 0;
 }
 
+
+mpc::optimizer::qpOASES::~qpOASES()
+{
+	delete solver_;
+}
+
+
 bool mpc::optimizer::qpOASES::init()
 {
 	// reading the parameters required for the solver
@@ -31,12 +37,12 @@ bool mpc::optimizer::qpOASES::init()
 		return false;
 	
 	qpOASES_initialized_ = false;
-	solver_ = new SQProblem(variables_, constraints_);
+	solver_ = new SQProblem(variables_, constraints_ * horizon_);
 	Options myOptions;
-//	myOptions.setToReliable();
+	myOptions.setToReliable();
 //	myOptions.setToMPC();
-	myOptions.enableFlippingBounds = BT_TRUE;
-	myOptions.printLevel = PL_LOW;
+//	myOptions.enableFlippingBounds = BT_TRUE;
+//	myOptions.printLevel = PL_LOW;
 	solver_->setOptions(myOptions);
 	
 	optimal_solution_ = new double[variables_];
@@ -50,22 +56,27 @@ bool mpc::optimizer::qpOASES::init()
 bool mpc::optimizer::qpOASES::computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbG, double *ubG, double cputime)
 {
 	// solve first QP.
+	returnValue retval;
 	if (!qpOASES_initialized_) {
-		retval_ = solver_->init(H, g, G, lb, ub, lbG, ubG, nWSR_, &cputime);
-		if (retval_ == SUCCESSFUL_RETURN) {
-			ROS_INFO("qpOASES problem successfully initialized");
+		retval = solver_->init(H, g, G, lb, ub, lbG, ubG, nWSR_, &cputime);
+		if (retval == SUCCESSFUL_RETURN) {
+			ROS_INFO("qpOASES problem successfully initialized.");
 			qpOASES_initialized_ = true;
 		}
 	}
 	else {
-		retval_ = solver_->hotstart(H, g, G, lb, ub, lbG, ubG, nWSR_, &cputime);
+		retval = solver_->hotstart(H, g, G, lb, ub, lbG, ubG, nWSR_, &cputime);
 	}
+	if (solver_->isInfeasible())
+		ROS_WARN("The quadratic programming is infeasible.");
 	
-	if (retval_ == SUCCESSFUL_RETURN) {
+	ROS_INFO("Return value: %i", retval);
+	
+	
+	if (retval == SUCCESSFUL_RETURN) {
 		solver_->getPrimalSolution(optimal_solution_);
-		return true;
 	}
-	else if (retval_ == RET_MAX_NWSR_REACHED) {
+	else if (retval == RET_MAX_NWSR_REACHED) {
 		ROS_WARN("The QP couldn't solve because the maximun number of WSR was reached.");
 		return false;
 	}
@@ -73,6 +84,7 @@ bool mpc::optimizer::qpOASES::computeOpt(double *H, double *g, double *G, double
 		ROS_WARN("The QP couldn't find the solution.");
 		return false;
 	}	
+	
 	
 	return true;
 }

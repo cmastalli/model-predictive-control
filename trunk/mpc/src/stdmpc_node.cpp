@@ -43,7 +43,7 @@ int main(int argc, char **argv)
 		
 		x_meas[0] = new_state[0];
 		x_meas[1] = new_state[1];
-		std::cout << "Control signal =====>> U = "<< *control_signal << std::endl;
+		std::cout << "Control signal =====>> U = " << control_signal[0] << std::endl;
 		std::cout << "Simulated States ===>> H1 = " << x_meas[0] << "   H2 = " << x_meas[1] << std::endl;
 	}
 
