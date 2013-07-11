@@ -6,9 +6,10 @@
 #include <mpc/model/model.h>
 
 
+#include <qpOASES.hpp>
+USING_NAMESPACE_QPOASES
 
-
-mpc::STDMPC::STDMPC(ros::NodeHandle node_handle) : nh_(node_handle)//, model_(0), optimizer_(0), simulator_(0)
+mpc::STDMPC::STDMPC(ros::NodeHandle node_handle) : nh_(node_handle)
 {
 	model_ = 0;
 	optimizer_ = 0;
@@ -18,37 +19,40 @@ mpc::STDMPC::STDMPC(ros::NodeHandle node_handle) : nh_(node_handle)//, model_(0)
 
 mpc::STDMPC::~STDMPC()
 {
-
 }
 
 
 bool mpc::STDMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator)
 {
-	// setting of the pointer of the model, optimizer and simulator classes
+	// Setting of the pointer of the model, optimizer and simulator classes
 	model_ = model;
 	optimizer_ = optimizer;
 	simulator_ = simulator;
 	
-	// reading of the horizon value of the model predictive control algorithm
+	// Reading of the horizon value of the model predictive control algorithm
 	nh_.param<int>("horizon", horizon_, 30);
 	ROS_INFO("Got param: horizon = %d", horizon_);
-
-	// reading of the problem variables
+	
+	nh_.param<int>("infeasibility_hack_counter_max", infeasibility_hack_counter_max_, 1);
+	ROS_INFO("Got param: infeasibility_hack_counter_max = %d", infeasibility_hack_counter_max_);
+	
+	
+	// Reading of the problem variables
 	states_ = model_->getStatesNumber();
 	inputs_ = model_->getInputsNumber();
 	outputs_ = model_->getOutputsNumber();
-
+	
 	variables_ = horizon_ * inputs_;
 	optimizer_->setHorizon(horizon_);
 	optimizer_->setVariableNumber(variables_);
-
+	
 	if (!optimizer_->init()) {
 		ROS_INFO("Could not initialized the optimizer class.");
 		return false;
 	}
 	constraints_ = optimizer_->getConstraintNumber();
-
-
+	
+	
 	ROS_INFO("Reset successful.");
 	return true;
 }
@@ -62,6 +66,8 @@ bool mpc::STDMPC::initMPC()
 	// Initialization of MPC solution
 	mpc_solution_ = new double[variables_];
 	control_signal_ = new double[inputs_];
+	u_reference_ = Eigen::MatrixXd::Zero(inputs_, 1);
+	infeasibility_counter_ = 0;
 		
 	// Initialization of state space matrices
 	A_ = Eigen::MatrixXd::Zero(states_, states_);
@@ -131,12 +137,12 @@ bool mpc::STDMPC::initMPC()
 	if (ubG_list.size() == lbG_list.size()) {
 		for (int i = 0; i < ubG_list.size(); ++i) {
 			ROS_ASSERT(lbG_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-			lbG(i) = static_cast<double>(lbG_list[i]);
+			lbG(i) = -INFTY;//static_cast<double>(lbG_list[i]);
 			
 			ROS_ASSERT(ubG_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-			ubG(i) = static_cast<double>(ubG_list[i]);
+			ubG(i) = INFTY;//static_cast<double>(ubG_list[i]);
 		}
-
+	
 	}
 	
 	// Reading the bound vectors
@@ -150,23 +156,28 @@ bool mpc::STDMPC::initMPC()
 	if (ub_list.size() == lb_list.size()) {
 		for (int i = 0; i < ub_list.size(); ++i) {
 			ROS_ASSERT(lb_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-			lb(i) = static_cast<double>(lb_list[i]);                              
+			lb(i) = -INFTY;//static_cast<double>(lb_list[i]);                              
 			
 			ROS_ASSERT(ub_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-			ub(i) = static_cast<double>(ub_list[i]);
+			ub(i) = INFTY;//static_cast<double>(ub_list[i]);
 		}
 	}
 	
 	// Reading the state bound matrix
-	double m[constraints_ * states_];
+	Eigen::MatrixXd M = Eigen::MatrixXd::Zero(constraints_, states_);
 	XmlRpc::XmlRpcValue M_list;
-	nh_.getParam("optimizer/constraints/constraint_matrix_M", M_list);  
+	nh_.getParam("optimizer/constraints/constraint_matrix_M", M_list);
 	ROS_ASSERT(M_list.getType() == XmlRpc::XmlRpcValue::TypeArray);
-	for (int i = 0; i < M_list.size(); ++i) {
-		ROS_ASSERT(M_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-		m[i] = static_cast<double>(M_list[i]);
+	ROS_ASSERT(M_list.size() == constraints_ * states_);
+	
+	z = 0;
+	for (int i = 0; i < constraints_; ++i) {
+		for (int j = 0; j < states_; j++) {
+			ROS_ASSERT(M_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
+			M(i, j) = static_cast<double>(M_list[z]);
+			z++;
+		}
 	}
-	Eigen::Map<Eigen::MatrixXd, Eigen::RowMajor> M(m, constraints_, states_);
 	
 	
 	// Creation of the extended constraint and bound vector
@@ -200,15 +211,13 @@ bool mpc::STDMPC::initMPC()
 
 void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 {
-
 	Eigen::Map<Eigen::VectorXd> x_measured_eigen(x_measured, states_, 1);
 	Eigen::Map<Eigen::VectorXd> x_reference_eigen(x_reference, states_, 1);
 	
-	std::cout << "Measured states\n" << x_measured_eigen << std::endl;
 
 	// Compute steady state control based on updated system matrices
 	Eigen::JacobiSVD<Eigen::MatrixXd> SVD_B(B_, Eigen::ComputeThinU | Eigen::ComputeThinV);
-	Eigen::MatrixXd u_reference = SVD_B.solve(x_reference_eigen - A_ * x_reference_eigen);
+	u_reference_ = SVD_B.solve(x_reference_eigen - A_ * x_reference_eigen);
 	
 	// Creation of the base vector
 	A_pow_.push_back(Eigen::MatrixXd::Identity(states_, states_));
@@ -248,12 +257,12 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	}
 	double hessian_matrix[horizon_ * inputs_][horizon_ * inputs_];
 	double gradient_vector[horizon_ * inputs_];
-	Eigen::Map<Eigen::MatrixXd, Eigen::RowMajor> H(&hessian_matrix[0][0], horizon_ * inputs_, horizon_ * inputs_);
-	Eigen::Map<Eigen::MatrixXd> g(gradient_vector, horizon_ * inputs_, 1);
+	Eigen::Map<Eigen::Matrix<double, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor> > H(&hessian_matrix[0][0], horizon_ * inputs_, horizon_ * inputs_);
+	Eigen::Map<Eigen::VectorXd> g(gradient_vector, horizon_ * inputs_, 1);
 	
 	// Computing the values of the Hessian matrix and Gradient vector
 	H = B_bar_.transpose() * Q_bar_ * B_bar_ + R_bar_;
-	g = B_bar_.transpose() * Q_bar_ * A_bar_ * x_measured_eigen - B_bar_.transpose() * Q_bar_ * x_ref_bar;
+	g = B_bar_.transpose() * Q_bar_ * (A_bar_ * x_measured_eigen - x_ref_bar);
 	
 	
 	// Transforming constraints and bounds to array
@@ -261,10 +270,10 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	double ubG_bar[constraints_ * horizon_];
 	double lb_bar[horizon_ * inputs_];
 	double ub_bar[horizon_ * inputs_];
-	Eigen::Map<Eigen::VectorXd> lbG_bar_eigen(lbG_bar, constraints_ * horizon_);
-	Eigen::Map<Eigen::VectorXd> ubG_bar_eigen(ubG_bar, constraints_ * horizon_);
-	Eigen::Map<Eigen::VectorXd> lb_bar_eigen(lb_bar, inputs_ * horizon_);
-	Eigen::Map<Eigen::VectorXd> ub_bar_eigen(ub_bar, inputs_ * horizon_);
+	Eigen::Map<Eigen::VectorXd> lbG_bar_eigen(lbG_bar, constraints_ * horizon_, 1);
+	Eigen::Map<Eigen::VectorXd> ubG_bar_eigen(ubG_bar, constraints_ * horizon_, 1);
+	Eigen::Map<Eigen::VectorXd> lb_bar_eigen(lb_bar, inputs_ * horizon_, 1);
+	Eigen::Map<Eigen::VectorXd> ub_bar_eigen(ub_bar, inputs_ * horizon_, 1);
 	lbG_bar_eigen = lbG_bar_ - M_bar_ * A_bar_ * x_measured_eigen;
 	ubG_bar_eigen = ubG_bar_ - M_bar_ * A_bar_ * x_measured_eigen;
 	lb_bar_eigen = lb_bar_;
@@ -275,18 +284,30 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	double constraint_matrix[horizon_ * constraints_][horizon_ * inputs_];
 	Eigen::Map<Eigen::MatrixXd, Eigen::RowMajor> G_bar(&constraint_matrix[0][0], constraints_ * horizon_, horizon_ * inputs_);
 	G_bar = M_bar_ * B_bar_;
+//	std::cout << G_bar << std::endl;
+//	std::cout << "lbG_bar = " << std::endl << lbG_bar_ << std::endl;
 	
 	
-	double cputime = 1.0;//NULL;
+	double cputime = 0;//1.0;//NULL;
 	bool success = false;
 	success = optimizer_->computeOpt(&hessian_matrix[0][0], gradient_vector, &constraint_matrix[0][0], lb_bar, ub_bar, lbG_bar, ubG_bar, cputime);
-	if (success){
+	if (success) {
 		mpc_solution_ = optimizer_->getOptimalSolution();
-		for (int i = 0; i < variables_; i++){
-			std::cout <<"Solution vector: solution["<< i <<"] = " << *(mpc_solution_ + i) << std::endl;
+		infeasibility_counter_ = 0;
+		
+		for (int i = 0; i < variables_; i++) {
+			if (i == 0)
+				std::cout << "Optimal solution = [" << mpc_solution_[i] << " ";
+			else {
+				if (i == variables_ - 1)
+					std::cout << mpc_solution_[i] << "]^T" << std::endl;
+				else
+					std::cout << mpc_solution_[i] << " ";
+			}
 		}
 	}
-	else {	
+	else {
+		infeasibility_counter_++;
 		ROS_WARN("An optimal solution could not be obtained.");
 	}
 

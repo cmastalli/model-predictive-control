@@ -1,18 +1,19 @@
 mpc:
   horizon: 10
+  infeasibility_hack_counter_max: 1
 
   optimizer:
     number_constraints: 3
-    working_set_recalculations: 500
+    working_set_recalculations: 100
 
     states_error_weight_matrix:
-      data: [300.0, 0.0, 0.0, 300.0]
+      data: [20.0, 0.0, 0.0, 10.0]
 
     input_error_weight_matrix:
-      data: [30.0]
+      data: [1.0]
 
     terminal_state_weight_matrix:
-      data: [100.0, 0.0, 0.0, 100.0]
+      data: [30.0, 0.0, 0.0, 30.0]
 
     constraints:
       constraint_vector_low: [0.0, 0.0, 0.0]

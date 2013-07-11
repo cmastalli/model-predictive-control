@@ -10,25 +10,25 @@ namespace mpc
     namespace model
     {
         //TODO: define a cost function
-	/**
-	 @brief Abstract class to define the model of the process and the optimal control problem to be solved
-	 This class gives an abstract definition of the process model and the optimal control problem which shall be considered. The model itself is defined via its dynamic
-	 \f{eqnarray*}{
-	 \dot{x}(t) = Ax(t) + Bu(t) \\
-	 y(t) = Cx(t)
-         \f}
-	 on the optimization horizon \f$ [t_0, N] \f$ with initial value \f$ x(t_0, x_0) = x_0 \f$. Moreover, the solution of the control system shall satisfy given constraints
-	 \f{eqnarray*}{
-	 x(t, x_0) & \in & X \qquad \forall t \in [t_0, t_N] \\
-	 u(t, x_0) & \in & U \qquad \forall t \in [t_k, t_k)
-	 \f}
-	Since we suppose at least control law \f$ u(\cdot) \f$ to exist which satisfies all these constraints, i.e. is feasible, an optimization critierion
-	 \f{eqnarray*}{
-	 J_N (x_0, u) & = & \sum\limits_{k=0}^{N - 1} \int\limits_{t_k}^{t_{k + 1}} L \left( \tau, x_{u}(\tau, x_0), u(\tau, x_0) \right) d \tau \\
-	 && + \sum\limits_{k=0}^{N - 1} l \left( t_k, x_{u}(t_k, x_0), u(t_k, x_0) \right) + F(t_N, x_{u}(t_N, x_0))
-	 \f}
-	is added to measure the quality of feasible solutions.
-	 */
+		/**
+		 @brief Abstract class to define the model of the process and the optimal control problem to be solved
+		 This class gives an abstract definition of the process model and the optimal control problem which shall be considered. The model itself is defined via its dynamic
+		 \f{eqnarray*}{
+			 \dot{x}(t) = Ax(t) + Bu(t) \\
+			 y(t) = Cx(t)
+   	     \f}
+		 on the optimization horizon \f$ [t_0, N] \f$ with initial value \f$ x(t_0, x_0) = x_0 \f$. Moreover, the solution of the control system shall satisfy given constraints
+		 \f{eqnarray*}{
+			 x(t, x_0) & \in & X \qquad \forall t \in [t_0, t_N] \\
+			 u(t, x_0) & \in & U \qquad \forall t \in [t_k, t_k)
+		 \f}
+		 Since we suppose at least control law \f$ u(\cdot) \f$ to exist which satisfies all these constraints, i.e. is feasible, an optimization critierion
+		 \f{eqnarray*}{
+			 J_N (x_0, u) & = & \sum\limits_{k=0}^{N - 1} \int\limits_{t_k}^{t_{k + 1}} L \left( \tau, x_{u}(\tau, x_0), u(\tau, x_0) \right) d \tau \\
+			 && + \sum\limits_{k=0}^{N - 1} l \left( t_k, x_{u}(t_k, x_0), u(t_k, x_0) \right) + F(t_N, x_{u}(t_N, x_0))
+		 \f}
+		 is added to measure the quality of feasible solutions.
+		 */
 		class Model
 		{
 			public:
@@ -43,6 +43,7 @@ namespace mpc
 				 @param Eigen::MatrixXd& A	State or System matrix
 				 @param Eigen::MatrixXd& B	Input matrix
 				 @param Eigen::MatrixXd& C	Output matrix
+				 @return bool Label that indicates if the computation of the matrices is successful
 				 */
 				virtual bool computeDynamicModel(Eigen::MatrixXd& A, Eigen::MatrixXd& B, Eigen::MatrixXd& C) = 0;
 				
