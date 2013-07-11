@@ -3,8 +3,8 @@ mpc:
   infeasibility_hack_counter_max: 1
 
   optimizer:
-    number_constraints: 3
-    working_set_recalculations: 100
+    number_constraints: 2
+    working_set_recalculations: 500
 
     states_error_weight_matrix:
       data: [20.0, 0.0, 0.0, 10.0]
@@ -16,10 +16,10 @@ mpc:
       data: [30.0, 0.0, 0.0, 30.0]
 
     constraints:
-      constraint_vector_low: [0.0, 0.0, 0.0]
-      constraint_vector_upp: [25.0, 28.0, 0.0]
+      constraint_vector_low: [0.0, 0.0]
+      constraint_vector_upp: [25.0, 28.0]
 
-      constraint_matrix_M: [1.0, 0.0, 0.0, 1.0, 0.0, 0.0]
+      constraint_matrix_M: [1.0, 0.0, 0.0, 1.0]
 
       bound_vector_low: [0.0]
       bound_vector_upp: [10.0]
