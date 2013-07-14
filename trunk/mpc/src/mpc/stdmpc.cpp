@@ -1,12 +1,14 @@
 #include <ros/ros.h>
 #include <iostream>
 #include <vector>
+//#include <fstream>
 
 #include <mpc/mpc/stdmpc.h>
 #include <mpc/model/model.h>
 
-
 #include <qpOASES.hpp>
+
+
 USING_NAMESPACE_QPOASES
 
 mpc::STDMPC::STDMPC(ros::NodeHandle node_handle) : nh_(node_handle)
@@ -14,6 +16,7 @@ mpc::STDMPC::STDMPC(ros::NodeHandle node_handle) : nh_(node_handle)
 	model_ = 0;
 	optimizer_ = 0;
 	simulator_ = 0;
+	enable_record_ = true;
 }
 
 
@@ -35,6 +38,16 @@ bool mpc::STDMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *
 	
 	nh_.param<int>("infeasibility_hack_counter_max", infeasibility_hack_counter_max_, 1);
 	ROS_INFO("Got param: infeasibility_hack_counter_max = %d", infeasibility_hack_counter_max_);
+	
+	
+	if (!nh_.getParam("path_name", path_name_)) {
+		ROS_WARN("The data will not save because could not found path name from parameter server.");
+		enable_record_ = false;
+	}
+	if (!nh_.getParam("data_name", data_name_)) {
+		ROS_WARN("The data will not save because could not found data name from parameter server.");
+		enable_record_ = false;
+	}
 	
 	
 	// Reading of the problem variables
@@ -68,7 +81,11 @@ bool mpc::STDMPC::initMPC()
 	control_signal_ = new double[inputs_];
 	u_reference_ = Eigen::MatrixXd::Zero(inputs_, 1);
 	infeasibility_counter_ = 0;
-		
+	x_.resize(states_);
+	xref_.resize(states_);
+	u_.resize(inputs_);
+	
+	
 	// Initialization of state space matrices
 	A_ = Eigen::MatrixXd::Zero(states_, states_);
 	B_ = Eigen::MatrixXd::Zero(states_, inputs_);
@@ -294,23 +311,23 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	if (success) {
 		mpc_solution_ = optimizer_->getOptimalSolution();
 		infeasibility_counter_ = 0;
-		
-/*		for (int i = 0; i < variables_; i++) {
-			if (i == 0)
-				std::cout << "Optimal solution = [" << mpc_solution_[i] << " ";
-			else {
-				if (i == variables_ - 1)
-					std::cout << mpc_solution_[i] << "]^T" << std::endl;
-				else
-					std::cout << mpc_solution_[i] << " ";
-			}
-		}*/
 	}
 	else {
 		infeasibility_counter_++;
 		ROS_WARN("An optimal solution could not be obtained.");
 	}
-
+	
+	
+	// Save the data of the MPC
+	for (int i = 0; i < states_; i++) {
+		x_[i].push_back(x_measured[i]);
+		xref_[i].push_back(x_reference[i]);
+	}
+	
+	double *u = getControlSignal();
+	for (int i = 0; i < inputs_; i++) {
+		u_[i].push_back(u[i]);
+	}
 }
 
 

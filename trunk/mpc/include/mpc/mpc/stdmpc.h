@@ -52,6 +52,7 @@ namespace mpc
 			 @param double* x_reference		reference vector
 			 */
 			virtual void updateMPC(double* x_measured, double* x_reference);
+						
 			
 			
 		protected:
@@ -63,6 +64,7 @@ namespace mpc
 
 			/** @brief Prediction horizon for the algorithm **/
 			int horizon_;
+			
 			
 			
 		private:
@@ -109,7 +111,18 @@ namespace mpc
 			std::vector<Eigen::MatrixXd> A_pow_;
 			
 			
-	}; //@class StandardMPC
+			/*
+			std::vector<std::vector<double> > x_;
+			
+			std::vector<std::vector<double> > xref_;
+			
+			std::vector<std::vector<double> > u_;
+			
+			std::string path_name_;
+			
+			std::string data_name_;*/
+			
+	}; //@class STDMPC
 
 } //@namespace mpc
 

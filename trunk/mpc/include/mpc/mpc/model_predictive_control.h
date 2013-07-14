@@ -7,6 +7,8 @@
 
 #include <Eigen/Dense>
 
+#include <fstream>
+
 
 namespace mpc
 {
@@ -69,10 +71,14 @@ namespace mpc
 			/**
 			 @brief Function to get the control signal generates for the MPC
 			 @return double* Control signal
-			 */			
+			 */
 			virtual double* getControlSignal() const;
-
-
+			
+			/** @brief Function to write the data of the MPC in text file */
+			virtual void writeToDisc();
+			
+			
+			
         protected:
         	/** @brief Pointer of dynamic model of the system */
 			mpc::model::Model *model_;
@@ -119,6 +125,25 @@ namespace mpc
 			/** @brief Control signal computes for MPC */
 			double *control_signal_;
 			
+			/** @brief Data of the state vector of the system */
+			std::vector<std::vector<double> > x_;
+			
+			/** @brief Data of the reference state vector of the system */
+			std::vector<std::vector<double> > xref_;
+			
+			/** @brief Data of the control signal vector of the system */
+			std::vector<std::vector<double> > u_;
+			
+			/** @brief Path where the data will be save */
+			std::string path_name_;
+			
+			/** @brief Name of the file where the data will be save */
+			std::string data_name_;
+			
+			/** @brief Label that indicates if it will be save the data */
+			bool enable_record_;
+			
+			
 			
 		private:
 		
@@ -138,6 +163,63 @@ inline double* mpc::ModelPredictiveControl::getControlSignal() const
 	}
 
 	return control_signal_;
+}
+
+
+inline void mpc::ModelPredictiveControl::writeToDisc()
+{
+	bool data = true;
+	if (x_[0].size() == 0) {
+		ROS_WARN("Could not save the data because the control signal information is NULL. You have to save this information at updateMPC function.");
+		data = false;
+	}
+	if (xref_[0].size() == 0) {
+		ROS_WARN("Could not save the data because the control signal information is NULL. You have to save this information at updateMPC function.");
+		data = false;
+	}
+	if (u_[0].size() == 0) {
+		ROS_WARN("Could not save the data because the control signal information is NULL. You have to save this information at updateMPC function.");
+		data = false;
+	}
+	
+	if (enable_record_ && data) {
+		path_name_.append(data_name_ + std::string(".txt"));
+		
+		std::ofstream outfile;
+		outfile.open(path_name_.c_str());
+		outfile.precision(4);
+		outfile.setf(std::ios::fixed, std::ios::floatfield);
+		outfile.setf(std::ios::left, std::ios::adjustfield);
+		for (unsigned int j = 0; j < x_[0].size(); j++) {
+			if (j == 0) {
+				for (unsigned int i = 0; i < x_.size(); i++)
+					outfile << "x_" << i+1 << '\t';
+				
+				for (unsigned int i = 0; i < xref_.size(); i++)
+					outfile << "xref_" << i+1 << '\t';
+				
+				for (unsigned int i = 0; i < u_.size(); i++) {
+					if (i == u_.size() - 1)
+						outfile << "u_" << i+1 << std::endl;
+					else
+						outfile << "u_" << i+1 << '\t';
+				}
+			}
+	    	for (unsigned int i = 0; i < x_.size(); i++)
+				outfile << x_[i][j] << '\t';
+			
+			for (unsigned int i = 0; i < xref_.size(); i++)
+				outfile << xref_[i][j] << '\t';
+			
+			for (unsigned int i = 0; i < u_.size(); i++) {
+				if (i == u_.size() - 1)
+					outfile << u_[i][j] << std::endl;
+				else
+					outfile << u_[i][j] << '\t';
+			}
+		}
+		outfile.close();
+	}
 }
 
 
