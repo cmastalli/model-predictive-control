@@ -60,6 +60,7 @@ namespace mpc
 			virtual void updateMPC(double* x_measured, double* x_reference);
 			
 			
+			
 		private:
 			/** @brief Node handle **/
 			ros::NodeHandle nh_;

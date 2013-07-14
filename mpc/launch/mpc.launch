@@ -1,12 +1,8 @@
 <launch>
-<!--
-	<rosparam file="$(find mpc)/launch/$(arg mpc)_parameters.yaml" command="load" />
 
-	<node name="mpc" pkg="mpc" type="$(arg mpc)_node" output="screen" />
--->
 
 	<rosparam file="$(find mpc)/launch/$(arg mpc)_parameters.yaml" command="load" />
-
 	<node name="mpc" pkg="mpc" type="$(arg mpc)_node" output="screen" />
+
 
 </launch>

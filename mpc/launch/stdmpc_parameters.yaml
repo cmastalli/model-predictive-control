@@ -1,4 +1,6 @@
 mpc:
+  path_name: /home/cmastalli/ros_workspace/model-predictive-control/mpc/data/
+  data_name: tanks_stdmpc
   horizon: 10
   infeasibility_hack_counter_max: 1
 
@@ -10,7 +12,7 @@ mpc:
       data: [20.0, 0.0, 0.0, 10.0]
 
     input_error_weight_matrix:
-      data: [1.0]
+      data: [0.10]
 
     terminal_state_weight_matrix:
       data: [30.0, 0.0, 0.0, 30.0]

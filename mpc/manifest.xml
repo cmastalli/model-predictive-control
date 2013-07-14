@@ -9,6 +9,7 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/mpc</url>
   <depend package="roscpp"/>
+  <depend package="realtime_tools"/>
   <depend package="common_rosdeps" />
   <depend package="qpOASES" />
   <rosdep name="eigen" />
