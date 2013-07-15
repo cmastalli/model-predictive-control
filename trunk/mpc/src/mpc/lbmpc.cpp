@@ -1,5 +1,5 @@
-
 #include <mpc/mpc/lbmpc.h>
+
 
 
 mpc::LBMPC::LBMPC(ros::NodeHandle node) : nh_(node)
@@ -7,6 +7,7 @@ mpc::LBMPC::LBMPC(ros::NodeHandle node) : nh_(node)
 	model_ = 0;
 	optimizer_ = 0;
 	simulator_ = 0;
+	enable_record_ = true;
 }
 
 
@@ -16,28 +17,63 @@ bool mpc::LBMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *o
 	optimizer_ = optimizer;
 	simulator_ = simulator;
 	
+	// Reading of the horizon value of the model predictive control algorithm
+	nh_.param<int>("horizon", horizon_, 30);
+	ROS_INFO("Got param: horizon = %d", horizon_);
+	
+		// Ask about the enable or disable of the learning process
+	if (!nh_.getParam("enable_learning_process", enable_learning_process_)) {
+		enable_learning_process_ = false;
+		ROS_WARN("Could not get the enable or disable learning process, therefore it is disable the learning process.");
+	}
+	
+	
+	nh_.param<int>("infeasibility_hack_counter_max", infeasibility_hack_counter_max_, 1);
+	ROS_INFO("Got param: infeasibility_hack_counter_max = %d", infeasibility_hack_counter_max_);
+	
+	// Reading the path and data name
+	if (!nh_.getParam("path_name", path_name_)) {
+		ROS_WARN("The data will not save because could not found path name from parameter server.");
+		enable_record_ = false;
+	}
+	if (!nh_.getParam("data_name", data_name_)) {
+		ROS_WARN("The data will not save because could not found data name from parameter server.");
+		enable_record_ = false;
+	}
+	
+	// Get the number of states, inputs and outputs of the plant
+	states_ = model_->getStatesNumber();
+	inputs_ = model_->getInputsNumber();	
+	outputs_ = model_->getOutputsNumber();
+	
+	variables_ = horizon_ * inputs_;
+	optimizer_->setHorizon(horizon_);
+	optimizer_->setVariableNumber(variables_);
+	
+	if (!optimizer_->init()) {
+		ROS_INFO("Could not initialized the optimizer class.");
+		return false;
+	}
+	constraints_ = optimizer_->getConstraintNumber();
+	
+	
+	ROS_INFO("Reset successful.");
 	return true;
 }
 
 
 bool mpc::LBMPC::initMPC()
 {
-	// Get the number of states, inputs and outputs of the plant
-	states_ = model_->getStatesNumber();
-	inputs_ = model_->getInputsNumber();	
-	outputs_ = model_->getOutputsNumber();
+	// Initialization of MPC solution
+	mpc_solution_ = new double[variables_];
+	control_signal_ = new double[inputs_];
+	u_reference_ = Eigen::MatrixXd::Zero(inputs_, 1);
+	infeasibility_counter_ = 0;
+	x_.resize(states_);
+	xref_.resize(states_);
+	u_.resize(inputs_);
 	
-	if (!nh_.getParam("horizon", horizon_)) {
-		horizon_ = 30;
-		ROS_WARN("Could not get the horizon value, therefore it is setting to the default value (30 samples).");
-	}
-
-	// Ask about the enable or disable of the learning process
-	if (!nh_.getParam("enable_learning_process", enable_learning_process_)) {
-		enable_learning_process_ = false;
-		ROS_WARN("Could not get the enable or disable learning process, therefore it is disable the learning process.");
-	}
-
+		
 	// Get the nominal dynamic model matrices
 	A_nominal_ = Eigen::MatrixXd::Zero(states_, states_);
 	A_estimated_ = Eigen::MatrixXd::Zero(states_, states_);
@@ -53,6 +89,7 @@ bool mpc::LBMPC::initMPC()
 		ROS_ERROR("Could not compute the nominal dynamic model of the linear system.");
 		return false;
 	}
+	
 	
 	// Get the feedback gain that serves to limit the effects of model uncertainty
 	K_ =  Eigen::MatrixXd::Zero(inputs_, states_);
