@@ -101,6 +101,12 @@ namespace mpc
 			/** @brief Horizon of prediction of the dynamic model */
 			int horizon_;
 			
+			/** @brief Number of variables, i.e inputs * horizon */
+			int variables_;
+			
+			/** @brief Number of constraints */
+			int constraints_;
+			
 			/** @brief Infeasibility counter in the solution */
 			int infeasibility_counter_;
 			
