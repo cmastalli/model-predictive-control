@@ -1,15 +1,6 @@
-#include <ros/ros.h>
-#include <iostream>
-#include <vector>
-//#include <fstream>
-
 #include <mpc/mpc/stdmpc.h>
-#include <mpc/model/model.h>
-
-#include <qpOASES.hpp>
 
 
-USING_NAMESPACE_QPOASES
 
 mpc::STDMPC::STDMPC(ros::NodeHandle node_handle) : nh_(node_handle)
 {
@@ -39,7 +30,8 @@ bool mpc::STDMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *
 	nh_.param<int>("infeasibility_hack_counter_max", infeasibility_hack_counter_max_, 1);
 	ROS_INFO("Got param: infeasibility_hack_counter_max = %d", infeasibility_hack_counter_max_);
 	
-	
+
+	// Reading the path and data name
 	if (!nh_.getParam("path_name", path_name_)) {
 		ROS_WARN("The data will not save because could not found path name from parameter server.");
 		enable_record_ = false;
@@ -74,8 +66,6 @@ bool mpc::STDMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *
 
 bool mpc::STDMPC::initMPC()
 {
-	ROS_INFO("states: %i inputs: %i constraints: %i horizon: %i variables: %i", states_, inputs_, constraints_, horizon_, variables_);
-	
 	// Initialization of MPC solution
 	mpc_solution_ = new double[variables_];
 	control_signal_ = new double[inputs_];
