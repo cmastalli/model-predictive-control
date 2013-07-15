@@ -109,18 +109,7 @@ namespace mpc
 
 			/** @brief Vector of pows of state matrix for quadratic programming */
 			std::vector<Eigen::MatrixXd> A_pow_;
-			
-			
-			/*
-			std::vector<std::vector<double> > x_;
-			
-			std::vector<std::vector<double> > xref_;
-			
-			std::vector<std::vector<double> > u_;
-			
-			std::string path_name_;
-			
-			std::string data_name_;*/
+						
 			
 	}; //@class STDMPC
 
