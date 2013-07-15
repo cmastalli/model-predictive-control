@@ -1,5 +1,5 @@
 mpc:
-  path_name: /home/cmastalli/ros_workspace/model-predictive-control/mpc/data/
+  path_name: /home/rene/ros_workspace/model-predictive-control/mpc/data/
   data_name: tanks_stdmpc
   horizon: 10
   infeasibility_hack_counter_max: 1
