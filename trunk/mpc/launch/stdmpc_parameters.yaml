@@ -12,7 +12,7 @@ mpc:
       data: [20.0, 0.0, 0.0, 10.0]
 
     input_error_weight_matrix:
-      data: [0.10]
+      data: [0.010]
 
     terminal_state_weight_matrix:
       data: [30.0, 0.0, 0.0, 30.0]
