@@ -13,6 +13,7 @@
   <depend package="std_msgs"/>
   <depend package="tum_ardrone"/>
   <depend package="geometry_msgs"/>
+  <depend package="gazebo_msgs"/>
   
 </package>
 
