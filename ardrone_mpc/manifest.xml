@@ -1,0 +1,19 @@
+<package>
+  <description brief="ardrone_mpc">
+
+     ardrone_mpc
+
+  </description>
+  <author>cmastalli</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/ardrone_mpc</url>
+  <depend package="mpc"/>
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+  <depend package="tum_ardrone"/>
+  <depend package="geometry_msgs"/>
+  
+</package>
+
+
