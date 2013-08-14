@@ -10,11 +10,11 @@
 
 std::string input_data_name_ = "/home/adminmecatronica/ros_workspace/model-predictive-control/ardrone_mpc/data/identification_input_data.txt";
 std::string output_data_name_ = "/home/adminmecatronica/ros_workspace/model-predictive-control/ardrone_mpc/data/identification_output_data.txt";
-std::string output_data_rotz_name_ = "/home/adminmecatronica/ros_workspace/model-predictive-control/ardrone_mpc/data/identification_output_data_rotz.txt";
+std::string output_data_rot_name_ = "/home/adminmecatronica/ros_workspace/model-predictive-control/ardrone_mpc/data/identification_output_data_rotations.txt";
 
 std::vector<std::vector<double> > input_;
 std::vector<std::vector<double> > estimated_states_;
-std::vector<double> estimated_states_2;
+std::vector<std::vector<double> > estimated_states_2;
 std::vector<double> t_input_;
 std::vector<double> t_output_lin_;
 std::vector<double> t_output_ang_;
@@ -28,6 +28,9 @@ void outputLinearPositionDataCallback(const gazebo_msgs::ModelStates& msg)
 	estimated_states_[0].push_back(msg.pose[2].position.x);
 	estimated_states_[1].push_back(msg.pose[2].position.y);
 	estimated_states_[2].push_back(msg.pose[2].position.z);
+	estimated_states_[3].push_back(msg.twist[2].linear.x);
+	estimated_states_[4].push_back(msg.twist[2].linear.y);
+	estimated_states_[5].push_back(msg.twist[2].linear.z);
 
 }
 
@@ -35,7 +38,9 @@ void outputAngularPositionVelocityDataCallback(const ardrone_autonomy::Navdata& 
 {
 	t_output_ang_.push_back(ros::Time::now().toSec() - t_start_);
 	
-	estimated_states_2.push_back(msg.rotZ);
+	estimated_states_2[0].push_back(msg.rotX);
+	estimated_states_2[1].push_back(msg.rotY);
+	estimated_states_2[2].push_back(msg.rotZ);
 
 }
 
@@ -81,7 +86,7 @@ void writeToDisc()
 	outfile.setf(std::ios::fixed, std::ios::floatfield);
 	outfile.setf(std::ios::left, std::ios::adjustfield);
 
-	outfile << "t" << '\t' << "x" << '\t' << "y" << '\t' << "z"<< std::endl;
+	outfile << "t" << "\tx" << "\ty" << "\tz"<< "\tVx" << "\tVy" << "\tVz" << std::endl;
 	for (unsigned int j = 0; j < estimated_states_[0].size(); j++) {
 		outfile << t_output_lin_[j];
    	 	for (unsigned int i = 0; i < estimated_states_.size(); i++) {
@@ -92,14 +97,19 @@ void writeToDisc()
 	}
 	outfile.close();
 
-	outfile.open(output_data_rotz_name_.c_str());
+	outfile.open(output_data_rot_name_.c_str());
 	outfile.precision(4);
 	outfile.setf(std::ios::fixed, std::ios::floatfield);
 	outfile.setf(std::ios::left, std::ios::adjustfield);
 
-	outfile << "t" << '\t' << "yaw" << std::endl;
+	outfile << "t" << "\troll" << "\tpitch" << "\tyaw" << std::endl;
 	for (unsigned int j = 0; j < estimated_states_2.size(); j++) {
-		outfile << t_output_ang_[j] << '\t' << estimated_states_2[j] << std::endl;
+		outfile << t_output_ang_[j];	
+		for (unsigned int i = 0; i < estimated_states_2.size(); i++) {
+   			outfile << '\t';
+			outfile << estimated_states_2[i][j] ;
+		}			// << '\t' << estimated_states_2[j] << std::endl;
+		outfile << std::endl;
 	}
 	outfile.close();
 
@@ -114,7 +124,8 @@ int main(int argc, char **argv)
 
 	ros::NodeHandle nh;
 
-	estimated_states_.resize(3);
+	estimated_states_.resize(6);
+	estimated_states_2.resize(3);
 	input_.resize(4);
 	t_start_ = ros::Time::now().toSec();
 
