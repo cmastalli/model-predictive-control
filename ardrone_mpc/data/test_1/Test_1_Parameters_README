@@ -1,0 +1,17 @@
+README -- Identification Test 1
+
+For this test, the inputs to the system are the following:
+
+-Linear velocity x
+-Linear velocity y
+-Linear velocity z
+-Angular velocity dyaw (angular velocity around Z axis)
+
+and the outputs recorded are the following:
+
+-Linear position x
+-Linear position y
+-Linear position z 
+-Angular position yaw (rotation around Z axis)
+
+Using RViz, all the tests have been performed such that the quadrotor is positioned the closest to the Gazebo's world reference frame. Gazebo's quadrotor local reference frame orientation is different from the regular convention used in quadrotor modeling, so for this purposes one should fix one axis to be the same as in Gazebo's world reference frame and then make the corresponding transformations to a regular quadrotor local reference frame. This is done in the Python script that processes and plots the acquired data.
