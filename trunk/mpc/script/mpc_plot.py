@@ -3,7 +3,7 @@ from pylab import *
 from numpy import *
 
 
-path = '/home/cmastalli/ros_workspace/model-predictive-control/mpc/data/tanks_stdmpc.txt'
+path = '/home/rene/ros_workspace/model-predictive-control/mpc/data/tanks_stdmpc.txt'
 h_1, h_2, hr_1, hr_2, u = loadtxt(path, skiprows=1, unpack=True)
 sampling_time = 0.01
 t = arange(0.0, h_1.size*sampling_time, sampling_time)
