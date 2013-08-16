@@ -3,46 +3,64 @@ from pylab import *
 from numpy import *
 
 
-path = '/home/cmastalli/ros_workspace/model-predictive-control/ardrone_mpc/data/test_1/identification_output_data.txt'
+
+path1 = '/home/rene/ros_workspace/model-predictive-control/ardrone_mpc/data/test_2/Identification_Test_X/identification_input_data.txt'
 #x, y, z, roll, pitch, yaw, dx, dy, dz, dyaw = loadtxt(path, skiprows=1, unpack=True)
-dx, dy, dz, dyaw = loadtxt(path, skiprows=1, unpack=True)
-path = '/home/cmastalli/ros_workspace/model-predictive-control/ardrone_mpc/data/test_1/identification_input_data.txt'
-ux, uy, uz, uyaw = loadtxt(path, skiprows=1, unpack=True)
+t, vx, vy, vz, dyaw = loadtxt(path1, skiprows=1, unpack=True)
+path2 = '/home/rene/ros_workspace/model-predictive-control/ardrone_mpc/data/test_2/Identification_Test_X/identification_output_data.txt'
+t_out, x, y, z, vxo, vyo, vzo  = loadtxt(path2, skiprows=1, unpack=True)
 
+path3 = '/home/rene/ros_workspace/model-predictive-control/ardrone_mpc/data/test_2/Identification_Test_X/identification_output_data_rotations.txt'
+t_out_rot, roll, pitch, yaw  = loadtxt(path3, skiprows=1, unpack=True)
 
-Ts = 0.01
-tu = arange(0.0, ux.size*Ts*size(dx)/size(ux), Ts*size(dx)/size(ux))
-ts = arange(0.0, dx.size*Ts, Ts)
+#with open(path1) as f:
+#    reader = csv.reader(f, delimiter=' ', skipinitialspace=True)
+#    first_row = next(reader)
+#    num_cols = len(first_row)
+#    print num_cols
+
+print "%d lines in your choosen file" % len(open(path1).readlines())
+data_num_1 = len(open(path1).readlines()) - 1
+
+t_abs = t -1710.0000
+t_out_abs = t_out - 1710.0000
+
+#Ts = 0.01
+#tu = arange(0.0, ux.size*Ts*size(dx)/size(ux), Ts*size(dx)/size(ux))
+#ts = arange(0.0, dx.size*Ts, Ts)
 
 # plot
 figure(num=None, figsize=(10, 10))
 subplot(411)
-plot(tu, ux, 'k', linewidth=2.5)
-plot(ts, dx, '#66ff00', linewidth=2.5)
-ylabel('$\dot{x}(t)$ $[m/s]$', {'color':'k', 'fontsize':16})
-#xlim((0,10))
+plot(t_abs, vx, 'k', linewidth=2.5)
+plot(t_out_abs, x, '#66ff00', linewidth=2.5)
+ylabel('$\dot{x}(t)$ $[m/s],$ $x(t)$ $[m]$', {'color':'k', 'fontsize':16})
+legend((r'$Input$ $\dot{x}(t)$', r'$Output$ $x(t)$'), shadow = True, loc = (0.8, 0))
+xlim((0,4))
+ylim((-0.5,2.5))
 
 subplot(412)
-plot(tu, uy, 'k', linewidth=2.5)
-plot(ts, dy, '#66ff00', linewidth=2.5)
-ylabel('$\dot{y}(t)$ $[m/s]$', {'color':'k', 'fontsize':16})
-#xlabel('$t$ $[s]$', {'color':'k', 'fontsize':16})
-#legend((r'$Referencia$', r'$Respuesta$'), shadow = True, loc = (0.8, 0))
-#xlim((0,10))
+plot(t_abs, vy, 'k', linewidth=2.5)
+plot(t_out_abs, y, '#66ff00', linewidth=2.5)
+ylabel('$\dot{y}(t)$ $[m/s],$ $y(t)$ $[m]$', {'color':'k', 'fontsize':16})
+xlabel('$t$ $[s]$', {'color':'k', 'fontsize':16})
+legend((r'$Input$ $\dot{y}(t)$', r'$Output$ $y(t)$'), shadow = True, loc = (0.8, 0))
+xlim((0,4))
+ylim((-0.5,2.5))
 
 subplot(413)
-plot(tu, uz, 'k', linewidth=2.5)
-plot(ts, dz, '#66ff00', linewidth=2.5)
-ylabel('$\dot{z}(t)$ $[m/s]$', {'color':'k', 'fontsize':16})
-#xlabel('$t$ $[s]$', {'color':'k', 'fontsize':16})
-#legend((r'$Referencia$', r'$Respuesta$'), shadow = True, loc = (0.8, 0))
-#xlim((0,10))
-
-subplot(414)
-plot(tu, uyaw, 'k', linewidth=2.5)
-plot(ts, dyaw, '#66ff00', linewidth=2.5)
-ylabel('$\dot{\phi}(t)$ $[deg/s]$', {'color':'k', 'fontsize':16})
+plot(t_abs, vz, 'k', linewidth=2.5)
+plot(t_out_abs, z, '#66ff00', linewidth=2.5)
+ylabel('$\dot{z}(t)$ $[m/s],$ $z(t)$ $[m]$', {'color':'k', 'fontsize':16})
 xlabel('$t$ $[s]$', {'color':'k', 'fontsize':16})
+legend((r'$Input$ $\dot{z}(t)$', r'$Output$ $z(t)$'), shadow = True, loc = (0.8, 0))
+xlim((0,4))
+ylim((-0.5,2.5))
+#subplot(414)
+#plot(tu, uyaw, 'k', linewidth=2.5)
+#plot(ts, dyaw, '#66ff00', linewidth=2.5)
+#ylabel('$\dot{\phi}(t)$ $[deg/s]$', {'color':'k', 'fontsize':16})
+#xlabel('$t$ $[s]$', {'color':'k', 'fontsize':16})
 #legend((r'$Referencia$', r'$Respuesta$'), shadow = True, loc = (0.8, 0))
 #xlim((0,5))
 
