@@ -103,7 +103,7 @@ void writeToDisc()
 	outfile.setf(std::ios::left, std::ios::adjustfield);
 
 	outfile << "t" << "\troll" << "\tpitch" << "\tyaw" << std::endl;
-	for (unsigned int j = 0; j < estimated_states_2.size(); j++) {
+	for (unsigned int j = 0; j < estimated_states_2[0].size(); j++) {
 		outfile << t_output_ang_[j];	
 		for (unsigned int i = 0; i < estimated_states_2.size(); i++) {
    			outfile << '\t';
