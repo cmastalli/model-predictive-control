@@ -21,24 +21,54 @@ t_abs = t - 1339.1700
 t_out_abs = t_out - 1339.1700
 t_rot_abs = t_out_rot - 1339.1700
 
-Vyaw = [0 for row in yaw]
+roll_rad = roll*(3.141592/180)
+pitch_rad = pitch*(3.141592/180)
+yaw_rad = yaw*(3.141592/180)
+
+#----------------------------------------------------------Derivation of the velocity-------------------------------------------------
+Vyaw = [0 for row in yaw_rad]
 
 index = 1
-for index in range(len(yaw)):
+for index in range(len(yaw_rad)):
 	#if index == 0:
 		#print index
 		#h = t_rot_abs[index]
 		#Vyaw[index] = yaw[index]/h
 	#else:
-	print index
 	h = t_rot_abs[index] - t_rot_abs[index-1]
-	Vyaw[index] = (yaw[index] - yaw[index-1])/h 
+	Vyaw[index] = (yaw_rad[index] - yaw_rad[index-1])/h
+	print yaw_rad[index], yaw_rad[index - 1] 
 
 
 print "%d elements in t_out_rot" % len(t_out_rot)
 print "%d elements in Vyaw" % len(Vyaw)
 
 print "%f is the first element in t_rot_abs" % t_rot_abs[0]
+
+#-------------------------------------------------------Low Pass Filter implementation-------------------------------------------------
+#sampling time
+Ts = 0.001 
+#cutout frequency
+wc = 60
+
+i=0
+
+Vyawf = [0 for row in Vyaw]
+
+global y_old
+global yf_old
+
+for i in range(len(Vyaw) - 1):
+	y_old = Vyaw[i]
+	yf_old = Vyawf[i]
+
+	yf = wc*Ts*y_old - wc*Ts*yf_old + yf_old
+	Vyawf[i+1] = yf
+
+	yf_old = Vyawf[i+1]
+	y_old = Vyaw[i+1]
+
+
 #t_out_rot.pop()
 #print "%d elements in Vyaw" % len(Vyaw)
 #Ts = 0.01
@@ -49,12 +79,12 @@ print "%f is the first element in t_rot_abs" % t_rot_abs[0]
 figure(num=None, figsize=(10, 10))
 #subplot(411)
 plot(t_abs, dyaw, 'k', linewidth=2.5)
-plot(t_rot_abs, Vyaw, '#66ff00', linewidth=2.5)
-ylabel('$\dot{\psi}(t)$ $[degrees/s]$', {'color':'k', 'fontsize':16})
+plot(t_rot_abs, Vyawf, '#66ff00', linewidth=2.5)
+ylabel('$\dot{\psi}(t)$ $[rad/s]$', {'color':'k', 'fontsize':16})
 #xlabel('$t$ $[s]$', {'color':'k', 'fontsize':16})
 legend((r'$Input$ $\dot{\psi_r}(t)$', r'$Output$ $\dot{\psi}(t)$'), shadow = True, loc = (0.8, 0.1))
-#xlim((0,4))
-#ylim((-1.5,1.5))
+xlim((0,4))
+ylim((-2,2))
 
 #subplot(412)
 #plot(t_abs, vy, 'k', linewidth=2.5)
