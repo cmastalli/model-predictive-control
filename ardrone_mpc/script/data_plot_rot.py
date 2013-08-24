@@ -49,7 +49,7 @@ print "%f is the first element in t_rot_abs" % t_rot_abs[0]
 #sampling time
 Ts = 0.001 
 #cutout frequency
-wc = 60
+wc = 80
 
 i=0
 
