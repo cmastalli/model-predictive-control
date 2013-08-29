@@ -16,7 +16,7 @@ int main(int argc, char** argv){
   turtlesim::Spawn srv;
   add_turtle.call(srv);*/
 
-  ros::Publisher quad_states = node.advertise<geometry_msgs::Twist>("/quadrotor_states", 1);
+  ros::Publisher quad_states = node.advertise<geometry_msgs::Twist>("/transformation", 1);
 
   tf::TransformListener listener;
 

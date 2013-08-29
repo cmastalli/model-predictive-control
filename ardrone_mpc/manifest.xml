@@ -12,9 +12,19 @@
   <depend package="roscpp"/>
   <depend package="std_msgs"/>
   <depend package="tum_ardrone"/>
+<!-- <depend package="gazebo"/>-->
+<!--  <depend package="bullet"/>-->
+  <depend package="tf"/>
+  <depend package="pluginlib"/>
+  <depend package="tf_conversions"/>
+  <rosdep name="eigen"/>
   <depend package="geometry_msgs"/>
   <depend package="gazebo_msgs"/>
-  <depend package="tf"/>
+  
+
+  <export>
+  <ardrone_mpc plugin="${prefix}/mpc_plugin.xml" />
+  </export>
   
 </package>
 
