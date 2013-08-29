@@ -1,0 +1,13 @@
+<library path="lib/libardrone_mpc">
+  <class type="ardrone_mpc::ArDroneModel" base_class_type="mpc::model::Model">
+  <description>
+  Plugin to interface the model base class from the MPC library to ardrone_mpc package.
+  </description>
+  </class>
+
+  <class type="ardrone_mpc::ArDroneSimulator" base_class_type="mpc::model::Simulator">
+  <description>
+  Plugin to interface the model base class from the MPC library to ardrone_mpc package.
+  </description>
+  </class>
+</library>

@@ -1,0 +1,8 @@
+<launch>
+
+
+	<rosparam file="$(find ardrone_mpc)/launch/ardrone_mpc_parameters.yaml" command="load" />
+	<node name="ardrone_mpc" pkg="ardrone_mpc" type="ardrone_mpc_node" output="screen" />
+
+
+</launch>

@@ -2,6 +2,10 @@
 #define ARDRONEMODEL_H
 
 #include <mpc/model/model.h>
+#include <tf/transform_listener.h>
+#include <geometry_msgs/Quaternion.h>
+#include <gazebo_msgs/ModelStates.h>
+
 
 
 namespace ardrone_mpc
@@ -23,7 +27,7 @@ namespace ardrone_mpc
 				
 				
 			/** @brief Destructor function */
-			~ArDroneModel();
+			~ArDroneModel() {}
 				
 				
 			void computeLTIModel();
@@ -39,6 +43,19 @@ namespace ardrone_mpc
 
 
 		private:
+
+		Eigen::MatrixXd A_t_;
+		Eigen::MatrixXd B_t_;
+
+		/** TransformListener object that stores the transformations between /nav and /base_link frames **/
+		//tf::TransformListener listener_;
+		ros::NodeHandle nh_;
+		ros::Subscriber pose_sub_;
+		double* position_;
+		geometry_msgs::Quaternion q_;
+
+		void transformCallback(const gazebo_msgs::ModelStates& msg);
+				
 
 
 	}; //@class ArDroneModel
