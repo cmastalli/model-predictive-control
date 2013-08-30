@@ -12,7 +12,7 @@ include_directories (${Eigen_INCLUDE_DIRS})
 #set(ROS_BUILD_TYPE RelWithDebInfo)
 
 rosbuild_init()
-
+rosbuild_add_boost_directories()
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
@@ -23,10 +23,10 @@ rosbuild_genmsg()
 #common commands for building c++ executables and libraries
 #rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
 rosbuild_add_library(${PROJECT_NAME} 	src/mpc/lbmpc.cpp
-										src/mpc/stdmpc.cpp
-										src/optimizer/qpOASES.cpp
-										src/example_models/tanks_system.cpp
-										src/example_models/tanks_system_simulator.cpp)
+					src/mpc/stdmpc.cpp
+					src/optimizer/qpOASES.cpp
+					src/example_models/tanks_system.cpp
+					src/example_models/tanks_system_simulator.cpp)
 #target_link_libraries(${PROJECT_NAME} another_library)
 #rosbuild_add_boost_directories()
 #rosbuild_link_boost(${PROJECT_NAME} thread)
@@ -38,6 +38,6 @@ target_link_libraries(stdmpc_node ${PROJECT_NAME})
 rosbuild_add_executable(lbmpc_node src/lbmpc_node.cpp)
 target_link_libraries(lbmpc_node ${PROJECT_NAME})
 
-
+rosbuild_link_boost(stdmpc_node thread)
 
 
