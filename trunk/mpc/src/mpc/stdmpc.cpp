@@ -52,13 +52,13 @@ bool mpc::STDMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *
 	optimizer_->setVariableNumber(variables_);
 	
 	if (!optimizer_->init()) {
-		ROS_INFO("Could not initialized the optimizer class.");
+		ROS_INFO("Could not initialize the optimizer class.");
 		return false;
 	}
 	constraints_ = optimizer_->getConstraintNumber();
 	
 	
-	ROS_INFO("Reset successful.");
+	ROS_INFO("Reset successful. States = %d \n Inputs = %d \n Outputs = %d \n Constraints = %d \n", states_,inputs_,outputs_,constraints_);
 	return true;
 }
 
@@ -144,7 +144,7 @@ bool mpc::STDMPC::initMPC()
 	if (ubG_list.size() == lbG_list.size()) {
 		for (int i = 0; i < ubG_list.size(); ++i) {
 			ROS_ASSERT(lbG_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
-			lbG(i) = -static_cast<double>(lbG_list[i]);
+			lbG(i) = static_cast<double>(lbG_list[i]);
 			
 			ROS_ASSERT(ubG_list[i].getType() == XmlRpc::XmlRpcValue::TypeDouble);
 			ubG(i) = static_cast<double>(ubG_list[i]);
@@ -218,9 +218,13 @@ bool mpc::STDMPC::initMPC()
 
 void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 {
+	ROS_INFO("1up");
 	Eigen::Map<Eigen::VectorXd> x_measured_eigen(x_measured, states_, 1);
 	Eigen::Map<Eigen::VectorXd> x_reference_eigen(x_reference, states_, 1);
-	
+
+	// Update of the model parameters
+	model_->computeDynamicModel(A_, B_, C_);
+	ROS_INFO("2up");
 
 	// Compute steady state control based on updated system matrices
 	Eigen::JacobiSVD<Eigen::MatrixXd> SVD_B(B_, Eigen::ComputeThinU | Eigen::ComputeThinV);
@@ -318,6 +322,7 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	for (int i = 0; i < inputs_; i++) {
 		u_[i].push_back(u[i]);
 	}
+	ROS_INFO("3up");
 }
 
 
