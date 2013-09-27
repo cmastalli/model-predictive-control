@@ -1,5 +1,5 @@
-#ifndef TANKSSYSTEM_H
-#define TANKSSYSTEM_H
+#ifndef MPC_MODEL_ARDRONE_H
+#define MPC_MODEL_ARDRONE_H
 
 #include "mpc/model/model.h"
 #include <Eigen/Dense>
@@ -48,13 +48,11 @@ namespace mpc
 			private:
 				
 
-		}; //@class TanksSystem
+		}; //@class ArDrone
 	
 	} //@namespace example_models
 
 } //@namespace mpc
-
-
 
 
 #endif
