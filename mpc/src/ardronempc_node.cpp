@@ -1,7 +1,6 @@
 #include <ros/ros.h>
 
-//#include <mpc/mpc/stdmpc.h>
-#include <mpc/mpc/ardronemodelmpc.h>
+#include <mpc/mpc/stdmpc.h>
 
 #include <mpc/example_models/ardrone.h>
 #include <mpc/example_models/ardrone_simulator.h>
@@ -33,7 +32,7 @@ int main(int argc, char **argv)
 	mpc::optimizer::Optimizer *optimizer_ptr = new mpc::optimizer::qpOASES(node_handle);
 	mpc::model::Simulator *simulator_ptr = new mpc::example_models::ArDroneSimulator();
 	
-	mpc::ModelPredictiveControl *mpc_ptr = new mpc::ArdroneModelMPC(node_handle);
+	mpc::ModelPredictiveControl *mpc_ptr = new mpc::STDMPC(node_handle);
 	
 	
 	mpc_ptr->resetMPC(model_ptr, optimizer_ptr, simulator_ptr);
@@ -41,7 +40,7 @@ int main(int argc, char **argv)
 	
 	
 	double x_ref[12] = {2.0, 0., 0.5, 0., 0., 0., 0., 0., 0., 0., 0., 0.};
-	double x_meas[12] = {0., 0., 0.5, 0., 0., 0., 0., 0., 0., 0., 0., 0.};
+	double x_meas[12] = {0., 0.,  0., 0., 0., 0., 0., 0., 0., 0., 0., 0.};
 	
 	double sampling_time = 0.01;
 	double *control_signal;

@@ -9,6 +9,7 @@ mpc::example_models::TanksSystem::TanksSystem()
 	states_ = 2;
 	inputs_ = 1;
 	outputs_ = 1;
+	op_point_states_ = new double[states_];
 }
 
 

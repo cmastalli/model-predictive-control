@@ -1,5 +1,5 @@
-#ifndef MPC_MODEL_TANKSSYSTEMSIM_H
-#define MPC_MODEL_TANKSSYSTEMSIM_H
+#ifndef MPC_MODEL_ARDRONESIM_H
+#define MPC_MODEL_ARDRONESIM_H
 
 #include <mpc/model/model.h>
 #include <mpc/model/simulator.h>
