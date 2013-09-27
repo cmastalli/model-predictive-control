@@ -46,6 +46,7 @@ namespace mpc
 				 @return bool Label that indicates if the computation of the matrices is successful
 				 */
 				virtual bool computeDynamicModel(Eigen::MatrixXd& A, Eigen::MatrixXd& B, Eigen::MatrixXd& C) = 0;
+
 				
 				/** @brief Get the states number of the dynamic model */
 				virtual int getStatesNumber() const;
@@ -55,6 +56,10 @@ namespace mpc
 				
 				/** @brief Get the outputs number of the dynamic model */
 				virtual int getOutputsNumber() const;
+
+				bool setStates(const double* states) const;	
+
+				bool setInputs(const double* inputs) const;	
 
 
             protected:
@@ -75,7 +80,12 @@ namespace mpc
 				
 				/** @brief Number of outputs of the dynamic model */
 				int outputs_;
+				
+				/** Pointer to the array of the states operation points **/
+				double* op_point_states_;
 
+				/** Pointer to the array of the input operation points **/
+				double* op_point_input_;
 
             private:
 
@@ -99,6 +109,20 @@ inline int mpc::model::Model::getInputsNumber() const
 inline int mpc::model::Model::getOutputsNumber() const
 {
 	return outputs_;
+}
+
+inline bool mpc::model::Model::setStates(const double* states) const
+{
+	*op_point_states_ = *states;
+	
+	return true;
+}
+
+inline bool mpc::model::Model::setInputs(const double* inputs) const
+{
+	*op_point_input_ = *inputs;
+	
+	return true;
 }
 
 #endif
