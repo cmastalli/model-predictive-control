@@ -39,8 +39,8 @@ int main(int argc, char **argv)
 	mpc_ptr->initMPC();
 	
 	
-	double x_ref[2] = {8., 8.};
-	double x_meas[2] = {0., 0.}; 
+	double x_ref[12] = {4.0, 4.0};
+	double x_meas[12] = {0., 0.};
 	
 	double sampling_time = 0.01;
 	double *control_signal;
@@ -57,14 +57,18 @@ int main(int argc, char **argv)
 		
 		x_meas[0] = new_state[0];
 		x_meas[1] = new_state[1];
+	
 		
 		if (mpc_pub->trylock()) {
 			mpc_pub->msg_.header.stamp = ros::Time::now();
 			mpc_pub->msg_.states[0] = x_meas[0];
 			mpc_pub->msg_.states[1] = x_meas[1];
+
 			mpc_pub->msg_.reference_states[0] = x_ref[0];
 			mpc_pub->msg_.reference_states[1] = x_ref[1];
+
 			mpc_pub->msg_.inputs[0] = control_signal[0];
+			
 		}
 		mpc_pub->unlockAndPublish();
 		

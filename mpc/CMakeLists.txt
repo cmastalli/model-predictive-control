@@ -24,20 +24,23 @@ rosbuild_genmsg()
 #rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
 rosbuild_add_library(${PROJECT_NAME} 	src/mpc/lbmpc.cpp
 					src/mpc/stdmpc.cpp
+					src/mpc/ardronemodelmpc.cpp
 					src/optimizer/qpOASES.cpp
-					src/example_models/tanks_system.cpp
-					src/example_models/tanks_system_simulator.cpp)
+					src/example_models/ardrone.cpp
+					src/example_models/ardrone_simulator.cpp)
 #target_link_libraries(${PROJECT_NAME} another_library)
 #rosbuild_add_boost_directories()
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 #rosbuild_add_executable(example examples/example.cpp)
 
-rosbuild_add_executable(stdmpc_node src/stdmpc_node.cpp)
-target_link_libraries(stdmpc_node ${PROJECT_NAME})
+#rosbuild_add_executable(lineval src/linear_evaluation.cpp)
 
-rosbuild_add_executable(lbmpc_node src/lbmpc_node.cpp)
-target_link_libraries(lbmpc_node ${PROJECT_NAME})
+rosbuild_add_executable(ardronempc_node src/ardronempc_node.cpp)
+target_link_libraries(ardronempc_node ${PROJECT_NAME})
 
-rosbuild_link_boost(stdmpc_node thread)
+#rosbuild_add_executable(lbmpc_node src/lbmpc_node.cpp)
+#target_link_libraries(lbmpc_node ${PROJECT_NAME})
+
+rosbuild_link_boost(ardronempc_node thread)
 
 
