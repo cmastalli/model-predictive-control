@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 	mpc_ptr->initMPC();
 	
 	
-	double x_ref[12] = {2.0, 0., 0.5, 0., 0., 0., 0., 0., 0., 0., 0., 0.};
+	double x_ref[12] = {0., 0., 0.5, 0., 0., 0., 0., 0., 0., 0., 0., 0.};
 	double x_meas[12] = {0., 0.,  0., 0., 0., 0., 0., 0., 0., 0., 0., 0.};
 	
 	double sampling_time = 0.01;
