@@ -1,7 +1,7 @@
 mpc:
-  path_name: /home/adminmecatronica/ros_workspace/model-predictive-control/ardrone_mpc/data/control_data/
+  path_name: /home/cmastalli/ros_workspace/model-predictive-control/ardrone_mpc/data/control_data/
   data_name: ardrone_mpc_data
-  horizon: 50
+  horizon: 30
   infeasibility_hack_counter_max: 1
 
   optimizer:
@@ -23,10 +23,10 @@ mpc:
                 0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0, 1000.0]            
 
     input_error_weight_matrix:
-      data: [1.0, 0.0, 0.0, 0.0,
-             0.0, 1.0, 0.0, 0.0,
-             0.0, 0.0, 1.0, 0.0,
-             0.0, 0.0, 0.0, 1.0]
+      data: [1000.0, 0.0, 0.0, 0.0,
+             0.0, 1000.0, 0.0, 0.0,
+             0.0, 0.0, 1000.0, 0.0,
+             0.0, 0.0, 0.0, 1000.0]
 
 
     terminal_state_weight_matrix:
@@ -43,8 +43,8 @@ mpc:
                 0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0, 2000.0,    0.0,
                 0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0,    0.0, 2000.0] 
     constraints:
-      constraint_vector_low: [-1.0, -1.0, 0.5, -0.35, -0.35]
-      constraint_vector_upp: [1.0, 1.0, 2.0, 0.35, 0.35]
+      constraint_vector_low: [-0.1, -1.0, -1.0, -0.35, -0.35]
+      constraint_vector_upp: [2.0, 1.0, 1.0, 0.35, 0.35]
 
       constraint_matrix_M: [0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
                             0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
@@ -52,5 +52,5 @@ mpc:
                             0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0,
                             0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0]
 
-      bound_vector_low: [130.0, 130.0, 130.0, 130.0]
+      bound_vector_low: [-500.0, -500.0, -500.0, -500.0]
       bound_vector_upp: [500.0, 500.0, 500.0, 500.0]
