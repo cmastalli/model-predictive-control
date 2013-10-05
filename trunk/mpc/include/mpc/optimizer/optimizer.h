@@ -6,7 +6,11 @@
 
 namespace mpc
 {
-
+	/**
+	 *  \addtogroup optimizer
+	 *  @{
+	 */
+	 //! Optimizer interfaces and implementations
     namespace optimizer
     {
 		/**
@@ -94,6 +98,7 @@ namespace mpc
     } //@namepace optimizer
 
 }; //@namespace mpc
+/** @} End of Doxygen Groups*/
 
 
 inline int mpc::optimizer::Optimizer::getConstraintNumber() const

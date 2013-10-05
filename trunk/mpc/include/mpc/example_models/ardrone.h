@@ -7,6 +7,7 @@
 
 namespace mpc
 {
+
 	namespace example_models
 	{
 		/**
