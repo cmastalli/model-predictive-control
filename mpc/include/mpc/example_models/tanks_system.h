@@ -4,8 +4,19 @@
 #include "mpc/model/model.h"
 
 
+/**
+ *  \addtogroup mpc
+ *  @{
+ */
+
+//! Model Predictives Control interfaces and implementations
 namespace mpc
 {
+	/**
+	 *  \addtogroup example_models
+	 *  @{
+	 */
+	 //* Example models implementations
 	namespace example_models
 	{
 		/**
@@ -48,7 +59,7 @@ namespace mpc
 	} //@namespace example_models
 
 } //@namespace mpc
-
+/** @} End of Doxygen Groups*/
 
 #endif
 

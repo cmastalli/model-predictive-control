@@ -6,7 +6,11 @@
 
 namespace mpc
 {
-
+	/**
+	 *  \addtogroup model
+	 *  @{
+	 */
+	 //! Model interfaces and implementations
     namespace model
     {
         //TODO: define a cost function
@@ -95,6 +99,7 @@ namespace mpc
     } //@namespace model
 
 } //@namespace mpc
+/** @} End of Doxygen Groups*/
 
 inline int mpc::model::Model::getStatesNumber() const
 {
