@@ -315,7 +315,7 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 		x_[i].push_back(x_measured[i]);
 		xref_[i].push_back(x_reference[i]);
 	}
-	
+
 	double *u = getControlSignal();
 	for (int i = 0; i < inputs_; i++) {
 		u_[i].push_back(u[i]);
