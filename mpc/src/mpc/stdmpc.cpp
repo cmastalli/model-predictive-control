@@ -222,9 +222,7 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	Eigen::Map<Eigen::VectorXd> x_reference_eigen(x_reference, states_, 1);
 
 	// Update of the model parameters
-	if (model_->setStates(x_measured)) {
 		model_->computeDynamicModel(A_, B_, C_);
-	}
 	
 	// Compute steady state control based on updated system matrices
 	Eigen::JacobiSVD<Eigen::MatrixXd> SVD_B(B_, Eigen::ComputeThinU | Eigen::ComputeThinV);

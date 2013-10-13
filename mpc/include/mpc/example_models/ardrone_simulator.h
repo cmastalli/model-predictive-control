@@ -56,6 +56,16 @@ namespace mpc
 
 				Eigen::MatrixXd A_;
 				Eigen::MatrixXd B_;
+
+				double Ct_;
+				double Cq_;
+				double Ixx_;
+				double Iyy_;
+				double Izz_;
+				double m_;
+				double d_;
+				double Jr_;
+				double At_;
 				
 				
 		};  //@class ArDroneSimulator

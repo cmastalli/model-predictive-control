@@ -61,9 +61,9 @@ namespace mpc
 				/** @brief Get the outputs number of the dynamic model */
 				virtual int getOutputsNumber() const;
 
-				bool setStates(const double* states) const;	
+				virtual bool setStates(const double* states) const;	
 
-				bool setInputs(const double* inputs) const;	
+				virtual bool setInputs(const double* inputs) const;	
 
 
             protected:
