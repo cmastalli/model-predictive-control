@@ -39,7 +39,7 @@ int main(int argc, char **argv)
 	mpc_ptr->initMPC();
 	
 	
-	double x_ref[12] = {0., 0., 0.5, 0., 0., 0., 0., 0., 0., 0., 0., 0.};
+	double x_ref[12] = {0., 0., 10000000000.5, 0., 0., 0., 0., 0., 0., 0., 0., 0.};
 	double x_meas[12] = {0., 0.,  0.3, 0., 0., 0., 0., 0., 0., 0., 0., 0.};
 
 	// linearization points
@@ -87,6 +87,7 @@ int main(int argc, char **argv)
 		x_lin_ref[11] = x_ref[11] - x_operation[11];
 		
 		mpc_ptr->updateMPC(x_lin_meas, x_lin_ref); // Here we are also recalculating the system matrices A and B
+		ROS_INFO("u=[%f,%f,%f,%f]", control_signal[0], control_signal[1], control_signal[2], control_signal[3]);
 		control_signal = mpc_ptr->getControlSignal();
 
 		// Getting the A and B matrices to compute the linearization point of the control signal for the steady state at the current sample
