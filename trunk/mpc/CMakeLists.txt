@@ -34,7 +34,7 @@ rosbuild_add_library(${PROJECT_NAME} 	src/mpc/lbmpc.cpp
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 #rosbuild_add_executable(example examples/example.cpp)
 
-#rosbuild_add_executable(lineval src/linear_evaluation.cpp)
+rosbuild_add_executable(modelval src/model_validation.cpp)
 
 rosbuild_add_executable(ardronempc_node src/ardronempc_node.cpp)
 target_link_libraries(ardronempc_node ${PROJECT_NAME})

@@ -47,7 +47,19 @@ namespace mpc
 
 
 			private:
-				
+
+				double Ct_;
+				double Cq_;
+				double Ixx_;
+				double Iyy_;
+				double Izz_;
+				double m_;
+				double d_;
+				double Jr_;
+				double At_;
+
+				// Linearization point vector for the ardrone inputs
+				Eigen::VectorXd u;
 
 		}; //@class ArDrone
 	

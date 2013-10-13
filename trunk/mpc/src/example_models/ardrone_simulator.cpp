@@ -6,13 +6,15 @@
 
 mpc::example_models::ArDroneSimulator::ArDroneSimulator()
 {
-	/**Ixx_ = 
-	Iyy_ = 
-	Izz_ = 
-	beta_ = 3.96;
-	cf_ = 0.178;
-	At_ = 15.52;
-	g_ = 981.;**/
+	Ct_ = 8.17e-006; // Thrust coefficient [N/(rad/s)^2]
+	Cq_ = 2.17e-007; // Drag coefficient [Nm/(rad/s)^2]
+	Ixx_ = 2.04e-005; // Inertia around the X axis [Kg/m^3]
+	Iyy_ = 1.57e-005; // Inertia around the Y axis [Kg/m^3]
+	Izz_ = 3.52e-005; // Inertia around the Z axis [Kg/m^3]
+	m_ = 0.4305; // Mass of the quadrotor [Kg]
+	d_ = 0.35; // Distance from the rotor to the mass center of the quadrotor [m]
+	Jr_ = 2.5e-004; // Inertia of a unitary rotor (approximated as a disc) [Kg*m^2] 
+	At_ = 0.0083; // Sampling time
 	new_state_ = new double[12];
 }
 
@@ -20,17 +22,36 @@ mpc::example_models::ArDroneSimulator::ArDroneSimulator()
 double* mpc::example_models::ArDroneSimulator::simulatePlant(double *current_state, double *current_input, double sampling_time)
 {
 	ROS_ASSERT(sizeof(new_state_) == sizeof(current_state));
-	
+	Eigen::VectorXd x(12);
+	x(0) = 0.0;
+	x(1) = 0.0;
+	x(2) = 0.0;
+	x(3) = 0.0;
+	x(4) = 0.0; 
+	x(5) = 0.0;
+	x(6) = 0.0;
+	x(7) = 0.0; 
+	x(8) = 0.0;
+	x(9) = 0.0; 
+	x(10) = 0.0;
+	x(11) = 0.0;
+
+	Eigen::VectorXd u(4);
+	u(0) = 360.0;
+	u(1) = 360.0;
+	u(2) = 360.0;
+	u(3) = 360.0;
+		
 	// Solve the difference equations recursively
 	//double input = *current_input;
 	Eigen::Map<Eigen::VectorXd> x_current(current_state, 12, 1);
 	Eigen::Map<Eigen::VectorXd> u_current(current_input, 4, 1);
-	Eigen::Map<Eigen::VectorXd> x_new(new_state_, 12, 1);
+	Eigen::Map<Eigen::VectorXd> x_new(new_state_, 12, 1);	
 
 	A_ = Eigen::MatrixXd::Zero(12, 12);
 	B_ = Eigen::MatrixXd::Zero(12, 4);
 	
-	/** Selection of the model depending on the roll and pitch angles (measured in radians) **/
+	/** Selection of the model depending on the roll and pitch angles (measured in radians) 
 	if (abs(x_current(6)) < 0.0175 && abs(x_current(7)) < 0.0175) {
 		A_(0,3) = 0.005;
 		A_(1,4) = 0.005;
@@ -79,7 +100,7 @@ double* mpc::example_models::ArDroneSimulator::simulatePlant(double *current_sta
 		B_(11,2) = -0.02225;
 		B_(11,3) = 0.02225;
 	}
-	/** roll in (10,20) and pitch in (-10,10) **/
+	/** roll in (10,20) and pitch in (-10,10) 
 	else if (x_current(6) > 0.0175 && abs(x_current(7)) < 0.0175) {
 		A_(0,3) = 0.005;
 		A_(1,4) = 0.005;
@@ -156,7 +177,7 @@ double* mpc::example_models::ArDroneSimulator::simulatePlant(double *current_sta
 		B_(11,2) = -0.02225;
 		B_(11,3) = 0.02225; 
 	}	
-	/** roll in (-20,-10) and pitch in (-10,10) **/
+	/** roll in (-20,-10) and pitch in (-10,10)
 	else if (x_current(6) < -0.0175 && abs(x_current(7)) < 0.0175) {
 		A_(0,3) = 0.005;
 		A_(1,4) = 0.005;
@@ -233,7 +254,7 @@ double* mpc::example_models::ArDroneSimulator::simulatePlant(double *current_sta
 		B_(11,2) = -0.02225;
 		B_(11,3) = 0.02225;
 	}	
-	/** roll in (-10,10) and pitch in (10,20) **/
+	/** roll in (-10,10) and pitch in (10,20)
 	else if (x_current(7) > 0.0175 && abs(x_current(6)) < 0.0175) {
 		A_(0,3) = 0.005;
 		A_(1,4) = 0.005;
@@ -300,7 +321,7 @@ double* mpc::example_models::ArDroneSimulator::simulatePlant(double *current_sta
 		B_(11,2) = -0.02225;
 		B_(11,3) = 0.02225; 
 	}
-	/** The remaining case: roll in (-10,10) and pitch in (-20,-10) **/
+	/** The remaining case: roll in (-10,10) and pitch in (-20,-10) 
 	else {			
 		A_(0,3) = 0.005;
 		A_(1,4) = 0.005;
@@ -366,7 +387,79 @@ double* mpc::example_models::ArDroneSimulator::simulatePlant(double *current_sta
 		B_(11,2) = -0.02225;
 		B_(11,3) = 0.02225; 
 	}
+	x_new = A_*x_current + B_*u_current;*/
+
+	// For convenience, we will define Cm as follows:  	
+	double Cm = Ct_/m_;
+	
+	A_(0,3) = 1*At_;
+	A_(1,4) = 1*At_;
+	A_(2,5) = 1*At_;
+	A_(3,6) = (Cm*( (u(0)*u(0)) + (u(1)*u(1)) + (u(2)*u(2)) + (u(3)*u(3)) ))*(sin(x(8))*cos(x(6)) - cos(x(8))*sin(x(7))*sin(x(6)))*At_;
+	A_(3,7) = (Cm*( (u(0)*u(0)) + (u(1)*u(1)) + (u(2)*u(2)) + (u(3)*u(3)) ))*(cos(x(8))*cos(x(7))*cos(x(6)))*At_;
+	A_(3,8) = (Cm*( (u(0)*u(0)) + (u(1)*u(1)) + (u(2)*u(2)) + (u(3)*u(3)) ))*(cos(x(8))*sin(x(6)) - sin(x(8))*sin(x(7))*cos(x(6)))*At_;
+	A_(4,6) = -(Cm*( (u(0)*u(0)) + (u(1)*u(1)) + (u(2)*u(2)) + (u(3)*u(3)) ))*(sin(x(8))*sin(x(7))*sin(x(6)) + cos(x(8))*cos(x(6)))*At_;
+	A_(4,7) = (Cm*( (u(0)*u(0)) + (u(1)*u(1)) + (u(2)*u(2)) + (u(3)*u(3)) ))*(sin(x(8))*cos(x(7))*cos(x(6)))*At_;
+	A_(4,8) = (Cm*( (u(0)*u(0)) + (u(1)*u(1)) + (u(2)*u(2)) + (u(3)*u(3)) ))*(cos(x(8))*sin(x(7))*cos(x(6)) + sin(x(8))*sin(x(6)))*At_;
+	A_(5,6) = -(Cm*( (u(0)*u(0)) + (u(1)*u(1)) + (u(2)*u(2)) + (u(3)*u(3)) ))*(cos(x(7))*sin(x(6)))*At_;
+	A_(5,7) = -(Cm*( (u(0)*u(0)) + (u(1)*u(1)) + (u(2)*u(2)) + (u(3)*u(3)) ))*(sin(x(7))*cos(x(6)))*At_;
+	A_(6,6) = x(10)*cos(x(6))*tan(x(7))*At_ - x(11)*sin(x(6))*tan(x(7))*At_;
+	A_(6,7) = x(10)*sin(x(6))*(1/(cos(x(7))*cos(x(7))))*At_ -x(11)*sin(x(6))*(1/(cos(x(7))*cos(x(7))))*At_;
+	A_(6,9) = 1*At_;
+	A_(6,10) = sin(x(6))*tan(x(7))*At_;
+	A_(6,11) = cos(x(6))*tan(x(7))*At_;
+	A_(7,6) = -x(10)*sin(x(6))*At_ - x(11)*cos(x(6))*At_;
+	A_(7,10) = cos(x(6))*At_;
+	A_(7,11) = -sin(x(6))*At_;
+	A_(8,6) = x(10)*cos(x(6))*(1/cos(x(7)))*At_ - x(11)*sin(x(6))*(1/cos(x(7)))*At_;
+	A_(8,7) = x(10)*sin(x(6))*(1/cos(x(7)))*tan(x(7))*At_ + x(11)*cos(x(6))*(1/cos(x(7)))*tan(x(7))*At_;
+	A_(8,10) = sin(x(6))/cos(x(7))*At_;
+	A_(8,11) = cos(x(6))/cos(x(7))*At_;
+	A_(9,10) = (Iyy_ - Izz_)*(x(11)/Ixx_)*At_ - Jr_*(u(0) + u(1) + u(2) + u(3) )*At_;
+	A_(9,11) = (Iyy_ - Izz_)*(x(10)/Ixx_)*At_;
+	A_(10,9) = (Izz_ - Ixx_)*(x(11)/Iyy_)*At_ + Jr_*(u(0) + u(1) + u(2) + u(3) )*At_;
+	A_(10,11) = (Izz_ - Ixx_)*(x(9)/Iyy_)*At_;
+	A_(11,9) = (Ixx_ - Iyy_)*(x(10)/Izz_)*At_;
+	A_(11,10) = (Ixx_ - Iyy_)*(x(9)/Izz_)*At_;
+
+	//std::cout <<"The A matrix for the desired linear operation point is:\n" << A_ << std::endl;
+	
+	B_(3,0) = (cos(x(8))*sin(x(7))*cos(x(6))*At_ + sin(x(8))*sin(x(6)))*2*Cm*u(0)*At_;
+	B_(3,1) = (cos(x(8))*sin(x(7))*cos(x(6))*At_ + sin(x(8))*sin(x(6)))*2*Cm*u(1)*At_;
+	B_(3,2) = (cos(x(8))*sin(x(7))*cos(x(6))*At_ + sin(x(8))*sin(x(6)))*2*Cm*u(2)*At_;
+	B_(3,3) = (cos(x(8))*sin(x(7))*cos(x(6))*At_ + sin(x(8))*sin(x(6)))*2*Cm*u(3)*At_;		
+
+	B_(4,0) = (sin(x(8))*sin(x(7))*cos(x(6))*At_ - cos(x(8))*sin(x(6)))*2*Cm*u(0)*At_;
+	B_(4,1) = (sin(x(8))*sin(x(7))*cos(x(6))*At_ - cos(x(8))*sin(x(6)))*2*Cm*u(1)*At_;
+	B_(4,2) = (sin(x(8))*sin(x(7))*cos(x(6))*At_ - cos(x(8))*sin(x(6)))*2*Cm*u(2)*At_;
+	B_(4,3) = (sin(x(8))*sin(x(7))*cos(x(6))*At_ - cos(x(8))*sin(x(6)))*2*Cm*u(3)*At_;
+	
+	B_(5,0) = (cos(x(8))*cos(x(6)))*2*Cm*u(0)*At_;
+	B_(5,1) = (cos(x(8))*cos(x(6)))*2*Cm*u(1)*At_;
+	B_(5,2) = (cos(x(8))*cos(x(6)))*2*Cm*u(2)*At_;
+	B_(5,3) = (cos(x(8))*cos(x(6)))*2*Cm*u(3)*At_;
+
+	B_(9,0) = -Jr_*At_;
+	B_(9,1) = (2*d_*d_*Ct_*u(1)*At_)/Ixx_ - Jr_*At_;
+	B_(9,2) = -Jr_*At_;
+	B_(9,3) = -(2*d_*d_*Ct_*u(3)*At_)/Ixx_ - Jr_*At_;
+
+	B_(10,0) = -(2*d_*d_*Ct_*u(0)*At_)/Iyy_ - Jr_*At_;
+	B_(10,1) = -Jr_*At_;
+	B_(10,2) = (2*d_*d_*Ct_*u(2)*At_)/Iyy_ - Jr_*At_;
+	B_(10,3) = -Jr_*At_;
+
+	B_(11,0) = -(2*Cq_*u(0)*At_)/Izz_;
+	B_(11,1) = (2*Cq_*u(1)*At_)/Izz_;
+	B_(11,2) = -(2*Cq_*u(2)*At_)/Izz_;
+	B_(11,3) = (2*Cq_*u(3)*At_)/Izz_;
+
 	x_new = A_*x_current + B_*u_current;
+
+	std::cout <<"x =" << x_new(0) <<"\ty =" << x_new(1) <<"\tz =" << x_new(2) << "\tu =" << x_new(3) <<"\tv =" << x_new(4) << std::endl;
+
+	// Displacement from the operation point
+	
 	
 	
 	return new_state_;
