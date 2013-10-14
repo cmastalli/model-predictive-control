@@ -97,6 +97,7 @@ int main(int argc, char **argv)
 		model_ptr->computeDynamicModel(A, B, C);		
 		
 		Eigen::JacobiSVD<Eigen::MatrixXd> SVD_B(B, Eigen::ComputeThinU | Eigen::ComputeThinV);
+		std::cout <<"B matrix" << std::endl << B << std::endl;
 		Eigen::Map<Eigen::VectorXd> x_operation_eigen(x_operation, 12, 1);
 
 
@@ -104,13 +105,13 @@ int main(int argc, char **argv)
 			for the states at the linearization point **/
 
 		double *u_operation;
-		Eigen::Map<Eigen::VectorXd> u_operation_eigen(u_operation, 4, 1);
+		Eigen::Map<Eigen::MatrixXd> u_operation_eigen(u_operation, 4, 1);
+		
 		u_operation_eigen = SVD_B.solve(x_operation_eigen - A * x_operation_eigen);
-
+		ROS_INFO("Fuck you code!");	
 		/** Mapping of the Control Signal into an Eigen object **/
 		Eigen::Map<Eigen::VectorXd> control_signal_eigen(control_signal, 4, 1);
 		
-		ROS_INFO("Fuck you code!");	
 
 		/** Creation of the absolute control signal vector, mapping into an Eigen object and calculation **/
 		double *abs_control_signal;
