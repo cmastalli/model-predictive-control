@@ -107,18 +107,18 @@ xlabel('$t$ $[s]$', {'color':'k', 'fontsize':16})
 figure(num=None, figsize=(8, 6))
 subplot(411)
 plot(tu, w1, 'k', linewidth=2.5)
-ylabel('$\omega_1 (t)$ $[rad/s]$', {'color':'k', 'fontsize':16})
+ylabel('$U_1 (t)$ $[N]$', {'color':'k', 'fontsize':16})
 
 subplot(412)
 plot(tu, w2, 'k', linewidth=2.5)
-ylabel('$\omega_2 (t)$ $[rad/s]$', {'color':'k', 'fontsize':16})
+ylabel('$U_2 (t)$ $[N-m]$', {'color':'k', 'fontsize':16})
 
 subplot(413)
 plot(tu, w3, 'k', linewidth=2.5)
-ylabel('$\omega_3 (t)$ $[rad/s]$', {'color':'k', 'fontsize':16})
+ylabel('$U_3 (t)$ $[N-m]$', {'color':'k', 'fontsize':16})
 
 subplot(414)
 plot(tu, w4, 'k', linewidth=2.5)
-ylabel('$\omega_4 (t)$ $[rad/s]$', {'color':'k', 'fontsize':16})
+ylabel('$U_4 (t)$ $[N-m]$', {'color':'k', 'fontsize':16})
 
 show()
