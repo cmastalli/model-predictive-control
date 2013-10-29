@@ -49,8 +49,10 @@ int main(int argc, char **argv)
 	 
 																																																																																																																																																																																																																																																				
 	double *control_signal;
-	double sampling_time;
-	double *new_state;	
+	control_signal = new double[4];
+	double sampling_time = 0.0;
+	double *new_state;
+	new_state = new double[12];	
 		
     timespec start_rt, end_rt;
     clock_gettime(CLOCK_REALTIME, &start_rt);
@@ -105,6 +107,7 @@ int main(int argc, char **argv)
 			for the states at the linearization point **/
 
 		double *u_operation;
+		u_operation = new double[4];
 		Eigen::Map<Eigen::MatrixXd> u_operation_eigen(u_operation, 4, 1);
 		
 		u_operation_eigen = SVD_B.solve(x_operation_eigen - A * x_operation_eigen);
@@ -115,6 +118,7 @@ int main(int argc, char **argv)
 
 		/** Creation of the absolute control signal vector, mapping into an Eigen object and calculation **/
 		double *abs_control_signal;
+		abs_control_signal = new double[4];
 		Eigen::Map<Eigen::VectorXd> abs_eigen_control_signal(abs_control_signal, 4, 1);
 		abs_eigen_control_signal(0) = control_signal_eigen(0) + u_operation_eigen(0);
 		abs_eigen_control_signal(1) = control_signal_eigen(1) + u_operation_eigen(1);
