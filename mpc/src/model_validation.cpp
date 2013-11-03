@@ -39,14 +39,14 @@ void computeLTIModel(Eigen::MatrixXd &A_, Eigen::MatrixXd &B_, double* point_sta
 	A_(0,3) = 1*At_;
 	A_(1,4) = 1*At_;
 	A_(2,5) = 1*At_;
-	A_(3,6) = (sin(x(8))*cos(x(6)) - cos(x(8))*sin(x(7))*sin(x(6)))*u(0)*At_;
-	A_(3,7) = (cos(x(8))*cos(x(7))*cos(x(6)))*u(0)*At_;
-	A_(3,8) = (cos(x(8))*sin(x(6)) - sin(x(8))*sin(x(7))*cos(x(6)))*u(0)*At_;
-	A_(4,6) = -(sin(x(8))*sin(x(7))*sin(x(6)) + cos(x(8))*cos(x(6)))*u(0)*At_;
-	A_(4,7) = (sin(x(8))*cos(x(7))*cos(x(6)))*u(0)*At_;
-	A_(4,8) = (cos(x(8))*sin(x(7))*cos(x(6)) + sin(x(8))*sin(x(6)))*u(0)*At_;
-	A_(5,6) = -(cos(x(7))*sin(x(6)))*u(0)*At_;
-	A_(5,7) = -(sin(x(7))*cos(x(6)))*u(0)*At_;
+	A_(3,6) = (sin(x(8))*cos(x(6)) - cos(x(8))*sin(x(7))*sin(x(6)))*u(0)*(At_/m_);
+	A_(3,7) = (cos(x(8))*cos(x(7))*cos(x(6)))*u(0)*(At_/m_);
+	A_(3,8) = (cos(x(8))*sin(x(6)) - sin(x(8))*sin(x(7))*cos(x(6)))*u(0)*(At_/m_);
+	A_(4,6) = -(sin(x(8))*sin(x(7))*sin(x(6)) + cos(x(8))*cos(x(6)))*u(0)*(At_/m_);
+	A_(4,7) = (sin(x(8))*cos(x(7))*cos(x(6)))*u(0)*(At_/m_);
+	A_(4,8) = (cos(x(8))*sin(x(7))*cos(x(6)) + sin(x(8))*sin(x(6)))*u(0)*(At_/m_);
+	A_(5,6) = -(cos(x(7))*sin(x(6)))*u(0)*(At_/m_);
+	A_(5,7) = -(sin(x(7))*cos(x(6)))*u(0)*(At_/m_);
 	A_(6,6) = x(10)*cos(x(6))*tan(x(7))*At_ - x(11)*sin(x(6))*tan(x(7))*At_ + 1;
 	A_(6,7) = x(10)*sin(x(6))*(1/(cos(x(7))*cos(x(7))))*At_ + x(11)*cos(x(6))*(1/(cos(x(7))*cos(x(7))))*At_;
 	A_(6,9) = 1*At_;
@@ -68,17 +68,17 @@ void computeLTIModel(Eigen::MatrixXd &A_, Eigen::MatrixXd &B_, double* point_sta
 
 	//std::cout <<"The A matrix for the desired linear operation point is:\n" << A_ << std::endl;
 	
-	B_(3,0) = (cos(x(8))*sin(x(7))*cos(x(6))*At_ + sin(x(8))*sin(x(6)))*At_;
+	B_(3,0) = (cos(x(8))*sin(x(7))*cos(x(6))*At_ + sin(x(8))*sin(x(6)))*(At_/m_);
 	//B_(3,1) = (cos(x(8))*sin(x(7))*cos(x(6))*At_ + sin(x(8))*sin(x(6)))*At_;
 	//B_(3,2) = (cos(x(8))*sin(x(7))*cos(x(6))*At_ + sin(x(8))*sin(x(6)))*At_;
 	//B_(3,3) = (cos(x(8))*sin(x(7))*cos(x(6))*At_ + sin(x(8))*sin(x(6)))*At_;		
 
-	B_(4,0) = (sin(x(8))*sin(x(7))*cos(x(6))*At_ - cos(x(8))*sin(x(6)))*At_;
+	B_(4,0) = (sin(x(8))*sin(x(7))*cos(x(6))*At_ - cos(x(8))*sin(x(6)))*(At_/m_);
 	//B_(4,1) = (sin(x(8))*sin(x(7))*cos(x(6))*At_ - cos(x(8))*sin(x(6)))*At_;
 	//B_(4,2) = (sin(x(8))*sin(x(7))*cos(x(6))*At_ - cos(x(8))*sin(x(6)))*At_;
 	//B_(4,3) = (sin(x(8))*sin(x(7))*cos(x(6))*At_ - cos(x(8))*sin(x(6)))*At_;
 	
-	B_(5,0) = (cos(x(8))*cos(x(6)))*At_;
+	B_(5,0) = (cos(x(7))*cos(x(6)))*(At_/m_);
 	//B_(5,1) = (cos(x(8))*cos(x(6)))*At_;
 	//B_(5,2) = (cos(x(8))*cos(x(6)))*At_;
 	//B_(5,3) = (cos(x(8))*cos(x(6)))*At_;
@@ -193,16 +193,16 @@ int main(int argc, char **argv)
 	}
 	for (int j=0; j<12; j++){
 		out_[j].push_back(0.0);
- 	}
+ 	} 
 
 	
 	/** Input **/
-	for (unsigned long int i=0; i<10000; i++){ 
+	for (unsigned long int i=0; i<1000; i++){ 
 
 		//ROS_INFO("Hola!");
 		current_time = i*0.0083;	
-
-
+		
+	/** INPUT SELECTION **/
 	// A movement in the Y axis is changing the rotational speed of the (1,3) pair of rotors
 	Eigen::VectorXd deltaInput(4);
 	//double w1 = 400.0;	//*(1 - 0.1*sin(300.0*current_time)); 
@@ -210,21 +210,28 @@ int main(int argc, char **argv)
 	//double w3 = 400.0;	//*(1 - 0.1*cos(300.0*current_time));
 	//double w4 = 400.0;
 	
-	if (current_time > 20 && current_time < 25){ 
-		deltaInput(2) = 1.0; //*(1 - exp(-0.05*current_time));
+	if (current_time > 0.5 && current_time < 2.5){ 
+		deltaInput(0) = 9.81*0.4305; //*(1 - exp(-0.05*current_time));
+	}
+	else if (current_time > 6.0 && current_time < 8.0){ 
+		deltaInput(0) = -9.81*0.4305; //*(1 - exp(-0.05*current_time));
 	}
 	else{
-		deltaInput(2) = 0.0;
+		deltaInput(0) = 0.0;
 	}
 	deltaInput(1) = 0.0;  //*(1 - exp(-0.05*current_time));
-	deltaInput(0) = 0.0; 
+	deltaInput(2) = 0.0; 
 	deltaInput(3) = 0.0;
 
 	//std::cout << "w1\t" << w1 << "w2\t" << w2 << "w3\t" << w3 << "w4\t" << w4 <<std::endl;
+
+	/** STATE SPACE FORMULATION AND CALCULATION OF THE NEXT STEP **/
 	
 	delta_outputs = A_*delta_states + B_*deltaInput;
 
 	std::cout << "output z\t" << delta_outputs(2) << "\tvs output out[2]\t" << out_[2][i] << std::endl;
+
+	/** WRITING TO RECORDING VECTORS **/
 
 	in_[0].push_back(deltaInput(0) + input_point1[0]);
 	in_[1].push_back(deltaInput(1) + input_point1[1]);
@@ -236,7 +243,7 @@ int main(int argc, char **argv)
 	out_[2].push_back(delta_outputs(2) + state_point1[2]);
 	out_[3].push_back(delta_outputs(3) + state_point1[3]);
 	out_[4].push_back(delta_outputs(4) + state_point1[4]);
-	out_[5].push_back(delta_outputs(5) + state_point1[5]);
+	out_[5].push_back(delta_outputs(5) - 9.81 + ((cos(state_point1[6])*cos(state_point1[7])*input_point1[0])/0.4305));
 	out_[6].push_back(delta_outputs(6) + state_point1[6]);
 	out_[7].push_back(delta_outputs(7) + state_point1[7]);
 	out_[8].push_back(delta_outputs(8) + state_point1[8]);
@@ -247,6 +254,9 @@ int main(int argc, char **argv)
 	time_.push_back(current_time);
 	//std::cout << "x\t" << out_[0][i] << "\ty\t" << out_[1][i] << "\tz\t" << out_[2][i] << "\tu\t" << out_[3][i] << "\tv\t" << out_[4][i] << "\tw\t" << out_[5][i] << "\troll\t" << out_[6][i] << "\tpitch\t" << out_[7][i] << "\tyaw\t" << out_[8][i] << "\tp\t" << out_[9][i] << "\tq\t" << out_[10][i] << "\tr\t" << out_[11][i] << std::endl;
 	//std::cout << "time\t" << time_[i] << "\tvs counter\t" << i << std::endl; 
+
+	/** SHIFTING TO THE NEXT SAMPLE **/	
+
 	delta_states = delta_outputs;
 	i++;
 
