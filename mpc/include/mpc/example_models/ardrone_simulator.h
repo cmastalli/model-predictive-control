@@ -10,11 +10,10 @@ namespace mpc
     namespace example_models
     {
 		/**
-		 This class provides methods to simulate a example model of tanks system
- 		 @brief This class provides methods to simulate a example model of tanks system defined by a class mpc::model::Model object
-			 \f[ \dot{x}(t) = Ax(t) + Bu(t) \f]
-			 \f[ y(t) = Cx(t) \f]
-		 on a fixed prediction horizon interval \f$ [t_0, t_N] \f$ with initial value \f$ x(t_0, x_0) = x_0 \f$ and given control \f$ u(\cdot, x_0) \f$. That is, for a given class mpc::model::Model object and a given control \f$ u \f$ the simulator can solve the differential or difference equation forward in time.
+		 This class provides methods to simulate the Parrot ARDrone1 quadrotor. 
+ 		 @brief This class provides methods to simulate the Parrot ARDrone1 quadrotor defined as the following non-linear system
+			 \f[ \dot{x}(t) = f(x(t), u(t)) \f]
+		 with initial value \f$ x(t = 0) = x_0 \f$ and given control input for the given sample \f$ u(\cdot, x_0) \f$ using a Euler backward integration method.
 		 */
 		class ArDroneSimulator : public mpc::model::Simulator
 		{
@@ -26,11 +25,11 @@ namespace mpc
 				~ArDroneSimulator() {};
 				
 				/**
-				 @brief Function used to simulate the specified plant 
-				 @param double* state_vect	State vector
-				 @param double* input_vect	Input vector
-				 @param double sampling_time	Sampling time
-				 @return double*	New state vector
+				 @brief Function used to calculate the simulated output of the quadrotor for each time sample. In this simulator, the non linear model of the quadrotor system is implemented in this function.  
+				 @param double* current_state	State vector for the system in time \f$ k \f$.
+				 @param double* input_vect	Input vector for the system in time \f$ k \f$.
+				 @param double sampling_time	Sampling time chosen for the simulation.
+				 @return double*	Array containing the state vector for the system in time \f$ k \f$. 
 				 */
 				double* simulatePlant(double *current_state, double *current_input, double sampling_time);
 
@@ -39,33 +38,33 @@ namespace mpc
 
 
 		    private:
-				/** @brief Parameter of the system called beta 
-				double beta_;
 				
-				 @brief Parameter of the system called At 
-				double At_;
-				
-				 @brief Parameter of the system called cf 
-				double cf_;
-				
-				 @brief Parameter of the system called g 
-				double g_;*/
+				/** @brief Parameter of the system called g */ 
+				double g_;
 
-				/** @brief New state vector **/
+				/** @brief New state vector */
 				double* new_state_;
 
-				Eigen::MatrixXd A_;
-				Eigen::MatrixXd B_;
+				/** @brief Number of states */
+				int number_of_states_;
 
-				double Ct_;
-				double Cq_;
+				/** @brief Number of inputs */
+				int number_of_inputs_;
+
+				/** @brief Inertia around the X axis */
 				double Ixx_;
+				
+				/** @brief Inertia around the Y axis */
 				double Iyy_;
+
+				/** @brief Inertia around the Z axis */
 				double Izz_;
+		
+				/** @brief Mass of the quadrotor */
 				double m_;
+			
+				/** @brief Distance from the GC of the quadrotor to a rotor */
 				double d_;
-				double Jr_;
-				double At_;
 				
 				
 		};  //@class ArDroneSimulator
