@@ -28,6 +28,13 @@ int num_states_ = 12;
 int num_inputs_ = 4;
 
 
+std::string getWorkingPath( void ) {
+	char buff[PATH_MAX];
+	getcwd( buff, PATH_MAX );
+	std::string cwd( buff );
+	return cwd;
+}
+
 bool writeToDisc()
 {
 	bool data = true;
@@ -79,7 +86,8 @@ bool writeToDisc()
 		outfile.close();
 		ROS_INFO("Output data validation file recorded.");
 	}
-
+	std::string path = getWorkingPath();
+	std::cout << path;
 	return true;
 }
 
