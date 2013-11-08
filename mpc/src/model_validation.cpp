@@ -9,9 +9,11 @@
 // Global variables 
 std::vector<std::vector<double> > u_;
 std::vector<std::vector<double> > x_;
+std::vector<std::vector<double> > x_NL_;
 std::vector<double> time_;
 std::string input_data_name = "ros_workspace/model-predictive-control/mpc/data/validation/validation_input_data.txt";
 std::string output_data_name = "ros_workspace/model-predictive-control/mpc/data/validation/validation_output_data.txt";
+std::string nonlinear_data_name = "ros_workspace/model-predictive-control/mpc/data/validation/validation_nonlinear_data.txt";
 
 // Parameters of the dynamic model
 double Ct_ = 8.17e-006; // Thrust coefficient [N/(rad/s)^2]
@@ -85,6 +87,24 @@ bool writeToDisc()
 		}
 		outfile.close();
 		ROS_INFO("Output data validation file recorded.");
+
+		std::ofstream nonlinearfile;
+		nonlinearfile.open(nonlinear_data_name.c_str());
+		nonlinearfile.precision(4);
+		nonlinearfile.setf(std::ios::fixed, std::ios::floatfield);
+		nonlinearfile.setf(std::ios::left, std::ios::adjustfield);
+
+		nonlinearfile << "t\t" << "x\t" << "y\t" << "z\t" << "u\t" << "v\t" << "w\t" << "roll\t" << "pitch\t" << "yaw\t" << "p\t" << "q\t" << "r" << std::endl;
+    	for (unsigned int j = 0; j < x_NL_[0].size(); j++) {
+			nonlinearfile << time_[j];
+			for (unsigned int i = 0; i < x_NL_.size(); i++) {
+				nonlinearfile << '\t';
+				nonlinearfile << x_NL_[i][j];
+			}
+			nonlinearfile	<< std::endl;
+		}
+		nonlinearfile.close();
+		ROS_INFO("Nonlinear output data validation file recorded.");
 	}
 	std::string path = getWorkingPath();
 	std::cout << path;
@@ -166,12 +186,57 @@ double* simulatePlant(double *state_vect, double *input_vect, double *state_op_v
 	return state_vect;
 }
 
+double* simulateNonLinearPlant(double *current_state, double *current_input)
+{
+	//ROS_ASSERT(sizeof(current_state) == num_states_);
+
+	//ROS_ASSERT(sizeof(current_input) == num_inputs_);
+
+	// Map into Eigen objects for easier manipulation	
+	
+	Eigen::Map<Eigen::VectorXd> x_current(current_state, 12, 1);
+	Eigen::Map<Eigen::VectorXd> u_current(current_input, 4, 1);	
+	Eigen::VectorXd x_new = Eigen::MatrixXd::Zero(num_states_, 1);
+
+	// Solve the difference equations recursively
+
+	x_new(0) = x_current(0) + ts_*x_current(3);
+
+	x_new(1) = x_current(1) + ts_*x_current(4);
+
+	x_new(2) = x_current(2) + ts_*x_current(5);
+
+	x_new(3) = x_current(3) + (ts_/m_)*(cos(x_current(8))*sin(x_current(7))*cos(x_current(6)) + sin(x_current(8))*sin(x_current(6)))*u_current(0);
+
+	x_new(4) = x_current(4) + (ts_/m_)*(sin(x_current(8))*sin(x_current(7))*cos(x_current(6)) - cos(x_current(8))*sin(x_current(6)))*u_current(0);
+
+	x_new(5) = x_current(5) + ts_*(-g_ + cos(x_current(7))*cos(x_current(6))*(u_current(0)/m_));
+
+	x_new(6) = x_current(6) + ts_*(x_current(9) + x_current(10)*sin(x_current(6))*tan(x_current(7)) + x_current(11)*cos(x_current(6))*tan(x_current(8)));
+
+	x_new(7) = x_current(7) + ts_*(x_current(10)*cos(x_current(6)) - x_current(11)*sin(x_current(6)));
+
+	x_new(8) = x_current(8) + (ts_/cos(x_current(7)))*(x_current(10)*sin(x_current(6)) + x_current(11)*cos(x_current(6)));
+
+	x_new(9) = x_current(9) + ts_*( (Iyy_ - Izz_)*((x_current(10)*x_current(11))/Ixx_) + (d_/Ixx_)*u_current(1));
+
+	x_new(10) = x_current(10) + ts_*( (Izz_ - Ixx_)*((x_current(9)*x_current(11))/Iyy_) + (d_/Iyy_)*u_current(2));
+
+	x_new(11) = x_current(11) + ts_*( (Ixx_ - Iyy_)*((x_current(9)*x_current(10))/Izz_) + (1/Izz_)*u_current(3));
+
+	std::cout << "States at K+1:\t" << x_new.transpose() << std::endl; 
+	x_current = x_new;
+	return current_state;
+}
+
 
 int main(int argc, char **argv)
 {
 	ros::init(argc, argv, "model_validation");
 	
 	double current_time;
+
+	/** Linearized model initial values and operation points */
 	double state[12] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 	double input[4] = {0.0, 0.0, 0.0, 0.0};
 	double state_op[12] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
@@ -180,16 +245,24 @@ int main(int argc, char **argv)
 	Eigen::Map<Eigen::VectorXd> x(&state[0], num_states_);
 	Eigen::Map<Eigen::VectorXd> u(&input[0], num_inputs_);
 	Eigen::Map<Eigen::VectorXd> x_new(new_state, num_states_);
+
+	/** Nonlinear simulator initial values */
+	double *new_NL_state;
+	double NL_state[12] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};	
+	Eigen::Map<Eigen::VectorXd> x_NL_new(new_NL_state, num_states_);
+	Eigen::Map<Eigen::VectorXd> x_NL(&NL_state[0], num_states_);
 	
 
 	u_.resize(4);
 	x_.resize(12);
+	x_NL_.resize(12);
 	time_.push_back(0.0);
 	for (int j = 0; j < num_inputs_; j++) {
 		u_[j].push_back(u(j));
 	}
 	for (int j = 0; j < num_states_; j++) {
 		x_[j].push_back(x(j));
+		x_NL_[j].push_back(x_NL(j));
  	}
 	
 	
@@ -213,6 +286,12 @@ int main(int argc, char **argv)
 		for (int j = 0; j < num_states_; j++) {
 			state[j] = new_state[j];
 			x_[j].push_back(x(j));
+		}
+
+		new_NL_state = simulateNonLinearPlant(NL_state, input);
+		for (int j = 0; j < num_states_; j++) {
+			NL_state[j] = new_NL_state[j];
+			x_NL_[j].push_back(x_NL(j));
 		}
 				
 		/** WRITING TO RECORDING VECTORS **/
