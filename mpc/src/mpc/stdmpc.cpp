@@ -69,6 +69,12 @@ bool mpc::STDMPC::initMPC()
 	// Initialization of MPC solution
 	mpc_solution_ = new double[variables_];
 	control_signal_ = new double[inputs_];
+
+	if (model_->getModelType()){
+		operation_states_ = new double[states_];
+		operation_inputs_ = new double[inputs_];
+	}
+
 	u_reference_ = Eigen::MatrixXd::Zero(inputs_, 1);
 	infeasibility_counter_ = 0;
 	x_.resize(states_);
@@ -82,8 +88,12 @@ bool mpc::STDMPC::initMPC()
 	C_ = Eigen::MatrixXd::Zero(outputs_, states_);
 	
 	// Obtention of the model parameters
-	model_->computeDynamicModel(A_, B_, C_);
-	
+	if (!model_->getModelType()) {
+		model_->computeLinearSystem(A_, B_);
+	}
+	else {
+		model_->computeLinearSystem(A_, B_, operation_states_, operation_inputs_);
+	}
 	
 	// Reading the weight matrices of the cost function
 	Q_ = Eigen::MatrixXd::Zero(states_, states_);
@@ -222,7 +232,9 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	Eigen::Map<Eigen::VectorXd> x_reference_eigen(x_reference, states_, 1);
 
 	// Update of the model parameters
-		model_->computeDynamicModel(A_, B_, C_);
+	if (model_->getModelType()){
+		model_->computeLinearSystem(A_, B_, operation_states_, operation_inputs_);
+	}
 	
 	// Compute steady state control based on updated system matrices
 	Eigen::JacobiSVD<Eigen::MatrixXd> SVD_B(B_, Eigen::ComputeThinU | Eigen::ComputeThinV);
@@ -320,6 +332,20 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	for (int i = 0; i < inputs_; i++) {
 		u_[i].push_back(u[i]);
 	}
+}
+
+void mpc::STDMPC::setLinearizationPoints(double* op_states)
+{
+	for (int i = 0; i < states_; i++) {
+		operation_states_[i] = op_states[i];
+	}
+
+	Eigen::Map<Eigen::VectorXd> u_bar(operation_inputs_, inputs_, 1);
+	Eigen::Map<Eigen::VectorXd> x_bar(op_states, states_, 1);
+
+	Eigen::JacobiSVD<Eigen::MatrixXd> SVD_B_linear(B_, Eigen::ComputeThinU | Eigen::ComputeThinV);
+	u_bar = SVD_B_linear.solve(x_bar - A_ * x_bar);
+
 }
 
 

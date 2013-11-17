@@ -6,18 +6,19 @@
 
 mpc::example_models::TanksSystem::TanksSystem()
 {
-	states_ = 2;
-	inputs_ = 1;
-	outputs_ = 1;
-	op_point_states_ = new double[states_];
+	num_states_ = 2;
+	num_inputs_ = 1;
+	num_outputs_ = 1;
+	op_point_states_ = new double[num_states_];
+
+	time_variant_ = false;
 }
 
 
-void mpc::example_models::TanksSystem::computeLTIModel()
+bool mpc::example_models::TanksSystem::computeLinearSystem(Eigen::MatrixXd& A, Eigen::MatrixXd& B)
 {
-	A_ = Eigen::MatrixXd::Zero(states_, states_);
-	B_ = Eigen::MatrixXd::Zero(states_, inputs_);
-	C_ = Eigen::MatrixXd::Zero(outputs_, states_);
+	A_ = Eigen::MatrixXd::Zero(num_states_, num_states_);
+	B_ = Eigen::MatrixXd::Zero(num_states_, num_inputs_);
 
 	// A matrix
 	A_(0,0) = 0.9992;
@@ -28,15 +29,6 @@ void mpc::example_models::TanksSystem::computeLTIModel()
 	// B matrix
 	B_(0,0) = 0.002551;
 	B_(1,0) = 0.0000;
-			
-	// C matrix
-	C_(0,0) = 0.0000;
-	C_(0,1) = 1.0000;
-}
-
-bool mpc::example_models::TanksSystem::computeDynamicModel(Eigen::MatrixXd& A, Eigen::MatrixXd& B, Eigen::MatrixXd& C)
-{
-	computeLTIModel();
 
 	if (A.rows() != A_.rows()) {
 		ROS_ERROR("The number of rows of the destination matrix variable and the model matrix A is different!");
@@ -61,18 +53,9 @@ bool mpc::example_models::TanksSystem::computeDynamicModel(Eigen::MatrixXd& A, E
 	else
 		B = B_;
 
-	if (C.rows() != C_.rows()) {
-		ROS_ERROR("The number of rows of the destination matrix variable and the model matrix C is different!");
-		return false;
-	}
-	else if (C.cols() != C_.cols()) {
-		ROS_ERROR("The number of columns of the destination matrix variable and the model matrix C is different!");
-		return false;
-	}
-	else
-		C = C_;
-
-
 	return true;
+
 }
+
+bool mpc::example_models::TanksSystem::computeLinearSystem(Eigen::MatrixXd& A, Eigen::MatrixXd& B, double* op_states, double* op_inputs) { }
 

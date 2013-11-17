@@ -43,15 +43,23 @@ namespace mpc
 				~Model() {};
 			
 				/**
-				 @brief Function to compute the matrices of the dynamic model of process
+				 @brief Function to compute the matrices for a LTI model process
 				 @param Eigen::MatrixXd& A	State or System matrix
 				 @param Eigen::MatrixXd& B	Input matrix
 				 @param Eigen::MatrixXd& C	Output matrix
 				 @return bool Label that indicates if the computation of the matrices is successful
 				 */
-				virtual bool computeDynamicModel(Eigen::MatrixXd& A, Eigen::MatrixXd& B, Eigen::MatrixXd& C) = 0;
+				virtual bool computeLinearSystem(Eigen::MatrixXd& A, Eigen::MatrixXd& B) = 0;
 
-				
+				/**
+				 @brief Function overload to compute the matrices for a LTV model process
+				 @param Eigen::MatrixXd& A	State or System matrix
+				 @param Eigen::MatrixXd& B	Input matrix
+				 @param Eigen::MatrixXd& C	Output matrix
+				 @return bool Label that indicates if the computation of the matrices is successful
+				 */
+				virtual bool computeLinearSystem(Eigen::MatrixXd& A, Eigen::MatrixXd& B, double* op_states, double* op_inputs) = 0;
+
 				/** @brief Get the states number of the dynamic model */
 				virtual int getStatesNumber() const;
 				
@@ -65,6 +73,8 @@ namespace mpc
 
 				virtual bool setInputs(const double* inputs) const;	
 
+				virtual bool getModelType() const;
+
 
             protected:
 				/** @brief State matrix of the dynamic model */
@@ -73,23 +83,23 @@ namespace mpc
 				/** @brief Input matrix of the dynamic model */
 				Eigen::MatrixXd B_;
 				
-				/** @brief Output matrix of the dynamic model */
-				Eigen::MatrixXd C_;
-				
 				/** @brief Number of states of the dynamic model */
-				int states_;
+				int num_states_;
 				
 				/** @brief Number of inputs of the dynamic model */
-				int inputs_;
+				int num_inputs_;
 				
 				/** @brief Number of outputs of the dynamic model */
-				int outputs_;
+				int num_outputs_;
 				
 				/** Pointer to the array of the states operation points **/
 				double* op_point_states_;
 
 				/** Pointer to the array of the input operation points **/
 				double* op_point_input_;
+
+				/** @brief Boolean to check if the model is time variant or not */
+				bool time_variant_;
 
             private:
 
@@ -103,17 +113,17 @@ namespace mpc
 
 inline int mpc::model::Model::getStatesNumber() const
 {
-	return states_;
+	return num_states_;
 }
 
 inline int mpc::model::Model::getInputsNumber() const
 {
-	return inputs_;
+	return num_inputs_;
 }
 
 inline int mpc::model::Model::getOutputsNumber() const
 {
-	return outputs_;
+	return num_outputs_;
 }
 
 inline bool mpc::model::Model::setStates(const double* states) const
@@ -128,6 +138,11 @@ inline bool mpc::model::Model::setInputs(const double* inputs) const
 	*op_point_input_ = *inputs;
 	
 	return true;
+}
+
+inline bool mpc::model::Model::getModelType() const
+{	
+	return time_variant_;
 }
 
 #endif

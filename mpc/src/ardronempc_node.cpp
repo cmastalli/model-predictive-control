@@ -40,13 +40,14 @@ int main(int argc, char **argv)
 	
 	
 	double x_ref[12] = {0., 0., 0.5, 0., 0., 0., 0., 0., 0., 0., 0., 0.};
-	double x_meas[12] = {0., 0.,  0.3, 0., 0., 0., 0., 0., 0., 0., 0., 0.};
+	double x_meas[12] = {0., 0.,  0.0, 0., 0., 0., 0., 0., 0., 0., 0., 0.};
 
-	// linearization points
+	// initial conditions
 	double x_operation[12] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-	//double u_operation[4] = {360.0, 360.0, 360.0, 360.0};
+	double u_operation[4] = {0.0, 0.0, 0.0, 0.0};
 
-	 
+	// Set the initial conditions as the first linearization points
+	 mpc_ptr->setLinearizationPoints(x_operation);
 																																																																																																																																																																																																																																																				
 	double *control_signal;
 	control_signal = new double[4];
@@ -60,7 +61,7 @@ int main(int argc, char **argv)
 		//model_ptr->setStates(x_meas);
 		//model_ptr->setInputs(u_operation); 
 
-		double x_lin_meas[12];
+		/*double x_lin_meas[12];
 		x_lin_meas[0] = x_meas[0] - x_operation[0];
 		x_lin_meas[1] = x_meas[1] - x_operation[1];
 		x_lin_meas[2] = x_meas[2] - x_operation[2];
@@ -86,98 +87,41 @@ int main(int argc, char **argv)
 		x_lin_ref[8] = x_ref[8] - x_operation[8];
 		x_lin_ref[9] = x_ref[9] - x_operation[9];
 		x_lin_ref[10] = x_ref[10] - x_operation[10];	
-		x_lin_ref[11] = x_ref[11] - x_operation[11];
+		x_lin_ref[11] = x_ref[11] - x_operation[11];*/
 		
-		mpc_ptr->updateMPC(x_lin_meas, x_lin_ref); // Here we are also recalculating the system matrices A and B
+		// Solving the quadratic problem to obtain the new inputs
+		mpc_ptr->updateMPC(x_meas, x_ref); // Here we are also recalculating the system matrices A and B
+
 		ROS_INFO("u=[%f,%f,%f,%f]", control_signal[0], control_signal[1], control_signal[2], control_signal[3]);
 		control_signal = mpc_ptr->getControlSignal();
-
-		// Getting the A and B matrices to compute the linearization point of the control signal for the steady state at the current sample
-		Eigen::MatrixXd A(12,12);
-		Eigen::MatrixXd B(12,4);
-		Eigen::MatrixXd C(12,12);
-		model_ptr->computeDynamicModel(A, B, C);		
 		
-		Eigen::JacobiSVD<Eigen::MatrixXd> SVD_B(B, Eigen::ComputeThinU | Eigen::ComputeThinV);
-		std::cout <<"B matrix" << std::endl << B << std::endl;
-		Eigen::Map<Eigen::VectorXd> x_operation_eigen(x_operation, 12, 1);
+		//	Updating the simulator with the new inputs
+		new_state = simulator_ptr->simulatePlant(x_meas, control_signal, sampling_time);
 
-
-		/** Creation, mapping into an Eigen object and calculation of the linearization control signal, based on the steady state system 
-			for the states at the linearization point **/
-
-		double *u_operation;
-		u_operation = new double[4];
-		Eigen::Map<Eigen::MatrixXd> u_operation_eigen(u_operation, 4, 1);
+		// Setting the new operation points
+		mpc_ptr->setLinearizationPoints(new_state);
 		
-		u_operation_eigen = SVD_B.solve(x_operation_eigen - A * x_operation_eigen);
-		ROS_INFO("Fuck you code!");	
-		/** Mapping of the Control Signal into an Eigen object **/
-		Eigen::Map<Eigen::VectorXd> control_signal_eigen(control_signal, 4, 1);
+		// Shifting the state vector 
+		for (int i = 0; i < 12; i++) {
+		x_meas[i] = new_state[i];
+		}
 		
 
-		/** Creation of the absolute control signal vector, mapping into an Eigen object and calculation **/
-		double *abs_control_signal;
-		abs_control_signal = new double[4];
-		Eigen::Map<Eigen::VectorXd> abs_eigen_control_signal(abs_control_signal, 4, 1);
-		abs_eigen_control_signal(0) = control_signal_eigen(0) + u_operation_eigen(0);
-		abs_eigen_control_signal(1) = control_signal_eigen(1) + u_operation_eigen(1);
-		abs_eigen_control_signal(2) = control_signal_eigen(2) + u_operation_eigen(2);
-		abs_eigen_control_signal(3) = control_signal_eigen(3) + u_operation_eigen(3);
-		
-		
-		new_state = simulator_ptr->simulatePlant(x_meas, abs_control_signal, sampling_time);
-		
-		x_meas[0] = new_state[0];
-		x_meas[1] = new_state[1];
-		x_meas[2] = new_state[2];
-		x_meas[3] = new_state[3];
-		x_meas[4] = new_state[4];
-		x_meas[5] = new_state[5];
-		x_meas[6] = new_state[6];
-		x_meas[7] = new_state[7];
-		x_meas[8] = new_state[8];
-		x_meas[9] = new_state[9];
-		x_meas[10] = new_state[10];
-		x_meas[11] = new_state[11];
-
-		//u_operation[0] = control_signal[0];
-		//u_operation[1] = control_signal[1];
-		//u_operation[2] = control_signal[2];
-		//u_operation[3] = control_signal[3];
-		
 		if (mpc_pub->trylock()) {
 			mpc_pub->msg_.header.stamp = ros::Time::now();
-			mpc_pub->msg_.states[0] = x_meas[0];
-			mpc_pub->msg_.states[1] = x_meas[1];
-			mpc_pub->msg_.states[2] = x_meas[2];
-			mpc_pub->msg_.states[3] = x_meas[3];
-			mpc_pub->msg_.states[4] = x_meas[4];
-			mpc_pub->msg_.states[5] = x_meas[5];
-			mpc_pub->msg_.states[6] = x_meas[6];
-			mpc_pub->msg_.states[7] = x_meas[7];
-			mpc_pub->msg_.states[8] = x_meas[8];
-			mpc_pub->msg_.states[9] = x_meas[9];
-			mpc_pub->msg_.states[10] = x_meas[10];
-			mpc_pub->msg_.states[11] = x_meas[11];
 
-			mpc_pub->msg_.reference_states[0] = x_ref[0];
-			mpc_pub->msg_.reference_states[1] = x_ref[1];
-			mpc_pub->msg_.reference_states[2] = x_ref[2];
-			mpc_pub->msg_.reference_states[3] = x_ref[3];
-			mpc_pub->msg_.reference_states[4] = x_ref[4];
-			mpc_pub->msg_.reference_states[5] = x_ref[5];
-			mpc_pub->msg_.reference_states[6] = x_ref[6];
-			mpc_pub->msg_.reference_states[7] = x_ref[7];
-			mpc_pub->msg_.reference_states[8] = x_ref[8];
-			mpc_pub->msg_.reference_states[9] = x_ref[9];
-			mpc_pub->msg_.reference_states[10] = x_ref[10];
-			mpc_pub->msg_.reference_states[11] = x_ref[11];
+			for (int j = 0; j < 12; j++) {
+				mpc_pub->msg_.states[j] = x_meas[j];
+			}
 
-			mpc_pub->msg_.inputs[0] = control_signal[0];
-			mpc_pub->msg_.inputs[1] = control_signal[1];
-			mpc_pub->msg_.inputs[2] = control_signal[2];
-			mpc_pub->msg_.inputs[3] = control_signal[3];
+			for (int j = 0; j < 12; j++) {
+				mpc_pub->msg_.reference_states[j] = x_ref[j];
+			}
+
+			for (int j = 0; j < 4; j++) {
+				mpc_pub->msg_.inputs[j] = control_signal[j];
+			}
+			
 		}
 		mpc_pub->unlockAndPublish();
 		

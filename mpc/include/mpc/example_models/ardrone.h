@@ -29,11 +29,8 @@ namespace mpc
 				/** @brief Destructor function */
 				~ArDrone();
 				
-				/** 
-				 @brief Function to compute at each instant the linear model of the quadrotor.
-				 @param double* states_measured	The current state of the quadrotor.
-                **/
-				void computeLTIModel();		
+				
+				virtual bool computeLinearSystem(Eigen::MatrixXd& A, Eigen::MatrixXd& B);		
 
 
 				/**
@@ -43,23 +40,34 @@ namespace mpc
 				 @param Eigen::MatrixXd& C	Output matrix
 				 @return bool Label that indicates if the computation of the matrices is successful
 				 */
-				virtual bool computeDynamicModel(Eigen::MatrixXd& A, Eigen::MatrixXd& B, Eigen::MatrixXd& C);
+				virtual bool computeLinearSystem(Eigen::MatrixXd& A, Eigen::MatrixXd& B, double* op_states, double* op_inputs);
 
 
 			private:
 
-				double Ct_;
-				double Cq_;
-				double Ixx_;
-				double Iyy_;
-				double Izz_;
-				double m_;
-				double d_;
-				double Jr_;
-				double At_;
+				/** @param Thrust coefficient */
+				double Ct_;	
 
-				// Linearization point vector for the ardrone inputs
-				Eigen::VectorXd u;
+				/** @param Drag coefficient */
+				double Cq_;
+
+				/** @param Inertia of the quadrotor around the X axis */
+				double Ixx_;
+
+				/** @param Inertia of the quadrotor around the Y axis */
+				double Iyy_;
+
+				/** @param Inertia of the quadrotor around the Z axis */
+				double Izz_;
+
+				/** @param Mass of the quadrotor */
+				double m_;
+
+				/** @param Distance from the GC to the rotors */
+				double d_;
+
+				/** @param Sampling time */
+				double ts_;
 
 		}; //@class ArDrone
 	
