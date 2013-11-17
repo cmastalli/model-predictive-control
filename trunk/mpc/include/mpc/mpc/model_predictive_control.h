@@ -67,6 +67,13 @@ namespace mpc
 			 @param double* x_reference		Reference vector
              */
             virtual void updateMPC(double* x_measured, double* x_reference) = 0;
+
+			/**
+			 @brief After the MPC makes an iteration, this function is used to set the new linearization points for a LTV model into global 			 variables for the STDMPC class 
+			 @param double* op_states 		new linearization point for the state vector
+			 @param double* op_inputs		new linearization point for the input vector
+			 */
+			virtual void setLinearizationPoints(double* op_states);
 			
 			/**
 			 @brief Function to get the control signal generates for the MPC
