@@ -71,9 +71,8 @@ namespace mpc
 			/**
 			 @brief After the MPC makes an iteration, this function is used to set the new linearization points for a LTV model into global 			 variables for the STDMPC class 
 			 @param double* op_states 		new linearization point for the state vector
-			 @param double* op_inputs		new linearization point for the input vector
 			 */
-			virtual void setLinearizationPoints(double* op_states);
+			virtual void setLinearizationPoints(double* op_states) = 0;
 			
 			/**
 			 @brief Function to get the control signal generates for the MPC
@@ -83,6 +82,12 @@ namespace mpc
 			
 			/** @brief Function to write the data of the MPC in text file */
 			virtual void writeToDisc();
+
+			/** @brief Function that returns the current value of the operation points for the states */
+			virtual double* getOperationPointsStates() const;
+
+			/** @brief Function that returns the current value of the operation points for the inputs */
+			virtual double* getOperationPointsInputs() const;
 			
 			
 			
@@ -113,6 +118,12 @@ namespace mpc
 			
 			/** @brief Number of constraints */
 			int constraints_;
+
+			/** @brief Vector of the operation points for the states in case of a LTI model */
+			double* operation_states_;
+
+			/** @brief Vector of the operation points for the inputs in case of a LTI model */
+			double* operation_inputs_;
 			
 			/** @brief Infeasibility counter in the solution */
 			int infeasibility_counter_;
@@ -235,5 +246,14 @@ inline void mpc::ModelPredictiveControl::writeToDisc()
 	}
 }
 
+inline double* mpc::ModelPredictiveControl::getOperationPointsStates() const
+{
+	return operation_states_;
+}
+
+inline double* mpc::ModelPredictiveControl::getOperationPointsInputs() const
+{
+	return operation_inputs_;
+}
 
 #endif
