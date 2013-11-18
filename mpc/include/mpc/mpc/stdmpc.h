@@ -6,6 +6,8 @@
 #include <mpc/mpc/model_predictive_control.h>
 
 #include <Eigen/Dense>
+#include <cmath>
+
 
 
 namespace mpc
@@ -63,20 +65,8 @@ namespace mpc
 			
 			
 		protected:
-			/** @brief Number of constraints **/
-			int constraints_;
 
-			/** @brief Number of variables (= horizon_*inputs_) **/
-			int variables_;
 
-			/** @brief Prediction horizon for the algorithm **/
-			int horizon_;
-
-			/** @brief Vector of the operation points for the states **/
-			double* operation_states_;
-
-			/** @brief Vector of the operation points for the inputs **/
-			double* operation_inputs_;
 			
 			
 			

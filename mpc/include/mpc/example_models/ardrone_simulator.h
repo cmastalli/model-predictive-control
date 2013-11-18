@@ -51,6 +51,12 @@ namespace mpc
 				/** @brief Number of inputs */
 				int number_of_inputs_;
 
+				/** @brief Thrust coefficient */
+				double Ct_;
+
+				/** @brief Drag coefficient */
+				double Cq_;
+				
 				/** @brief Inertia around the X axis */
 				double Ixx_;
 				

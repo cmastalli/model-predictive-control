@@ -39,61 +39,57 @@ int main(int argc, char **argv)
 	mpc_ptr->initMPC();
 	
 	
-	double x_ref[12] = {0., 0., 0.5, 0., 0., 0., 0., 0., 0., 0., 0., 0.};
-	double x_meas[12] = {0., 0.,  0.0, 0., 0., 0., 0., 0., 0., 0., 0., 0.};
+	double x_ref[12] = {0.0, 0.0, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	double x_meas[12] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
 	// initial conditions
 	double x_operation[12] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
-	double u_operation[4] = {0.0, 0.0, 0.0, 0.0};
 
+	
 	// Set the initial conditions as the first linearization points
 	 mpc_ptr->setLinearizationPoints(x_operation);
 																																																																																																																																																																																																																																																				
 	double *control_signal;
+	double *deltacontrol_signal;
 	control_signal = new double[4];
-	double sampling_time = 0.0;
+	double sampling_time = 0.0083;
 	double *new_state;
 	new_state = new double[12];	
+
+	/** Creation of the delta variables for the optimization*/
+	double deltaX[12];
+	double deltaXref[12];
+
+	double* x_bar;
+	x_bar = new double[12];
+	double* u_bar;
+	u_bar = new double[4];
 		
     timespec start_rt, end_rt;
     clock_gettime(CLOCK_REALTIME, &start_rt);
 	while (ros::ok()) {
-		//model_ptr->setStates(x_meas);
-		//model_ptr->setInputs(u_operation); 
+ 
+		x_bar = mpc_ptr->getOperationPointsStates();
+		for (int i = 0; i < 12; i++) {
+			deltaX[i] = x_meas[i] - x_bar[i];
+		}
 
-		/*double x_lin_meas[12];
-		x_lin_meas[0] = x_meas[0] - x_operation[0];
-		x_lin_meas[1] = x_meas[1] - x_operation[1];
-		x_lin_meas[2] = x_meas[2] - x_operation[2];
-		x_lin_meas[3] = x_meas[3] - x_operation[3];
-		x_lin_meas[4] = x_meas[4] - x_operation[4];
-		x_lin_meas[5] = x_meas[5] - x_operation[5];
-		x_lin_meas[6] = x_meas[6] - x_operation[6];
-		x_lin_meas[7] = x_meas[7] - x_operation[7];
-		x_lin_meas[8] = x_meas[8] - x_operation[8];
-		x_lin_meas[9] = x_meas[9] - x_operation[9];
-		x_lin_meas[10] = x_meas[10] - x_operation[10];	
-		x_lin_meas[11] = x_meas[11] - x_operation[11]; 
+		for (int i = 0; i < 12; i++) {
+			deltaXref[i] = x_ref[i] - x_bar[i];
+		}
 
-		double x_lin_ref[12];
-		x_lin_ref[0] = x_ref[0] - x_operation[0];
-		x_lin_ref[1] = x_ref[1] - x_operation[1];
-		x_lin_ref[2] = x_ref[2] - x_operation[2];
-		x_lin_ref[3] = x_ref[3] - x_operation[3];
-		x_lin_ref[4] = x_ref[4] - x_operation[4];
-		x_lin_ref[5] = x_ref[5] - x_operation[5];
-		x_lin_ref[6] = x_ref[6] - x_operation[6];
-		x_lin_ref[7] = x_ref[7] - x_operation[7];
-		x_lin_ref[8] = x_ref[8] - x_operation[8];
-		x_lin_ref[9] = x_ref[9] - x_operation[9];
-		x_lin_ref[10] = x_ref[10] - x_operation[10];	
-		x_lin_ref[11] = x_ref[11] - x_operation[11];*/
-		
 		// Solving the quadratic problem to obtain the new inputs
-		mpc_ptr->updateMPC(x_meas, x_ref); // Here we are also recalculating the system matrices A and B
+		mpc_ptr->updateMPC(deltaX, deltaXref); // Here we are also recalculating the system matrices A and B
 
 		ROS_INFO("u=[%f,%f,%f,%f]", control_signal[0], control_signal[1], control_signal[2], control_signal[3]);
-		control_signal = mpc_ptr->getControlSignal();
+		deltacontrol_signal = mpc_ptr->getControlSignal();
+
+		u_bar = mpc_ptr->getOperationPointsInputs();
+
+		for (int i = 0; i < 4; i++) {		
+			control_signal[i] = u_bar[i] + deltacontrol_signal[i];
+		}
+
 		
 		//	Updating the simulator with the new inputs
 		new_state = simulator_ptr->simulatePlant(x_meas, control_signal, sampling_time);
