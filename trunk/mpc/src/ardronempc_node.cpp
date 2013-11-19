@@ -47,7 +47,7 @@ int main(int argc, char **argv)
 
 	
 	// Set the initial conditions as the first linearization points
-	 mpc_ptr->setLinearizationPoints(x_operation);
+	 model_ptr->setLinearizationPoints(x_operation);
 																																																																																																																																																																																																																																																				
 	double *control_signal;
 	double *deltacontrol_signal;
@@ -95,7 +95,7 @@ int main(int argc, char **argv)
 		new_state = simulator_ptr->simulatePlant(x_meas, control_signal, sampling_time);
 
 		// Setting the new operation points
-		mpc_ptr->setLinearizationPoints(new_state);
+		model_ptr->setLinearizationPoints(new_state);
 		
 		// Shifting the state vector 
 		for (int i = 0; i < 12; i++) {

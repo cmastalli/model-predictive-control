@@ -72,15 +72,6 @@ bool mpc::STDMPC::initMPC()
 	operation_states_ = new double[states_];
 	operation_inputs_ = new double[inputs_];
 	
-	if (model_->getModelType()){
-		for (int i = 0; i < states_; i++) {
-			operation_states_[i] = 0.0;
-		}
-		
-		for (int i = 0; i < inputs_; i++) {
-			operation_inputs_[i] = 0.0;
-		}
-	}
 	
 	u_reference_ = Eigen::MatrixXd::Zero(inputs_, 1);
 	infeasibility_counter_ = 0;
@@ -95,11 +86,8 @@ bool mpc::STDMPC::initMPC()
 	C_ = Eigen::MatrixXd::Zero(outputs_, states_);
 	
 	// Obtention of the model parameters
-	if (!model_->getModelType()) {
-		model_->computeLinearSystem(A_, B_);
-	}
-	else {	
-		model_->computeLinearSystem(A_, B_, operation_states_, operation_inputs_);
+	if (model_->computeLinearSystem(A_, B_)) {
+		ROS_INFO("Model calculated successfully.");
 	}
 	
 	// Reading the weight matrices of the cost function
@@ -239,9 +227,8 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	Eigen::Map<Eigen::VectorXd> x_reference_eigen(x_reference, states_, 1);
 
 	// Update of the model parameters
-	if (model_->getModelType()){
-		setLinearizationPoints(x_measured);
-		model_->computeLinearSystem(A_, B_, operation_states_, operation_inputs_);
+	if (model_->computeLinearSystem(A_, B_) && model_->getModelType()) {
+		ROS_INFO("Model updated successfully.");
 	}
 	
 	// Compute steady state control based on updated system matrices
@@ -342,40 +329,6 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	}
 }
 
-void mpc::STDMPC::setLinearizationPoints(double* op_states)
-{
-	for (int i = 0; i < states_; i++) {
-		operation_states_[i] = op_states[i];
-	}
 
-	Eigen::MatrixXd M = Eigen::MatrixXd::Zero(inputs_, inputs_);
-	M << 1., 1., 1., 1., 0., -1., 0., 1., 1., 0., -1., 0., -1., 1., -1., 1.;
-	Eigen::VectorXd f_bar = Eigen::MatrixXd::Zero(inputs_, 1);
-
-	Eigen::Map<Eigen::VectorXd> u_bar(operation_inputs_, inputs_);
-
-	double Ix, Iy, Iz, Ct, Cq, d, m, g;
-	Ix = 2.04e-003;
-	Iy = 1.57e-003;
-	Iz = 3.52e-003;
-	Ct = 8.17e-006;
-	Cq = 2.17e-007;
-	d = 0.35;
-	m = 0.4305;
-	g = 9.81;
-
-	double phi = operation_states_[6];
-	double theta = operation_states_[7];
-	double p = operation_states_[9];
-	double q = operation_states_[10];
-	double r = operation_states_[11];
-
-	f_bar(0) = g * m / (Ct * cos(phi) * cos(theta));
-	f_bar(1) = (Iz - Iy) * q * r / (Ct * d);
-	f_bar(2) = (Iz - Ix) * p * r / (Ct * d);
-	f_bar(3) = (Iy - Ix) * p * q / Cq;
-	u_bar = M.inverse() * f_bar;
-	u_bar = u_bar.cwiseSqrt();
-}
 
 

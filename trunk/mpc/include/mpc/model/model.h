@@ -41,24 +41,20 @@ namespace mpc
 
 				/** @brief Destructor function */
 				~Model() {};
+
+				/**
+			 	@brief After the MPC makes an iteration, this function is used to set the new linearization points for a LTV model into 				global variables for the STDMPC class 
+			 	@param double* op_states 		new linearization point for the state vector
+			 	*/
+				virtual void setLinearizationPoints(double* op_states) = 0;
 			
 				/**
-				 @brief Function to compute the matrices for a LTI model process
+				 @brief Function to compute the matrices for a Linear model process
 				 @param Eigen::MatrixXd& A	State or System matrix
 				 @param Eigen::MatrixXd& B	Input matrix
-				 @param Eigen::MatrixXd& C	Output matrix
 				 @return bool Label that indicates if the computation of the matrices is successful
 				 */
 				virtual bool computeLinearSystem(Eigen::MatrixXd& A, Eigen::MatrixXd& B) = 0;
-
-				/**
-				 @brief Function overload to compute the matrices for a LTV model process
-				 @param Eigen::MatrixXd& A	State or System matrix
-				 @param Eigen::MatrixXd& B	Input matrix
-				 @param Eigen::MatrixXd& C	Output matrix
-				 @return bool Label that indicates if the computation of the matrices is successful
-				 */
-				virtual bool computeLinearSystem(Eigen::MatrixXd& A, Eigen::MatrixXd& B, double* op_states, double* op_inputs) = 0;
 
 				/** @brief Get the states number of the dynamic model */
 				virtual int getStatesNumber() const;
