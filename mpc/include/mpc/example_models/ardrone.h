@@ -30,17 +30,19 @@ namespace mpc
 				~ArDrone();
 				
 				
-				virtual bool computeLinearSystem(Eigen::MatrixXd& A, Eigen::MatrixXd& B);		
-
+				/**
+			 	@brief After the MPC makes an iteration, this function is used to set the new linearization points for a LTV model into 				global variables for the STDMPC class 
+			 	@param double* op_states 		new linearization point for the state vector
+			 	*/
+				virtual void setLinearizationPoints(double* op_states);
 
 				/**
-				 @brief Functio to compute the dynamic model of the system
+				 @brief Function to compute the dynamic model of the system
 				 @param Eigen::MatrixXd& A	State matrix
 				 @param Eigen::MatrixXd& B	Input matrix
-				 @param Eigen::MatrixXd& C	Output matrix
 				 @return bool Label that indicates if the computation of the matrices is successful
 				 */
-				virtual bool computeLinearSystem(Eigen::MatrixXd& A, Eigen::MatrixXd& B, double* op_states, double* op_inputs);
+				virtual bool computeLinearSystem(Eigen::MatrixXd& A, Eigen::MatrixXd& B);
 
 
 			private:
@@ -65,6 +67,9 @@ namespace mpc
 
 				/** @param Distance from the GC to the rotors */
 				double d_;
+
+				/** @param gravity */
+				double g_;
 
 				/** @param Sampling time */
 				double ts_;

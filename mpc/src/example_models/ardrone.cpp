@@ -27,15 +27,43 @@ mpc::example_models::ArDrone::ArDrone()
 	m_ = 0.4305; 
 	d_ = 0.35; 
 	ts_ = 0.0083; 
+	g_ = 9.81;
 
 
 }
 
-
-bool mpc::example_models::ArDrone::computeLinearSystem(Eigen::MatrixXd &A, Eigen::MatrixXd &B, double* op_states, double* op_inputs)
+void mpc::example_models::ArDrone::setLinearizationPoints(double* op_states)
 {
-	Eigen::Map<Eigen::VectorXd> x_bar(op_states, num_states_);
-	Eigen::Map<Eigen::VectorXd> u_bar(op_inputs, num_inputs_);
+	for (int i = 0; i < num_states_; i++) {
+		op_point_states_[i] = op_states[i];
+	}
+
+	Eigen::MatrixXd M = Eigen::MatrixXd::Zero(num_inputs_, num_inputs_);
+	M << 1., 1., 1., 1., 0., -1., 0., 1., 1., 0., -1., 0., -1., 1., -1., 1.;
+	Eigen::VectorXd f_bar = Eigen::MatrixXd::Zero(num_inputs_, 1);
+
+	Eigen::Map<Eigen::VectorXd> u_bar(op_point_input_, num_inputs_);
+
+
+	double phi = op_point_states_[6];
+	double theta = op_point_states_[7];
+	double p = op_point_states_[9];
+	double q = op_point_states_[10];
+	double r = op_point_states_[11];
+
+	f_bar(0) = g_ * m_ / (Ct_ * cos(phi) * cos(theta));
+	f_bar(1) = (Izz_ - Iyy_) * q * r / (Ct_ * d_);
+	f_bar(2) = (Izz_ - Ixx_) * p * r / (Ct_ * d_);
+	f_bar(3) = (Iyy_ - Ixx_) * p * q / Cq_;
+	u_bar = M.inverse() * f_bar;
+	u_bar = u_bar.cwiseSqrt();
+}
+
+
+bool mpc::example_models::ArDrone::computeLinearSystem(Eigen::MatrixXd &A, Eigen::MatrixXd &B)
+{
+	Eigen::Map<Eigen::VectorXd> x_bar(op_point_states_, num_states_);
+	Eigen::Map<Eigen::VectorXd> u_bar(op_point_input_, num_inputs_);
 	Eigen::MatrixXd U = Eigen::MatrixXd::Zero(num_inputs_, num_inputs_);
 	
 	double phi = x_bar(6);
@@ -127,6 +155,6 @@ bool mpc::example_models::ArDrone::computeLinearSystem(Eigen::MatrixXd &A, Eigen
 
 }
 
-bool mpc::example_models::ArDrone::computeLinearSystem(Eigen::MatrixXd& A, Eigen::MatrixXd& B) { }
+
 
 

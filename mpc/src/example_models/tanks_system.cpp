@@ -14,6 +14,7 @@ mpc::example_models::TanksSystem::TanksSystem()
 	time_variant_ = false;
 }
 
+void mpc::example_models::TanksSystem::setLinearizationPoints(double* op_states) { }
 
 bool mpc::example_models::TanksSystem::computeLinearSystem(Eigen::MatrixXd& A, Eigen::MatrixXd& B)
 {
@@ -57,5 +58,5 @@ bool mpc::example_models::TanksSystem::computeLinearSystem(Eigen::MatrixXd& A, E
 
 }
 
-bool mpc::example_models::TanksSystem::computeLinearSystem(Eigen::MatrixXd& A, Eigen::MatrixXd& B, double* op_states, double* op_inputs) { }
+
 
