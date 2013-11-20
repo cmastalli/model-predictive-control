@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 	
 	
 	mpc_ptr->resetMPC(model_ptr, optimizer_ptr, simulator_ptr);
-	mpc_ptr->initMPC();
+	
 	
 	
 	double x_ref[12] = {0.0, 0.0, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
@@ -48,6 +48,9 @@ int main(int argc, char **argv)
 	
 	// Set the initial conditions as the first linearization points
 	 model_ptr->setLinearizationPoints(x_operation);
+
+	// Having set the initial points as the linearization points, we initiate the MPC algorithm
+	mpc_ptr->initMPC();
 																																																																																																																																																																																																																																																				
 	double *control_signal;
 	double *deltacontrol_signal;
@@ -67,9 +70,11 @@ int main(int argc, char **argv)
 		
     timespec start_rt, end_rt;
     clock_gettime(CLOCK_REALTIME, &start_rt);
-	while (ros::ok()) {
+	for (int counter=0; counter < 1000; counter++)/*while (ros::ok())*/ {
+
+		
  
-		x_bar = mpc_ptr->getOperationPointsStates();
+		x_bar = model_ptr->getOperationPointsStates();
 		for (int i = 0; i < 12; i++) {
 			deltaX[i] = x_meas[i] - x_bar[i];
 		}
@@ -81,21 +86,22 @@ int main(int argc, char **argv)
 		// Solving the quadratic problem to obtain the new inputs
 		mpc_ptr->updateMPC(deltaX, deltaXref); // Here we are also recalculating the system matrices A and B
 
-		ROS_INFO("u=[%f,%f,%f,%f]", control_signal[0], control_signal[1], control_signal[2], control_signal[3]);
+		
 		deltacontrol_signal = mpc_ptr->getControlSignal();
 
-		u_bar = mpc_ptr->getOperationPointsInputs();
+		u_bar = model_ptr->getOperationPointsInputs();
+		//std::cout << "operation points inputs\t" << u_bar[0] << u_bar[1] << u_bar[2] << u_bar[3] <<std::endl;
 
 		for (int i = 0; i < 4; i++) {		
 			control_signal[i] = u_bar[i] + deltacontrol_signal[i];
 		}
 
-		
+		ROS_INFO("u=[%f,%f,%f,%f]", control_signal[0], control_signal[1], control_signal[2], control_signal[3]);
 		//	Updating the simulator with the new inputs
 		new_state = simulator_ptr->simulatePlant(x_meas, control_signal, sampling_time);
 
 		// Setting the new operation points
-		model_ptr->setLinearizationPoints(new_state);
+		//model_ptr->setLinearizationPoints(new_state);
 		
 		// Shifting the state vector 
 		for (int i = 0; i < 12; i++) {
@@ -121,14 +127,16 @@ int main(int argc, char **argv)
 		}
 		mpc_pub->unlockAndPublish();
 		
-		if (!ros::ok()) {			
-			clock_gettime(CLOCK_REALTIME, &end_rt);
-			double duration = (end_rt.tv_sec - start_rt.tv_sec) + 1e-9*(end_rt.tv_nsec - start_rt.tv_nsec);
-			ROS_INFO("The duration of computation of optimization problem is %f seg.", duration);
+		/*if (!ros::ok()) {			
 			
-			mpc_ptr->writeToDisc();
-		}
+		}*/
 	}
+
+	clock_gettime(CLOCK_REALTIME, &end_rt);
+	double duration = (end_rt.tv_sec - start_rt.tv_sec) + 1e-9*(end_rt.tv_nsec - start_rt.tv_nsec);
+	ROS_INFO("The duration of computation of optimization problem is %f seg.", duration);
+			
+	mpc_ptr->writeToDisc();
 	
 	
 	return 0;

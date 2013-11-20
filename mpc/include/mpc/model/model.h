@@ -71,6 +71,12 @@ namespace mpc
 
 				virtual bool getModelType() const;
 
+				/** @brief Function that returns the current value of the operation points for the states */
+				virtual double* getOperationPointsStates() const;
+
+				/** @brief Function that returns the current value of the operation points for the inputs */
+				virtual double* getOperationPointsInputs() const;
+
 
             protected:
 				/** @brief State matrix of the dynamic model */
@@ -139,6 +145,16 @@ inline bool mpc::model::Model::setInputs(const double* inputs) const
 inline bool mpc::model::Model::getModelType() const
 {	
 	return time_variant_;
+}
+
+inline double* mpc::model::Model::getOperationPointsStates() const
+{
+	return op_point_states_;
+}
+
+inline double* mpc::model::Model::getOperationPointsInputs() const
+{
+	return op_point_input_;
 }
 
 #endif
