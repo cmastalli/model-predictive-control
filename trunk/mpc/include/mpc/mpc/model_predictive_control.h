@@ -79,11 +79,7 @@ namespace mpc
 			/** @brief Function to write the data of the MPC in text file */
 			virtual void writeToDisc();
 
-			/** @brief Function that returns the current value of the operation points for the states */
-			virtual double* getOperationPointsStates() const;
 
-			/** @brief Function that returns the current value of the operation points for the inputs */
-			virtual double* getOperationPointsInputs() const;
 			
 			
 			
@@ -242,14 +238,6 @@ inline void mpc::ModelPredictiveControl::writeToDisc()
 	}
 }
 
-inline double* mpc::ModelPredictiveControl::getOperationPointsStates() const
-{
-	return operation_states_;
-}
 
-inline double* mpc::ModelPredictiveControl::getOperationPointsInputs() const
-{
-	return operation_inputs_;
-}
 
 #endif
