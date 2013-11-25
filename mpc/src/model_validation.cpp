@@ -290,7 +290,7 @@ int main(int argc, char **argv)
 	for (int i = 0; i < num_iteration; i++) {
 		current_time = i * ts_;
 		
-		/** INPUT SELECTION **/
+		/** INPUT SELECTION (359.484 is the stable value for the rotors to hover) **/
 		if ((current_time >= 0. && current_time < 1.) || (current_time > 2.5 && current_time < 3.)) {
 			u(0) = 359.484;
 			u(1) = 359.484;
@@ -298,9 +298,9 @@ int main(int argc, char **argv)
 			u(3) = 359.484;
 		}
 		else if (current_time > 1. && current_time < 2.5) {
-			u(0) = 340.;
+			u(0) = 370.;
 			u(1) = 370.;
-			u(2) = 340.;
+			u(2) = 370.;
 			u(3) = 370.;
 		}
 		else {
