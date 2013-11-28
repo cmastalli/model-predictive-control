@@ -141,6 +141,9 @@ namespace mpc
 			/** @brief Control signal computes for MPC */
 			double *control_signal_;
 			
+			/** @brief Data of the time vector of the system */
+			std::vector<int> t_;
+			
 			/** @brief Data of the state vector of the system */
 			std::vector<std::vector<double> > x_;
 			
@@ -208,6 +211,7 @@ inline void mpc::ModelPredictiveControl::writeToDisc()
 		outfile.setf(std::ios::left, std::ios::adjustfield);
 		for (unsigned int j = 0; j < x_[0].size(); j++) {
 			if (j == 0) {
+				outfile << "t" << '\t';
 				for (unsigned int i = 0; i < x_.size(); i++)
 					outfile << "x_" << i+1 << '\t';
 				
@@ -221,6 +225,8 @@ inline void mpc::ModelPredictiveControl::writeToDisc()
 						outfile << "u_" << i+1 << '\t';
 				}
 			}
+			outfile << t_[j] << '\t';
+			
 	    	for (unsigned int i = 0; i < x_.size(); i++)
 				outfile << x_[i][j] << '\t';
 			

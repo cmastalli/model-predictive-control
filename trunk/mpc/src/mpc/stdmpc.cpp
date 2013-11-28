@@ -22,6 +22,7 @@ bool mpc::STDMPC::resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *
 	model_ = model;
 	optimizer_ = optimizer;
 	simulator_ = simulator;
+	time_index_ = 0;
 	
 	// Reading of the horizon value of the model predictive control algorithm
 	nh_.param<int>("horizon", horizon_, 30);
@@ -227,8 +228,8 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	Eigen::Map<Eigen::VectorXd> x_reference_eigen(x_reference, states_, 1);
 
 	// Update of the model parameters
-	if (model_->computeLinearSystem(A_, B_) && model_->getModelType()) {
-		ROS_INFO("Model updated successfully.");
+	if (model_->getModelType()) {
+		model_->computeLinearSystem(A_, B_);
 	}
 	
 	// Compute steady state control based on updated system matrices
@@ -280,7 +281,6 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	H = B_bar_.transpose() * Q_bar_ * B_bar_ + R_bar_;
 	g = B_bar_.transpose() * Q_bar_ * (A_bar_ * x_measured_eigen - x_ref_bar);
 	
-	
 	// Transforming constraints and bounds to array
 	double lbG_bar[constraints_ * horizon_];
 	double ubG_bar[constraints_ * horizon_];
@@ -300,8 +300,6 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	double constraint_matrix[horizon_ * constraints_][horizon_ * inputs_];
 	Eigen::Map<Eigen::MatrixXd, Eigen::RowMajor> G_bar(&constraint_matrix[0][0], constraints_ * horizon_, horizon_ * inputs_);
 	G_bar = M_bar_ * B_bar_;
-//	std::cout << G_bar << std::endl;
-//	std::cout << "lbG_bar = " << std::endl << lbG_bar_ << std::endl;
 	
 	
 	double cputime = 0;//1.0;//NULL;
@@ -316,12 +314,13 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 		ROS_WARN("An optimal solution could not be obtained.");
 	}
 	
-	
 	// Save the data of the MPC
 	for (int i = 0; i < states_; i++) {
 		x_[i].push_back(x_measured[i]);
 		xref_[i].push_back(x_reference[i]);
 	}
+	t_.push_back(time_index_);
+	time_index_++;
 
 	double *u = getControlSignal();
 	for (int i = 0; i < inputs_; i++) {

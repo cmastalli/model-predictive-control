@@ -39,8 +39,8 @@ int main(int argc, char **argv)
 	mpc_ptr->initMPC();
 	
 	
-	double x_ref[12] = {4.0, 4.0};
-	double x_meas[12] = {0., 0.};
+	double x_ref[2] = {4.0, 4.0};
+	double x_meas[2] = {0., 0.};
 	
 	double sampling_time = 0.01;
 	double *control_signal;
