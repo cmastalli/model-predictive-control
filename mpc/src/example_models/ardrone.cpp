@@ -28,9 +28,8 @@ mpc::example_models::ArDrone::ArDrone()
 	d_ = 0.35; 
 	ts_ = 0.0083; 
 	g_ = 9.81;
-
-
 }
+
 
 void mpc::example_models::ArDrone::setLinearizationPoints(double* op_states)
 {
@@ -74,7 +73,17 @@ bool mpc::example_models::ArDrone::computeLinearSystem(Eigen::MatrixXd &A, Eigen
 	double r = x_bar(11);
 	double U1 = Ct_ * (pow(u_bar(0),2) + pow(u_bar(1),2) + pow(u_bar(2),2) + pow(u_bar(3),2));
 	
-	
+	A_(0,0) = 1.;
+	A_(1,1) = 1.;
+	A_(2,2) = 1.;
+	A_(3,3) = 1.;
+	A_(4,4) = 1.;
+	A_(5,5) = 1.;
+	A_(7,7) = 1.;
+	A_(8,8) = 1.;
+	A_(9,9) = 1.;
+	A_(10,10) = 1.;
+	A_(11,11) = 1.;
 	A_(0,3) = ts_;
 	A_(1,4) = ts_;
 	A_(2,5) = ts_;
@@ -86,7 +95,7 @@ bool mpc::example_models::ArDrone::computeLinearSystem(Eigen::MatrixXd &A, Eigen
 	A_(4,8) = ts_ * (cos(psi) * sin(theta) * cos(phi) + sin(psi) * sin(phi)) * U1 / m_;
 	A_(5,6) = - ts_ * (cos(theta) * sin(phi)) * U1 / m_;
 	A_(5,7) = - ts_ * (sin(theta) * cos(phi)) * U1 / m_;	
-	A_(6,6) = ts_ * (q * cos(phi) - r * sin(phi)) * tan(theta);
+	A_(6,6) = 1. + ts_ * (q * cos(phi) - r * sin(phi)) * tan(theta);
 	A_(6,7) = ts_ * (q * sin(phi) + r * cos(phi)) / (cos(theta) * cos(theta));
 	A_(6,9) = ts_;
 	A_(6,10) = ts_ * sin(phi) * tan(theta);
@@ -125,8 +134,9 @@ bool mpc::example_models::ArDrone::computeLinearSystem(Eigen::MatrixXd &A, Eigen
 	U(3,2) = - 2 * Cq_ * u_bar(2);
 	U(3,3) = 2 * Cq_ * u_bar(3);
 	
-	B_ = B_ * U; 
-
+	B_ = B_ * U;
+//	std::cout << "A = " << A_ << std::endl;
+//	std::cout << "B = " << B_ << std::endl;
 
 	if (A.rows() != A_.rows()) {
 		ROS_ERROR("The number of rows of the destination matrix variable and the model matrix A is different!");

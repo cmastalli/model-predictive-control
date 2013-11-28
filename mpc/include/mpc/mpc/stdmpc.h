@@ -105,6 +105,8 @@ namespace mpc
 
 			/** @brief Vector of pows of state matrix for quadratic programming */
 			std::vector<Eigen::MatrixXd> A_pow_;
+			
+			int time_index_;
 						
 			
 	}; //@class STDMPC

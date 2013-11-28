@@ -37,10 +37,10 @@ rosbuild_add_library(${PROJECT_NAME} 	#src/mpc/lbmpc.cpp
 rosbuild_add_executable(modelval src/model_validation.cpp)
 
 rosbuild_add_executable(ardronempc_node src/ardronempc_node.cpp)
-target_link_libraries(ardronempc_node ${PROJECT_NAME})
+target_link_libraries(ardronempc_node ${PROJECT_NAME} -lrt)
 
 rosbuild_add_executable(stdmpc_node src/stdmpc_node.cpp)
-target_link_libraries(stdmpc_node ${PROJECT_NAME})
+target_link_libraries(stdmpc_node ${PROJECT_NAME} -lrt)
 #rosbuild_add_executable(lbmpc_node src/lbmpc_node.cpp)
 #target_link_libraries(lbmpc_node ${PROJECT_NAME})
 
