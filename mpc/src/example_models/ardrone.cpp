@@ -26,7 +26,7 @@ mpc::example_models::ArDrone::ArDrone()
 	Izz_ = 3.52e-003; 
 	m_ = 0.4305; 
 	d_ = 0.35; 
-	ts_ = 0.0083; 
+	ts_ = 0.0083;
 	g_ = 9.81;
 }
 
@@ -135,8 +135,6 @@ bool mpc::example_models::ArDrone::computeLinearSystem(Eigen::MatrixXd &A, Eigen
 	U(3,3) = 2 * Cq_ * u_bar(3);
 	
 	B_ = B_ * U;
-//	std::cout << "A = " << A_ << std::endl;
-//	std::cout << "B = " << B_ << std::endl;
 
 	if (A.rows() != A_.rows()) {
 		ROS_ERROR("The number of rows of the destination matrix variable and the model matrix A is different!");

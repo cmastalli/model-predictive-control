@@ -28,7 +28,8 @@ rosbuild_add_library(${PROJECT_NAME} 	#src/mpc/lbmpc.cpp
 										src/example_models/tanks_system.cpp
 										src/example_models/tanks_system_simulator.cpp
 										src/example_models/ardrone.cpp
-										src/example_models/ardrone_simulator.cpp)
+										src/example_models/ardrone_simulator.cpp
+										src/example_models/ardrone_hovering.cpp)
 #target_link_libraries(${PROJECT_NAME} another_library)
 #rosbuild_add_boost_directories()
 #rosbuild_link_boost(${PROJECT_NAME} thread)
@@ -38,6 +39,10 @@ rosbuild_add_executable(modelval src/model_validation.cpp)
 
 rosbuild_add_executable(ardronempc_node src/ardronempc_node.cpp)
 target_link_libraries(ardronempc_node ${PROJECT_NAME} -lrt)
+
+rosbuild_add_executable(ardrone_gazebo_mpc_node src/ardrone_gazebo_mpc_node.cpp)
+target_link_libraries(ardrone_gazebo_mpc_node ${PROJECT_NAME} -lrt)
+
 
 rosbuild_add_executable(stdmpc_node src/stdmpc_node.cpp)
 target_link_libraries(stdmpc_node ${PROJECT_NAME} -lrt)
