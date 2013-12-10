@@ -21,7 +21,7 @@
 
 
 int model_index_ = 3;
-double x_meas_[12] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+double x_meas_[10] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 
 void stateCb(const gazebo_msgs::ModelStates& msg)
 {
@@ -31,6 +31,7 @@ void stateCb(const gazebo_msgs::ModelStates& msg)
     tf::Quaternion q;
     double roll, pitch, yaw;
     tf::quaternionMsgToTF(msg.pose[model_index_].orientation, q);
+	q.normalize();
     tf::Matrix3x3(q).getRPY(roll, pitch, yaw);
 	
 	x_meas_[0] = msg.pose[model_index_].position.x;
@@ -42,9 +43,9 @@ void stateCb(const gazebo_msgs::ModelStates& msg)
 	x_meas_[6] = roll;
 	x_meas_[7] = pitch;
 	x_meas_[8] = yaw;
-	x_meas_[9] = msg.twist[model_index_].angular.x;
-	x_meas_[10] = msg.twist[model_index_].angular.y;
-	x_meas_[11] = msg.twist[model_index_].angular.z;
+//	x_meas_[9] = msg.twist[model_index_].angular.x;
+//	x_meas_[10] = msg.twist[model_index_].angular.y;
+	x_meas_[9] = msg.twist[model_index_].angular.z;
     
 //    ROS_DEBUG("RPY = (%lf, %lf, %lf)", roll, pitch, yaw);
 }
@@ -53,9 +54,9 @@ void stateCb(const gazebo_msgs::ModelStates& msg)
 int main(int argc, char **argv)
 {
 	ros::init(argc, argv, "mpc");
-	ros::NodeHandle nh("mpc");
+	ros::NodeHandle nh;
 	
-	ros::Subscriber state_sub = nh.subscribe("gazebo/model_states", 100, stateCb);
+	ros::Subscriber state_sub = nh.subscribe("gazebo/model_states", 1, stateCb);
 //	ros::Publisher cmd_pub = nh.advertise<geometry_msgs::Twist>("cmd_vel", 1);
 	boost::scoped_ptr<realtime_tools::RealtimePublisher<geometry_msgs::Twist> > cmd_pub;
 	cmd_pub.reset(new realtime_tools::RealtimePublisher<geometry_msgs::Twist> (nh, "cmd_vel", 1));
@@ -64,8 +65,8 @@ int main(int argc, char **argv)
 	mpc_pub.reset(new realtime_tools::RealtimePublisher<mpc::MPCState> (nh, "data", 1));
 	
 	mpc_pub->lock();
-	mpc_pub->msg_.states.resize(12);
-	mpc_pub->msg_.reference_states.resize(12);
+	mpc_pub->msg_.states.resize(10);
+	mpc_pub->msg_.reference_states.resize(10);
 	mpc_pub->msg_.inputs.resize(4);
 	mpc_pub->unlock();
 	
@@ -78,28 +79,29 @@ int main(int argc, char **argv)
 	mpc_ptr->resetMPC(model_ptr, optimizer_ptr, simulator_ptr);
 	
 	// Operation state
-	double x_operation[12] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	double x_operation[10] = {0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 		
 	// Set the initial conditions as the first linearization points in order to initiate the MPC algorithm
 	model_ptr->setLinearizationPoints(x_operation);
 	mpc_ptr->initMPC();
-	
-	double x_ref[12] = {0.0, 0.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
+	ROS_INFO("Init done!");
+	double x_ref[10] = {0.0, 0.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0};
 	
 	double *u, *delta_u, *x_bar, *u_bar, *new_state;
-	double delta_xmeas[12], delta_xref[12];
+	double delta_xmeas[10], delta_xref[10];
 //	double sampling_time = 0.0083;
 	
 	u = new double[4];
-	new_state = new double[12];	
-	x_bar = new double[12];
+	new_state = new double[10];	
+	x_bar = new double[10];
 	u_bar = new double[4];
 	
-	ros::spin();
+//	ros::spin();
     timespec start_rt, end_rt;
     clock_gettime(CLOCK_REALTIME, &start_rt);
     int counter = 0;
 	while (ros::ok()) {
+		ROS_INFO("Guallando!");
 		counter++;
 		if (counter > 240)
 			x_ref[8] = 0.50;
@@ -111,7 +113,7 @@ int main(int argc, char **argv)
 			x_ref[1] = 1.;
 				
 		x_bar = model_ptr->getOperationPointsStates(); 
-		for (int i = 0; i < 12; i++) {
+		for (int i = 0; i < 10; i++) {
 			delta_xmeas[i] = x_meas_[i] - x_bar[i];
 			delta_xref[i] = x_ref[i] - x_bar[i];
 		}
@@ -142,7 +144,7 @@ int main(int argc, char **argv)
 
 		if (mpc_pub->trylock()) {
 			mpc_pub->msg_.header.stamp = ros::Time::now();
-			for (int j = 0; j < 12; j++) {
+			for (int j = 0; j < 10; j++) {
 				mpc_pub->msg_.states[j] = x_meas_[j];
 				mpc_pub->msg_.reference_states[j] = x_ref[j];
 			}				
@@ -153,7 +155,7 @@ int main(int argc, char **argv)
 		
 		
 		// Shifting the state vector 
-		for (int i = 0; i < 12; i++) {
+		for (int i = 0; i < 10; i++) {
 			x_meas_[i] = new_state[i];
 		}
 	}
