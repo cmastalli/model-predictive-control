@@ -1,0 +1,85 @@
+\makeatletter
+\renewcommand*\@makechapterhead[1]{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright \normalfont
+    \ifnum \c@secnumdepth >\m@ne
+  %      \huge\bfseries \@chapapp\space \thechapter
+  %      \par\nobreak
+ %       \vskip 20\p@
+    \fi
+    \interlinepenalty\@M
+    \Huge \bfseries \thechapter \space #1\par\nobreak
+    \vskip 10\p@
+  }}
+\renewcommand*\@makeschapterhead[1]{%
+  \vspace*{50\p@}%
+  {\parindent \z@ \raggedright
+    \normalfont
+    \interlinepenalty\@M
+    \Huge \bfseries  #1\par\nobreak
+    \vskip 40\p@
+  }}
+\makeatother
+
+\setlength{\parindent}{0cm}
+
+\usepackage[nottoc]{tocbibind}
+\usepackage[labelfont=bf]{caption}
+\usepackage{epsfig}
+%\usepackage{times}
+\usepackage{float}
+\usepackage{longtable}
+\usepackage[nomessages]{fp}
+\usepackage{comment}
+\usepackage[eng,ireport]{KTHEEtitlepage}
+\usepackage[hmargin=2.5cm,vmargin=2.5cm]{geometry}
+\usepackage{fancyhdr}			% contains customizeable headers and footers
+\pagestyle{fancy}
+\usepackage{wrapfig}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{fancyref}
+\usepackage{amsmath,amssymb}   % Contains mathematical symbols
+%\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{pslatex}
+\usepackage[utf8]{inputenc}
+\usepackage{natbib}  %Nice author (year) citations
+%\usepackage[round,authoryear]{natbib}  %Nice author (year) citations
+
+%\addtolength{\textheight}{-8mm}% Adds it to the text height
+%\headheight = 12mm
+
+
+%\addtolength{\topmargin}{-30mm}% Removes 30mm from the top margin
+%\addtolength{\textheight}{30mm}% Adds it to the text height
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,       % false: boxed links; true: colored links
+    linkcolor=black,          % color of internal links (change box color with linkbordercolor)
+    citecolor=black,        % color of links to bibliography
+    filecolor=black,      % color of file links
+    urlcolor=blue           % color of external links
+}
+\usepackage{array}
+\usepackage{pdfpages}
+\usepackage{nomencl}
+\usepackage[num,english]{isodate}
+\makenomenclature
+\renewcommand{\nomname}{List of Acronyms}
+\newcommand*{\nom}[2]{#1\nomenclature{#1}{#2}}
+
+\newcommand{\newPar}{\\[11pt]}
+
+
+\newcommand{\surname}{Hultmark Varejão}
+\newcommand{\firstname}{Marcus}
+\newcommand{\mail}{mahu@kth.se}
+\newcommand{\schoolDepartment}{Department of Machine Design}
+\newcommand{\schoolName}{Royal Institute of Technology}
+\newcommand{\schoolAcronym}{KTH}
+\newcommand{\reportTitle}{Integration of Electrochromic Smart Windows in Building Automation Systems}
+\newcommand{\reportSubtitle}{}
+\newcommand{\reportDate}{{\printdayoff{\origdate\today}}}
+\newcommand{\reportRefNr}{}

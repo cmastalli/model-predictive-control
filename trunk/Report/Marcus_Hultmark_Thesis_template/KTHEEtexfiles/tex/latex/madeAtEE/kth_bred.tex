@@ -1,0 +1,66 @@
+% Enkel LaTeX för att skapa 3 st pärmryggsetiketter.
+% Instruktion:
+%     - Kör:
+%         latex kth_bred
+%       (Du behöver inte kopiera denna fil, så länge den kan nås
+%        via $TEXINPUTS)
+%     - Fyll i vad det ska stå
+%     - Kolla på skärmen att det ser bra ut:
+%         xdvi kth_bred
+%     - Skriv ut:
+%         dvipr kth_bred
+%     - Ta bort skräpfiler:
+%         rm kth_bred.*
+%
+%         
+% Stefan Parkvall 87-04-08
+% Modifierad till LaTeX 92-08-17
+% Modifierad till eps-logo 93-09-10
+% Modifierad till LaTeX2e 97-10-20, Mats Bengtsson
+% Modifierad till ny logotyp 05-10-26, Mats Bengtsson
+%
+
+\documentclass[a4paper]{article}
+\usepackage{graphicx}
+\pagestyle{empty}
+\setlength{\headheight}{0pt}
+\setlength{\headsep}{0pt}
+\setlength{\headheight}{0pt}
+\addtolength{\textheight}{1.5in}
+\begin{document}
+
+\font\tamne cmr10 scaled 1728
+
+\newcommand{\emblem}
+%        {\epsfxsize 18mm \epsffile{kthlogo_ejtext.eps}}
+        {\includegraphics[width=18mm]{KTH_CMYK}}
+
+\newcommand{\etikett}[2]
+        {\vskip 20 mm {} \framebox[57mm]{\vbox to 54mm {
+                \vskip 4mm \centerline{\emblem} \vfill
+                \tamne 
+%                \centerline{#1} \vskip 2mm
+%               \centerline{#2} \vskip 5mm}}}
+                \begin{center}
+                  #1 \mbox{}\\[2mm]
+                  #2 \mbox{}\\[5mm]
+                \end{center}}}}
+
+\newcommand{\fraga}
+        {\typein [\txta]{Rad1:} \typein [\txtb]{Rad2:}}
+
+
+\typeout{Etikett 1:}
+\fraga \etikett{\txta}{\txtb}
+\typeout{Etikett 2:}
+\fraga \etikett{\txta}{\txtb}
+\typeout{Etikett 3:}
+\fraga \etikett{\txta}{\txtb}
+
+
+\end{document}
+
+
+
+
+

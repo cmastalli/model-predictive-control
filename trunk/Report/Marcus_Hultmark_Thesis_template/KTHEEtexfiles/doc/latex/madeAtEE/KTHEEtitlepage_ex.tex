@@ -1,0 +1,112 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% KTHEEtitlepage_ex.tex
+%
+% Example of how to use the KTHEEtitlepage package.
+% 
+% Mats Bengtsson,  7/8 2006
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper]{article}
+
+\usepackage[ireport]{KTHEEtitlepage}
+
+% Packages used in the main document for this particular example:
+\usepackage{url}
+
+\begin{document}
+% Information to appear on the title page:
+\ititle{My Title}
+\isubtitle{My Subtitle}
+\iauthor{Me and Myself}
+\idate{2006}
+\irefnr{IR-EE-Dummy 2000:099}
+
+\iaddress{Signal Processing\\
+  School of Electrical Engineering\\
+  Kungliga Tekniska Högskolan}
+\makeititle
+
+% Everything below is exactly as for a normal document and 
+% the layout of that document should not be affected in any
+% way by the title page.
+
+\title{Short example of the KTHEEtitlepage package}
+\author{Mats Bengtsson}
+
+\maketitle
+
+\begin{abstract}
+  KTHEEtitlepage is a \LaTeX package that adds a title page to an
+  existing \LaTeX document (internal report, master thesis, licentiate
+  thesis or dissertation).
+\end{abstract}
+
+\section{How to Use the Package}
+Once you have finished your paper/report/thesis/\dots, just add the 
+following line somewhere before \verb+\begin{document}+:
+\begin{verbatim}
+\usepackage[ireport]{KTHEEtitlepage}
+\end{verbatim}
+and following commands just below \verb+\begin{document}+:
+\begin{verbatim}
+\ititle{My Title}
+\isubtitle{My Subtitle}
+\iauthor{Me and Myself}
+\idate{2004}
+\irefnr{IR-EE-SB 2000:099}
+\iaddress{Signal Processing\\
+  School of Electrical Engineering\\
+  Kungliga Tekniska Högskolan}
+\makeititle
+\end{verbatim}
+
+This will add a front page following (as far as possible) the layout
+proposed at \url{http://www.kth.se/internt/grafiskprofil/rapporter} in
+the example ``Exempel 2 omslag rapport'' (which admittedly is the
+least fancy of the tree examples, but also the one that is most likely
+to look well when printed on a black/white printer). 
+
+Note that the layout of the original document will remain untouched,
+only a new front page is added. If your original document is typeset
+for double sided print (using the \verb+twoside+ option to
+\verb+\documentclass+, then an empty page will be added after the
+front page, so the main document starts on a left side. 
+
+
+\subsection{Package Options}
+
+The following options are available
+\begin{description}
+\item[ireport] Front page with layout for internal reports
+\item[lic] Front page with layout for licentiate thesis
+\item[doktor] Front page with layout for PhD dissertations.
+\item[exjobb (default)] Front page with layout for masters thesis.
+\item[eng (default)] Logotype and text in English
+\item[sve] Logotype and text in Swedish
+\item[forWWW (default)] Full layout in color, for WWW publishing.
+\item[forPrint] Only the text in black and white, for use when the
+  front page will be copied on a preprinted paper that already has the
+  logotype and background color. 
+\end{description}
+
+
+\subsection{Optional Commands}
+
+For web publication of documents from IEEE publications, one of the
+following commands can be used (above \verb+\makeititle+), to add the
+corresponding standard IEEE copyright notice (see the link on ``
+Electronic Information Dissemination'' at
+\url{http://www.ieee.org/web/publications/rights/polilink_new.html} 
+for more information). 
+
+\begin{description}
+\item[\texttt{$\backslash$submittedIEEE\{\textit{year\}}}] For documents
+  submitted to, but not yet accepted by, an IEEE conference or
+  journal. 
+\item[\texttt{$\backslash$publishedIEEE\{\textit{year\}}}] For documents
+  copyrighted by an IEEE conference or journal. 
+\end{description}
+
+These commands only apply to internal reports, not to any of the
+thesis options.
+
+\end{document}

@@ -1,0 +1,125 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% KTHEEposter_ex.tex
+%
+% Example of how to use the KTHEEposter class
+%
+% Mats Bengtsson, 28/5 2002
+%
+% Incompatible change: Added environment rutor to
+% set the number of columns. Mats 29/7 2002
+%
+% Renamed to KTHEEposter_ex. Mats Bengtsson, 7/8 2006. 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[portrait]{KTHEEposter}
+% To get paper size A1, you can use
+%\documentclass[a1,portrait]{KTHEEposter}
+
+\usepackage{url}
+
+\begin{document}
+
+\title{My Title \\
+  Maybe Spanning 2 Lines}
+\author{Qrt Qrtsson \\
+    Royal Institute of Technology, Stockholm, Sweden}
+\maketitle
+
+% Start the columns of frames.
+% The parameter specifies the number of columns.
+\begin{rutor}{3}
+
+  % Each frame is specified using the ruta environment
+  % (compare to the slide environment to make slides).
+  %
+  % Usage \begin{ruta}[<number in each column>]{<height>}{<node name>}
+  % 
+  % The sum of the height values in each column should equal the
+  % number of frames in the column, i.e. height=1 always works.
+  % The optional first argument has default value=2 and should be the
+  % same for all frames in the same column. Different columns could
+  % contain different number of frames, though.
+  % The node name specifies a label that can be used when drawing arrows
+  % between the frames using nccurve or ncangle, see below
+
+  
+  % First column, with two frames (default)
+  \begin{ruta}{1}{ruta11}
+    Ruta 1, 1
+
+    Please read in the source file for this example,
+    \url{KTHEEposter_ex.tex}, for more information on how to use
+    the \texttt{KTHEEposter} document class. 
+
+    Note that it has to be processed with latex + dvi2pdf (or latex +
+    dvips + ps2pdf). pdflatex or dvipdfm will not work.
+    
+  \end{ruta}
+  
+  \begin{ruta}{1}{ruta21}
+    Ruta 2, 1
+  \end{ruta}
+  
+  % In the second column, we use the optional argument to
+  % \begin{ruta} to specify that we want four frames in this
+  % column. The two last frames have different size., Then, of
+  % course, the sum of the arguments should add up to 4 (=the
+  % number of frames in the column).
+  \begin{ruta}[4]{1}{ruta12}
+    Ruta 1, 2
+  \end{ruta}
+  
+  \begin{ruta}[4]{1}{ruta22}
+    Ruta 2, 2
+  \end{ruta}
+
+  \begin{ruta}[4]{0.5}{ruta32}
+    Ruta 3, 2
+  \end{ruta}
+
+  \begin{ruta}[4]{1.5}{ruta42}
+    Ruta 4, 2
+    \vfill
+    
+    Slut i rutan!
+
+  \end{ruta}
+
+  % In the last column, we have two ordinary frames and
+  % finally some information without a frame around it.
+
+  \begin{ruta}[3]{1}{ruta13}
+    Ruta 1, 3
+  \end{ruta}
+  
+  \begin{ruta}[3]{1}{ruta23}
+    Ruta 2, 3\hfill AAA
+  \end{ruta}
+
+  \begin{ruta_utan_ram}[3]{1}
+    Ruta 3, 3 utan ram!\hfill AAA \\
+    \vfill
+    
+    Slut i rutan!
+  \end{ruta_utan_ram}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Draw arrows between the frames to guide the reader
+%
+% Unfortunately, you have to be careful here, not to add any
+% whitespace, i.e. to end every line with a comment sign: %
+% Otherwise, the arrows will be drawn on a second page,
+% where there are no defined labels to draw them between.
+%
+% Set some default values for all the arrows:
+\psset{linearc=3mm,linecolor=red,angleA=0,angleB=180,offsetA=-5cm,offsetB=5cm,arrowinset=0}%
+%
+% Curved arrow:
+\nccurve[linewidth=4mm,ncurv=.2]{->}{ruta21}{ruta12}%
+%
+% With square corners:
+\ncangle[linewidth=5mm,arm=2cm]{->}{ruta22}{ruta13}%
+%
+\end{rutor}
+
+\end{document}

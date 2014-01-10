@@ -1,0 +1,14 @@
+\def\batchfile{kthbrev.ins}
+\input docstrip.tex
+\keepsilent
+\Msg{*** Genererar KTH:s brevmall ***}
+\askforoverwritefalse
+\generate{%
+    \file{kth-brev.cls}{\from{kthbrev.dtx}{classfile,swedish}}
+    \file{kth-letter.cls}{\from{kthbrev.dtx}{classfile,english}}
+    \file{kth-brev-site.cfg}{\from{kthbrev.dtx}{siteconfig,swedish}}
+    \file{kth-letter-site.cfg}{\from{kthbrev.dtx}{siteconfig,english}}
+    \file{exempelbrev.tex}{\from{kthbrev.dtx}{sample,swedish}}
+    \file{sample-letter.tex}{\from{kthbrev.dtx}{sample,english}}
+    \file{kthbrev.tex}{\from{kthbrev.dtx}{driver}}}
+\endinput
