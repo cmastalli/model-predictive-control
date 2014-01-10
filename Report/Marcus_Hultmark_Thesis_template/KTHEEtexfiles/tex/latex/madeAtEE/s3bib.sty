@@ -1,0 +1,90 @@
+%%%
+%%% Style file for the bibliography used in the S3 annual report.
+%%% Usage:
+%%%   \usepackage[key=val]{s3bib}
+%%% where
+%%%   refprefix={prefix string put in front of all citations,
+%%%              default: empty}
+%%%   bibtexfiles={the .bib file containing all the references}
+%%%
+%%% Defines the environment
+%%%   \begin{s3bibunit}[bib style]{title}
+%%%
+%%% Changes the numbering scheme such that consecutive numbers are used
+%%% in the different s3bibunits. Use \setcounter{enumiv}{0} to
+%%% reset the counter between the s3bibunits.
+%%%
+%%% Example of usage:
+%%%   \usepackage[refprefix=s,bibtexfiles=/home/signal/local/reports/SBrefs]{s3bib}
+%%%   ...
+%%%   \begin{s3bibunit}{Journal Papers}
+%%%   \nocite{SB-9918,SB-9908}
+%%%   \end{s3bibunit}
+%%% 
+%%% 
+%%% Use at own risk. YMMV
+%%% Stefan Parkvall, March 29, 2000
+%%%
+
+%%%
+%%% Identification
+%%%
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{s3bib}
+
+%%%
+%%% Required packages
+%%%
+\RequirePackage{keyval}
+\RequirePackage{bibunits}
+% The old bibunits package doesn't understand the option 
+% labelstoglobalaux but it's necessary in the new one:
+\RequirePackage{ifthen}
+\provideboolean{labelstoglobalaux} \labelstoglobalauxtrue
+%%%
+%%% Initial code
+%%%
+\newcommand{\refprefix}{}
+\newcommand{\bibtexfiles}{}
+
+%%%
+%%% Declare options
+%%%
+\define@key{strebib}{refprefix}{\renewcommand{\refprefix}{#1}}
+\define@key{strebib}{bibtexfiles}{\renewcommand{\bibtexfiles}{#1}}
+
+%%%
+%%% Redefine ExecuteOptions to make it possible to deal with the
+%%% key=value interface.
+%%% This code is stolen from the 'geometry' package (which has stolen
+%%% it from 'hyperref')
+%%%
+
+\def\strebib@setkey{\setkeys{strebib}}
+\let\strebib@origExecuteOptions\ExecuteOptions
+\let\ExecuteOptions\strebib@setkey
+\let\ExecuteOptions\strebib@origExecuteOptions
+\def\ProcessOptionsWithKV#1{%
+  \let\@tempa\@empty
+  \@for\CurrentOption:=\@classoptionslist\do{%
+    \@ifundefined{KV@#1@\CurrentOption}%
+    {}{\edef\@tempa{\@tempa,\CurrentOption,}}}%
+  \edef\@tempa{%
+    \noexpand\setkeys{#1}{\@tempa\@ptionlist{\@currname.\@currext}}}%
+  \@tempa
+  \AtEndOfPackage{\let\@unprocessedoptions\relax}}
+\ProcessOptionsWithKV{strebib}
+
+%%%
+%%% Main code
+%%%
+\renewcommand{\@biblabel}[1]{[\refprefix#1]}
+\def\@bibitem#1{\item\if@filesw \immediate\write\@auxout
+  {\string\bibcite{#1}{\refprefix\the\value{\@listctr}}}\fi\ignorespaces}
+\def\usecounter#1{\@nmbrlisttrue\def\@listctr{#1}}
+
+\newenvironment{s3bibunit}[2][plain]%
+  {\renewcommand{\refname}{#2}
+   \begin{bibunit}[#1]}
+  {\putbib[\bibtexfiles]
+   \end{bibunit}}

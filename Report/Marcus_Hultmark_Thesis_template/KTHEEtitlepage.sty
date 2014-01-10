@@ -1,0 +1,339 @@
+%******************************************************************************
+%
+% DESCRIPTION: Style file to add a title page for masters thesis,
+%              licentiate, doctoral thesis and internal reports
+%              according to the central KTH design, but with a EE
+%              logo.
+%%
+% OPTIONS:
+%       eng:            English text in the logo
+%       sve/swe:        Swedish text in the logo
+%       forPrint:       Gives a titlepage in black and white
+%                       (without any logo for the thesis formats)
+%       forWWW:         Gives titlepage in color with logo, intended
+%                       for web publishing.
+%       ireport:        Internal report
+%       exjobb:         master thesis report
+%       lic:            licentiate thesis report
+%       doktor:         PhD thesis report
+%       
+%       Default is exjobb, eng and forWWW.
+%
+% COMMANDS:    \ititle{}, \isubtitle{}, idate{}, \irefnr{}, \iaddress{}
+%              and \makeititle.
+%
+% USAGE:       \usepackage{KTHEEtitlepage},
+%              \usepackage[ireport,sve,forPrint]{KTHEEtitlepage}
+%              \begin{document}
+%                \ititle{My Title}
+%                \isubtitle{My Subtitle} % Optional
+%                \idate{March 2004}
+%                \irefnr{}
+%                \iaddress{} % Only for ireports!
+%                \makeititle
+%                ... % The rest of the document
+%
+% LIMITATIONS: Currently only supports A4 paper size in a reasonable way.
+%
+% AUTHORS:     Elisabet Molin, Mats Bengtsson, S3, KTH
+%
+% DATE:        040921
+%
+% Updated:      060503 Support for ireport, lic and doktor /mabe
+%               060807 Renamed to KTHEEtitlepage, added \submittedIEEE
+%                      and \publishedIEEE /mabe
+%               061006 Fixed problem if \subtitle wasn't set in
+%                      ireport /mabe
+%               061010 forPrint now gives B&W logo for ireport and
+%                      the title page is now centered even if the
+%                      remaining document isn't. Check if the babel
+%                      package is used to select swedish. /mabe
+%
+%******************************************************************************
+% Identification
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{KTHEEtitlepage}[2004/09/21 KTH EE titlepage package]
+\ProvidesFile{here_the_logos}[2004/09/21 KTH logo English, BW]
+\ProvidesFile{here_the_logos}[2004/09/21 KTH logo Swedish, BW]
+\ProvidesFile{here_the_logos}[2004/09/21 KTH logo Swedish, colour]
+\ProvidesFile{here_the_logos}[2004/09/21 KTH logo Swedish, colour]
+
+
+% define new booleans for options
+\newif\if@eng
+\newif\if@sve
+\newif\if@colour
+\newif\if@ireport
+\newif\if@exjobb
+\newif\if@lic
+\newif\if@doktor
+
+% Default options:
+\@engtrue
+\@svefalse
+\@colourtrue
+\@exjobbtrue
+
+% declare options
+\DeclareOption{eng}{\@engtrue}
+\DeclareOption{sve}{\@svetrue\@engfalse}
+\DeclareOption{swe}{\@svetrue\@engfalse}
+\DeclareOption{forWWW}{\@colourtrue}
+\DeclareOption{forPrint}{\@colourfalse}
+\DeclareOption{notitlepage}{\OptionNotUsed}
+\DeclareOption{ireport}{\@ireporttrue\@exjobbfalse\@licfalse\@doktorfalse}
+\DeclareOption{exjobb}{\@ireportfalse\@exjobbtrue\@licfalse\@doktorfalse}
+\DeclareOption{lic}{\@ireportfalse\@exjobbfalse\@lictrue\@doktorfalse}
+\DeclareOption{doktor}{\@ireportfalse\@exjobbfalse\@licfalse\@doktortrue}
+
+\ProcessOptions\relax
+
+% babel setting overrides the language set here!
+\AtBeginDocument{\@ifpackageloaded{babel}{\iflanguage{swedish}{\@svetrue\@engfalse}{}}{}}
+
+% automatic graphics switching
+\RequirePackage{graphicx,color} % for inserting the logos and
+                                % the background
+
+\RequirePackage{calc} % for the layout calculations
+
+\newcommand\@ititle{}
+\newcommand\@isubtitle{}
+\newcommand\@iauthor{}
+\newcommand\@idate{}
+\newcommand\@irefnr{}
+\newcommand\@iaddress{}
+\newcommand\@inotice{}
+
+\newcommand{\ititle}[1]{%
+  \renewcommand\@ititle{#1}%
+}
+\newcommand{\isubtitle}[1]{%
+  \renewcommand\@isubtitle{#1}%
+}
+\newcommand{\iauthor}[1]{%
+  \renewcommand\@iauthor{#1}%
+}
+\newcommand{\idate}[1]{%
+  \renewcommand\@idate{#1}%
+}
+\newcommand{\irefnr}[1]{%
+  \renewcommand\@irefnr{#1}%
+}
+\newcommand{\iaddress}[1]{%
+  \renewcommand\@iaddress{#1}%
+}
+\newcommand{\submittedIEEE}[1]{\renewcommand{\@inotice}{
+    This work has been submitted to the IEEE for possible
+    publication. Copyright may be transferred without notice, after
+    which this version may no longer be accessible.}}
+\newcommand{\publishedIEEE}[1]{\renewcommand{\@inotice}{
+    \copyright{} #1 IEEE. Personal use of this material is
+    permitted. However, permission to reprint/republish this material
+    for advertising or promotional purposes or for creating new
+    collective works for resale or redistribution to servers or lists,
+    or to reuse any copyrighted component of this work in other works
+    must be obtained from the IEEE.}}
+
+\newcommand{\displayKTHlogo}{%
+\if@eng
+\if@colour
+  \includegraphics[width=32mm]{kth_cmyk_electr_engine}%
+\else
+  \if@ireport
+    %% Black white
+    \includegraphics[width=32mm]{kth_svv_electr_engine}%
+  \else% No logotype
+  \mbox{}
+  \fi
+\fi
+\else\if@sve
+\if@colour
+  \includegraphics[width=32mm]{kth_cmyk_elektro_systemtek}%
+\else
+  \if@ireport
+    %% Black white
+    \includegraphics[width=32mm]{kth_svv_elektro_systemtek}%
+  \else% No logotype
+  \mbox{}
+  \fi
+\fi
+\fi\fi
+}
+
+% Page layout
+%\geometry{left=25mm,right=66mm,top=30mm,bottom=28mm,marginparsep=12mm,includemp=false,noheadfoot}
+
+\newlength{\titlep@getextwidth}
+\setlength{\titlep@getextwidth}{12cm}
+\newlength{\titlep@gewhitemargin}
+\setlength{\titlep@gewhitemargin}{54mm}
+\newlength{\titlep@geleftmargin}
+\setlength{\titlep@geleftmargin}{27mm}
+\newlength{\titlep@gemarginsep}
+\setlength{\titlep@gemarginsep}{9mm}
+\newlength{\titlep@getextheight}
+\setlength{\titlep@getextheight}{240mm}
+\newlength{\titlep@getopmargin}
+\setlength{\titlep@getopmargin}{35mm}
+\newlength{\tmpl@ngth}%
+
+\def\makeititle{
+  \begingroup
+  \if@twocolumn 
+  \onecolumn \m@keititle \twocolumn
+  \else \newpage
+  \global\@topnum\z@ \m@keititle \fi
+  \endgroup
+  \setcounter{footnote}{0}
+  \thispagestyle{empty}
+  \setcounter{page}{0} \newpage\pagecolor{white}
+  \if@twoside 
+  \setcounter{page}{0}\thispagestyle{empty}\cleardoublepage
+  \fi
+%  \let\makeititle\relax
+%  \let\@makeititle\relax
+%  \gdef\@iauthor{}\gdef\@ititle{}
+}
+
+\newcommand{\m@keititle}{%
+  \if@ireport%
+    \m@keireportititle%
+  \else%
+    \m@kethesisititle%
+  \fi%
+}
+
+% this is the new style for the title page of ireports
+\newcommand\m@keireportititle{%
+  % Move so the minipage of widht linewidth is centered.
+  % \paperwidth = 1in + \hoffset + "leftmargin" + "rightmargin"
+  \setlength{\tmpl@ngth}{.5\linewidth-.5\paperwidth+\hoffset+1in}%
+  \if@twoside%
+    \addtolength{\tmpl@ngth}{\evensidemargin}%
+  \else%
+    \addtolength{\tmpl@ngth}{\oddsidemargin}%
+  \fi%
+  \noindent\hspace*{-\tmpl@ngth}%
+  \makebox[0pt][l]{\begin{minipage}[t][\textheight]{\linewidth}%
+  \sffamily%
+  \begin{center}
+    \displayKTHlogo \vfill
+    \sffamily%
+    \fontsize{20}{25}\selectfont\@ititle\\[5mm]
+    \fontsize{10}{12}\selectfont\mbox{}\@isubtitle\\[5mm]
+    \textit{\@inotice}\vfill
+    \fontsize{14}{18}\selectfont\MakeUppercase{\@iauthor}
+    \vfill\vfill\vfill
+    \fontsize{14}{18}\selectfont%
+    Stockholm \@idate\\
+    \rule{\linewidth}{1pt}
+    \@iaddress\\[5mm]
+  \end{center}
+  \fontsize{14}{18}\selectfont%
+  \@irefnr
+\end{minipage}}
+}
+
+% this is the new style for the title page of theses
+\newcommand\m@kethesisititle{%
+  \if@colour%
+    \if@exjobb%
+    \pagecolor[cmyk]{0,0.02,0.15,0.02}%
+    \fi%
+    \if@lic%
+    \pagecolor[cmyk]{0,0,0,0.27}%
+    \fi%
+    \if@doktor%
+    \pagecolor[cmyk]{1,0.55,0,0}%
+    \fi%
+  \fi%
+  \def\thefootnote{\fnsymbol{footnote}}%
+  \def\@makefnmark{\hbox to 0pt{$^{\@thefnmark}$\hss}}%
+  %
+  % Move to the top of the page
+  \setlength{\tmpl@ngth}{-\voffset-\topmargin-\headheight-\headsep-1in-2\baselineskip}%
+%  \mbox{}\vskip\tmpl@ngth%
+  \vspace*{\tmpl@ngth}%
+  %
+  % Move to \titlep@geleftmargin from the left edge of the paper
+  \setlength{\tmpl@ngth}{\titlep@geleftmargin-\hoffset-1in}%
+  \if@twoside%
+    \addtolength{\tmpl@ngth}{-\evensidemargin}%
+  \else%
+    \addtolength{\tmpl@ngth}{-\oddsidemargin}%
+  \fi%
+  \noindent\mbox{}\hspace*{\tmpl@ngth}%
+  %
+  % Fool LaTeX into beleiving that the contents doesn't
+  %  occupy any space 
+  \raisebox{0pt}[0pt][0pt]{\rlap{\mbox{%
+        \if@exjobb\relax\else%
+        \color{white}%
+        \fi%
+        % The text
+        \begin{minipage}[t][296mm]{\titlep@getextwidth}%
+          \vspace*{\titlep@getopmargin}%
+          \sffamily%
+          \raggedleft%
+          \parbox[b][96mm]{\linewidth}{%
+            \raggedleft\fontsize{20}{25}\selectfont\@ititle\vfill
+            %
+            \fontsize{10}{12}\selectfont\@isubtitle\vfill
+         }
+         {\fontsize{14}{18}\selectfont%
+           \rightline{\MakeUppercase{\@iauthor}}%
+         }%
+         \vfill%
+         \parbox[b][30mm]{\linewidth}{%
+           \raggedleft\fontsize{14}{18}\selectfont{}%
+           \if@eng%
+             \if@exjobb%
+               Master's Degree Project\\
+               Stockholm, Sweden \@idate
+             \fi
+             \if@lic
+               Licentiate Thesis\\
+               Stockholm, Sweden \@idate
+             \fi
+             \if@doktor
+               Doctoral Thesis\\
+               Stockholm, Sweden \@idate
+             \fi
+           \else\if@sve
+             \if@exjobb
+               Examensarbete\\
+               Stockholm, Sverige \@idate
+             \fi
+             \if@lic
+               Licentiatavhandling\\
+               Stockholm, Sverige \@idate
+             \fi
+             \if@doktor
+               Doktorsavhandling\\
+               Stockholm, Sverige \@idate
+             \fi
+           \fi\fi
+         }
+%        
+         \vskip1.5cm
+         {\fontsize{11}{14}\selectfont{}\@irefnr}
+         \vspace{28mm}
+      \end{minipage}%
+      \hspace{\titlep@gemarginsep}%
+      %
+      % The margin
+      %
+      \begin{minipage}[t]{\titlep@gewhitemargin}%
+        \raisebox{0pt}[0pt][0pt]{%
+          \setlength{\fboxsep}{0pt}%
+          % Add some extra height to avoid a yellow line at the bottom
+          \colorbox{white}{\parbox[t][310mm]{\linewidth}{%
+              \vspace*{120mm}
+              \centering\displayKTHlogo\\
+              \vfill}}}
+      \end{minipage}
+    }}
+  }
+}
+

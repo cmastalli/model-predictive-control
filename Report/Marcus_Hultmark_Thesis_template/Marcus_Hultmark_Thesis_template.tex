@@ -1,0 +1,41 @@
+\documentclass[a4paper,11pt]{report}
+\input{./Preambles/Preambles.tex}
+\begin{document}
+	\pagenumbering{roman} 	%Use roman numbering for preface
+	\ititle{\reportTitle}
+	\isubtitle{\reportSubtitle} % Optional
+	\idate{\reportDate}
+	\irefnr{\reportRefNr}
+	\iauthor{\firstname \hspace{0pt} \surname}
+	\makeititle
+
+	\pagebreak
+\input{./Abstract/Abstract.tex}
+\pagebreak
+	\tableofcontents
+	\pagebreak
+
+	\cleardoublepage
+	\pagenumbering{arabic}
+
+	\pagestyle{fancy}
+	\fancypagestyle{plain}{%
+	\fancyhf{} % clear all header and footer fields
+	\fancyhead[L]{\slshape \leftmark}
+	\fancyhead[C]{}
+	\fancyhead[R]{\slshape \rightmark}
+	\fancyfoot[C]{\thepage}
+	\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\footrulewidth}{0pt}}
+	\headheight = 14pt
+	
+	\printnomenclature[50pt]
+\input{./Introduction/Introduction.tex}
+\input{./Model_Predictive_Control/Model_Predictive_Control.tex}
+\input{./Dynamic_Modeling_of_a_Quadrotor/Dynamic_Modeling_of_a_Quadrotor.tex}
+\input{./Software_Architecture_and_Implementation/Software_Architecture_and_Implementation.tex}
+\input{./Discussion_and_Conclusions/Discussion_and_Conclusions.tex}
+\input{./Recommendations_and_Future_Work/Recommendations_and_Future_Work.tex}
+\bibliographystyle{plain}
+\bibliography{./Bibliography/Bibliography.bib}
+\end{document}

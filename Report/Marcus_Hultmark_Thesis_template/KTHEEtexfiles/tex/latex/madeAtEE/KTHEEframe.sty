@@ -1,0 +1,63 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% KTHEEframe.sty
+% 
+% Additional package to the seminar style that adds a
+% KTH logo at the left edge of each slide.
+% 
+% Usage:
+%   \documentclass[a4]{seminar}
+%   \usepackage{s3frame}
+%
+%  \begin{document}
+%  \begin{slide}
+%  \heading{Some Title}
+%    Some text
+%    ...
+%  \end{slide}
+%  \end{document}
+%
+% Mats Bengtsson, 10/12 1997
+% Björn Völcker,  22/5  2000
+% Mats Bengtsson, 12/6  2001
+% Mats Bengtsson,  7/9  2004, updated to new logo and layout
+% Mats Bengtsson,  7/8  2006, renamed to KTHEEframe, removed the smallps option
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{KTHEEframe}
+
+\RequirePackage{ifthen}
+%\newboolean{smallps}
+%\setboolean{smallps}{false}                   % Default: large but safe
+
+%\DeclareOption{smallps}{\setboolean{smallps}{true}\typeout{Warning:
+%    the smallps option is not supported for the moment!}}
+
+\ProcessOptions
+
+\RequirePackage{graphicx}
+\RequirePackage{fancybox}
+
+% If smallps, only include the Postscript code for the logotype 
+% once, defining it as a PS command to be called on every page.
+% Saves 110 kbyte per page.
+% \newsavebox{\kthlogo}
+% \ifthenelse{\boolean{smallps}}
+%   {\special{header=/afs/md.kth.se/s3/home/signal/local/tex/macros/kthlogo_blue_multi.h}
+%     \sbox{\kthlogo}{\includegraphics[width=35pt]
+%       {kthlogo_blue_multi.eps}}}
+%   {\sbox{\kthlogo}{\includegraphics[width=35pt]
+%       {kthlogo_blue.eps}}}
+
+\newslideframe{s3frame}{\hspace{30pt}\boxput(-1,0){\llap{\includegraphics[width=35pt]{kth_cmyk_electr_engine}\hspace{10pt}}}{#1}}
+\slideframe{s3frame}
+
+
+\providecommand{\heading}[1]{%  
+  \begin{center}
+    \vspace*{-9mm}\Large\scshape #1
+  \end{center}
+  \vspace{3mm}
+}
+
+

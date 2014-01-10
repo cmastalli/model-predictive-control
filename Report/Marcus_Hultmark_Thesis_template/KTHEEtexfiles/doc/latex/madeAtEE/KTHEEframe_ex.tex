@@ -1,0 +1,34 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% s3frame_ex.tex
+%
+% Example on how to use the KTHEEframe style to produce slides with an
+% KTH/EE logotype to the left. 
+%
+% Mats Bengtsson,  7/8 2006
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4]{seminar}
+
+\usepackage{KTHEEframe}
+
+\begin{document}
+\begin{slide}
+  \heading{Introduction}
+  This is a first slide of the presentation.
+  
+\end{slide}
+
+\begin{slide}
+  \heading{Next Slide}
+  
+  This package is based on the \texttt{seminar} document class, which
+  provides only very basic support for slides. In addition to the KTH
+  logotype, the \texttt{KTHEEframe} package also adds a \verb+\heading+
+  command to specify a heading for each slide.
+
+  Note that it has to be processed with latex + dvi2pdf (or latex +
+  dvips + ps2pdf). pdflatex or dvipdfm will not work.
+
+\end{slide}
+
+
+\end{document}
