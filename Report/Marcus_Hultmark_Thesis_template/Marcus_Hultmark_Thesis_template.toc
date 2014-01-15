@@ -5,35 +5,37 @@
 \contentsline {section}{\numberline {1.4}Thesis Outline}{4}{section.1.4}
 \contentsline {chapter}{\numberline {2}Model Predictive Control}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Introduction}{5}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Optimization problem}{5}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.1}Feasibility}{5}{subsection.2.1.1}
 \contentsline {subsection}{\numberline {2.1.2}Convexity}{5}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Feasibility}{5}{subsection.2.1.3}
-\contentsline {section}{\numberline {2.2}Model Predictive Control Theory}{5}{section.2.2}
-\contentsline {subsection}{\numberline {2.2.1}Model}{7}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Objective Function}{8}{subsection.2.2.2}
-\contentsline {subsection}{\numberline {2.2.3}Constraints}{8}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Optimization}{9}{subsection.2.2.4}
-\contentsline {subsection}{\numberline {2.2.5}Horizons}{10}{subsection.2.2.5}
-\contentsline {chapter}{\numberline {3}Dynamic Modeling of a Quadrotor}{11}{chapter.3}
-\contentsline {section}{\numberline {3.1}Theoretical Derivation of the Quadrotor Model}{11}{section.3.1}
-\contentsline {section}{\numberline {3.2}Verification of the Model}{14}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Upward motion along the X axis}{15}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Lateral movement along the X axis}{17}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Lateral movement along the Y axis}{21}{subsection.3.2.3}
-\contentsline {section}{\numberline {3.3}Summary}{25}{section.3.3}
-\contentsline {chapter}{\numberline {4}Software Architecture and Implementation}{26}{chapter.4}
-\contentsline {section}{\numberline {4.1}Robot Operative System (ROS)}{26}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Nomenclature}{26}{subsection.4.1.1}
-\contentsline {section}{\numberline {4.2}Library overview}{27}{section.4.2}
-\contentsline {section}{\numberline {4.3}Interface classes}{28}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Model}{28}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Optimizer}{29}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Simulator}{30}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}ModelPredictiveControl}{30}{subsection.4.3.4}
-\contentsline {section}{\numberline {4.4}The Parameter Server}{31}{section.4.4}
-\contentsline {chapter}{\numberline {5}Discussion and Conclusions}{32}{chapter.5}
-\contentsline {section}{\numberline {5.1}Discussion}{32}{section.5.1}
-\contentsline {section}{\numberline {5.2}Conclusions}{32}{section.5.2}
-\contentsline {chapter}{\numberline {6}Recommendations and Future Work}{33}{chapter.6}
-\contentsline {section}{\numberline {6.1}Recommendations}{33}{section.6.1}
-\contentsline {section}{\numberline {6.2}Future Work}{33}{section.6.2}
+\contentsline {subsection}{\numberline {2.1.3}Optimization problem}{5}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Active and Inactive Constraints and Sets}{5}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}Karush-Kuhn-Tucker Conditions}{6}{subsection.2.1.5}
+\contentsline {section}{\numberline {2.2}Model Predictive Control Theory}{7}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Model}{8}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Objective Function}{9}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.3}Constraints}{10}{subsection.2.2.3}
+\contentsline {subsection}{\numberline {2.2.4}Optimization}{10}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.5}Horizons}{11}{subsection.2.2.5}
+\contentsline {chapter}{\numberline {3}Dynamic Modeling of a Quadrotor}{12}{chapter.3}
+\contentsline {section}{\numberline {3.1}Theoretical Derivation of the Quadrotor Model}{12}{section.3.1}
+\contentsline {section}{\numberline {3.2}Verification of the Model}{15}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Upward motion along the X axis}{16}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Lateral movement along the X axis}{18}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Lateral movement along the Y axis}{22}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}Summary}{26}{section.3.3}
+\contentsline {chapter}{\numberline {4}Software Architecture and Implementation}{27}{chapter.4}
+\contentsline {section}{\numberline {4.1}Robot Operative System (ROS)}{27}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Nomenclature}{27}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}Library overview}{28}{section.4.2}
+\contentsline {section}{\numberline {4.3}Interface classes}{29}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Model}{29}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Optimizer}{30}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Simulator}{31}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}ModelPredictiveControl}{31}{subsection.4.3.4}
+\contentsline {section}{\numberline {4.4}The Parameter Server}{32}{section.4.4}
+\contentsline {chapter}{\numberline {5}Discussion and Conclusions}{33}{chapter.5}
+\contentsline {section}{\numberline {5.1}Discussion}{33}{section.5.1}
+\contentsline {section}{\numberline {5.2}Conclusions}{33}{section.5.2}
+\contentsline {chapter}{\numberline {6}Recommendations and Future Work}{34}{chapter.6}
+\contentsline {section}{\numberline {6.1}Recommendations}{34}{section.6.1}
+\contentsline {section}{\numberline {6.2}Future Work}{34}{section.6.2}
