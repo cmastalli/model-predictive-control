@@ -5,11 +5,21 @@
 
 In this section the basic mathematical concepts required to understand the quadratic problem that arises in each iteration of Model Predictive Control will be briefly explained.
 
+\subsection{Feasibility}
+
+When constraints are included in an optimization problem, they define the region where the possible solution exists. The resultant region is defined as the \emph{feasible} set.  The algorithms used to solve the problem require an initial point,  which depending on the specific application may be contained in the feasible set or not. The feasibility problem therefore consists in finding a feasible solution (if existent) regardless of the objective function.
+
+\subsection{Convexity}
+
+A set of points $S \in \mathbb{R}^{n}$ is a convex set if the straight line connecting any two points that belong to S lies completely inside S. In a more formal definition, for any two points $x,y \in S$, the following is true $\alpha x + (1 - \alpha)y \in S, \forall \alpha \in [0,1]$. \\
+
+This property is important because if this holds, the assumptions made for linear programming can be extended to cover convex optimization problems, and therefore be solved with fast and reliable methods that already exist for solving linear optimization problems.
+
 \subsection{Optimization problem}
 
-An optimization problem consists of finding a solution within a set of feasible solutions that minimizes or maximizes a performance index. These can be subdivided in continuous and discrete, depending on the nature of the variables. Their standard mathematical formulation is described as follows:
+An optimization problem consists of finding a solution within a feasible set that minimizes or maximizes a performance index. These can be subdivided in continuous and discrete, depending on the nature of the variables. The standard mathematical formulation is described as follows:
 
-\begin{equation}
+\begin{equation} \label{eq:gen_qp}
  \begin{aligned}
  & \underset{x}{\text{minimize}}
  & V(x) \\
@@ -19,13 +29,46 @@ An optimization problem consists of finding a solution within a set of feasible 
  \end{aligned}
 \end{equation}
 
-There are three elements to identify in the standard formulation: the cost function, the equality constraints and the inequality constraints. Depending on the type of the cost function the problem can be linear or quadratic, which are the most common types. 
+There are three elements to identify in this structure: the cost function $V(x)$, the equality constraints and the inequality constraints. Depending on the definition of the cost function and the constraints, the problem can be linear or quadratic, which are the most common types encountered in real life applications. 
 
-\subsection{Convexity}
+ \subsection{Active and Inactive Constraints and Sets}
 
-A set of points $S \in \mathbb{R}^{n}$ is a convex set if the straight line connecting any two points that belong to S lies completely inside S. In a more formal definition, for any two points $x,y \in S$, the following is true $\alpha x + (1 - \alpha)y \in S, \forall \alpha \in [0,1]$.
+Given an optimization problem such as \ref{eq:gen_qp}, an inequality constraint $F_{i}x \leq b_{i}$ can be defined as \emph{active} at a point \~{x} in the feasible set when $F_{i} \~{x} = b_{i}$, and \emph{inactive} otherwise. Equality constraints are active in all points of the feasible set.\\
 
-\subsection{Feasibility}
+Therefore one can define the \emph{active set} at a point \~{x} as the combination of the region that satisfy the equality constraints and inequality constrains that become active at \~{x}. Correspondingly, The region that doesn't satisfy these conditions is called the \emph{inactive set}.
+
+\subsection{Karush-Kuhn-Tucker Conditions}
+
+Before introducing the definition of the Karush-Kuhn-Tucker conditions, it is necessary to make some definitions first.\\
+
+For the given form of the optimization problem shown in \ref{eq:gen_qp}, the Lagrangian $\mathbf{L}$ is defined as the cost function plus penalty functions that take into account the constraints. The $\lambda$ vector is used for the equality constraints and the $\mu$ vector for the inequalities.
+
+\begin{equation} \label{eq:lagrangian}
+\mathbf{L}(\mathbf{x}, \lambda, \mu) = f(x) + \sum \limits_{i=1}^{m} \lambda_{i} h_{i}(\mathbf{x}) + \sum \limits_{i=1}^{n} \mu_{i} f_{i}(\mathbf{x})
+\end{equation}
+
+If $x^{*}$ is a solution of \ref{eq:gen_qp} that satisfies some regularity conditions, then there are vectors $\lambda^{*}$ and $\mu^{*}$  such that the following conditions are satisfied:
+
+\begin{itemize}
+\item{Stationarity} \\
+
+ & $\text{Minimization} && \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=1}^{m} \nabla_{x} \lambda_{i} h_{i}(\mathbf{x}) + \sum \limits_{i=1}^{n} \nabla_{x} \mu_{i} f_{i}(\mathbf{x}) = 0$\\
+
+ & $\text{Maximization} && \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=1}^{m} \nabla_{x} \lambda_{i} h_{i}(\mathbf{x}) - \sum \limits_{i=1}^{n} \nabla_{x} \mu_{i} f_{i}(\mathbf{x}) = 0$\\
+
+\item{Equality constraints} \\
+
+ & $\nabla_{\lambda} f(\mathbf{x}) + \sum  \limits_{i=1}^{m} \nabla_{\lambda} \lambda_{i} h_{i}(\mathbf{x}) + \sum \limits_{i=1}^{n} \nabla_{\lambda} \mu_{i} f_{i}(\mathbf{x}) = 0$\\
+
+\item{Complementary slackness condition}\\
+
+ & $\mu_{i} f_{i}(\mathbf{x}) = 0, \forall i = 1, \ldots, n$\\
+
+ &$\mu_{i} \geq 0, \forall i = 1, \ldots, n$\\
+
+\end{itemize}
+
+The stationarity conditions come from the derivation of the cost function to find the stationary points in basic unconstrained optimization problems. The derivatives respect to the $\lambda$ coefficients (Lagrange multipliers) of the cost function lead to equations that restrict the solution of the problem to satisfy the equality constraints. However, due to the fact that the lagrangian also depends on $\mu$, the system is not determined. The complementary slackness conditions arises from the fact that if the optimal solution $x^{*}$ satisfies $f(\mathbf{x}) \leq 0$, its contribution to the cost function is null, and one can set its corresponding $\mu_{i}$ coefficient to cero. If the solution is at the border of the constraint,  $f(\mathbf{x}) = 0$. In both cases, the condition $\mu_{i} f_{i}(\mathbf{x}) = 0$ holds. The $\mu_{i}$ coefficients can take any value, but they are 0 when $f(\mathbf{x}) \leq 0$, and in the other case, $f(\mathbf{x}) = 0$, they can only be positive, since the gradient respect to $x$ of $f_{i}(\mathbf{x})$ and $V(\mathbf{x})$ are opposed in direction.
 
 \section{Model Predictive Control Theory} %------------------Model Predictive Control Basics---------------------------------------------
 
