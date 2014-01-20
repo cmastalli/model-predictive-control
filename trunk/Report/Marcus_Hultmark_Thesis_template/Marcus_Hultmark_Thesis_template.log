@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  16 JAN 2014 16:36
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  20 JAN 2014 12:04
 entering extended mode
  %&-line parsing enabled.
 **Marcus_Hultmark_Thesis_template.tex
@@ -900,7 +900,7 @@ OK, entering \batchmode...
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 9.89993pt on input line 10.
 
-<kth_cmyk_electr_engine.pdf, id=171, 483.8075pt x 439.6425pt>
+<kth_cmyk_electr_engine.pdf, id=163, 483.8075pt x 439.6425pt>
 File: kth_cmyk_electr_engine.pdf Graphic file (type pdf)
  <use kth_cmyk_electr_engine.pdf> [0
 
@@ -946,7 +946,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.40 ...mendations and Future Work}{34}{chapter.6}
+l.38 ...mendations and Future Work}{34}{chapter.6}
                                                    [1
 
 ])
@@ -1299,10 +1299,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 86--87
  []
 
 
-LaTeX Warning: Reference `eq:quadproblem' on page 7 undefined on input line 88.
-
-
-
 Package natbib Warning: Citation `Hovd' on page 7 undefined on input line 92.
 
 
@@ -1314,7 +1310,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 92--93
 Package natbib Warning: Citation `Hovd' on page 7 undefined on input line 100.
 
 
-<Images/Chapter2/mpc_block_diagram.jpg, id=275, 422.57875pt x 228.855pt>
+<Images/Chapter2/mpc_block_diagram.jpg, id=266, 422.57875pt x 228.855pt>
 File: Images/Chapter2/mpc_block_diagram.jpg Graphic file (type jpg)
  <use Images/Chapter2/mpc_block_diagram.jpg>
 
@@ -1367,10 +1363,6 @@ ne 212.
 
  [10]
 
-LaTeX Warning: Reference `eq:quadproblem' on page 11 undefined on input line 23
-9.
-
-
 Package natbib Warning: Citation `ref:Nocedal&Wright2006' on page 11 undefined 
 on input line 265.
 
@@ -1378,7 +1370,7 @@ on input line 265.
 (./Dynamic_Modeling_of_a_Quadrotor/Dynamic_Modeling_of_a_Quadrotor.tex [11]
 Chapter 3.
 
-<Images/Chapter3/quad_dynamics.jpg, id=311, 338.01282pt x 191.9672pt>
+<Images/Chapter3/quad_dynamics.jpg, id=303, 338.01282pt x 191.9672pt>
 File: Images/Chapter3/quad_dynamics.jpg Graphic file (type jpg)
  <use Images/Chapter3/quad_dynamics.jpg>
 
@@ -1766,17 +1758,6 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
  [13]
-! Undefined control sequence.
-<recently read> \boldymbol 
-                           
-l.79 Where $\mathbf{F}$ and $\boldymbol
-                                       {\tau}$ are vectors expressed in {$B$...
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
 
 Package natbib Warning: Citation `HoffmannetAl2007' on page 14 undefined on inp
 ut line 79.
@@ -1894,7 +1875,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 124--125
  []
 
 
-<Images/Chapter3/Constant_thrust_upwards/Inputs.png, id=342, 586.8324pt x 442.2
+<Images/Chapter3/Constant_thrust_upwards/Inputs.png, id=334, 586.8324pt x 442.2
 924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Inputs.png Graphic file (type png
 )
@@ -1905,13 +1886,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 139--140
  []
 
 
-<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=352, 586.8324pt x 44
+<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=344, 586.8324pt x 44
 2.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Positions.png Graphic file (type 
 png)
 
 <use Images/Chapter3/Constant_thrust_upwards/Positions.png>
-<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=353, 586.832
+<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=345, 586.832
 4pt x 442.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png Graphic fil
 e (type png)
@@ -1936,17 +1917,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--157
  []
 
 
-<Images/Chapter3/Lateral_X/Inputs.png, id=368, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Inputs.png, id=360, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Inputs.png>
-<Images/Chapter3/Lateral_X/Torque_inputs.png, id=369, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Torque_inputs.png, id=361, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Torque_inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Torque_inputs.png> [18 <./Images/Chapter3/Later
 al_X/Inputs.png>]
-<Images/Chapter3/Lateral_X/Positions.png, id=378, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Positions.png, id=370, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Positions.png>
-<Images/Chapter3/Lateral_X/Linear_velocities.png, id=381, 586.8324pt x 442.2924
+<Images/Chapter3/Lateral_X/Linear_velocities.png, id=373, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_X/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Linear_velocities.png>
@@ -1954,10 +1935,10 @@ File: Images/Chapter3/Lateral_X/Linear_velocities.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_X/Euler_Angles.png, id=384, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Euler_Angles.png, id=376, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Euler_Angles.png>
-<Images/Chapter3/Lateral_X/Angular_velocities.png, id=387, 586.8324pt x 442.292
+<Images/Chapter3/Lateral_X/Angular_velocities.png, id=379, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_X/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Angular_velocities.png>
@@ -1975,17 +1956,17 @@ LaTeX Warning: Text page 21 contains only floats.
 
  [21 <./Images/Chapter3/Lateral_X/Euler_Angles.png> <./Images/Chapter3/Lateral_
 X/Angular_velocities.png>]
-<Images/Chapter3/Lateral_Y/Inputs.png, id=412, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Inputs.png, id=404, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Inputs.png>
-<Images/Chapter3/Lateral_Y/Torque_inputs.png, id=413, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Torque_inputs.png, id=405, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Torque_inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Torque_inputs.png> [22 <./Images/Chapter3/Later
 al_Y/Inputs.png>]
-<Images/Chapter3/Lateral_Y/Positions.png, id=422, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Positions.png, id=414, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Positions.png>
-<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=425, 586.8324pt x 442.2924
+<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=417, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_Y/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Linear_velocities.png>
@@ -1993,10 +1974,10 @@ File: Images/Chapter3/Lateral_Y/Linear_velocities.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=428, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=420, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Euler_Angles.png>
-<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=431, 586.8324pt x 442.292
+<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=423, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_Y/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Angular_velocities.png>
@@ -2039,10 +2020,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
  []
 
 
-<Images/Chapter4/Class_Diagram.png, id=468, 502.87875pt x 594.22pt>
+<Images/Chapter4/Class_Diagram.png, id=460, 502.87875pt x 594.22pt>
 File: Images/Chapter4/Class_Diagram.png Graphic file (type png)
  <use Images/Chapter4/Class_Diagram.png>
-<Images/Chapter4/Class_diagram_implementation.png, id=469, 527.9725pt x 376.406
+<Images/Chapter4/Class_diagram_implementation.png, id=461, 527.9725pt x 376.406
 25pt>
 File: Images/Chapter4/Class_diagram_implementation.png Graphic file (type png)
  <use Images/Chapter4/Class_diagram_implementation.png>
@@ -2068,11 +2049,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 131--132
 Package natbib Warning: Citation `ClarkEvans2004' on page 31 undefined on input
  line 140.
 
- [31])
-(./Discussion_and_Conclusions/Discussion_and_Conclusions.tex [32]
+ [31]) (./Results_and_Discussion/Results_and_Discussion.tex [32]
 Chapter 5.
- (./Discussion_and_Conclusions/Discussion/Discussion.tex)
-(./Discussion_and_Conclusions/Conclusions/Conclusions.tex))
+
+Package natbib Warning: Citation `ref:Gabrielsson2012' on page 33 undefined on 
+input line 8.
+
+)
 (./Recommendations_and_Future_Work/Recommendations_and_Future_Work.tex [33
 
 ]
@@ -2095,31 +2078,28 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10193 strings out of 493848
- 146621 string characters out of 1152822
+ 10177 strings out of 493848
+ 146158 string characters out of 1152822
  258470 words of memory out of 3000000
- 13000 multiletter control sequences out of 15000+50000
+ 12994 multiletter control sequences out of 15000+50000
  67653 words of font info for 96 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  40i,13n,43p,1656b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{equation.2.2.3} has been referenced but does not 
-exist, replaced by a fixed one
-
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texlive
-/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type
-1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/am
-sfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.p
-fb></usr/share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/tex
-mf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-texlive/fonts/
-type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmb8
-a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/te
-xmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/urw/times/utmri8a.pfb>
-Output written on Marcus_Hultmark_Thesis_template.pdf (38 pages, 1061046 bytes)
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
+ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10
+.pfb></usr/share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/t
+exmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-texlive/font
+s/type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utm
+b8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/
+texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/
+type1/urw/times/utmri8a.pfb>
+Output written on Marcus_Hultmark_Thesis_template.pdf (38 pages, 1061095 bytes)
 .
 PDF statistics:
- 575 PDF objects out of 1000 (max. 8388607)
- 123 named destinations out of 1000 (max. 500000)
- 437 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 567 PDF objects out of 1000 (max. 8388607)
+ 121 named destinations out of 1000 (max. 500000)
+ 421 words of extra memory for PDF output out of 10000 (max. 10000000)
 
