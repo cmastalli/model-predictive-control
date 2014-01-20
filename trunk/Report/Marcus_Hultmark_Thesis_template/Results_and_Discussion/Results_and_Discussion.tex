@@ -1,4 +1,13 @@
-\chapter{Discussion and Conclusions}
-\label{chap:Discussion_and_Conclusions}
-\input{./Discussion_and_Conclusions/Discussion/Discussion.tex}
-\input{./Discussion_and_Conclusions/Conclusions/Conclusions.tex}
+\chapter{Results and Discussion}
+\label{chap:Results_and_Discussion}
+
+This chapter will be divided in three parts: in the first one, the settings and parameters to perform the tests will be presented, together with the achieved results. In the second part, an analysis of these results will be developed and the third part will be a final summary.
+
+\section{Settings and Parameters}
+
+It is important to mention that the MPC is not directly in charge of the input signals going to the motors. The reason for this is that the model that is being used to perform the calculations is a linearized model, therefore the state variables are variations around an operation point. The MPC is instead controlling the linearized state variables and sending that to modify the initial operation point.
+
+When it comes to the tuning of MPC, the parameters available to adjust are the horizons and the weight matrices in the cost function. The selection of a proper prediction horizon for any MPC application is dependant on the dynamics of the system that is being controlled.  This choice is of great influence in the size of the optimization problem to solve, and therefore in the computational power required to provide deterministic operation. If the horizon is too short, the prediction won't give information about future control signals and might create unstability in the controller \cite{ref:Gabrielsson2012}. On the other hand, if the horizon is too long, the optimization problem to solve could be too large to solve in each time sample. However, this is only a guideline to provide an educated guess for a trial and error process. In this particular application, the settling time of the model is \\
+
+With the weight matrices, the procedure is also made in a trial and error fashion. A good initial guess for the quadrotor model is taken from previous implementation parameters \cite{ref:Bouffard2012}.
+
