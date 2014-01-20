@@ -5,11 +5,12 @@
 \contentsline {section}{\numberline {1.4}Thesis Outline}{4}{section.1.4}
 \contentsline {chapter}{\numberline {2}Model Predictive Control}{5}{chapter.2}
 \contentsline {section}{\numberline {2.1}Introduction}{5}{section.2.1}
-\contentsline {subsection}{\numberline {2.1.1}Feasibility}{5}{subsection.2.1.1}
-\contentsline {subsection}{\numberline {2.1.2}Convexity}{5}{subsection.2.1.2}
-\contentsline {subsection}{\numberline {2.1.3}Optimization problem}{5}{subsection.2.1.3}
-\contentsline {subsection}{\numberline {2.1.4}Active and Inactive Constraints and Sets}{5}{subsection.2.1.4}
-\contentsline {subsection}{\numberline {2.1.5}Karush-Kuhn-Tucker Conditions}{6}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.1.1}Optimization problem}{5}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Quadratic programming problem}{5}{subsection.2.1.2}
+\contentsline {subsection}{\numberline {2.1.3}Active and Inactive Constraints and Sets}{5}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Feasibility}{6}{subsection.2.1.4}
+\contentsline {subsection}{\numberline {2.1.5}Convexity}{6}{subsection.2.1.5}
+\contentsline {subsection}{\numberline {2.1.6}Karush-Kuhn-Tucker Conditions}{6}{subsection.2.1.6}
 \contentsline {section}{\numberline {2.2}Model Predictive Control Theory}{7}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Model}{8}{subsection.2.2.1}
 \contentsline {subsection}{\numberline {2.2.2}Objective Function}{9}{subsection.2.2.2}
