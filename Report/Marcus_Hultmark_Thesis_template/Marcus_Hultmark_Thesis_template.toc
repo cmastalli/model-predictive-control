@@ -34,9 +34,8 @@
 \contentsline {subsection}{\numberline {4.3.3}Simulator}{31}{subsection.4.3.3}
 \contentsline {subsection}{\numberline {4.3.4}ModelPredictiveControl}{31}{subsection.4.3.4}
 \contentsline {section}{\numberline {4.4}The Parameter Server}{32}{section.4.4}
-\contentsline {chapter}{\numberline {5}Discussion and Conclusions}{33}{chapter.5}
-\contentsline {section}{\numberline {5.1}Discussion}{33}{section.5.1}
-\contentsline {section}{\numberline {5.2}Conclusions}{33}{section.5.2}
+\contentsline {chapter}{\numberline {5}Results and Discussion}{33}{chapter.5}
+\contentsline {section}{\numberline {5.1}Settings and Parameters}{33}{section.5.1}
 \contentsline {chapter}{\numberline {6}Recommendations and Future Work}{34}{chapter.6}
 \contentsline {section}{\numberline {6.1}Recommendations}{34}{section.6.1}
 \contentsline {section}{\numberline {6.2}Future Work}{34}{section.6.2}
