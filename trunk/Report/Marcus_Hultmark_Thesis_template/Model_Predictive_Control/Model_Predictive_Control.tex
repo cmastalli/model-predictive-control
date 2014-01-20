@@ -5,17 +5,7 @@
 
 In this section the basic mathematical concepts required to understand the quadratic problem that arises in each iteration of Model Predictive Control will be briefly explained.
 
-\subsection{Feasibility}
-
-When constraints are included in an optimization problem, they define the region where the possible solution exists. The resultant region is defined as the \emph{feasible} set.  The algorithms used to solve the problem require an initial point,  which depending on the specific application may be contained in the feasible set or not. The feasibility problem therefore consists in finding a feasible solution (if existent) regardless of the objective function.
-
-\subsection{Convexity}
-
-A set of points $S \in \mathbb{R}^{n}$ is a convex set if the straight line connecting any two points that belong to S lies completely inside S. In a more formal definition, for any two points $x,y \in S$, the following is true $\alpha x + (1 - \alpha)y \in S, \forall \alpha \in [0,1]$. \\
-
-This property is important because if this holds, the assumptions made for linear programming can be extended to cover convex optimization problems, and therefore be solved with fast and reliable methods that already exist for solving linear optimization problems.
-
-\subsection{Optimization problem}
+\subsection{Optimization problem}%------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 An optimization problem consists of finding a solution within a feasible set that minimizes or maximizes a performance index. These can be subdivided in continuous and discrete, depending on the nature of the variables. The standard mathematical formulation is described as follows:
 
@@ -31,15 +21,40 @@ An optimization problem consists of finding a solution within a feasible set tha
 
 There are three elements to identify in this structure: the cost function $V(x)$, the equality constraints and the inequality constraints. Depending on the definition of the cost function and the constraints, the problem can be linear or quadratic, which are the most common types encountered in real life applications. 
 
- \subsection{Active and Inactive Constraints and Sets}
+\subsection{Quadratic programming problem}%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Given an optimization problem such as \ref{eq:gen_qp}, an inequality constraint $F_{i}x \leq b_{i}$ can be defined as \emph{active} at a point \~{x} in the feasible set when $F_{i} \~{x} = b_{i}$, and \emph{inactive} otherwise. Equality constraints are active in all points of the feasible set.\\
+A quadratic programming problem is a special case of an optimization problem where the cost function is a quadratic function and the constraints are linear. Given the variable  and gradient vector correspondingly $\mathbf{x}, \mathbf{g} \in \mathbb{R}^{n}$, both column vectors and Q a symmetric matrix of size $n \times n$, the quadratic problem can be formulated as follows: 
+
+\begin{equation} \label{eq:quadproblem}
+ \begin{aligned}
+ & \underset{x}{\text{minimize}}
+ & & V(x) = \frac{1}{2} \mathbf{x}^T Q \mathbf{x} + \mathbf{x}^T g \\
+ & \text{subject to} 
+ & & A\mathbf{x} \geq \mathbf b \mbox{  (inequality constraint)}
+ \end{aligned}
+\end{equation}
+
+Where A is a matrix that represents the group of constraints and it is of size $m x n$, $b$ is a column vector of size $m$ that contains the limits in the constraints, where $m$ is the number of constraints. Equality constraints can be arranged into the $A$ and $b$ matrices with some manipulation.
+
+\subsection{Active and Inactive Constraints and Sets}%----------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Given an optimization problem such as \ref{eq:gen_qp}, an inequality constraint $F_{i}(x) \leq b_{i}$ can be defined as \emph{active} at a point \~{x} in the feasible set when $F_{i} $(\~{x})$ = b_{i}$, and \emph{inactive} otherwise. Equality constraints are active in all its solutions that are as well contained in the region of the allowed possible solutions.\\
 
 Therefore one can define the \emph{active set} at a point \~{x} as the combination of the region that satisfy the equality constraints and inequality constrains that become active at \~{x}. Correspondingly, The region that doesn't satisfy these conditions is called the \emph{inactive set}.
 
-\subsection{Karush-Kuhn-Tucker Conditions}
+\subsection{Feasibility}%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Before introducing the definition of the Karush-Kuhn-Tucker conditions, it is necessary to make some definitions first.\\
+When constraints are included in an optimization problem, they define the region where the possible solution exists. The resultant region is defined as the \emph{feasible} set.  The algorithms used to solve the problem require an initial point,  which depending on the specific application may be contained in the feasible set or not. The feasibility problem therefore consists in finding a feasible solution (if existent) regardless of the objective function.
+
+\subsection{Convexity}%---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+A set of points $S \in \mathbb{R}^{n}$ is a convex set if the straight line connecting any two points that belong to S lies completely inside S. In a more formal definition, for any two points $x,y \in S$, the following is true $\alpha x + (1 - \alpha)y \in S, \forall \alpha \in [0,1]$. \\
+
+This property is important because if this holds, the assumptions made for linear programming can be extended to cover convex optimization problems, and therefore be solved with fast and reliable methods that already exist for solving linear optimization problems.
+
+\subsection{Karush-Kuhn-Tucker Conditions}%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+The Karush-Kuhn-Tucker conditions (also knowns as KKT conditions) are a set of first order conditions that must be satisfied by the solution of nonlinear programming problems in general. It is formulated as an extension of the Lagrange multipliers method to solve optimization problems with equality constraints, as the KKT conditions applies for problems with constraints formulated as equalities and inequalities. These conditions are seldom used to solve directly the optimization problem, instead, they are verified in iterative methods. Before introducing the formal definition of the Karush-Kuhn-Tucker conditions, it is necessary to first define the Lagrangian for an optimization problem.\\
 
 For the given form of the optimization problem shown in \ref{eq:gen_qp}, the Lagrangian $\mathbf{L}$ is defined as the cost function plus penalty functions that take into account the constraints. The $\lambda$ vector is used for the equality constraints and the $\mu$ vector for the inequalities.
 
@@ -68,7 +83,9 @@ If $x^{*}$ is a solution of \ref{eq:gen_qp} that satisfies some regularity condi
 
 \end{itemize}
 
-The stationarity conditions come from the derivation of the cost function to find the stationary points in basic unconstrained optimization problems. The derivatives respect to the $\lambda$ coefficients (Lagrange multipliers) of the cost function lead to equations that restrict the solution of the problem to satisfy the equality constraints. However, due to the fact that the lagrangian also depends on $\mu$, the system is not determined. The complementary slackness conditions arises from the fact that if the optimal solution $x^{*}$ satisfies $f(\mathbf{x}) \leq 0$, its contribution to the cost function is null, and one can set its corresponding $\mu_{i}$ coefficient to cero. If the solution is at the border of the constraint,  $f(\mathbf{x}) = 0$. In both cases, the condition $\mu_{i} f_{i}(\mathbf{x}) = 0$ holds. The $\mu_{i}$ coefficients can take any value, but they are 0 when $f(\mathbf{x}) \leq 0$, and in the other case, $f(\mathbf{x}) = 0$, they can only be positive, since the gradient respect to $x$ of $f_{i}(\mathbf{x})$ and $V(\mathbf{x})$ are opposed in direction.
+The stationarity conditions come from the derivation of the cost function to find the stationary points used in basic unconstrained optimization problems. The derivatives respect to the $\lambda$ coefficients (Lagrange multipliers) of the cost function lead to equations that restrict the solution of the problem to satisfy the equality constraints. However, due to the fact that the lagrangian also depends on $\mu$, the system is not determined. The complementary slackness conditions arises from the fact that if the optimal solution $x^{*}$ satisfies $f(\mathbf{x}) \leq 0$, its contribution to the cost function is null, and one can set its corresponding $\mu_{i}$ coefficient to cero. If the solution is at the border of the constraint,  $f(\mathbf{x}) = 0$. In both cases, the condition $\mu_{i} f_{i}(\mathbf{x}) = 0$ holds. The $\mu_{i}$ coefficients can take any value, but they are 0 when $f(\mathbf{x}) \leq 0$, and in the other case, $f(\mathbf{x}) = 0$, they can only be positive, since the gradient respect to $x$ of $f_{i}(\mathbf{x})$ and $V(\mathbf{x})$ are opposed in direction.\\
+
+In the particular case of a quadratic programming problem as the ones that arise in Model Predictive Control, the problem becomes a convex optimization problem when the cost function is convex. A convex quadratic cost function is the one where the Hessian matrix $Q$ from \ref{eq:quadproblem} is positive semi-definite, the inequality constraints are convex functions and the equality constraints are linear. In the case of a convex quadratic programming program, the KKT conditions not only are necessary but also sufficient conditions for optimality.
 
 \section{Model Predictive Control Theory} %------------------Model Predictive Control Basics---------------------------------------------
 
@@ -196,46 +213,35 @@ There are two main type of algorithms used commonly to solve quadratic problems 
 
 \begin{itemize}
 
-\item \textbf{Active Set Methods.} In order to explain how these methods work, a definition for an \emph{active set} must be introduced. An optimization problem:
- 
-\begin{equation} \label{eq:optimization1}
- \begin{aligned}
- & \underset{x}{\text{minimize}}
- & & V(x) \\
- & \text{subject to}
- & & f_i(x) \leq b_i, \; 	i = 1, \ldots, m.
- \end{aligned}
-\end{equation}
+\item \textbf{Active Set Methods.} 
 
-is defined by the objective function and by the set of constraints. This set defines the \emph{feasible region}, which is the set of all $x$ that satisfy the constraints, and thus are considered in the search for the optimal solution. Given $x$ in the feasible region, a constraint $f$ is active in $x$ if $f_i(x) = 0$ and inactive if $f_i(x) > 0$. The \emph{active set} at $x$ comprises all the constraints that are active at that point \cite{Nocedal&Wright2006}. \\
+%In order to explain how these methods work, a definition for an \emph{active set} must be introduced. An optimization problem:
+ 
+%\begin{equation} \label{eq:optimization1}
+% \begin{aligned}
+% & \underset{x}{\text{minimize}}
+ %& & V(x) \\
+ %& \text{subject to}
+ %& & f_i(x) \leq b_i, \; 	i = 1, \ldots, m.
+ %\end{aligned}
+%\end{equation}
+
+%is defined by the objective function and by the set of constraints. This set defines the \emph{feasible region}, which is the set of all $x$ that satisfy the constraints, and thus are considered in the search for the optimal solution. Given $x$ in the feasible region, a constraint $f$ is active in $x$ if $f_i(x) = 0$ and inactive if $f_i(x) > 0$. The \emph{active set} at $x$ comprises all the constraints that are active at that point \cite{Nocedal&Wright2006}. \\
 
 The aim of an Active Set method is to find an optimal active set, which will make it possible to use equality constrained QP solving techniques (solving the KKT system). The algorithm will start making a guess of this optimal active set, and if it misses, gradient and Lagrange multipliers will be used to improve the initial guess. The final solution of the problem will lie in the proximity of the borders of the  feasible region.
 
 \item \textbf{Interior Point Methods.} Given the following quadratic problem in the standard form:
 
-\begin{equation} \label{eq:quadproblemIP}
- \begin{aligned}
- & \underset{x}{\text{minimize}}
- & & J(x) = \frac{1}{2} \mathbf{x}^T Q \mathbf{x} + c^T \mathbf{x} \\
- & \text{subject to} 
- & & A\mathbf{x} \geq \mathbf b \mbox{  (inequality constraint)}
- \end{aligned}
-\end{equation}
 
-G is symmetric and positive semidefinite, A is a $m x n$ and $b$ are defined by 
 
-\begin{equation*}
- \begin{aligned}
- & & A = [a_i]_{i\in \Gamma} & & b = [b_i]_{i\in \Gamma} & & \Gamma = {1, 2, \ldots , m} 
- \end{aligned}
-\end{equation*}
 
-Based on the KKT conditions one can say that if a given $x^*$ is a solution of \ref{eq:quadproblemIP}, there is a Lagrange multiplier vector $\lambda^*$ such that the following conditions are satisfied for $(x, \lambda) = (x^*, \lambda^*)$.
+
+Based on the KKT conditions one can say that if a given $x^*$ is a solution of \ref{eq:quadproblem}, there is a Lagrange multiplier vector $\lambda^*$ such that the following conditions are satisfied for $(x, \lambda) = (x^*, \lambda^*)$.
 
 \begin{equation} \label{eq:KKTIP}
  \begin{subequations}
  \begin{aligned}
-  Gx - A^{T}\lambda + d &= 0, \\
+  Qx - A^{T}\lambda + g &= 0, \\
   Ax - b &\geq 0, \\ 
   (Ax - b)_{i}\lambda_{i} &= 0, && i = 1, 2, \ldots , m, \\
   \lambda &\geq 0. 
@@ -248,7 +254,7 @@ If a new variable vector $y = Ax - b$ is introduced in the system, the condition
 \begin{equation} \label{eq:KKTIP2}
  \begin{subequations}
  \begin{aligned}
-  Gx - A^{T}\lambda + d &= 0, \\
+  Qx - A^{T}\lambda + g &= 0, \\
   Ax - y - b &= 0, \\ 
   y_{i}\lambda_{i} &= 0, && i = 1, 2, \ldots , m, \\
   (y, \lambda) &\geq 0. 

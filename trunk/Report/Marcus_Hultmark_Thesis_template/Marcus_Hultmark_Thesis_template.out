@@ -5,11 +5,12 @@
 \BOOKMARK [1][-]{section.1.4}{Thesis Outline}{chapter.1}
 \BOOKMARK [0][-]{chapter.2}{Model Predictive Control}{}
 \BOOKMARK [1][-]{section.2.1}{Introduction}{chapter.2}
-\BOOKMARK [2][-]{subsection.2.1.1}{Feasibility}{section.2.1}
-\BOOKMARK [2][-]{subsection.2.1.2}{Convexity}{section.2.1}
-\BOOKMARK [2][-]{subsection.2.1.3}{Optimization problem}{section.2.1}
-\BOOKMARK [2][-]{subsection.2.1.4}{Active and Inactive Constraints and Sets}{section.2.1}
-\BOOKMARK [2][-]{subsection.2.1.5}{Karush-Kuhn-Tucker Conditions}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.1}{Optimization problem}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.2}{Quadratic programming problem}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.3}{Active and Inactive Constraints and Sets}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.4}{Feasibility}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.5}{Convexity}{section.2.1}
+\BOOKMARK [2][-]{subsection.2.1.6}{Karush-Kuhn-Tucker Conditions}{section.2.1}
 \BOOKMARK [1][-]{section.2.2}{Model Predictive Control Theory}{chapter.2}
 \BOOKMARK [2][-]{subsection.2.2.1}{Model}{section.2.2}
 \BOOKMARK [2][-]{subsection.2.2.2}{Objective Function}{section.2.2}
