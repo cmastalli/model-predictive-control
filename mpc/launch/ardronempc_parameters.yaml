@@ -1,7 +1,7 @@
 mpc:
-  path_name: /home/cmastalli/ros_workspace/model-predictive-control/mpc/data/
+  path_name: /home/adminmecatronica/ros_workspace/model-predictive-control/mpc/data/
   data_name: ardrone_mpc_data
-  horizon: 25
+  horizon: 30
   infeasibility_hack_counter_max: 1
 
   optimizer:

@@ -61,13 +61,13 @@ int main(int argc, char **argv)
     clock_gettime(CLOCK_REALTIME, &start_rt);
 	for (int counter = 0; counter < 2440; counter++) {
 		/*while (ros::ok())*/
-		if (counter > 240)
-			x_ref[8] = 0.50;
-		if (counter > 320)
-			x_ref[8] = 0.0;
 		if (counter > 480)
-			x_ref[0] = 1.;
+			x_ref[8] = 0.50;
 		if (counter > 960)
+			x_ref[8] = 0.0;
+		if (counter > 1440)
+			x_ref[0] = 1.;
+		if (counter > 1920)
 			x_ref[1] = 1.;
 				
 		x_bar = model_ptr->getOperationPointsStates(); 
@@ -88,7 +88,7 @@ int main(int argc, char **argv)
 		new_state = simulator_ptr->simulatePlant(x_meas, u, sampling_time);
 
 		Eigen::Map<Eigen::VectorXd> new_(new_state, 12);
-		std::cout << "New state\t" << new_.transpose() << std::endl;
+		//std::cout << "New state\t" << new_.transpose() << std::endl;
 		
 		// Setting the new operation points
 //		model_ptr->setLinearizationPoints(new_state);
