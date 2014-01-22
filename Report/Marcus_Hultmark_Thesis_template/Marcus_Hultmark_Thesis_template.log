@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  21 JAN 2014 17:53
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  22 JAN 2014 18:18
 entering extended mode
  %&-line parsing enabled.
 **Marcus_Hultmark_Thesis_template.tex
@@ -160,6 +160,25 @@ Package: fp-upn 1996/10/21
 (/usr/share/texmf-texlive/tex/latex/fp/fp-eval.sty
 Package: fp-eval 1995/04/03
 ))
+(/usr/share/texmf-texlive/tex/latex/tools/tabularx.sty
+Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
+
+(/usr/share/texmf-texlive/tex/latex/tools/array.sty
+Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
+\col@sep=\dimen114
+\extrarowheight=\dimen115
+\NC@list=\toks18
+\extratabsurround=\skip47
+\backup@length=\skip48
+)
+\TX@col@width=\dimen116
+\TX@old@table=\dimen117
+\TX@old@col=\dimen118
+\TX@target=\dimen119
+\TX@delta=\dimen120
+\TX@cols=\count107
+\TX@ftn=\toks19
+)
 (/usr/share/texmf-texlive/tex/latex/comment/comment.sty
 \CommentStream=\write3
 
@@ -180,24 +199,24 @@ Package color Info: Driver file: pdftex.def on input line 130.
 )
 (/usr/share/texmf-texlive/tex/latex/tools/calc.sty
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count107
-\calc@Bcount=\count108
-\calc@Adimen=\dimen114
-\calc@Bdimen=\dimen115
-\calc@Askip=\skip47
-\calc@Bskip=\skip48
+\calc@Acount=\count108
+\calc@Bcount=\count109
+\calc@Adimen=\dimen121
+\calc@Bdimen=\dimen122
+\calc@Askip=\skip49
+\calc@Bskip=\skip50
 LaTeX Info: Redefining \setlength on input line 76.
 LaTeX Info: Redefining \addtolength on input line 77.
-\calc@Ccount=\count109
-\calc@Cskip=\skip49
+\calc@Ccount=\count110
+\calc@Cskip=\skip51
 )
-\titlep@getextwidth=\skip50
-\titlep@gewhitemargin=\skip51
-\titlep@geleftmargin=\skip52
-\titlep@gemarginsep=\skip53
-\titlep@getextheight=\skip54
-\titlep@getopmargin=\skip55
-\tmpl@ngth=\skip56
+\titlep@getextwidth=\skip52
+\titlep@gewhitemargin=\skip53
+\titlep@geleftmargin=\skip54
+\titlep@gemarginsep=\skip55
+\titlep@getextheight=\skip56
+\titlep@getopmargin=\skip57
+\tmpl@ngth=\skip58
 )
 (/usr/share/texmf-texlive/tex/latex/geometry/geometry.sty
 Package: geometry 2008/12/21 v4.2 Page Geometry
@@ -210,65 +229,65 @@ Package ifpdf Info: pdfTeX in pdf mode detected.
 Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
 Package ifvtex Info: VTeX not detected.
 )
-\Gm@cnth=\count110
-\Gm@cntv=\count111
-\c@Gm@tempcnt=\count112
-\Gm@bindingoffset=\dimen116
-\Gm@wd@mp=\dimen117
-\Gm@odd@mp=\dimen118
-\Gm@even@mp=\dimen119
-\Gm@dimlist=\toks18
+\Gm@cnth=\count111
+\Gm@cntv=\count112
+\c@Gm@tempcnt=\count113
+\Gm@bindingoffset=\dimen123
+\Gm@wd@mp=\dimen124
+\Gm@odd@mp=\dimen125
+\Gm@even@mp=\dimen126
+\Gm@dimlist=\toks20
 
 (/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
 (/usr/share/texmf-texlive/tex/latex/fancyhdr/fancyhdr.sty
-\fancy@headwidth=\skip57
-\f@ncyO@elh=\skip58
-\f@ncyO@erh=\skip59
-\f@ncyO@olh=\skip60
-\f@ncyO@orh=\skip61
-\f@ncyO@elf=\skip62
-\f@ncyO@erf=\skip63
-\f@ncyO@olf=\skip64
-\f@ncyO@orf=\skip65
+\fancy@headwidth=\skip59
+\f@ncyO@elh=\skip60
+\f@ncyO@erh=\skip61
+\f@ncyO@olh=\skip62
+\f@ncyO@orh=\skip63
+\f@ncyO@elf=\skip64
+\f@ncyO@erf=\skip65
+\f@ncyO@olf=\skip66
+\f@ncyO@orf=\skip67
 )
 (/usr/share/texmf-texlive/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen120
-\WF@size=\dimen121
-\c@WF@wrappedlines=\count113
+\wrapoverhang=\dimen127
+\WF@size=\dimen128
+\c@WF@wrappedlines=\count114
 \WF@box=\box32
-\WF@everypar=\toks19
+\WF@everypar=\toks21
 Package: wrapfig 2003/01/31  v 3.6
 )
 (/usr/share/texmf-texlive/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
-\heavyrulewidth=\dimen122
-\lightrulewidth=\dimen123
-\cmidrulewidth=\dimen124
-\belowrulesep=\dimen125
-\belowbottomsep=\dimen126
-\aboverulesep=\dimen127
-\abovetopsep=\dimen128
-\cmidrulesep=\dimen129
-\cmidrulekern=\dimen130
-\defaultaddspace=\dimen131
-\@cmidla=\count114
-\@cmidlb=\count115
-\@aboverulesep=\dimen132
-\@belowrulesep=\dimen133
-\@thisruleclass=\count116
-\@lastruleclass=\count117
-\@thisrulewidth=\dimen134
+\heavyrulewidth=\dimen129
+\lightrulewidth=\dimen130
+\cmidrulewidth=\dimen131
+\belowrulesep=\dimen132
+\belowbottomsep=\dimen133
+\aboverulesep=\dimen134
+\abovetopsep=\dimen135
+\cmidrulesep=\dimen136
+\cmidrulekern=\dimen137
+\defaultaddspace=\dimen138
+\@cmidla=\count115
+\@cmidlb=\count116
+\@aboverulesep=\dimen139
+\@belowrulesep=\dimen140
+\@thisruleclass=\count117
+\@lastruleclass=\count118
+\@thisrulewidth=\dimen141
 )
 (/usr/share/texmf-texlive/tex/latex/fancyref/fancyref.sty
 Package: fancyref 1999/02/03 v0.9c Fancy cross-referencing
 
 (/usr/share/texmf-texlive/tex/latex/tools/varioref.sty
 Package: varioref 2009/09/13 v1.4w package for extended references (FMi)
-\c@vrcnt=\count118
+\c@vrcnt=\count119
 ))
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
-\@mathmargin=\skip66
+\@mathmargin=\skip68
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
@@ -276,51 +295,51 @@ Package: amstext 2000/06/29 v2.01
 
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks20
-\ex@=\dimen135
+\@emptytoks=\toks22
+\ex@=\dimen142
 ))
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen136
+\pmbraise@=\dimen143
 )
 (/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count119
+\inf@bad=\count120
 LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count120
-\leftroot@=\count121
+\uproot@=\count121
+\leftroot@=\count122
 LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count122
-\DOTSCASE@=\count123
+\classnum@=\count123
+\DOTSCASE@=\count124
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
 \Mathstrutbox@=\box33
 \strutbox@=\box34
-\big@size=\dimen137
+\big@size=\dimen144
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count124
-\c@MaxMatrixCols=\count125
+\macc@depth=\count125
+\c@MaxMatrixCols=\count126
 \dotsspace@=\muskip10
-\c@parentequation=\count126
-\dspbrk@lvl=\count127
-\tag@help=\toks21
-\row@=\count128
-\column@=\count129
-\maxfields@=\count130
-\andhelp@=\toks22
-\eqnshift@=\dimen138
-\alignsep@=\dimen139
-\tagshift@=\dimen140
-\tagwidth@=\dimen141
-\totwidth@=\dimen142
-\lineht@=\dimen143
-\@envbody=\toks23
-\multlinegap=\skip67
-\multlinetaggap=\skip68
-\mathdisplay@stack=\toks24
+\c@parentequation=\count127
+\dspbrk@lvl=\count128
+\tag@help=\toks23
+\row@=\count129
+\column@=\count130
+\maxfields@=\count131
+\andhelp@=\toks24
+\eqnshift@=\dimen145
+\alignsep@=\dimen146
+\tagshift@=\dimen147
+\tagwidth@=\dimen148
+\totwidth@=\dimen149
+\lineht@=\dimen150
+\@envbody=\toks25
+\multlinegap=\skip69
+\multlinetaggap=\skip70
+\mathdisplay@stack=\toks26
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
@@ -378,8 +397,8 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 )
 (/usr/share/texmf-texlive/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
-\inpenc@prehook=\toks25
-\inpenc@posthook=\toks26
+\inpenc@prehook=\toks27
+\inpenc@posthook=\toks28
 
 (/usr/share/texmf-texlive/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
@@ -595,10 +614,10 @@ Now handling font encoding U ...
 ))
 (/usr/share/texmf-texlive/tex/latex/natbib/natbib.sty
 Package: natbib 2009/07/16 8.31 (PWD, AO)
-\bibhang=\skip69
-\bibsep=\skip70
+\bibhang=\skip71
+\bibsep=\skip72
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count131
+\c@NAT@ctr=\count132
 )
 (/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
@@ -613,9 +632,9 @@ O)
 (/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty
 Package: xcolor-patch 2009/10/02 xcolor patch
 ))
-\@linkdim=\dimen144
-\Hy@linkcounter=\count132
-\Hy@pagecounter=\count133
+\@linkdim=\dimen151
+\Hy@linkcounter=\count133
+\Hy@pagecounter=\count134
 
 (/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
@@ -682,10 +701,10 @@ Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 )))
-\Fld@menulength=\count134
-\Field@Width=\dimen145
-\Fld@charsize=\dimen146
-\Field@toks=\toks27
+\Fld@menulength=\count135
+\Field@Width=\dimen152
+\Fld@charsize=\dimen153
+\Field@toks=\toks29
 Package hyperref Info: Hyper figures OFF on input line 4377.
 Package hyperref Info: Link nesting OFF on input line 4382.
 Package hyperref Info: Hyper index ON on input line 4385.
@@ -697,25 +716,16 @@ Package hyperref Info: PDF/A mode OFF on input line 4407.
 (/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
 Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
 )
-\Hy@abspage=\count135
-\c@Item=\count136
-\c@Hfootnote=\count137
+\Hy@abspage=\count136
+\c@Item=\count137
 )
 *hyperref using default driver hpdftex*
 (/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
 File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
 \Fld@listcount=\count138
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 64.
+Package hyperref Info: Option `colorlinks' set `true' on input line 65.
 
-(/usr/share/texmf-texlive/tex/latex/tools/array.sty
-Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen147
-\extrarowheight=\dimen148
-\NC@list=\toks28
-\extratabsurround=\skip71
-\backup@length=\skip72
-)
 (/usr/share/texmf-texlive/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2009/02/07 v0.4g Insert pages of external PDF documents (AM)
 
@@ -732,14 +742,14 @@ Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
 File: pppdftex.def 2009/02/07 v0.4g Pdfpages driver for pdfTeX (AM)
 )
 \AM@pagebox=\box35
-\AM@toc@title=\toks29
+\AM@toc@title=\toks30
 \c@AM@survey=\count139
 \AM@templatesizebox=\box36
 )
 (/usr/share/texmf-texlive/tex/latex/nomencl/nomencl.sty
 Package: nomencl 2005/09/22 v4.2 Nomenclature package (LN)
-\nomlabelwidth=\dimen149
-\nom@tempdim=\dimen150
+\nomlabelwidth=\dimen154
+\nom@tempdim=\dimen155
 \nomitemsep=\skip73
 )
 (/usr/share/texmf-texlive/tex/latex/isodate/isodate.sty
@@ -809,15 +819,15 @@ Package caption Info: End \AtBeginDocument code.
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count149
-\scratchdimen=\dimen151
+\scratchdimen=\dimen156
 \scratchbox=\box37
 \nofMPsegments=\count150
 \nofMParguments=\count151
-\everyMPshowfont=\toks30
+\everyMPshowfont=\toks31
 \MPscratchCnt=\count152
-\MPscratchDim=\dimen152
+\MPscratchDim=\dimen157
 \MPnumerator=\count153
-\everyMPtoPDFconversion=\toks31
+\everyMPtoPDFconversion=\toks32
 )
 *geometry auto-detecting driver*
 *geometry detected driver: pdftex*
@@ -946,7 +956,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.39 ...mendations and Future Work}{34}{chapter.6}
+l.39 ...mendations and Future Work}{37}{chapter.6}
                                                    [1
 
 ])
@@ -2073,10 +2083,155 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--17
 Package natbib Warning: Citation `ref:Bouffard2012' on page 33 undefined on inp
 ut line 18.
 
-)
-(./Recommendations_and_Future_Work/Recommendations_and_Future_Work.tex [33
+! Missing $ inserted.
+<inserted text> 
+                $
+l.25     Input constraints &  -230 \leq
+                                        \Delta \omega_{i} \leq 140 [rad/s] \...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.25 ...elta \omega_{i} \leq 140 [rad/s] \\ \hline
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.25 ...elta \omega_{i} \leq 140 [rad/s] \\ \hline
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.25 ...elta \omega_{i} \leq 140 [rad/s] \\ \hline
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.26     State constraints &  -10 \leq
+                                       x \leq 10 [m]  \newline -10 \leq y \l...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+<recently read> \egroup 
+                        
+l.26 ...[m] \newline 0 \leq z \leq 5 [m] \\ \hline
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.26 ...[m] \newline 0 \leq z \leq 5 [m] \\ \hline
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.26 ...[m] \newline 0 \leq z \leq 5 [m] \\ \hline
+                                                  
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Misplaced \noalign.
+\hline ->\noalign 
+                  {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
+l.28     \hline
+               
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+ [33
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 32--33
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
+
+ []
+
+
+<Images/Chapter5/ardrone/position_control.png, id=498, 586.8324pt x 442.2924pt>
+File: Images/Chapter5/ardrone/position_control.png Graphic file (type png)
+ <use Images/Chapter5/ardrone/position_control.png>
+<Images/Chapter5/ardrone/euler_angle_control.png, id=499, 586.8324pt x 442.2924
+pt>
+File: Images/Chapter5/ardrone/euler_angle_control.png Graphic file (type png)
+ <use Images/Chapter5/ardrone/euler_angle_control.png>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+<Images/Chapter5/ardrone/lin_velocity_control.png, id=500, 586.8324pt x 442.292
+4pt>
+File: Images/Chapter5/ardrone/lin_velocity_control.png Graphic file (type png)
+ <use Images/Chapter5/ardrone/lin_velocity_control.png>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+<Images/Chapter5/ardrone/ang_velocity_control.png, id=501, 586.8324pt x 442.292
+4pt>
+File: Images/Chapter5/ardrone/ang_velocity_control.png Graphic file (type png)
+ <use Images/Chapter5/ardrone/ang_velocity_control.png>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+
+<Images/Chapter5/ardrone/control_signals.png, id=502, 586.8324pt x 442.2924pt>
+File: Images/Chapter5/ardrone/control_signals.png Graphic file (type png)
+ <use Images/Chapter5/ardrone/control_signals.png>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+)
+(./Recommendations_and_Future_Work/Recommendations_and_Future_Work.tex [34 <./I
+mages/Chapter5/ardrone/position_control.png>]
+
+LaTeX Warning: Text page 35 contains only floats.
+
+
+Overfull \vbox (0.62204pt too high) has occurred while \output is active []
+
+ [35 <./Images/Chapter5/ardrone/euler_angle_control.png> <./Images/Chapter5/ard
+rone/lin_velocity_control.png>]
+
+LaTeX Warning: Text page 36 contains only floats.
+
+
+Overfull \vbox (0.62204pt too high) has occurred while \output is active []
+
+ [36 <./Images/Chapter5/ardrone/ang_velocity_control.png> <./Images/Chapter5/ar
+drone/control_signals.png>]
 Chapter 6.
 
 (./Recommendations_and_Future_Work/Recommendations/Recommendations.tex)
@@ -2085,7 +2240,7 @@ No file Marcus_Hultmark_Thesis_template.bbl.
 
 Package natbib Warning: There were undefined citations.
 
- [34
+ [37
 
 ] (./Marcus_Hultmark_Thesis_template.aux)
 
@@ -2096,13 +2251,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10179 strings out of 493848
- 146189 string characters out of 1152822
- 258470 words of memory out of 3000000
- 12996 multiletter control sequences out of 15000+50000
+ 10243 strings out of 493848
+ 147732 string characters out of 1152822
+ 259113 words of memory out of 3000000
+ 13043 multiletter control sequences out of 15000+50000
  67653 words of font info for 96 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 40i,13n,43p,1656b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,18n,43p,1656b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
 ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
 pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
@@ -2114,10 +2269,10 @@ s/type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utm
 b8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/
 texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on Marcus_Hultmark_Thesis_template.pdf (38 pages, 1064267 bytes)
+Output written on Marcus_Hultmark_Thesis_template.pdf (41 pages, 1258737 bytes)
 .
 PDF statistics:
- 571 PDF objects out of 1000 (max. 8388607)
- 121 named destinations out of 1000 (max. 500000)
- 429 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 599 PDF objects out of 1000 (max. 8388607)
+ 129 named destinations out of 1000 (max. 500000)
+ 454 words of extra memory for PDF output out of 10000 (max. 10000000)
 
