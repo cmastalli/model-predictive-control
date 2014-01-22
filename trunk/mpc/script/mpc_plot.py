@@ -3,7 +3,7 @@ from pylab import *
 from numpy import *
 
 
-path = '/home/rene/ros_workspace/model-predictive-control/mpc/data/ardrone_mpc_data.txt'
+path = '/home/adminmecatronica/ros_workspace/model-predictive-control/mpc/data/ardrone_mpc_data.txt'
 x, y, z, u, v, w, roll, pitch, yaw, p, q, r, x_r, y_r, z_r, u_r, v_r, w_r, roll_r, pitch_r, yaw_r, p_r, q_r, r_r, w_1, w_2, w_3, w_4 = loadtxt(path, skiprows=1, unpack=True)
 sampling_time = 0.0083
 t = arange(0.0, x.size*sampling_time, sampling_time)
