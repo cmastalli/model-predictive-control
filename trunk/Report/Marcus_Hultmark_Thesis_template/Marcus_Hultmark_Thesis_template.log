@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  22 JAN 2014 18:18
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  27 JAN 2014 15:58
 entering extended mode
  %&-line parsing enabled.
 **Marcus_Hultmark_Thesis_template.tex
@@ -956,7 +956,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.39 ...mendations and Future Work}{37}{chapter.6}
+l.39 ...mendations and Future Work}{38}{chapter.6}
                                                    [1
 
 ])
@@ -2124,8 +2124,8 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.26     State constraints &  -10 \leq
-                                       x \leq 10 [m]  \newline -10 \leq y \l...
+l.26     State constraints &  -5 \leq
+                                      V_x \leq 5 [m]  \newline -5 \leq V_y \...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
@@ -2213,9 +2213,17 @@ File: Images/Chapter5/ardrone/control_signals.png Graphic file (type png)
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-)
-(./Recommendations_and_Future_Work/Recommendations_and_Future_Work.tex [34 <./I
-mages/Chapter5/ardrone/position_control.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
+
+ []
+
+ [34 <./Images/Chapter5/ardrone/position_control.png>]
 
 LaTeX Warning: Text page 35 contains only floats.
 
@@ -2232,6 +2240,17 @@ Overfull \vbox (0.62204pt too high) has occurred while \output is active []
 
  [36 <./Images/Chapter5/ardrone/ang_velocity_control.png> <./Images/Chapter5/ar
 drone/control_signals.png>]
+
+Package natbib Warning: Citation `ref:CamachoBordons' on page 37 undefined on i
+nput line 75.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
+
+ []
+
+)
+(./Recommendations_and_Future_Work/Recommendations_and_Future_Work.tex [37]
 Chapter 6.
 
 (./Recommendations_and_Future_Work/Recommendations/Recommendations.tex)
@@ -2240,7 +2259,7 @@ No file Marcus_Hultmark_Thesis_template.bbl.
 
 Package natbib Warning: There were undefined citations.
 
- [37
+ [38
 
 ] (./Marcus_Hultmark_Thesis_template.aux)
 
@@ -2251,10 +2270,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10243 strings out of 493848
- 147732 string characters out of 1152822
+ 10245 strings out of 493848
+ 147759 string characters out of 1152822
  259113 words of memory out of 3000000
- 13043 multiletter control sequences out of 15000+50000
+ 13044 multiletter control sequences out of 15000+50000
  67653 words of font info for 96 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  40i,18n,43p,1656b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2269,10 +2288,10 @@ s/type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utm
 b8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/
 texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on Marcus_Hultmark_Thesis_template.pdf (41 pages, 1258737 bytes)
+Output written on Marcus_Hultmark_Thesis_template.pdf (42 pages, 1261698 bytes)
 .
 PDF statistics:
- 599 PDF objects out of 1000 (max. 8388607)
- 129 named destinations out of 1000 (max. 500000)
+ 605 PDF objects out of 1000 (max. 8388607)
+ 130 named destinations out of 1000 (max. 500000)
  454 words of extra memory for PDF output out of 10000 (max. 10000000)
 
