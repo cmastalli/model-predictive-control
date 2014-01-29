@@ -89,7 +89,7 @@ In the particular case of a quadratic programming problem as the ones that arise
 
 \section{Model Predictive Control Theory} %------------------Model Predictive Control Basics---------------------------------------------
 
-Model Predictive Control (MPC) is an advanced control technique developed in the late 70’s within the chemical industry. The basic idea in this algorithm is to use a model of the process or system to be controlled in order to predict and optimize future process behaviour. MPC can take into account restrictions in the input variables as well as the states/controlled variables \cite{Hovd}. This leads to solving an optimization problem in each sample, which demands high computing power in order to achieve this for small sampling times and deterministic operation.\\ 
+Model Predictive Control (MPC) is an advanced control technique developed in the late 70’s within the chemical industry. The basic idea in this algorithm is to use a model of the process or system to be controlled in order to predict and optimize future process behaviour. MPC can take into account restrictions in the input variables as well as the states/controlled variables \cite{Hovd2004}. This leads to solving an optimization problem in each sample, which demands high computing power in order to achieve this for small sampling times and deterministic operation.\\ 
 
 There are several types of MPC controllers, but the basic steps of the algorithm are kept in each one of them, summarized as follows:
 
@@ -97,7 +97,7 @@ There are several types of MPC controllers, but the basic steps of the algorithm
 
 \item Prediction: at each time instant, the model is used to get the predicted outputs of the process for as many time instants in the future as the prediction horizon states. These predictions depend on the past inputs and outputs and the future control signals to the model.
 
-\item Optimization: the future control signals are calculated by either minimizing a cost index or maximizing a performance index that takes into account the error between the predicted outputs and the reference trajectory (or an approximation to it) and the control effort. This objective function to be optimized is usually a quadratic function, since it assures global minimum or maximum values, smoother control signals and more intuitive response to parameter changes \cite{Hovd}.
+\item Optimization: the future control signals are calculated by either minimizing a cost index or maximizing a performance index that takes into account the error between the predicted outputs and the reference trajectory (or an approximation to it) and the control effort. This objective function to be optimized is usually a quadratic function, since it assures global minimum or maximum values, smoother control signals and more intuitive response to parameter changes \cite{Hovd2004}.
 
 \item Shifting: the control signal for the current time instant $t$ is sent to the system and the next control signals in the future are rejected, since the output in the instant $t + 1$ is already known, and the prediction step is repeated with this new value and the information is brought to the following time step. Then the control signal corresponding to time instant    $t + 1$ will be calculated at time $t + 1$ (which is different from calculating the control signal for time $t + 1$ at time $t$, due to the new information).
 
@@ -169,7 +169,7 @@ Where $A$ is the system matrix, $B$ is the input matrix and $C$ is the output ma
 
 \end{itemize}
 
-For this thesis, the type of model used was the state space model representation. This selection allows an easier way to handle models of different sizes; also the recursive structure of the predictions from the model allows a more compact formulation of the quadratic problem, as developed by \cite{Ferreau2011}.
+For this thesis, the type of model used was the state space model representation. This selection allows an easier way to handle models of different sizes; also the recursive structure of the predictions from the model allows a more compact formulation of the quadratic problem, as developed by \cite{Ferreau2006}.
 
 
  
@@ -185,7 +185,7 @@ Where the term $\hat{y}(k + i | k)$ represents the estimated output from the mod
 
 Parameters $N_{p}$ and $N_{c}$ are the prediction and control horizon respectively. These can be set to the same number although it is not a necessary condition. The definition of these parameters define when it is of interest to consider the different errors. This allows the objective function to be flexible for systems with dead-times or non-minimum phase. Also these errors may have different relevance in the control of the system, therefore this objective function might include or not weight matrices in order to ponder differently the errors.\\
 
-In this thesis, the objective function used is pre-defined by the optimization solver qpOASES, presented by \cite{Ferreau2011}, which is of the following form:
+In this thesis, the objective function used is pre-defined by the optimization solver qpOASES, presented by \cite{Ferreau2006}, which is of the following form:
 
 \begin{equation} \label{objectivefunction2}
 V(u) = \frac{1}{2} \sum_{i=k_{0}}^{k_{0} + N_{p} - 1} (y_{k} - y_{ref})'Q(y_{k} - y_{ref}) + (u_{k} - u_{ref})'R(u_{k} - u_{ref}) + \frac{1}{2} (y_{k_{0} + n_{p}} - y_{ref})'P(y_{k_{0} + n_{p}} - y_{ref})
@@ -197,7 +197,7 @@ In this equation, three sources of error are noticeable: output errors (or depen
 
 Constraints are limitations in the values of the variables that are considered in the open loop optimization problem formulated in MPC. The explicit consideration of constraints is translated into an increase in computational complexity, as the solution of the problem can only be obtained through numerical methods. Usually, constraints in the inputs are due to limitations of the actuators interacting with the process, and constraints in the outputs or in the states come from safety or operational limits in the process itself or the sensors present in the system.\\
 
-In \cite{Ferreau2011} a distinction is made between bounds and constraints, where the bounds are the limit values for the variable being optimised (the control signal $u$) and the constraints are expressions to define the limitations of the outputs and states, which are mapped through the matrix G as follows:
+In \cite{Ferreau2006} a distinction is made between bounds and constraints, where the bounds are the limit values for the variable being optimised (the control signal $u$) and the constraints are expressions to define the limitations of the outputs and states, which are mapped through the matrix G as follows:
 
 \begin{equation} \label{constraints1}
 \underline{U} \leq u \leq \bar{U}
@@ -209,7 +209,7 @@ In \cite{Ferreau2011} a distinction is made between bounds and constraints, wher
 
 \subsection{Optimization}%---------------------------Optimization--------------------------------------------------------------------------
 
-There are two main type of algorithms used commonly to solve quadratic problems like the ones that arise in MPC: active set methods and interior point methods. A brief description of both will be presented here for informative purposes and finally, the method used in \cite{Ferreau2011} will be described.
+There are two main type of algorithms used commonly to solve quadratic problems like the ones that arise in MPC: active set methods and interior point methods. A brief description of both will be presented here for informative purposes and finally, the method used in \cite{Ferreau2006} will be described.
 
 \begin{itemize}
 
@@ -262,7 +262,7 @@ If a new variable vector $y = Ax - b$ is introduced in the system, the condition
  \end{subequations}
 \end{equation}
 
-Which are correspondent with the KKT conditions for linear programming problems \cite{ref:Nocedal&Wright2006}. If we assume that we are only working with a convex objective function and feasible region, these conditions are necessary but also sufficient to assure the existence of such pair, and therefore the solution of the system \ref{eq:KKTIP2} solves the quadratic problem.
+Which are correspondent with the KKT conditions for linear programming problems \cite{Nocedal}. If we assume that we are only working with a convex objective function and feasible region, these conditions are necessary but also sufficient to assure the existence of such pair, and therefore the solution of the system \ref{eq:KKTIP2} solves the quadratic problem.
 
 
 
