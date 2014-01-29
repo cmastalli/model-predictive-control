@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  27 JAN 2014 15:58
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  29 JAN 2014 17:49
 entering extended mode
  %&-line parsing enabled.
 **Marcus_Hultmark_Thesis_template.tex
@@ -956,7 +956,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.39 ...mendations and Future Work}{38}{chapter.6}
+l.38 ...mendations and Future Work}{38}{chapter.6}
                                                    [1
 
 ])
@@ -1018,29 +1018,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 30--31
  []
 
 
-Package natbib Warning: Citation `Richalet1993' on page 2 undefined on input li
-ne 36.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 36--37
 
  []
-
-
-Package natbib Warning: Citation `ref:Gabrielsson2012' on page 2 undefined on i
-nput line 38.
-
-
-Package natbib Warning: Citation `ref:Molero2011' on page 2 undefined on input 
-line 38.
-
-
-Package natbib Warning: Citation `HercegetAl2006' on page 2 undefined on input 
-line 38.
-
-
-Package natbib Warning: Citation `Johansson2012' on page 2 undefined on input l
-ine 38.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 38--39
@@ -1048,36 +1028,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 38--39
  []
 
 
-Package natbib Warning: Citation `Gabrielsson2012' on page 2 undefined on input
- line 40.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
  [2]
-
-Package natbib Warning: Citation `ref:Molero2011' on page 3 undefined on input 
-line 42.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
 
 
-Package natbib Warning: Citation `ref:HercegetAl2006' on page 3 undefined on in
-put line 44.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 44--45
 
  []
-
-
-Package natbib Warning: Citation `ref:Johansson2012' on page 3 undefined on inp
-ut line 46.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 46--47
@@ -1090,17 +1053,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 48--49
  []
 
 
-Package natbib Warning: Citation `ref:ManentietAl' on page 3 undefined on input
- line 50.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
-
-
-Package natbib Warning: Citation `ref:DalteetAl' on page 3 undefined on input l
-ine 52.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 52--53
@@ -1108,46 +1063,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--53
  []
 
  [3]
-
-Package natbib Warning: Citation `ref:Bouabdallah2004' on page 4 undefined on i
-nput line 54.
-
-
-Package natbib Warning: Citation `ref:Bresciani2008' on page 4 undefined on inp
-ut line 54.
-
-
-Package natbib Warning: Citation `ref:Lellis2011' on page 4 undefined on input 
-line 54.
-
-
-Package natbib Warning: Citation `ref:Raffo2011' on page 4 undefined on input l
-ine 54.
-
-
-Package natbib Warning: Citation `ref:Salih2010' on page 4 undefined on input l
-ine 54.
-
-
-Package natbib Warning: Citation `ref:YueSun2012' on page 4 undefined on input 
-line 54.
-
-
-Package natbib Warning: Citation `ref:MahoneyKumar2012' on page 4 undefined on 
-input line 54.
-
-
-Package natbib Warning: Citation `ref:KostasetAl' on page 4 undefined on input 
-line 54.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
-
-
-Package natbib Warning: Citation `ref:Bouffard2011' on page 4 undefined on inpu
-t line 56.
 
 )
 (./Model_Predictive_Control/Model_Predictive_Control.tex [4]
@@ -1309,18 +1227,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 86--87
  []
 
 
-Package natbib Warning: Citation `Hovd' on page 7 undefined on input line 92.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 92--93
 
  []
 
 
-Package natbib Warning: Citation `Hovd' on page 7 undefined on input line 100.
-
-
-<Images/Chapter2/mpc_block_diagram.jpg, id=271, 422.57875pt x 228.855pt>
+<Images/Chapter2/mpc_block_diagram.jpg, id=309, 422.57875pt x 228.855pt>
 File: Images/Chapter2/mpc_block_diagram.jpg Graphic file (type jpg)
  <use Images/Chapter2/mpc_block_diagram.jpg>
 
@@ -1334,17 +1246,7 @@ ne 109.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- [7]
-
-Package natbib Warning: Citation `Bouffard2012' on page 8 undefined on input li
-ne 135.
-
- [8 <./Images/Chapter2/mpc_block_diagram.jpg>]
-
-Package natbib Warning: Citation `Ferreau2011' on page 9 undefined on input lin
-e 172.
-
-
+ [7] [8 <./Images/Chapter2/mpc_block_diagram.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
  []
@@ -1355,47 +1257,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 186--187
  []
 
 
-Package natbib Warning: Citation `Ferreau2011' on page 10 undefined on input li
-ne 188.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 198--199
 
  []
 
-
-Package natbib Warning: Citation `Ferreau2011' on page 10 undefined on input li
-ne 200.
-
-
-Package natbib Warning: Citation `Ferreau2011' on page 10 undefined on input li
-ne 212.
-
- [10]
-
-Package natbib Warning: Citation `ref:Nocedal&Wright2006' on page 11 undefined 
-on input line 265.
-
-)
+ [10])
 (./Dynamic_Modeling_of_a_Quadrotor/Dynamic_Modeling_of_a_Quadrotor.tex [11]
 Chapter 3.
 
-<Images/Chapter3/quad_dynamics.jpg, id=308, 338.01282pt x 191.9672pt>
+<Images/Chapter3/quad_dynamics.jpg, id=355, 338.01282pt x 191.9672pt>
 File: Images/Chapter3/quad_dynamics.jpg Graphic file (type jpg)
  <use Images/Chapter3/quad_dynamics.jpg>
-
-Package natbib Warning: Citation `MahoneyKumarCorke2012' on page 12 undefined o
-n input line 19.
-
-
-Package natbib Warning: Citation `HoffmannetAl2007' on page 12 undefined on inp
-ut line 19.
-
-
-Package natbib Warning: Citation `BouabdallahetAl' on page 12 undefined on inpu
-t line 19.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
@@ -1768,11 +1640,6 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
  [13]
-
-Package natbib Warning: Citation `HoffmannetAl2007' on page 14 undefined on inp
-ut line 79.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 79--80
 
  []
@@ -1780,14 +1647,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 79--80
 
 LaTeX Warning: Reference `eq:newtonformulation' on page 14 undefined on input l
 ine 81.
-
-
-Package natbib Warning: Citation `Raffo2007' on page 14 undefined on input line
- 81.
-
-
-Package natbib Warning: Citation `MahoneyKumarCorke2012' on page 14 undefined o
-n input line 87.
 
 
 ! Package amsmath Error: Erroneous nesting of equation structures;
@@ -1856,11 +1715,6 @@ Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
  [14]
-
-Package natbib Warning: Citation `YueSun2012' on page 15 undefined on input lin
-e 112.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 112--113
 
  []
@@ -1869,10 +1723,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 112--113
 Underfull \hbox (badness 10000) in paragraph at lines 114--115
 
  []
-
-
-Package natbib Warning: Citation `YueSun2012' on page 15 undefined on input lin
-e 122.
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 122--123
@@ -1885,7 +1735,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 124--125
  []
 
 
-<Images/Chapter3/Constant_thrust_upwards/Inputs.png, id=339, 586.8324pt x 442.2
+<Images/Chapter3/Constant_thrust_upwards/Inputs.png, id=395, 586.8324pt x 442.2
 924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Inputs.png Graphic file (type png
 )
@@ -1896,13 +1746,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 139--140
  []
 
 
-<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=349, 586.8324pt x 44
+<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=405, 586.8324pt x 44
 2.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Positions.png Graphic file (type 
 png)
 
 <use Images/Chapter3/Constant_thrust_upwards/Positions.png>
-<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=350, 586.832
+<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=406, 586.832
 4pt x 442.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png Graphic fil
 e (type png)
@@ -1927,17 +1777,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--157
  []
 
 
-<Images/Chapter3/Lateral_X/Inputs.png, id=365, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Inputs.png, id=421, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Inputs.png>
-<Images/Chapter3/Lateral_X/Torque_inputs.png, id=366, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Torque_inputs.png, id=422, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Torque_inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Torque_inputs.png> [18 <./Images/Chapter3/Later
 al_X/Inputs.png>]
-<Images/Chapter3/Lateral_X/Positions.png, id=375, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Positions.png, id=431, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Positions.png>
-<Images/Chapter3/Lateral_X/Linear_velocities.png, id=378, 586.8324pt x 442.2924
+<Images/Chapter3/Lateral_X/Linear_velocities.png, id=434, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_X/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Linear_velocities.png>
@@ -1945,10 +1795,10 @@ File: Images/Chapter3/Lateral_X/Linear_velocities.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_X/Euler_Angles.png, id=381, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Euler_Angles.png, id=437, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Euler_Angles.png>
-<Images/Chapter3/Lateral_X/Angular_velocities.png, id=384, 586.8324pt x 442.292
+<Images/Chapter3/Lateral_X/Angular_velocities.png, id=440, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_X/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Angular_velocities.png>
@@ -1966,17 +1816,17 @@ LaTeX Warning: Text page 21 contains only floats.
 
  [21 <./Images/Chapter3/Lateral_X/Euler_Angles.png> <./Images/Chapter3/Lateral_
 X/Angular_velocities.png>]
-<Images/Chapter3/Lateral_Y/Inputs.png, id=409, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Inputs.png, id=465, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Inputs.png>
-<Images/Chapter3/Lateral_Y/Torque_inputs.png, id=410, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Torque_inputs.png, id=466, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Torque_inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Torque_inputs.png> [22 <./Images/Chapter3/Later
 al_Y/Inputs.png>]
-<Images/Chapter3/Lateral_Y/Positions.png, id=419, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Positions.png, id=475, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Positions.png>
-<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=422, 586.8324pt x 442.2924
+<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=478, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_Y/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Linear_velocities.png>
@@ -1984,10 +1834,10 @@ File: Images/Chapter3/Lateral_Y/Linear_velocities.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=425, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=481, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Euler_Angles.png>
-<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=428, 586.8324pt x 442.292
+<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=484, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_Y/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Angular_velocities.png>
@@ -2014,10 +1864,6 @@ Underfull \hbox (badness 10000) in paragraph at lines 6--7
  []
 
 
-Package natbib Warning: Citation `QuigleyetAl2009' on page 27 undefined on inpu
-t line 8.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
@@ -2030,17 +1876,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
  []
 
 
-<Images/Chapter4/Class_Diagram.png, id=465, 502.87875pt x 594.22pt>
+<Images/Chapter4/Class_Diagram.png, id=524, 502.87875pt x 594.22pt>
 File: Images/Chapter4/Class_Diagram.png Graphic file (type png)
  <use Images/Chapter4/Class_Diagram.png>
-<Images/Chapter4/Class_diagram_implementation.png, id=466, 527.9725pt x 376.406
+<Images/Chapter4/Class_diagram_implementation.png, id=525, 527.9725pt x 376.406
 25pt>
 File: Images/Chapter4/Class_diagram_implementation.png Graphic file (type png)
- <use Images/Chapter4/Class_diagram_implementation.png>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
- [28 <./Images/Chapter4/Class_Diagram.png (PNG copy)>]
+ <use Images/Chapter4/Class_diagram_implementation.png> [28 <./Images/Chapter4/
+Class_Diagram.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
@@ -2055,33 +1898,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
  []
 
-
-Package natbib Warning: Citation `ClarkEvans2004' on page 31 undefined on input
- line 140.
-
  [31]) (./Results_and_Discussion/Results_and_Discussion.tex [32]
 Chapter 5.
-
-Package natbib Warning: Citation `ref:YueSun2012' on page 33 undefined on input
- line 14.
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 14--15
 
  []
 
 
-Package natbib Warning: Citation `ref:Gabrielsson2012' on page 33 undefined on 
-input line 16.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 16--17
 
  []
-
-
-Package natbib Warning: Citation `ref:Bouffard2012' on page 33 undefined on inp
-ut line 18.
 
 ! Missing $ inserted.
 <inserted text> 
@@ -2180,10 +2007,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 34--35
  []
 
 
-<Images/Chapter5/ardrone/position_control.png, id=498, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/position_control.png, id=561, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/position_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/position_control.png>
-<Images/Chapter5/ardrone/euler_angle_control.png, id=499, 586.8324pt x 442.2924
+<Images/Chapter5/ardrone/euler_angle_control.png, id=562, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter5/ardrone/euler_angle_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/euler_angle_control.png>
@@ -2191,7 +2018,7 @@ File: Images/Chapter5/ardrone/euler_angle_control.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter5/ardrone/lin_velocity_control.png, id=500, 586.8324pt x 442.292
+<Images/Chapter5/ardrone/lin_velocity_control.png, id=563, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/lin_velocity_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/lin_velocity_control.png>
@@ -2199,7 +2026,7 @@ File: Images/Chapter5/ardrone/lin_velocity_control.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter5/ardrone/ang_velocity_control.png, id=501, 586.8324pt x 442.292
+<Images/Chapter5/ardrone/ang_velocity_control.png, id=564, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/ang_velocity_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/ang_velocity_control.png>
@@ -2207,7 +2034,7 @@ File: Images/Chapter5/ardrone/ang_velocity_control.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter5/ardrone/control_signals.png, id=502, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/control_signals.png, id=565, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/control_signals.png Graphic file (type png)
  <use Images/Chapter5/ardrone/control_signals.png>
 
@@ -2240,11 +2067,6 @@ Overfull \vbox (0.62204pt too high) has occurred while \output is active []
 
  [36 <./Images/Chapter5/ardrone/ang_velocity_control.png> <./Images/Chapter5/ar
 drone/control_signals.png>]
-
-Package natbib Warning: Citation `ref:CamachoBordons' on page 37 undefined on i
-nput line 75.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
@@ -2254,14 +2076,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--76
 Chapter 6.
 
 (./Recommendations_and_Future_Work/Recommendations/Recommendations.tex)
-(./Recommendations_and_Future_Work/Future_Work/Future_Work.tex))
-No file Marcus_Hultmark_Thesis_template.bbl.
+(./Recommendations_and_Future_Work/Future_Work/Future_Work.tex)) (./Marcus_Hult
+mark_Thesis_template.bbl [38
+
+]
+! Misplaced alignment tab character &.
+l.82 \newblock {\em IEEE Robotics &
+                                    Automation Magazine}, 19(3), 2012.
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+ [39
+
+]
+
+! Package inputenc Error: Unicode char \u8:´ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.111 \newblock {Modelado y control de un ´
+                                             helic optero quadrotor}.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+)
 
 Package natbib Warning: There were undefined citations.
 
- [38
-
-] (./Marcus_Hultmark_Thesis_template.aux)
+ [40] (./Marcus_Hultmark_Thesis_template.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -2270,13 +2119,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10245 strings out of 493848
- 147759 string characters out of 1152822
+ 10311 strings out of 493848
+ 149055 string characters out of 1152822
  259113 words of memory out of 3000000
- 13044 multiletter control sequences out of 15000+50000
+ 13082 multiletter control sequences out of 15000+50000
  67653 words of font info for 96 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 40i,18n,43p,1656b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,18n,43p,1656b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
 ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
 pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
@@ -2288,10 +2137,10 @@ s/type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utm
 b8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/
 texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on Marcus_Hultmark_Thesis_template.pdf (42 pages, 1261698 bytes)
+Output written on Marcus_Hultmark_Thesis_template.pdf (44 pages, 1280785 bytes)
 .
 PDF statistics:
- 605 PDF objects out of 1000 (max. 8388607)
- 130 named destinations out of 1000 (max. 500000)
+ 685 PDF objects out of 1000 (max. 8388607)
+ 156 named destinations out of 1000 (max. 500000)
  454 words of extra memory for PDF output out of 10000 (max. 10000000)
 

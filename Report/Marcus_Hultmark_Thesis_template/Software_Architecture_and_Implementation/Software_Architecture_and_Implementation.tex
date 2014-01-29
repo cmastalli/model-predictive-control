@@ -5,7 +5,7 @@
 
 In robotics, the amount of code required to get functional robots is quite big, since the coding goes from a driver level of the components to more higher level AI algorithms and routines. Usually, it is difficult to write code that can be adapted to several platforms or robots, and the persons in charge of this may have different choices of languages, depending on the expertise. These reasons make the integration of the different applications required to get the robot up and running a challenging work.\\
 
-ROS is a response to these necessities, and the result is an meta-operative system designed to build a framework that provides an abstract communication layer between robotic applications in order to minimize integration efforts and reuse code. This will allow to use the same program with different platforms, accross different languages and different levels of the software, simplifying a lot the work required to develop an experimental set and making it possible to expand easily the experiments. ROS can also run in a distributed way, so that different processes can run in different computers accross a Local Area Network (LAN) \cite{QuigleyetAl2009}.\\
+ROS is a response to these necessities, and the result is an meta-operative system designed to build a framework that provides an abstract communication layer between robotic applications in order to minimize integration efforts and reuse code. This will allow to use the same program with different platforms, accross different languages and different levels of the software, simplifying a lot the work required to develop an experimental set and making it possible to expand easily the experiments. ROS can also run in a distributed way, so that different processes can run in different computers accross a Local Area Network (LAN) \cite{Quigley}.\\
 
 The ROS architecture is built in a peer-to-peer topology, where a number of processes can be running in a single host or in several hosts and communicate to each other. The coordination of the communication tasks is done by a \emph{master} process that can run in any computer in the network. The ability to run several nodes in different languages is achieved by a language-neutral interface definition language (IDL), that specifies each field of the message for the code generators and compilers of each language to generate an implementation native to the correspondent language. 
 
@@ -23,7 +23,7 @@ ROS functionality can be distributed in the following elements:
 
 \item \textbf{Services} In case of requiring syncronous communication between nodes, ROS offers services. A service consists of three elements: a string that defines the name and two strictly typed messages, one for the request and one for the response. Unlike topics, only one node can advertise a particular service with a unique name. 
 
-\item \textbf{Parameter Server} This is a very 
+\item \textbf{Parameter Server} This is a very useful resource that ROS provides. It stores variable values of different types and used for different purposes while ROS is up and running. Some of these variables can be parameters for the running applications or configuration settings. These parameters can be loaded each time through a \emph{launch} file and a configuration file written in YAML format \cite{Ben-kiki2004}. The launch file initiates ROS, specifies the nodes that should be running for a particular application, and loads the parameter server with the information provided by the YAML file. One big advantage of this way of launching nodes is that the configuration file does not need to be compiled each time, so one can change parameters without the downtime used compiling. 
 
 \end{itemize}
 
@@ -33,16 +33,16 @@ A quick description of the library can be made from Figure \ref{fig:inheritance_
 
 The functional relation between the classes is displayed in Figure \ref{fig:implementation_class_diagram}. A particular instance of the ModelPredictiveControl interface class is responsible of solving the MPC problem, which unifies the functionality of the Model, Optimizer and Simulator (if any simulator is to be used; if not, the information is shared to the platform via ROS topic) classes.
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{Images/Chapter4/Class_Diagram.png}
+\includegraphics[scale=0.4]{Images/Chapter4/Class_Diagram.png}
 \caption{Inheritance relationship between the interface and the implementation classes.}
 \label{fig:inheritance_class_diagram}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{Images/Chapter4/Class_diagram_implementation.png}
+\includegraphics[scale=0.4]{Images/Chapter4/Class_diagram_implementation.png}
 \caption{Implementation example of the class hierarchy for the ArDrone case.}
 \label{fig:implementation_class_diagram}
 \end{figure}
@@ -137,12 +137,12 @@ All of these classes would have to adapt their main functionality to the followi
 
 \item resetMPC function: this function takes a pointer to an object of the Model, Optimizer and Simulator classes and sets the into the ModelPredictiveControl object, therefore providing the class with all the information and methods from these. Here is where the benefits of using interface classes comes into play: because of this, the pointers to the aforementioned objects can be instantiated as interface classes despite what object it is, as long as they are derived from them. This makes the implementation in the main function easily interchangeable between systems, solvers and simulators as longs as they are provided.
 
-\item initMPC function: in this function all the parameters required to define the problem are read and all the initial calculations are performed. The parameters are read from ROS's parameter server, which can be modified without compiling afterwards using configuration files written in YAML format \cite{ClarkEvans2004}. This allows quick modifications without the time consuming compilation process.
+\item initMPC function: in this function all the parameters required to define the problem are read and all the initial calculations are performed. The parameters are read from ROS's parameter server, which can be modified without compiling afterwards using configuration files written in YAML format. This allows quick modifications without the time consuming compilation process.
 
 \item updateMPC function: in this function is where the actual MPC problem is solved. The function takes the current state of the system and the desired reference for the system as inputs, and uses all the previously computed variables and parameters required to assemble the quadratic problem, then it summons the functionality from the optimizer class in order to solve the problem and provide a solution.   
 
 \end{itemize}
 
-\section{The Parameter Server}
+
 
 
