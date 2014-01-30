@@ -6,7 +6,7 @@ mpc:
 
   optimizer:
     number_constraints: 3
-    working_set_recalculations: 600
+    working_set_recalculations: 300
 
     states_error_weight_matrix:
       data: [25.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,
@@ -43,8 +43,8 @@ mpc:
               0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,   0.0,    0.01]
 
     constraints:
-      constraint_vector_low: [0.0, -10.0, -10.0]
-      constraint_vector_upp: [20.0, 10.0, 10.0]
+      constraint_vector_low: [0.0, -5.0, -5.0]
+      constraint_vector_upp: [20.0, 5.0, 5.0]
 
       constraint_matrix_M: [0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 
                             0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,

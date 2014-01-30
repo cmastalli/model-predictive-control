@@ -59,6 +59,8 @@ int main(int argc, char **argv)
 			
     timespec start_rt, end_rt;
     clock_gettime(CLOCK_REALTIME, &start_rt);
+	real_t begin, end;
+    
 	for (int counter = 0; counter < 2440; counter++) {
 		/*while (ros::ok())*/
 		if (counter > 480)
@@ -77,8 +79,12 @@ int main(int argc, char **argv)
 		}
 
 		// Solving the quadratic problem to obtain the new inputs
+		begin = getCPUtime();
 		mpc_ptr->updateMPC(delta_xmeas, delta_xref); // Here we are also recalculating the system matrices A and B
-		
+		end = getCPUtime();
+		real_t duration = end - begin;
+		ROS_INFO("Optimization problem computational time: %f", static_cast<double>(duration));
+
 		delta_u = mpc_ptr->getControlSignal();
 		u_bar = model_ptr->getOperationPointsInputs();
 		for (int i = 0; i < 4; i++)
@@ -112,6 +118,8 @@ int main(int argc, char **argv)
 		}
 	}
 
+	//clock_gettime(CLOCK_REALTIME, &end_rt);
+	//double duration = (end_rt.tv_sec - start_rt.tv_sec) + 1e-9*(end_rt.tv_nsec - start_rt.tv_nsec);
 	clock_gettime(CLOCK_REALTIME, &end_rt);
 	double duration = (end_rt.tv_sec - start_rt.tv_sec) + 1e-9*(end_rt.tv_nsec - start_rt.tv_nsec);
 	ROS_INFO("The duration of computation of optimization problem is %f seg.", duration);
