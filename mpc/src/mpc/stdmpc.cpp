@@ -302,7 +302,7 @@ void mpc::STDMPC::updateMPC(double* x_measured, double* x_reference)
 	G_bar = M_bar_ * B_bar_;
 	
 	
-	double cputime = 0;//1.0;//NULL;
+	double cputime = 0.008;//1.0;//NULL;
 	bool success = false;
 	success = optimizer_->computeOpt(&hessian_matrix[0][0], gradient_vector, &constraint_matrix[0][0], lb_bar, ub_bar, lbG_bar, ubG_bar, cputime);
 	if (success) {

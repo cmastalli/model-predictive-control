@@ -9,13 +9,13 @@ mpc:
     working_set_recalculations: 500
 
     states_error_weight_matrix:
-      data: [20.0, 0.0, 0.0, 10.0]
+      data: [100.0, 0.0, 0.0, 200.0]
 
     input_error_weight_matrix:
-      data: [0.010]
+      data: [0.001]
 
     terminal_state_weight_matrix:
-      data: [30.0, 0.0, 0.0, 30.0]
+      data: [1000.0, 0.0, 0.0, 1000.0]
 
     constraints:
       constraint_vector_low: [0.0, 0.0]
