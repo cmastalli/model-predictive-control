@@ -1,9 +1,27 @@
 \chapter{Results and Discussion}
 \label{chap:Results_and_Discussion}
 
-This chapter will be divided in three parts: in the first one, the settings and parameters to perform the tests will be presented, together with the achieved results. In the second part, an analysis of these results will be developed and the third part will be a final summary.
+In this chapter the results of the application of the developed MPC application on two different platforms is shown and discussed. The first platform is the simulator for a well known tank system present here at the Control labs. This system was developed as a small test platform of the software before using it on the quadrotor simulator. The second platform is the simulator for the quadrotor, which comes from the modeling effort made in chapter three. For each platform, the structure to present the results will be divided in three sections: Simulation settings and parameters, Results and Discussion.
 
-\section{Settings and Parameters}
+\section{Tank system simulations}
+
+\subsection{Simulation settings and parameters}
+
+The tank system's equations were provided with their correspondent identified parameters. The system is made of two tanks that are connected by gravity: one tank provides the inflow for the other and from there to a water deposit. There is also a small pump, its operation voltage represents the input to the system. The states of the system are the two tank level, of which the desired output is the level of the second  tank.  The system is depicted below as in Figure \ref{fig:tank_system}: 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.7]{Images/Chapter5/tank_system.png}
+\caption{Representation of the tank system.}
+\label{fig:tank_system}
+\end{figure}
+
+The non-linear equations were linearized in order to be able to have a state space representation of the system to provide to the MPC software. The MPC strategy is calculating directly the control signals taking the 
+
+
+\section{Quadrotor simulations}
+
+\subsection{Simulation settings and parameters}
 
 Since the quadrotor has only four actuators to move in six degrees of freedom, it is an underactuated system. Hence, there will be only four variables that will be controllable. The choice made was to control the $x, y, z$ positions and the orientation around the $z$ axis ($\psi$). It is important to mention that the MPC is not sending directly the input signals going to the motors. The reason for this is that the model that is being used to perform the calculations is a linearized model, therefore the state variables represent deviations around an operation point. The MPC is instead controlling these linearized state variables and sending that to modify the initial operation point. The operation point being used is calculated by simple force balance in the hover condition, to obtain the required angular speed of the rotors to keep the quadrotor static in the air, which is approximately $360$ radians per second. That way, the control signal vector going to the quadrotor simulator is built as follows:
 
@@ -29,44 +47,48 @@ With the weight matrices, the procedure is also made in a trial and error fashio
     \end{tabular}
 \end{center}
 
-The trajectory reference used to test the MPC in the quadrotor simulator is based in simple decoupled movements in each one of the controlled directions, done one at a time. The movement consists on four stages: elevation from the floor, change in orientation (a change in the yaw angle), rotating back to the original orientation, and movements in the $X$ and $Y$ axes, in that order.\\
+The trajectory reference used to test the MPC in the quadrotor simulator is based in simple decoupled movements in each one of the controlled directions, done one at a time. The movement consists on four stages: elevation from the floor, change in orientation (a change in the yaw angle), rotating back to the original orientation, and movements in the $X$ and $Y$ axes, in that order.
+
+\subsection{Results}
 
 The results of the simulation with the mentioned parameters and settings are shown below:\\
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.7]{Images/Chapter5/ardrone/position_control.png}
 \caption{Trajectory reference and actual trajectory positions of the simulated platform.}
 \label{fig:ardrone_pos}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.7]{Images/Chapter5/ardrone/euler_angle_control.png}
 \caption{Trajectory reference and actual trajectory orientations ($\psi$) of the simulated platform.}
 \label{fig:ardrone_ang}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.7]{Images/Chapter5/ardrone/lin_velocity_control.png}
 \caption{Linear velocities of the simulated platform. }
 \label{fig:ardrone_lin_vel}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.7]{Images/Chapter5/ardrone/ang_velocity_control.png}
 \caption{Angular velocities of the simulated platform.}
 \label{fig:ardrone_ang_vel}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.7]{Images/Chapter5/ardrone/control_signals.png}
 \caption{Control signals generated by the MPC strategy.}
 \label{fig:ardrone_inputs}
 \end{figure}
+
+\subsection{Discussion}
 
 The simulations show the performance of the MPC strategy in the simulated quadrotor. Figures \ref{fig:ardrone_pos} and \ref{fig:ardrone_ang} show the position and orientation  response of the system against step input signals on each controlled variable. The response shown presents a smooth behavior, no overshoot and a small settling time correspondant to a fast system like the quadrotor. The prediction horizon used, $N_p = 30$, has a right balance in speed to allow a fast response without overshoot.\\
 

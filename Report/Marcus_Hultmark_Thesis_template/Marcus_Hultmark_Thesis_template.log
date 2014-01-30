@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  29 JAN 2014 17:49
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  30 JAN 2014 15:35
 entering extended mode
  %&-line parsing enabled.
 **Marcus_Hultmark_Thesis_template.tex
@@ -910,7 +910,7 @@ OK, entering \batchmode...
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 9.89993pt on input line 10.
 
-<kth_cmyk_electr_engine.pdf, id=167, 483.8075pt x 439.6425pt>
+<kth_cmyk_electr_engine.pdf, id=187, 483.8075pt x 439.6425pt>
 File: kth_cmyk_electr_engine.pdf Graphic file (type pdf)
  <use kth_cmyk_electr_engine.pdf> [0
 
@@ -956,7 +956,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.38 ...mendations and Future Work}{38}{chapter.6}
+l.40 ...ings and parameters}{33}{subsection.5.2.1}
                                                    [1
 
 ])
@@ -1232,7 +1232,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 92--93
  []
 
 
-<Images/Chapter2/mpc_block_diagram.jpg, id=309, 422.57875pt x 228.855pt>
+<Images/Chapter2/mpc_block_diagram.jpg, id=334, 422.57875pt x 228.855pt>
 File: Images/Chapter2/mpc_block_diagram.jpg Graphic file (type jpg)
  <use Images/Chapter2/mpc_block_diagram.jpg>
 
@@ -1265,7 +1265,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 198--199
 (./Dynamic_Modeling_of_a_Quadrotor/Dynamic_Modeling_of_a_Quadrotor.tex [11]
 Chapter 3.
 
-<Images/Chapter3/quad_dynamics.jpg, id=355, 338.01282pt x 191.9672pt>
+<Images/Chapter3/quad_dynamics.jpg, id=380, 338.01282pt x 191.9672pt>
 File: Images/Chapter3/quad_dynamics.jpg Graphic file (type jpg)
  <use Images/Chapter3/quad_dynamics.jpg>
 Underfull \hbox (badness 10000) in paragraph at lines 19--20
@@ -1735,7 +1735,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 124--125
  []
 
 
-<Images/Chapter3/Constant_thrust_upwards/Inputs.png, id=395, 586.8324pt x 442.2
+<Images/Chapter3/Constant_thrust_upwards/Inputs.png, id=420, 586.8324pt x 442.2
 924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Inputs.png Graphic file (type png
 )
@@ -1746,13 +1746,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 139--140
  []
 
 
-<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=405, 586.8324pt x 44
+<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=430, 586.8324pt x 44
 2.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Positions.png Graphic file (type 
 png)
 
 <use Images/Chapter3/Constant_thrust_upwards/Positions.png>
-<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=406, 586.832
+<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=431, 586.832
 4pt x 442.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png Graphic fil
 e (type png)
@@ -1777,17 +1777,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--157
  []
 
 
-<Images/Chapter3/Lateral_X/Inputs.png, id=421, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Inputs.png, id=446, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Inputs.png>
-<Images/Chapter3/Lateral_X/Torque_inputs.png, id=422, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Torque_inputs.png, id=447, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Torque_inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Torque_inputs.png> [18 <./Images/Chapter3/Later
 al_X/Inputs.png>]
-<Images/Chapter3/Lateral_X/Positions.png, id=431, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Positions.png, id=456, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Positions.png>
-<Images/Chapter3/Lateral_X/Linear_velocities.png, id=434, 586.8324pt x 442.2924
+<Images/Chapter3/Lateral_X/Linear_velocities.png, id=459, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_X/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Linear_velocities.png>
@@ -1795,10 +1795,10 @@ File: Images/Chapter3/Lateral_X/Linear_velocities.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_X/Euler_Angles.png, id=437, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Euler_Angles.png, id=462, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Euler_Angles.png>
-<Images/Chapter3/Lateral_X/Angular_velocities.png, id=440, 586.8324pt x 442.292
+<Images/Chapter3/Lateral_X/Angular_velocities.png, id=465, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_X/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Angular_velocities.png>
@@ -1816,17 +1816,17 @@ LaTeX Warning: Text page 21 contains only floats.
 
  [21 <./Images/Chapter3/Lateral_X/Euler_Angles.png> <./Images/Chapter3/Lateral_
 X/Angular_velocities.png>]
-<Images/Chapter3/Lateral_Y/Inputs.png, id=465, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Inputs.png, id=490, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Inputs.png>
-<Images/Chapter3/Lateral_Y/Torque_inputs.png, id=466, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Torque_inputs.png, id=491, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Torque_inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Torque_inputs.png> [22 <./Images/Chapter3/Later
 al_Y/Inputs.png>]
-<Images/Chapter3/Lateral_Y/Positions.png, id=475, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Positions.png, id=500, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Positions.png>
-<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=478, 586.8324pt x 442.2924
+<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=503, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_Y/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Linear_velocities.png>
@@ -1834,10 +1834,10 @@ File: Images/Chapter3/Lateral_Y/Linear_velocities.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=481, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=506, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Euler_Angles.png>
-<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=484, 586.8324pt x 442.292
+<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=509, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_Y/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Angular_velocities.png>
@@ -1876,10 +1876,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
  []
 
 
-<Images/Chapter4/Class_Diagram.png, id=524, 502.87875pt x 594.22pt>
+<Images/Chapter4/Class_Diagram.png, id=549, 502.87875pt x 594.22pt>
 File: Images/Chapter4/Class_Diagram.png Graphic file (type png)
  <use Images/Chapter4/Class_Diagram.png>
-<Images/Chapter4/Class_diagram_implementation.png, id=525, 527.9725pt x 376.406
+<Images/Chapter4/Class_diagram_implementation.png, id=550, 527.9725pt x 376.406
 25pt>
 File: Images/Chapter4/Class_diagram_implementation.png Graphic file (type png)
  <use Images/Chapter4/Class_diagram_implementation.png> [28 <./Images/Chapter4/
@@ -1901,19 +1901,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 131--132
  [31]) (./Results_and_Discussion/Results_and_Discussion.tex [32]
 Chapter 5.
 
-Underfull \hbox (badness 10000) in paragraph at lines 14--15
+<Images/Chapter5/tank_system.png, id=579, 120.45pt x 180.675pt>
+File: Images/Chapter5/tank_system.png Graphic file (type png)
+ <use Images/Chapter5/tank_system.png> [33
+
+ <./Images/Chapter5/tank_system.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 32--33
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 16--17
+Underfull \hbox (badness 10000) in paragraph at lines 34--35
 
  []
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.25     Input constraints &  -230 \leq
+l.43     Input constraints &  -230 \leq
                                         \Delta \omega_{i} \leq 140 [rad/s] \...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1921,7 +1926,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 <recently read> \egroup 
                         
-l.25 ...elta \omega_{i} \leq 140 [rad/s] \\ \hline
+l.43 ...elta \omega_{i} \leq 140 [rad/s] \\ \hline
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1932,7 +1937,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.25 ...elta \omega_{i} \leq 140 [rad/s] \\ \hline
+l.43 ...elta \omega_{i} \leq 140 [rad/s] \\ \hline
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1940,7 +1945,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.25 ...elta \omega_{i} \leq 140 [rad/s] \\ \hline
+l.43 ...elta \omega_{i} \leq 140 [rad/s] \\ \hline
                                                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1951,7 +1956,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.26     State constraints &  -5 \leq
+l.44     State constraints &  -5 \leq
                                       V_x \leq 5 [m]  \newline -5 \leq V_y \...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1959,7 +1964,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 <recently read> \egroup 
                         
-l.26 ...[m] \newline 0 \leq z \leq 5 [m] \\ \hline
+l.44 ...[m] \newline 0 \leq z \leq 5 [m] \\ \hline
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1970,7 +1975,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.26 ...[m] \newline 0 \leq z \leq 5 [m] \\ \hline
+l.44 ...[m] \newline 0 \leq z \leq 5 [m] \\ \hline
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1978,7 +1983,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.26 ...[m] \newline 0 \leq z \leq 5 [m] \\ \hline
+l.44 ...[m] \newline 0 \leq z \leq 5 [m] \\ \hline
                                                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1989,90 +1994,56 @@ my insertion and my current dilemma will both disappear.
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.28     \hline
+l.46     \hline
                
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
 
- [33
 
-]
-Underfull \hbox (badness 10000) in paragraph at lines 32--33
+Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 34--35
-
- []
-
-
-<Images/Chapter5/ardrone/position_control.png, id=561, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/position_control.png, id=590, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/position_control.png Graphic file (type png)
- <use Images/Chapter5/ardrone/position_control.png>
-<Images/Chapter5/ardrone/euler_angle_control.png, id=562, 586.8324pt x 442.2924
+ <use Images/Chapter5/ardrone/position_control.png> [34]
+<Images/Chapter5/ardrone/euler_angle_control.png, id=595, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter5/ardrone/euler_angle_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/euler_angle_control.png>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-<Images/Chapter5/ardrone/lin_velocity_control.png, id=563, 586.8324pt x 442.292
+<Images/Chapter5/ardrone/lin_velocity_control.png, id=596, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/lin_velocity_control.png Graphic file (type png)
- <use Images/Chapter5/ardrone/lin_velocity_control.png>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-<Images/Chapter5/ardrone/ang_velocity_control.png, id=564, 586.8324pt x 442.292
+ <use Images/Chapter5/ardrone/lin_velocity_control.png> [35 <./Images/Chapter5/
+ardrone/position_control.png> <./Images/Chapter5/ardrone/euler_angle_control.pn
+g>]
+<Images/Chapter5/ardrone/ang_velocity_control.png, id=605, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/ang_velocity_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/ang_velocity_control.png>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-<Images/Chapter5/ardrone/control_signals.png, id=565, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/control_signals.png, id=606, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/control_signals.png Graphic file (type png)
- <use Images/Chapter5/ardrone/control_signals.png>
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--72
+ <use Images/Chapter5/ardrone/control_signals.png> [36 <./Images/Chapter5/ardro
+ne/lin_velocity_control.png> <./Images/Chapter5/ardrone/ang_velocity_control.pn
+g>]
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
 
  []
 
- [34 <./Images/Chapter5/ardrone/position_control.png>]
 
-LaTeX Warning: Text page 35 contains only floats.
-
-
-Overfull \vbox (0.62204pt too high) has occurred while \output is active []
-
- [35 <./Images/Chapter5/ardrone/euler_angle_control.png> <./Images/Chapter5/ard
-rone/lin_velocity_control.png>]
-
-LaTeX Warning: Text page 36 contains only floats.
-
-
-Overfull \vbox (0.62204pt too high) has occurred while \output is active []
-
- [36 <./Images/Chapter5/ardrone/ang_velocity_control.png> <./Images/Chapter5/ar
-drone/control_signals.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 75--76
+Underfull \hbox (badness 10000) in paragraph at lines 97--98
 
  []
 
 )
-(./Recommendations_and_Future_Work/Recommendations_and_Future_Work.tex [37]
+(./Recommendations_and_Future_Work/Recommendations_and_Future_Work.tex [37 <./I
+mages/Chapter5/ardrone/control_signals.png>]
 Chapter 6.
 
 (./Recommendations_and_Future_Work/Recommendations/Recommendations.tex)
@@ -2119,11 +2090,11 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10311 strings out of 493848
- 149055 string characters out of 1152822
+ 10330 strings out of 493848
+ 149429 string characters out of 1152822
  259113 words of memory out of 3000000
- 13082 multiletter control sequences out of 15000+50000
- 67653 words of font info for 96 fonts, out of 3000000 for 9000
+ 13092 multiletter control sequences out of 15000+50000
+ 68807 words of font info for 97 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  40i,18n,43p,1656b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
@@ -2137,10 +2108,10 @@ s/type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utm
 b8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/
 texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on Marcus_Hultmark_Thesis_template.pdf (44 pages, 1280785 bytes)
+Output written on Marcus_Hultmark_Thesis_template.pdf (44 pages, 1289834 bytes)
 .
 PDF statistics:
- 685 PDF objects out of 1000 (max. 8388607)
- 156 named destinations out of 1000 (max. 500000)
- 454 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 715 PDF objects out of 1000 (max. 8388607)
+ 162 named destinations out of 1000 (max. 500000)
+ 499 words of extra memory for PDF output out of 10000 (max. 10000000)
 

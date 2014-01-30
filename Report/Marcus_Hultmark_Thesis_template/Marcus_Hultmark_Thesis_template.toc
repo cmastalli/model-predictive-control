@@ -34,8 +34,13 @@
 \contentsline {subsection}{\numberline {4.3.3}Simulator}{31}{subsection.4.3.3}
 \contentsline {subsection}{\numberline {4.3.4}ModelPredictiveControl}{31}{subsection.4.3.4}
 \contentsline {chapter}{\numberline {5}Results and Discussion}{33}{chapter.5}
-\contentsline {section}{\numberline {5.1}Settings and Parameters}{33}{section.5.1}
+\contentsline {section}{\numberline {5.1}Tank system simulations}{33}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Simulation settings and parameters}{33}{subsection.5.1.1}
+\contentsline {section}{\numberline {5.2}Quadrotor simulations}{33}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Simulation settings and parameters}{33}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Results}{34}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Discussion}{37}{subsection.5.2.3}
 \contentsline {chapter}{\numberline {6}Recommendations and Future Work}{38}{chapter.6}
 \contentsline {section}{\numberline {6.1}Recommendations}{38}{section.6.1}
 \contentsline {section}{\numberline {6.2}Future Work}{38}{section.6.2}
-\contentsline {chapter}{Bibliography}{39}{section*.22}
+\contentsline {chapter}{Bibliography}{39}{section*.23}
