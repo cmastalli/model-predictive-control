@@ -36,11 +36,13 @@
 \contentsline {chapter}{\numberline {5}Results and Discussion}{33}{chapter.5}
 \contentsline {section}{\numberline {5.1}Tank system simulations}{33}{section.5.1}
 \contentsline {subsection}{\numberline {5.1.1}Simulation settings and parameters}{33}{subsection.5.1.1}
-\contentsline {section}{\numberline {5.2}Quadrotor simulations}{33}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Simulation settings and parameters}{33}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Results}{34}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Discussion}{37}{subsection.5.2.3}
-\contentsline {chapter}{\numberline {6}Recommendations and Future Work}{38}{chapter.6}
-\contentsline {section}{\numberline {6.1}Recommendations}{38}{section.6.1}
-\contentsline {section}{\numberline {6.2}Future Work}{38}{section.6.2}
-\contentsline {chapter}{Bibliography}{39}{section*.23}
+\contentsline {subsection}{\numberline {5.1.2}Results}{34}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Discussion}{35}{subsection.5.1.3}
+\contentsline {section}{\numberline {5.2}Quadrotor simulations}{35}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Simulation settings and parameters}{35}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Results}{36}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Discussion}{39}{subsection.5.2.3}
+\contentsline {chapter}{\numberline {6}Recommendations and Future Work}{40}{chapter.6}
+\contentsline {section}{\numberline {6.1}Recommendations}{40}{section.6.1}
+\contentsline {section}{\numberline {6.2}Future Work}{40}{section.6.2}
+\contentsline {chapter}{Bibliography}{41}{section*.25}
