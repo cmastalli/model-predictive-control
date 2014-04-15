@@ -42,7 +42,7 @@
 \contentsline {subsection}{\numberline {5.2.1}Simulation settings and parameters}{35}{subsection.5.2.1}
 \contentsline {subsection}{\numberline {5.2.2}Results}{36}{subsection.5.2.2}
 \contentsline {subsection}{\numberline {5.2.3}Discussion}{39}{subsection.5.2.3}
-\contentsline {chapter}{\numberline {6}Recommendations and Future Work}{40}{chapter.6}
-\contentsline {section}{\numberline {6.1}Recommendations}{40}{section.6.1}
-\contentsline {section}{\numberline {6.2}Future Work}{40}{section.6.2}
-\contentsline {chapter}{Bibliography}{41}{section*.25}
+\contentsline {chapter}{\numberline {6}Recommendations and Future Work}{41}{chapter.6}
+\contentsline {section}{\numberline {6.1}Recommendations}{41}{section.6.1}
+\contentsline {section}{\numberline {6.2}Future Work}{41}{section.6.2}
+\contentsline {chapter}{Bibliography}{42}{section*.25}

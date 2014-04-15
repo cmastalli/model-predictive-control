@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  4 FEB 2014 16:39
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  15 APR 2014 15:58
 entering extended mode
  %&-line parsing enabled.
 **Marcus_Hultmark_Thesis_template.tex
@@ -956,7 +956,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.40 ...e {5.1.3}Discussion}{34}{subsection.5.1.3}
+l.40 ...e {5.1.3}Discussion}{35}{subsection.5.1.3}
                                                    [1
 
 ])
@@ -1905,21 +1905,34 @@ Chapter 5.
 File: Images/Chapter5/tank_system.png Graphic file (type png)
  <use Images/Chapter5/tank_system.png>
 
-LaTeX Warning: Command \H invalid in math mode on input line 23.
+! Package amsmath Error: Erroneous nesting of equation structures;
+(amsmath)                trying to recover with `aligned'.
+
+See the amsmath package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.26 \end{align}
+                
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+LaTeX Warning: Command \H invalid in math mode on input line 26.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.23 0 \leq \H_
-               2 \leq 28 [cm] \\
+l.26 \end{align}
+                
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 ! Missing { inserted.
 <to be read again> 
                    \global 
-l.23 0 \leq \H_
-               2 \leq 28 [cm] \\
+l.26 \end{align}
+                
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
 so that I will find a matching right brace soon.
@@ -1928,8 +1941,8 @@ so that I will find a matching right brace soon.
 ! Improper \spacefactor.
 <recently read> \spacefactor 
                              
-l.23 0 \leq \H_
-               2 \leq 28 [cm] \\
+l.26 \end{align}
+                
 You can refer to \spacefactor only in horizontal mode;
 you can refer to \prevdepth only in vertical mode; and
 neither of these is meaningful inside \write. So
@@ -1938,16 +1951,16 @@ I'm forgetting what you said and using zero instead.
 ! Please use \mathaccent for accents in math mode.
 \add@accent ...@spacefactor \spacefactor }\accent 
                                                   #1 #2\egroup \spacefactor ...
-l.23 0 \leq \H_
-               2 \leq 28 [cm] \\
+l.26 \end{align}
+                
 I'm changing \accent to \mathaccent here; wish me luck.
 (Accents are not the same in formulas as they are in text.)
 
 ! Missing { inserted.
 <to be read again> 
                    _
-l.23 0 \leq \H_
-               2 \leq 28 [cm] \\
+l.26 \end{align}
+                
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
 so that I will find a matching right brace soon.
@@ -1956,8 +1969,8 @@ so that I will find a matching right brace soon.
 ! Missing { inserted.
 <to be read again> 
                    \egroup 
-l.23 0 \leq \H_
-               2 \leq 28 [cm] \\
+l.26 \end{align}
+                
 A left brace was mandatory here, so I've put one in.
 You might want to delete and/or insert some corrections
 so that I will find a matching right brace soon.
@@ -1966,18 +1979,79 @@ so that I will find a matching right brace soon.
 ! You can't use `\spacefactor' in math mode.
 \add@accent ...}\accent #1 #2\egroup \spacefactor 
                                                   \accent@spacefactor 
-l.23 0 \leq \H_
-               2 \leq 28 [cm] \\
+l.26 \end{align}
+                
 Sorry, but I'm not programmed to handle this case;
 I'll just pretend that you didn't ask for it.
 If you're in the wrong mode, you might be able to
 return to the right one by typing `I}' or `I$' or `I\par'.
 
+! Misplaced alignment tab character &.
+\next@ ->&
+          \kern -\alignsep@ 
+l.26 \end{align}
+                
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced \cr.
+\math@cr@@@ ...&\kern -\alignsep@ }\fi \next@ \cr 
+                                                  
+l.26 \end{align}
+                
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced \noalign.
+\math@cr@@ ... \iffalse }\fi \math@cr@@@ \noalign 
+                                                  {\vskip #1\relax }
+l.26 \end{align}
+                
+I expect to see \noalign only after the \cr of
+an alignment. Proceed, and I'll ignore this case.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.26 \end{align}
+                
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
 ! Missing } inserted.
 <inserted text> 
                 }
-l.25 \end{equation*}
-                    
+l.26 \end{align}
+                
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.26 \end{align}
+                
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.26 \end{align}
+                
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -1987,8 +2061,16 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.25 \end{equation*}
-                    
+l.26 \end{align}
+                
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.26 \end{align}
+                
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -1998,8 +2080,8 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.25 \end{equation*}
-                    
+l.26 \end{align}
+                
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
@@ -2009,35 +2091,73 @@ my insertion and my current dilemma will both disappear.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.25 \end{equation*}
-                    
+l.26 \end{align}
+                
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
 With luck, this will get me unwedged. But if you
 really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
+
+! Missing \cr inserted.
+<inserted text> 
+                \cr 
+l.26 \end{align}
+                
+I'm guessing that you meant to end an alignment here.
+
+! Missing { inserted.
+<inserted text> 
+                {
+l.26 \end{align}
+                
+I've put in what seems to be necessary to fix
+the current column of the current alignment.
+Try to go on, since this might almost work.
 
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.25 \end{equation*}
-                    
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
+l.26 \end{align}
+                
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
 
-! Display math should end with $$.
-<to be read again> 
-                   \endgroup 
-l.25 \end{equation*}
-                    
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
+! Misplaced \crcr.
+\endaligned ->\crcr 
+                    \egroup \restorecolumn@ \egroup 
+l.26 \end{align}
+                
+I can't figure out why you would want to use a tab mark
+or \cr or \span just now. If something like a right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Extra }, or forgotten \endgroup.
+\endaligned ->\crcr \egroup 
+                            \restorecolumn@ \egroup 
+l.26 \end{align}
+                
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Extra }, or forgotten \endgroup.
+\endaligned ...cr \egroup \restorecolumn@ \egroup 
+                                                  
+l.26 \end{align}
+                
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 27--28
+Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
  []
 
@@ -2047,7 +2167,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 27--28
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.36     Input constraints & 0 \leq
+l.38     Input constraints & 0 \leq
                                     V \leq 10 [V] \\ \hline
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2055,7 +2175,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 <recently read> \egroup 
                         
-l.36 ...nstraints & 0 \leq V \leq 10 [V] \\ \hline
+l.38 ...nstraints & 0 \leq V \leq 10 [V] \\ \hline
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2066,7 +2186,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.36 ...nstraints & 0 \leq V \leq 10 [V] \\ \hline
+l.38 ...nstraints & 0 \leq V \leq 10 [V] \\ \hline
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2074,7 +2194,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.36 ...nstraints & 0 \leq V \leq 10 [V] \\ \hline
+l.38 ...nstraints & 0 \leq V \leq 10 [V] \\ \hline
                                                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2085,7 +2205,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.37     State constraints & 0 \leq
+l.39     State constraints & 0 \leq
                                     H_1 \leq 25 [cm]  \newline 0 \leq H_2 \l...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2093,7 +2213,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 <recently read> \egroup 
                         
-l.37 ...newline 0 \leq H_2 \leq 28 [cm]  \\ \hline
+l.39 ...newline 0 \leq H_2 \leq 28 [cm]  \\ \hline
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2104,7 +2224,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.37 ...newline 0 \leq H_2 \leq 28 [cm]  \\ \hline
+l.39 ...newline 0 \leq H_2 \leq 28 [cm]  \\ \hline
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2112,7 +2232,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.37 ...newline 0 \leq H_2 \leq 28 [cm]  \\ \hline
+l.39 ...newline 0 \leq H_2 \leq 28 [cm]  \\ \hline
                                                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2123,7 +2243,7 @@ my insertion and my current dilemma will both disappear.
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.39     \hline
+l.41     \hline
                
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
@@ -2138,20 +2258,19 @@ t>
 File: Images/Chapter5/tank_system/levels_control.png Graphic file (type png)
  <use Images/Chapter5/tank_system/levels_control.png> [34 <./Images/Chapter5/ta
 nk_system/control_signal.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
+Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
 
  [35 <./Images/Chapter5/tank_system/levels_control.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
+
+ []
+
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.85     Input constraints &  -230 \leq
+l.89     Input constraints &  -230 \leq
                                         \Delta \omega_{i} \leq 140 [rad/s] \...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2159,7 +2278,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 <recently read> \egroup 
                         
-l.85 ...elta \omega_{i} \leq 140 [rad/s] \\ \hline
+l.89 ...elta \omega_{i} \leq 140 [rad/s] \\ \hline
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2170,7 +2289,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.85 ...elta \omega_{i} \leq 140 [rad/s] \\ \hline
+l.89 ...elta \omega_{i} \leq 140 [rad/s] \\ \hline
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2178,7 +2297,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.85 ...elta \omega_{i} \leq 140 [rad/s] \\ \hline
+l.89 ...elta \omega_{i} \leq 140 [rad/s] \\ \hline
                                                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2189,7 +2308,7 @@ my insertion and my current dilemma will both disappear.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.86     State constraints &  -5 \leq
+l.90     State constraints &  -5 \leq
                                       V_x \leq 5 [m]  \newline -5 \leq V_y \...
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2197,7 +2316,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 <recently read> \egroup 
                         
-l.86 ...[m] \newline 0 \leq z \leq 5 [m] \\ \hline
+l.90 ...[m] \newline 0 \leq z \leq 5 [m] \\ \hline
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -2208,7 +2327,7 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.86 ...[m] \newline 0 \leq z \leq 5 [m] \\ \hline
+l.90 ...[m] \newline 0 \leq z \leq 5 [m] \\ \hline
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -2216,7 +2335,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.86 ...[m] \newline 0 \leq z \leq 5 [m] \\ \hline
+l.90 ...[m] \newline 0 \leq z \leq 5 [m] \\ \hline
                                                   
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -2227,61 +2346,65 @@ my insertion and my current dilemma will both disappear.
 ! Misplaced \noalign.
 \hline ->\noalign 
                   {\ifnum 0=`}\fi \hrule \@height \arrayrulewidth \futurelet...
-l.88     \hline
+l.92     \hline
                
 I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
+Underfull \hbox (badness 10000) in paragraph at lines 100--101
 
  []
 
 
-<Images/Chapter5/ardrone/position_control.png, id=614, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/position_control.png, id=617, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/position_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/position_control.png> [36]
-<Images/Chapter5/ardrone/euler_angle_control.png, id=619, 586.8324pt x 442.2924
+<Images/Chapter5/ardrone/euler_angle_control.png, id=622, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter5/ardrone/euler_angle_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/euler_angle_control.png>
-<Images/Chapter5/ardrone/lin_velocity_control.png, id=620, 586.8324pt x 442.292
+<Images/Chapter5/ardrone/lin_velocity_control.png, id=623, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/lin_velocity_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/lin_velocity_control.png> [37 <./Images/Chapter5/
 ardrone/position_control.png> <./Images/Chapter5/ardrone/euler_angle_control.pn
 g>]
-<Images/Chapter5/ardrone/ang_velocity_control.png, id=629, 586.8324pt x 442.292
+<Images/Chapter5/ardrone/ang_velocity_control.png, id=632, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/ang_velocity_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/ang_velocity_control.png>
-<Images/Chapter5/ardrone/control_signals.png, id=630, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/control_signals.png, id=633, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/control_signals.png Graphic file (type png)
  <use Images/Chapter5/ardrone/control_signals.png> [38 <./Images/Chapter5/ardro
 ne/lin_velocity_control.png> <./Images/Chapter5/ardrone/ang_velocity_control.pn
 g>]
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 137--138
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
 
-)
-(./Recommendations_and_Future_Work/Recommendations_and_Future_Work.tex [39 <./I
-mages/Chapter5/ardrone/control_signals.png>]
+
+Underfull \hbox (badness 10000) in paragraph at lines 141--142
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
+
+ []
+
+ [39 <./Images/Chapter5/ardrone/control_signals.png>])
+(./Recommendations_and_Future_Work/Recommendations_and_Future_Work.tex [40]
 Chapter 6.
 
 (./Recommendations_and_Future_Work/Recommendations/Recommendations.tex)
 (./Recommendations_and_Future_Work/Future_Work/Future_Work.tex)) (./Marcus_Hult
-mark_Thesis_template.bbl [40
+mark_Thesis_template.bbl [41
 
 ]
 ! Misplaced alignment tab character &.
@@ -2294,7 +2417,7 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
- [41
+ [42
 
 ]
 
@@ -2314,7 +2437,7 @@ or  <return>  to continue without it.
 
 Package natbib Warning: There were undefined citations.
 
- [42] (./Marcus_Hultmark_Thesis_template.aux)
+ [43] (./Marcus_Hultmark_Thesis_template.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -2324,30 +2447,27 @@ LaTeX Warning: There were multiply-defined labels.
  ) 
 Here is how much of TeX's memory you used:
  10353 strings out of 493848
- 150069 string characters out of 1152822
+ 150065 string characters out of 1152822
  259113 words of memory out of 3000000
  13105 multiletter control sequences out of 15000+50000
  68807 words of font info for 97 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  40i,18n,43p,1656b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{section*.23} has been referenced but does not exi
-st, replaced by a fixed one
-
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texlive
-/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type
-1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/am
-sfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.p
-fb></usr/share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/tex
-mf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-texlive/fonts/
-type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmb8
-a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/te
-xmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/urw/times/utmri8a.pfb>
-Output written on Marcus_Hultmark_Thesis_template.pdf (46 pages, 1333186 bytes)
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
+ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
+cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10
+.pfb></usr/share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/t
+exmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-texlive/font
+s/type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utm
+b8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/
+texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/
+type1/urw/times/utmri8a.pfb>
+Output written on Marcus_Hultmark_Thesis_template.pdf (47 pages, 1336194 bytes)
 .
 PDF statistics:
- 742 PDF objects out of 1000 (max. 8388607)
+ 749 PDF objects out of 1000 (max. 8388607)
  169 named destinations out of 1000 (max. 500000)
  525 words of extra memory for PDF output out of 10000 (max. 10000000)
 
