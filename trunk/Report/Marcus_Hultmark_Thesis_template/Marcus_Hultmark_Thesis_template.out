@@ -17,6 +17,7 @@
 \BOOKMARK [2][-]{subsection.2.2.3}{Constraints}{section.2.2}
 \BOOKMARK [2][-]{subsection.2.2.4}{Optimization}{section.2.2}
 \BOOKMARK [2][-]{subsection.2.2.5}{Horizons}{section.2.2}
+\BOOKMARK [1][-]{section.2.3}{Summary}{chapter.2}
 \BOOKMARK [0][-]{chapter.3}{Dynamic Modeling of a Quadrotor}{}
 \BOOKMARK [1][-]{section.3.1}{Theoretical Derivation of the Quadrotor Model}{chapter.3}
 \BOOKMARK [1][-]{section.3.2}{Verification of the Model}{chapter.3}
@@ -33,6 +34,7 @@
 \BOOKMARK [2][-]{subsection.4.3.2}{Optimizer}{section.4.3}
 \BOOKMARK [2][-]{subsection.4.3.3}{Simulator}{section.4.3}
 \BOOKMARK [2][-]{subsection.4.3.4}{ModelPredictiveControl}{section.4.3}
+\BOOKMARK [1][-]{section.4.4}{Summary}{chapter.4}
 \BOOKMARK [0][-]{chapter.5}{Results and Discussion}{}
 \BOOKMARK [1][-]{section.5.1}{Tank system simulations}{chapter.5}
 \BOOKMARK [2][-]{subsection.5.1.1}{Simulation settings and parameters}{section.5.1}

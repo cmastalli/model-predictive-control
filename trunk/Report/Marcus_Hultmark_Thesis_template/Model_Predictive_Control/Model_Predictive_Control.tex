@@ -209,7 +209,7 @@ In \cite{Ferreau2006} a distinction is made between bounds and constraints, wher
 
 \subsection{Optimization}%---------------------------Optimization--------------------------------------------------------------------------
 
-There are two main type of algorithms used commonly to solve quadratic problems like the ones that arise in MPC: active set methods and interior point methods. A brief description of both will be presented here for informative purposes and finally, the method used in \cite{Ferreau2006} will be described.
+There are two main type of algorithms used commonly to solve quadratic problems like the ones that arise in MPC: active set methods and interior point methods.
 
 \begin{itemize}
 
@@ -230,13 +230,7 @@ There are two main type of algorithms used commonly to solve quadratic problems 
 
 The aim of an Active Set method is to find an optimal active set, which will make it possible to use equality constrained QP solving techniques (solving the KKT system). The algorithm will start making a guess of this optimal active set, and if it misses, gradient and Lagrange multipliers will be used to improve the initial guess. The final solution of the problem will lie in the proximity of the borders of the  feasible region.
 
-\item \textbf{Interior Point Methods.} Given the following quadratic problem in the standard form:
-
-
-
-
-
-Based on the KKT conditions one can say that if a given $x^*$ is a solution of \ref{eq:quadproblem}, there is a Lagrange multiplier vector $\lambda^*$ such that the following conditions are satisfied for $(x, \lambda) = (x^*, \lambda^*)$.
+\item \textbf{Interior Point Methods.} Given the following quadratic problem in the standard form, shown in \ref{eq:quadproblem}, based on the KKT conditions one can say that if a given $x^*$ is a solution of \ref{eq:quadproblem}, there is a Lagrange multiplier vector $\lambda^*$ such that the following conditions are satisfied for $(x, \lambda) = (x^*, \lambda^*)$.
 
 \begin{equation} \label{eq:KKTIP}
  \begin{subequations}
@@ -264,10 +258,12 @@ If a new variable vector $y = Ax - b$ is introduced in the system, the condition
 
 Which are correspondent with the KKT conditions for linear programming problems \cite{Nocedal}. If we assume that we are only working with a convex objective function and feasible region, these conditions are necessary but also sufficient to assure the existence of such pair, and therefore the solution of the system \ref{eq:KKTIP2} solves the quadratic problem.
 
-
-
-
-
 \end{itemize}
 
 \subsection{Horizons}
+
+In MPC, the horizons define how far is the controller making a prediction in the future. The typical horizons in MPC are the prediction horizon $N_p$, and the control horizon, $N_c$. The prediction horizon has the basic function described previously: defining the prediction lenght. The selection of $N_p$ is a matter of trial and error but it is highly dependant on the dynamics of the plant being considered. The prediction must be able to take into account the settling time of the system under a disturbance but also must be kept small enough so that it doesn't increase unneccessarily the size of the quadratic problem to solve. In order to have a better way to tune this, the control horizon $N_c$ tells the MPC how much solutions it must calculate, independently of the size of the prediction horizon, keeping the computations at the minimum.
+
+\section{Summary}
+
+In this chapter, the mathematical base for MPC has been described, in order to get a better understanding of the optimization problem ocurring at each step. Also, MPC is introduced, together with its basic steps and characteristics. The different elements in MPC are explained in separate items to cover the individual functions and importance of each within the algorithm.
