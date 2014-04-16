@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  16 APR 2014 09:54
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  16 APR 2014 11:18
 entering extended mode
  %&-line parsing enabled.
 **Marcus_Hultmark_Thesis_template.tex
@@ -910,7 +910,7 @@ OK, entering \batchmode...
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 9.89993pt on input line 10.
 
-<kth_cmyk_electr_engine.pdf, id=227, 483.8075pt x 439.6425pt>
+<kth_cmyk_electr_engine.pdf, id=231, 483.8075pt x 439.6425pt>
 File: kth_cmyk_electr_engine.pdf Graphic file (type pdf)
  <use kth_cmyk_electr_engine.pdf> [0
 
@@ -922,46 +922,52 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
  [1])
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 15.
- (./Marcus_Hultmark_Thesis_template.toc
-LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 2.
+ (./Marcus_Hultmark_Thesis_template.lof
+LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 3.
 
  (/usr/share/texmf-texlive/tex/latex/psnfss/ot1ptmcm.fd
 File: ot1ptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 2.
+LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 3.
 
  (/usr/share/texmf-texlive/tex/latex/psnfss/omlptmcm.fd
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+psycm on input line 2.
+LaTeX Font Info:    Try loading font information for OMX+psycm on input line 3.
 
  (/usr/share/texmf-texlive/tex/latex/psnfss/omxpsycm.fd
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 2.
+LaTeX Font Info:    Try loading font information for U+msa on input line 3.
  (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 2.
+LaTeX Font Info:    Try loading font information for U+msb on input line 3.
  (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 2.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
+)
+\tf@lof=\write6
+\openout6 = `Marcus_Hultmark_Thesis_template.lof'.
+
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.40 ...ings and parameters}{33}{subsection.5.1.1}
-                                                   [1
+l.16 	{\tableofcontents
+                       } [1
+
+] (./Marcus_Hultmark_Thesis_template.toc [2
 
 ])
-\tf@toc=\write6
-\openout6 = `Marcus_Hultmark_Thesis_template.toc'.
+\tf@toc=\write7
+\openout7 = `Marcus_Hultmark_Thesis_template.toc'.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -969,7 +975,7 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
- [2]
+ [3]
 No file Marcus_Hultmark_Thesis_template.nls.
  (./Introduction/Introduction.tex
 Chapter 1.
@@ -1232,26 +1238,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 92--93
  []
 
 
-<Images/Chapter2/mpc_block_diagram.jpg, id=384, 422.57875pt x 228.855pt>
-File: Images/Chapter2/mpc_block_diagram.jpg Graphic file (type jpg)
- <use Images/Chapter2/mpc_block_diagram.jpg>
-
-Package natbib Warning: Citation `Al-Sanad2005' on page 7 undefined on input li
-ne 109.
-
-
-Package natbib Warning: Citation `Al-Sanad2005' on page 7 undefined on input li
-ne 109.
-
+<Images/Chapter2/mpc.png, id=461, 747.79375pt x 480.79625pt>
+File: Images/Chapter2/mpc.png Graphic file (type png)
+ <use Images/Chapter2/mpc.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- [7] [8 <./Images/Chapter2/mpc_block_diagram.jpg>]
+ [7] [8 <./Images/Chapter2/mpc.png (PNG copy)>] [9]
 Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
  []
 
- [9]
+
 Underfull \hbox (badness 10000) in paragraph at lines 186--187
 
  []
@@ -1265,7 +1263,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 198--199
 (./Dynamic_Modeling_of_a_Quadrotor/Dynamic_Modeling_of_a_Quadrotor.tex [11]
 Chapter 3.
 
-<Images/Chapter3/quad_dynamics.jpg, id=430, 338.01282pt x 191.9672pt>
+<Images/Chapter3/quad_dynamics.jpg, id=508, 338.01282pt x 191.9672pt>
 File: Images/Chapter3/quad_dynamics.jpg Graphic file (type jpg)
  <use Images/Chapter3/quad_dynamics.jpg>
 Underfull \hbox (badness 10000) in paragraph at lines 19--20
@@ -1735,7 +1733,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 124--125
  []
 
 
-<Images/Chapter3/Constant_thrust_upwards/Inputs.png, id=470, 586.8324pt x 442.2
+<Images/Chapter3/Constant_thrust_upwards/Inputs.png, id=547, 586.8324pt x 442.2
 924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Inputs.png Graphic file (type png
 )
@@ -1746,13 +1744,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 139--140
  []
 
 
-<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=480, 586.8324pt x 44
+<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=556, 586.8324pt x 44
 2.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Positions.png Graphic file (type 
 png)
 
 <use Images/Chapter3/Constant_thrust_upwards/Positions.png>
-<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=481, 586.832
+<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=557, 586.832
 4pt x 442.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png Graphic fil
 e (type png)
@@ -1777,17 +1775,17 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--157
  []
 
 
-<Images/Chapter3/Lateral_X/Inputs.png, id=496, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Inputs.png, id=570, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Inputs.png>
-<Images/Chapter3/Lateral_X/Torque_inputs.png, id=497, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Torque_inputs.png, id=571, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Torque_inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Torque_inputs.png> [18 <./Images/Chapter3/Later
 al_X/Inputs.png>]
-<Images/Chapter3/Lateral_X/Positions.png, id=506, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Positions.png, id=579, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Positions.png>
-<Images/Chapter3/Lateral_X/Linear_velocities.png, id=509, 586.8324pt x 442.2924
+<Images/Chapter3/Lateral_X/Linear_velocities.png, id=582, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_X/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Linear_velocities.png>
@@ -1795,10 +1793,10 @@ File: Images/Chapter3/Lateral_X/Linear_velocities.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_X/Euler_Angles.png, id=512, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Euler_Angles.png, id=585, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Euler_Angles.png>
-<Images/Chapter3/Lateral_X/Angular_velocities.png, id=515, 586.8324pt x 442.292
+<Images/Chapter3/Lateral_X/Angular_velocities.png, id=588, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_X/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Angular_velocities.png>
@@ -1816,17 +1814,17 @@ LaTeX Warning: Text page 21 contains only floats.
 
  [21 <./Images/Chapter3/Lateral_X/Euler_Angles.png> <./Images/Chapter3/Lateral_
 X/Angular_velocities.png>]
-<Images/Chapter3/Lateral_Y/Inputs.png, id=540, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Inputs.png, id=610, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Inputs.png>
-<Images/Chapter3/Lateral_Y/Torque_inputs.png, id=541, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Torque_inputs.png, id=611, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Torque_inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Torque_inputs.png> [22 <./Images/Chapter3/Later
 al_Y/Inputs.png>]
-<Images/Chapter3/Lateral_Y/Positions.png, id=550, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Positions.png, id=619, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Positions.png>
-<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=553, 586.8324pt x 442.2924
+<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=622, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_Y/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Linear_velocities.png>
@@ -1834,10 +1832,10 @@ File: Images/Chapter3/Lateral_Y/Linear_velocities.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=556, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=625, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Euler_Angles.png>
-<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=559, 586.8324pt x 442.292
+<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=628, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_Y/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Angular_velocities.png>
@@ -1876,10 +1874,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
  []
 
 
-<Images/Chapter4/Class_Diagram.png, id=599, 502.87875pt x 594.22pt>
+<Images/Chapter4/Class_Diagram.png, id=665, 502.87875pt x 594.22pt>
 File: Images/Chapter4/Class_Diagram.png Graphic file (type png)
  <use Images/Chapter4/Class_Diagram.png>
-<Images/Chapter4/Class_diagram_implementation.png, id=600, 527.9725pt x 376.406
+<Images/Chapter4/Class_diagram_implementation.png, id=666, 527.9725pt x 376.406
 25pt>
 File: Images/Chapter4/Class_diagram_implementation.png Graphic file (type png)
  <use Images/Chapter4/Class_diagram_implementation.png> [28 <./Images/Chapter4/
@@ -1901,7 +1899,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 131--132
  [31]) (./Results_and_Discussion/Results_and_Discussion.tex [32]
 Chapter 5.
 
-<Images/Chapter5/tank_system.png, id=629, 120.45pt x 180.675pt>
+<Images/Chapter5/tank_system.png, id=694, 120.45pt x 180.675pt>
 File: Images/Chapter5/tank_system.png Graphic file (type png)
  <use Images/Chapter5/tank_system.png>
 
@@ -2249,11 +2247,11 @@ I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
 
 
-<Images/Chapter5/tank_system/control_signal.png, id=638, 586.8324pt x 442.2924p
+<Images/Chapter5/tank_system/control_signal.png, id=701, 586.8324pt x 442.2924p
 t>
 File: Images/Chapter5/tank_system/control_signal.png Graphic file (type png)
  <use Images/Chapter5/tank_system/control_signal.png>
-<Images/Chapter5/tank_system/levels_control.png, id=639, 586.8324pt x 442.2924p
+<Images/Chapter5/tank_system/levels_control.png, id=702, 586.8324pt x 442.2924p
 t>
 File: Images/Chapter5/tank_system/levels_control.png Graphic file (type png)
  <use Images/Chapter5/tank_system/levels_control.png> [34 <./Images/Chapter5/ta
@@ -2358,24 +2356,24 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--101
  []
 
 
-<Images/Chapter5/ardrone/position_control.png, id=657, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/position_control.png, id=718, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/position_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/position_control.png> [36]
-<Images/Chapter5/ardrone/euler_angle_control.png, id=662, 586.8324pt x 442.2924
+<Images/Chapter5/ardrone/euler_angle_control.png, id=723, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter5/ardrone/euler_angle_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/euler_angle_control.png>
-<Images/Chapter5/ardrone/lin_velocity_control.png, id=663, 586.8324pt x 442.292
+<Images/Chapter5/ardrone/lin_velocity_control.png, id=724, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/lin_velocity_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/lin_velocity_control.png> [37 <./Images/Chapter5/
 ardrone/position_control.png> <./Images/Chapter5/ardrone/euler_angle_control.pn
 g>]
-<Images/Chapter5/ardrone/ang_velocity_control.png, id=672, 586.8324pt x 442.292
+<Images/Chapter5/ardrone/ang_velocity_control.png, id=731, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/ang_velocity_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/ang_velocity_control.png>
-<Images/Chapter5/ardrone/control_signals.png, id=673, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/control_signals.png, id=732, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/control_signals.png Graphic file (type png)
  <use Images/Chapter5/ardrone/control_signals.png> [38 <./Images/Chapter5/ardro
 ne/lin_velocity_control.png> <./Images/Chapter5/ardrone/ang_velocity_control.pn
@@ -2515,11 +2513,7 @@ you left one out. Proceed, with fingers crossed.
 
  [45
 
-] [46])
-
-Package natbib Warning: There were undefined citations.
-
- [47] (./Marcus_Hultmark_Thesis_template.aux)
+] [46]) [47] (./Marcus_Hultmark_Thesis_template.aux)
 
 LaTeX Warning: There were undefined references.
 
@@ -2528,8 +2522,8 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10373 strings out of 493848
- 150031 string characters out of 1152822
+ 10379 strings out of 493848
+ 150065 string characters out of 1152822
  284113 words of memory out of 3000000
  13114 multiletter control sequences out of 15000+50000
  68807 words of font info for 97 fonts, out of 3000000 for 9000
@@ -2546,10 +2540,10 @@ s/type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utm
 b8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/
 texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on Marcus_Hultmark_Thesis_template.pdf (51 pages, 1356085 bytes)
+Output written on Marcus_Hultmark_Thesis_template.pdf (52 pages, 1369671 bytes)
 .
 PDF statistics:
- 816 PDF objects out of 1000 (max. 8388607)
- 184 named destinations out of 1000 (max. 500000)
- 589 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 872 PDF objects out of 1000 (max. 8388607)
+ 187 named destinations out of 1000 (max. 500000)
+ 597 words of extra memory for PDF output out of 10000 (max. 10000000)
 
