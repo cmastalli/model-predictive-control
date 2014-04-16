@@ -1,3 +1,4 @@
+\contentsline {chapter}{List of Figures}{i}{section*.2}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Purpose}{1}{section.1.2}
@@ -13,9 +14,9 @@
 \contentsline {subsection}{\numberline {2.1.6}Karush-Kuhn-Tucker Conditions}{6}{subsection.2.1.6}
 \contentsline {section}{\numberline {2.2}Model Predictive Control Theory}{7}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Model}{8}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Objective Function}{9}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.2}Objective Function}{10}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Constraints}{10}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Optimization}{10}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.4}Optimization}{11}{subsection.2.2.4}
 \contentsline {subsection}{\numberline {2.2.5}Horizons}{11}{subsection.2.2.5}
 \contentsline {section}{\numberline {2.3}Summary}{11}{section.2.3}
 \contentsline {chapter}{\numberline {3}Dynamic Modeling of a Quadrotor}{12}{chapter.3}
@@ -46,7 +47,7 @@
 \contentsline {subsection}{\numberline {5.2.3}Discussion}{39}{subsection.5.2.3}
 \contentsline {chapter}{\numberline {6}Conclusions and Future Work}{41}{chapter.6}
 \contentsline {section}{\numberline {6.1}Future Work}{41}{section.6.1}
-\contentsline {chapter}{Bibliography}{43}{section*.25}
+\contentsline {chapter}{Bibliography}{43}{section*.27}
 \contentsline {chapter}{\numberline {A}Appendix: MPC Parameters}{45}{appendix.A}
 \contentsline {section}{\numberline {A.1}Tank System}{45}{section.A.1}
 \contentsline {subsection}{\numberline {A.1.1}State Space matrices}{45}{subsection.A.1.1}
