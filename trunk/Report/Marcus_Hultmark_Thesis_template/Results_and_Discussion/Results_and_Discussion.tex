@@ -22,7 +22,7 @@ The constraints on the system arise from the size of the tanks, that limit the l
 \begin{align}
 0 \leq H_1 \leq 25 [cm] \\
 0 \leq \H_2 \leq 28 [cm] \\
-0 \leq V \leq 10 [V]
+0 \leq V \leq 10 [V]\\
 \end{align} 
 \end{equation*}
 
@@ -62,7 +62,7 @@ The results of the simulation of the tank system under the MPC controller are sh
 
 \subsection{Discussion}
 
-Directly from Figures \ref{fig:tanks_inputs} and \ref{fig:tanks_states}, it is easy to see the controller acting on the input voltage and its influence on the tank states. Since this is a regulation problem for a relatively simple process, the MPC's features are not giving it any advantage in comparison with standard PID controllers. However, due to the receding horizon the controller can introduce a feed forward action in a more natural way and can react better to disturbances than a classic controller. In Figure \ref{fig:tanks_inputs} the input constraint takes effect, limiting effectively the input voltage to the pump to 10 volts.
+Directly from Figures \ref{fig:tanks_inputs} and \ref{fig:tanks_states}, it is easy to see the controller acting on the input voltage and its influence on the tank states. Since this is a regulation problem for a relatively simple process, the MPC's features are not giving it any advantage in comparison with standard PID controllers. However, due to the receding horizon the controller can introduce a feed forward action in a more natural way and can react better to disturbances than a classic controller. In Figure \ref{fig:tanks_inputs} the input constraint takes effect, limiting effectively the input voltage to the pump to 10 volts. It is important to notice that the output variable, $H_2$, takes some time to get to the required setpoint because the speed at which it can be filled is limited by Torricelli's principle for fluids flowing out under the sole influence of atmospherical pressure from a tank. However, level $H_1$ does rise quickly as the pump sends enough water to fill the tank to the point where the maximum flow of water out of it is achieved. 
 
 
 \section{Quadrotor simulations}
