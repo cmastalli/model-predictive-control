@@ -42,7 +42,13 @@
 \contentsline {subsection}{\numberline {5.2.1}Simulation settings and parameters}{35}{subsection.5.2.1}
 \contentsline {subsection}{\numberline {5.2.2}Results}{36}{subsection.5.2.2}
 \contentsline {subsection}{\numberline {5.2.3}Discussion}{39}{subsection.5.2.3}
-\contentsline {chapter}{\numberline {6}Recommendations and Future Work}{41}{chapter.6}
-\contentsline {section}{\numberline {6.1}Recommendations}{41}{section.6.1}
-\contentsline {section}{\numberline {6.2}Future Work}{41}{section.6.2}
-\contentsline {chapter}{Bibliography}{42}{section*.25}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{41}{chapter.6}
+\contentsline {section}{\numberline {6.1}Future Work}{41}{section.6.1}
+\contentsline {chapter}{Bibliography}{43}{section*.25}
+\contentsline {chapter}{\numberline {A}Appendix: MPC Parameters}{45}{appendix.A}
+\contentsline {section}{\numberline {A.1}Tank System}{45}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1}State Space matrices}{45}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2}Weight matrices}{45}{subsection.A.1.2}
+\contentsline {section}{\numberline {A.2}Quadrotor}{45}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}State Space matrices}{45}{subsection.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}Weight matrices }{46}{subsection.A.2.2}
