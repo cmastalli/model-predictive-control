@@ -1,3 +1,86 @@
-\chapter{Appendix A}
+\chapter{Appendix: MPC Parameters}
 \label{chap:Appendix_A}
+
+\section{Tank System}
+
+\subsection{State Space matrices}
+
+The equations of the tank:
+
+\begin{equation}
+\begin{align}
+A_t\frac{dH_1}{dt} &= \beta V - A_d \sqrt{2gH_1} \\
+A_t\frac{dH_2}{dt} &= A_d\sqrt{2gH_1} - A_d\sqrt{2gH_2}
+\end{align}
+\end{equation}
+
+After a linearization process:
+
+\begin{equation} \label{eq:appendix1}
+\begin{bmatrix} \dot{H_1} \\ \dot{H_2} \end{bmatrix} = \begin{bmatrix} -\frac{A_d \sqrt{2g}}{2A_t \sqrt{H_{1}*}} & 0  \\ \frac{A_d \sqrt{2g}}{2A_t \sqrt{H_{1}*}} & \frac{-A_d \sqrt{2g}}{2A_t \sqrt{H_{2}*}} \end{bmatrix} \begin{bmatrix} H_1 \\ H_2 \end{bmatrix} + \begin{bmatrix} \frac{\beta}{A_t} \\ 0 \end{bmatrix} \mathbf{V}
+\end{equation} 
+
+Substituting the values of $\beta$ = 3.96, A_t = 15.52 [$cm^2$], A_d = 0.178 [$cm^2$], and discretizing with Backward Euler approximation and a sampling period of 0.01 seconds:
+
+\begin{equation} \label{eq:appendix2}
+\begin{bmatrix} \dot{H_1} \\ \dot{H_2} \end{bmatrix} = \begin{bmatrix} 0.9992 & 0  \\ -0.000803 & 1.001 \end{bmatrix} \begin{bmatrix} H_1 \\ H_2 \end{bmatrix} + \begin{bmatrix} 0.002551 \\ 0 \end{bmatrix} \mathbf{V}
+\end{equation} 
+
+\subsection{Weight matrices}
+
+State error weight matrix:
+
+\begin{equation*}
+\mathbf{P} = \begin{bmatrix} 100.0 & 0 \\ 0 & 200.0 \end{bmatrix}
+\end{equation*} 
+
+Input Error weight matrix
+
+\begin{equation*}
+\mathbf{Q} = 0.001
+\end{equation*} 
+
+Terminal State weight matrix:
+
+\begin{equation*}
+\mathbf{R} = \begin{bmatrix} 1000.0 & 0 \\ 0 & 1000.0 \end{bmatrix}
+\end{equation*} 
+
+\section{Quadrotor}
+
+\subsection{State Space matrices}
+
+From the theoretical derivation made in chapter 3, and discretizing using Backward Euler approximation and a sampling period corresponding to 120 Hz:
+
+\begin{equation*}
+\mathbf{A} = \begin{bmatrix} 1 & 0 & 0 & 0.0083 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 & 0.0083 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0.0083 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 & 0 & 0 & 0 & 0.081423 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 1 & 0 & -0.081423 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0.0083 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0.0083 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 & 0.0083 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \end{bmatrix}
+\end{equation*}
+
+\begin{equation*}
+\mathbf{B} = \begin{bmatrix} 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+1.1325e-04 & 1.1325e-04 & 1.1325e-04 & 1.1325e-04 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 \\
+0 & -8.365e-03 & 0 & 8.365e-03 \\
+0.0109 & 0 & -0.0109 & 0 \\
+-3.6788e-04 & 3.6788e-04 & -3.6788e-04 & 3.6788e-04 \end{bmatrix}
+\end{equation*}
+
+
 
