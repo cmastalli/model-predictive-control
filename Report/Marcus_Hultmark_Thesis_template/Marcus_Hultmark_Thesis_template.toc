@@ -14,44 +14,44 @@
 \contentsline {subsection}{\numberline {2.1.6}Karush-Kuhn-Tucker Conditions}{6}{subsection.2.1.6}
 \contentsline {section}{\numberline {2.2}Model Predictive Control Theory}{7}{section.2.2}
 \contentsline {subsection}{\numberline {2.2.1}Model}{8}{subsection.2.2.1}
-\contentsline {subsection}{\numberline {2.2.2}Objective Function}{10}{subsection.2.2.2}
+\contentsline {subsection}{\numberline {2.2.2}Objective Function}{9}{subsection.2.2.2}
 \contentsline {subsection}{\numberline {2.2.3}Constraints}{10}{subsection.2.2.3}
-\contentsline {subsection}{\numberline {2.2.4}Optimization}{11}{subsection.2.2.4}
+\contentsline {subsection}{\numberline {2.2.4}Optimization}{10}{subsection.2.2.4}
 \contentsline {subsection}{\numberline {2.2.5}Horizons}{11}{subsection.2.2.5}
 \contentsline {section}{\numberline {2.3}Summary}{11}{section.2.3}
 \contentsline {chapter}{\numberline {3}Dynamic Modeling of a Quadrotor}{12}{chapter.3}
 \contentsline {section}{\numberline {3.1}Theoretical Derivation of the Quadrotor Model}{12}{section.3.1}
 \contentsline {section}{\numberline {3.2}Verification of the Model}{15}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Upward motion along the X axis}{16}{subsection.3.2.1}
-\contentsline {subsection}{\numberline {3.2.2}Lateral movement along the X axis}{18}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}Lateral movement along the Y axis}{22}{subsection.3.2.3}
-\contentsline {section}{\numberline {3.3}Summary}{26}{section.3.3}
-\contentsline {chapter}{\numberline {4}Software Architecture and Implementation}{27}{chapter.4}
-\contentsline {section}{\numberline {4.1}Robot Operative System (ROS)}{27}{section.4.1}
-\contentsline {subsection}{\numberline {4.1.1}Nomenclature}{27}{subsection.4.1.1}
-\contentsline {section}{\numberline {4.2}Library overview}{28}{section.4.2}
-\contentsline {section}{\numberline {4.3}Interface classes}{29}{section.4.3}
-\contentsline {subsection}{\numberline {4.3.1}Model}{29}{subsection.4.3.1}
-\contentsline {subsection}{\numberline {4.3.2}Optimizer}{30}{subsection.4.3.2}
-\contentsline {subsection}{\numberline {4.3.3}Simulator}{31}{subsection.4.3.3}
-\contentsline {subsection}{\numberline {4.3.4}ModelPredictiveControl}{31}{subsection.4.3.4}
-\contentsline {section}{\numberline {4.4}Summary}{32}{section.4.4}
-\contentsline {chapter}{\numberline {5}Results and Discussion}{33}{chapter.5}
-\contentsline {section}{\numberline {5.1}Tank system simulations}{33}{section.5.1}
-\contentsline {subsection}{\numberline {5.1.1}Simulation settings and parameters}{33}{subsection.5.1.1}
-\contentsline {subsection}{\numberline {5.1.2}Results}{34}{subsection.5.1.2}
-\contentsline {subsection}{\numberline {5.1.3}Discussion}{35}{subsection.5.1.3}
-\contentsline {section}{\numberline {5.2}Quadrotor simulations}{35}{section.5.2}
-\contentsline {subsection}{\numberline {5.2.1}Simulation settings and parameters}{35}{subsection.5.2.1}
-\contentsline {subsection}{\numberline {5.2.2}Results}{36}{subsection.5.2.2}
-\contentsline {subsection}{\numberline {5.2.3}Discussion}{39}{subsection.5.2.3}
-\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{41}{chapter.6}
-\contentsline {section}{\numberline {6.1}Future Work}{41}{section.6.1}
-\contentsline {chapter}{Bibliography}{43}{section*.27}
-\contentsline {chapter}{\numberline {A}Appendix: MPC Parameters}{45}{appendix.A}
-\contentsline {section}{\numberline {A.1}Tank System}{45}{section.A.1}
-\contentsline {subsection}{\numberline {A.1.1}State Space matrices}{45}{subsection.A.1.1}
-\contentsline {subsection}{\numberline {A.1.2}Weight matrices}{45}{subsection.A.1.2}
-\contentsline {section}{\numberline {A.2}Quadrotor}{45}{section.A.2}
-\contentsline {subsection}{\numberline {A.2.1}State Space matrices}{45}{subsection.A.2.1}
-\contentsline {subsection}{\numberline {A.2.2}Weight matrices }{46}{subsection.A.2.2}
+\contentsline {subsection}{\numberline {3.2.2}Lateral movement along the X axis}{19}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}Lateral movement along the Y axis}{23}{subsection.3.2.3}
+\contentsline {section}{\numberline {3.3}Summary}{27}{section.3.3}
+\contentsline {chapter}{\numberline {4}Software Architecture and Implementation}{28}{chapter.4}
+\contentsline {section}{\numberline {4.1}Robot Operative System (ROS)}{28}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Nomenclature}{28}{subsection.4.1.1}
+\contentsline {section}{\numberline {4.2}Library overview}{29}{section.4.2}
+\contentsline {section}{\numberline {4.3}Interface classes}{30}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Model}{30}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Optimizer}{31}{subsection.4.3.2}
+\contentsline {subsection}{\numberline {4.3.3}Simulator}{32}{subsection.4.3.3}
+\contentsline {subsection}{\numberline {4.3.4}ModelPredictiveControl}{32}{subsection.4.3.4}
+\contentsline {section}{\numberline {4.4}Summary}{33}{section.4.4}
+\contentsline {chapter}{\numberline {5}Results and Discussion}{34}{chapter.5}
+\contentsline {section}{\numberline {5.1}Tank system simulations}{34}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Simulation settings and parameters}{34}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Results}{35}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Discussion}{36}{subsection.5.1.3}
+\contentsline {section}{\numberline {5.2}Quadrotor simulations}{36}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Simulation settings and parameters}{36}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Results}{37}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Discussion}{40}{subsection.5.2.3}
+\contentsline {chapter}{\numberline {6}Conclusions and Future Work}{42}{chapter.6}
+\contentsline {section}{\numberline {6.1}Future Work}{42}{section.6.1}
+\contentsline {chapter}{Bibliography}{44}{section*.27}
+\contentsline {chapter}{\numberline {A}Appendix: MPC Parameters}{46}{appendix.A}
+\contentsline {section}{\numberline {A.1}Tank System}{46}{section.A.1}
+\contentsline {subsection}{\numberline {A.1.1}State Space matrices}{46}{subsection.A.1.1}
+\contentsline {subsection}{\numberline {A.1.2}Weight matrices}{46}{subsection.A.1.2}
+\contentsline {section}{\numberline {A.2}Quadrotor}{46}{section.A.2}
+\contentsline {subsection}{\numberline {A.2.1}State Space matrices}{46}{subsection.A.2.1}
+\contentsline {subsection}{\numberline {A.2.2}Weight matrices }{47}{subsection.A.2.2}

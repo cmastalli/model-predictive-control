@@ -51,7 +51,7 @@ The main requirements for this library at the moment of its design were the foll
 
 \begin{itemize}
 
-\item \textbf{Expandability.} This software is thinked of so that users would know how to adapt the software easily to their specific applications with a small amount of modifications of the base program. The aim of the group is to be able to develop more functionality based on the foundational blocks of code that are created in this version. Since there are a lot of variants of the MPC algorithm, the goal is to be able to provide this options for the end user. 
+\item \textbf{Expandability.} This software is conceived in a way that users would know how to adapt the software easily to their specific applications with a small amount of modifications of the base program. The aim of the group is to be able to develop more functionality based on the foundational blocks of code that are created in this version. Since there are a lot of variants of the MPC algorithm, the goal is to be able to provide this options for the end user. 
 
 \item \textbf{Modularity.} The software is designed to work with different quadratic programming solvers, different models and different simulators, just by creating derived classes from the bases that are provided. In this way, the possible combination of solvers, platforms and simulators is increased allowing for result verification and/or adapting the possible combinations to obtain the best performance for a particular application. This is also useful in order to allow to reuse code, since once a derived class for an application is completed it is ready to use in any other application available, which is why this feature is closely related to the previously mentioned expandability.
 
@@ -74,7 +74,7 @@ The Model base class is used to provide the information of the dynamics of the d
 
 So far, the only quadratic program solver that has been used provides support for models expressed in this form. If further development is continued, the aim is to provide support for the types of models that are mentioned in section \ref{impulsemodel1} and \ref{transferfunctionmodel1}.\\
 
-The functionality of this class can be summarized in three simple actions: compute, set and get. The Model class \emph{computes} the system matrices, \emph{gets} the number of states, inputs and outputs; and \emph{sets} the states and inputs of the corresponding model.The header file provides a structure to build up upon, so that the user can define in the source file the specific information from the desired process model to be used and how these functions are being implemented. 
+The functionality of this class can be summarized in three simple actions: \emph{compute}, \emph{set} and \emph{get}. The Model class computes the system matrices, gets the number of states, inputs and outputs; and sets the states and inputs of the corresponding model. The header file provides the structure to build up upon, so that the user can define in the source file the specific information from the desired process model to be used and how these functions are being implemented. 
 
 \begin{itemize}
 
@@ -98,7 +98,7 @@ As seen in Figure \ref{fig:implementation_class_diagram}, the Model interface cl
 
 This interface class is designed to provide a way to integrate the selected quadratic programming solver to the MPC framework. Due to the variability of solvers and options available in each, this class was kept as simple as possible, to make it easier to adapt the functionality of the quadratic programming softwares and their individual options. The idea is to be able to adapt several solvers that use different methods to solve the quadratic problem depending on the structure of the problem and the particular application. \\
 
-The integration of any solver is thinked of as a \emph{wrapper} or a frame to build upon the original functionality of the solver. The approach is to try to solve the quadratic problem including methods as simple and intuitive as possible in the class, so the details of the use of the specific solver are not required by the end user. To achieve that goal, the methods implemented were the following:
+The integration of any solver is thought of as a \emph{wrapper} or a frame to build upon the original functionality of the solver. The approach is to try to solve the quadratic problem including methods as simple and intuitive as possible in the class, so the details of the use of the specific solver are not required by the end user. To achieve that goal, the methods implemented were the following:
 
 \begin{itemize}
 
@@ -118,7 +118,7 @@ The methods of this class can be extended in the case that other software need m
 
 \subsection{Simulator}
 
-This class is a frame for methods to simulate numerically a determined system. It works as a black-box: given some inputs and a sampling time, it delivers outputs. Since the idea is to replicate numerically as accurately as possible the behavior of the real system, the equations used in the simulator are the ones that provide the closest results to the outputs of the real system. Thus, in the quadrotor case, the equations being used to simulate are the ones from the non linear system. The functionality of this class is quite small, and it is all detailed in one single function:
+This class is a frame for methods to simulate numerically a determined system. It works as a black-box: given some inputs and a sampling time, it delivers outputs. Since the idea is to replicate numerically as accurately as possible the behavior of the real system, the equations used in the simulator are the ones that provide the closest results to the outputs of the real system. Thus, in the quadrotor case, the equations being used to simulate are the ones from the non-linear system. The functionality of this class is quite small, and it is all detailed in one single function:
 
 \begin{itemize}
 
@@ -128,7 +128,7 @@ This class is a frame for methods to simulate numerically a determined system. I
 
 \subsection{ModelPredictiveControl}
 
-This is the main class that unifies all the functionality of the previous ones to actually solve the quadratic problem posed by each MPC iteration. In the end, the methods from this class are the main methods to be used by the end user in the MPC implementation. This class also allows developers to work in their own variety of MPC, as they are a lot of varieties existing and also being developed. For example, there is currently ongoing work on developing a class to implement Learning Based Model Predictive Control, in which statistical learning algorithms are used to "learn" the non linearities and imperfections of the model and continue updating it as time goes by, thus allowing to reduce the initial modeling effort to obtain a model that is as accurate as possible. \\
+This is the main class that unifies all the functionality of the previous ones to actually solve the quadratic problem posed by each MPC iteration. In the end, the methods from this class are the main methods to be used by the end user in the MPC implementation. This class also allows developers to work in their own variety of MPC, as they are a lot of varieties existing and also being developed. For example, there is currently ongoing work on developing a class to implement Learning Based Model Predictive Control, in which statistical learning algorithms are used to "learn" the non-linearities and imperfections of the model and continue updating it as time goes by, thus allowing to reduce the initial modeling effort to obtain a model that is as accurate as possible. \\
 
 All of these classes would have to adapt their main functionality to the following three methods to keep the ease of use of the library. Any additional functionality should be added in that particular class.
 
@@ -137,9 +137,9 @@ All of these classes would have to adapt their main functionality to the followi
 
 \item resetMPC function: this function takes a pointer to an object of the Model, Optimizer and Simulator classes and sets the into the ModelPredictiveControl object, therefore providing the class with all the information and methods from these. Here is where the benefits of using interface classes comes into play: because of this, the pointers to the aforementioned objects can be instantiated as interface classes despite what object it is, as long as they are derived from them. This makes the implementation in the main function easily interchangeable between systems, solvers and simulators as longs as they are provided.
 
-\item initMPC function: in this function all the parameters required to define the problem are read and all the initial calculations are performed. The parameters are read from ROS's parameter server, which can be modified without compiling afterwards using configuration files written in YAML format. This allows quick modifications without the time consuming compilation process.
+\item initMPC function: all the parameters required to define the problem are read and all the initial calculations are performed in this function. The parameters are read from ROS's parameter server, which can be modified without compiling afterwards using configuration files written in YAML format. This allows quick modifications without the time consuming compilation process.
 
-\item updateMPC function: in this function is where the actual MPC problem is solved. The function takes the current state of the system and the desired reference for the system as inputs, and uses all the previously computed variables and parameters required to assemble the quadratic problem, then it summons the functionality from the optimizer class in order to solve the problem and provide a solution.   
+\item updateMPC function: this function is where the actual MPC problem is solved. The function takes the current state of the system and the desired reference for the system as inputs, and uses all the previously computed variables and parameters required to assemble the quadratic problem, then it summons the functionality from the optimizer class in order to solve the problem and provide a solution.   
 
 \end{itemize}
 

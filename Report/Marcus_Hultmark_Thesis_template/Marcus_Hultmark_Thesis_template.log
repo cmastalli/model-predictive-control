@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  16 APR 2014 12:11
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  4 MAY 2014 18:05
 entering extended mode
  %&-line parsing enabled.
 **Marcus_Hultmark_Thesis_template.tex
@@ -783,6 +783,12 @@ Writing nomenclature file Marcus_Hultmark_Thesis_template.nlo
 
 LaTeX Warning: Label `fourth' multiply defined.
 
+
+LaTeX Warning: Label `eq:statevector' multiply defined.
+
+
+LaTeX Warning: Label `eq:statevector' multiply defined.
+
 )
 \openout1 = `Marcus_Hultmark_Thesis_template.aux'.
 
@@ -905,12 +911,6 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
                            \today 
 l.10 	\makeititle
                  
-? w
-Type <return> to proceed, S to scroll future error messages,
-R to run without stopping, Q to run quietly,
-I to insert something, E to edit your file,
-1 or ... or 9 to ignore the next 1 to 9 tokens of input,
-H for help, X to quit.
 ? q
 OK, entering \batchmode...
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
@@ -1011,6 +1011,18 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
+
+! LaTeX Error: \headrulewt idthundefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 
+     
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
  [1
 
 
@@ -1069,12 +1081,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
-
+ [3]
 Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
- [3]
+
 Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
@@ -1085,31 +1097,43 @@ Chapter 2.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 8.
 
-Underfull \hbox (badness 10000) in paragraph at lines 41--42
+Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
+
+
+! LaTeX Error: \headrulewt idthundefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.49 
+     
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
  [5
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 51--52
+Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 57--58
+Underfull \hbox (badness 10000) in paragraph at lines 58--59
 
  []
 
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 68.
+(Font)              Font shape `OMS/pzccm/m/n' tried instead on input line 69.
 
-Underfull \hbox (badness 10000) in paragraph at lines 68--69
+Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
  []
 
 ! Misplaced alignment tab character &.
-l.70  &
+l.71  &
         $\text{Minimization} && \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1119,7 +1143,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.70  & $\text{Minimization} &
+l.71  & $\text{Minimization} &
                               & \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1129,7 +1153,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.70  & $\text{Minimization} &&
+l.71  & $\text{Minimization} &&
                                 \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1139,12 +1163,12 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 70--71
+Underfull \hbox (badness 10000) in paragraph at lines 71--72
 
  []
 
 ! Misplaced alignment tab character &.
-l.72  &
+l.73  &
         $\text{Maximization} && \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1154,7 +1178,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.72  & $\text{Maximization} &
+l.73  & $\text{Maximization} &
                               & \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1164,7 +1188,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.72  & $\text{Maximization} &&
+l.73  & $\text{Maximization} &&
                                 \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1174,17 +1198,17 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 72--73
+Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 74--75
+Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
 
 ! Misplaced alignment tab character &.
-l.76  &
+l.77  &
         $\nabla_{\lambda} f(\mathbf{x}) + \sum  \limits_{i=1}^{m} \nabla_{\l...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1194,17 +1218,17 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 76--77
+Underfull \hbox (badness 10000) in paragraph at lines 77--78
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--79
+Underfull \hbox (badness 10000) in paragraph at lines 79--80
 
  []
 
 ! Misplaced alignment tab character &.
-l.80  &
+l.81  &
         $\mu_{i} f_{i}(\mathbf{x}) = 0, \forall i = 1, \ldots, n$\\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1214,12 +1238,12 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 80--81
+Underfull \hbox (badness 10000) in paragraph at lines 81--82
 
  []
 
 ! Misplaced alignment tab character &.
-l.82  &
+l.83  &
        $\mu_{i} \geq 0, \forall i = 1, \ldots, n$\\
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -1229,17 +1253,17 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 82--83
+Underfull \hbox (badness 10000) in paragraph at lines 83--84
 
  []
 
  [6]
-Underfull \hbox (badness 10000) in paragraph at lines 86--87
+Underfull \hbox (badness 10000) in paragraph at lines 87--88
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 92--93
+Underfull \hbox (badness 10000) in paragraph at lines 93--94
 
  []
 
@@ -1251,17 +1275,17 @@ File: Images/Chapter2/mpc.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
  [7] [8 <./Images/Chapter2/mpc.png (PNG copy)>] [9]
-Underfull \hbox (badness 10000) in paragraph at lines 184--185
+Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 186--187
+Underfull \hbox (badness 10000) in paragraph at lines 187--188
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 198--199
+Underfull \hbox (badness 10000) in paragraph at lines 199--200
 
  []
 
@@ -1275,6 +1299,18 @@ File: Images/Chapter3/quad_dynamics.jpg Graphic file (type jpg)
 Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
+
+
+! LaTeX Error: \headrulewt idthundefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.20 
+     
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
  [12
 
@@ -1725,34 +1761,34 @@ Underfull \hbox (badness 10000) in paragraph at lines 114--115
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--123
+Underfull \hbox (badness 10000) in paragraph at lines 126--127
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 124--125
+Underfull \hbox (badness 10000) in paragraph at lines 129--131
 
  []
 
-
-<Images/Chapter3/Constant_thrust_upwards/Inputs.png, id=548, 586.8324pt x 442.2
+ [15]
+<Images/Chapter3/Constant_thrust_upwards/Inputs.png, id=555, 586.8324pt x 442.2
 924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Inputs.png Graphic file (type png
 )
 
-<use Images/Chapter3/Constant_thrust_upwards/Inputs.png> [15]
-Underfull \hbox (badness 10000) in paragraph at lines 139--140
+<use Images/Chapter3/Constant_thrust_upwards/Inputs.png>
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
 
  []
 
 
-<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=557, 586.8324pt x 44
+<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=558, 586.8324pt x 44
 2.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Positions.png Graphic file (type 
 png)
 
 <use Images/Chapter3/Constant_thrust_upwards/Positions.png>
-<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=558, 586.832
+<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=559, 586.832
 4pt x 442.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png Graphic fil
 e (type png)
@@ -1766,28 +1802,23 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 LaTeX Warning: Text page 17 contains only floats.
 
  [17 <./Images/Chapter3/Constant_thrust_upwards/Positions.png> <./Images/Chapte
-r3/Constant_thrust_upwards/Linear_velocities.png>]
-
-LaTeX Warning: Reference `eq:thrust_aerodynamics' on page 18 undefined on input
- line 156.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--157
+r3/Constant_thrust_upwards/Linear_velocities.png>] [18]
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 
  []
 
 
-<Images/Chapter3/Lateral_X/Inputs.png, id=571, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Inputs.png, id=577, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Inputs.png>
-<Images/Chapter3/Lateral_X/Torque_inputs.png, id=572, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Torque_inputs.png, id=578, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Torque_inputs.png Graphic file (type png)
- <use Images/Chapter3/Lateral_X/Torque_inputs.png> [18 <./Images/Chapter3/Later
+ <use Images/Chapter3/Lateral_X/Torque_inputs.png> [19 <./Images/Chapter3/Later
 al_X/Inputs.png>]
-<Images/Chapter3/Lateral_X/Positions.png, id=580, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Positions.png, id=586, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Positions.png>
-<Images/Chapter3/Lateral_X/Linear_velocities.png, id=583, 586.8324pt x 442.2924
+<Images/Chapter3/Lateral_X/Linear_velocities.png, id=589, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_X/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Linear_velocities.png>
@@ -1795,38 +1826,38 @@ File: Images/Chapter3/Lateral_X/Linear_velocities.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_X/Euler_Angles.png, id=586, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Euler_Angles.png, id=592, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Euler_Angles.png>
-<Images/Chapter3/Lateral_X/Angular_velocities.png, id=589, 586.8324pt x 442.292
+<Images/Chapter3/Lateral_X/Angular_velocities.png, id=595, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_X/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Angular_velocities.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- [19 <./Images/Chapter3/Lateral_X/Torque_inputs.png>]
-
-LaTeX Warning: Text page 20 contains only floats.
-
- [20 <./Images/Chapter3/Lateral_X/Positions.png> <./Images/Chapter3/Lateral_X/L
-inear_velocities.png>]
+ [20 <./Images/Chapter3/Lateral_X/Torque_inputs.png>]
 
 LaTeX Warning: Text page 21 contains only floats.
 
- [21 <./Images/Chapter3/Lateral_X/Euler_Angles.png> <./Images/Chapter3/Lateral_
+ [21 <./Images/Chapter3/Lateral_X/Positions.png> <./Images/Chapter3/Lateral_X/L
+inear_velocities.png>]
+
+LaTeX Warning: Text page 22 contains only floats.
+
+ [22 <./Images/Chapter3/Lateral_X/Euler_Angles.png> <./Images/Chapter3/Lateral_
 X/Angular_velocities.png>]
-<Images/Chapter3/Lateral_Y/Inputs.png, id=611, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Inputs.png, id=617, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Inputs.png>
-<Images/Chapter3/Lateral_Y/Torque_inputs.png, id=612, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Torque_inputs.png, id=618, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Torque_inputs.png Graphic file (type png)
- <use Images/Chapter3/Lateral_Y/Torque_inputs.png> [22 <./Images/Chapter3/Later
+ <use Images/Chapter3/Lateral_Y/Torque_inputs.png> [23 <./Images/Chapter3/Later
 al_Y/Inputs.png>]
-<Images/Chapter3/Lateral_Y/Positions.png, id=620, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Positions.png, id=626, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Positions.png>
-<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=623, 586.8324pt x 442.2924
+<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=629, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_Y/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Linear_velocities.png>
@@ -1834,29 +1865,29 @@ File: Images/Chapter3/Lateral_Y/Linear_velocities.png Graphic file (type png)
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=626, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=632, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Euler_Angles.png>
-<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=629, 586.8324pt x 442.292
+<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=635, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_Y/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Angular_velocities.png>
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- [23 <./Images/Chapter3/Lateral_Y/Torque_inputs.png>]
-
-LaTeX Warning: Text page 24 contains only floats.
-
- [24 <./Images/Chapter3/Lateral_Y/Positions.png> <./Images/Chapter3/Lateral_Y/L
-inear_velocities.png>]
+ [24 <./Images/Chapter3/Lateral_Y/Torque_inputs.png>]
 
 LaTeX Warning: Text page 25 contains only floats.
 
- [25 <./Images/Chapter3/Lateral_Y/Euler_Angles.png> <./Images/Chapter3/Lateral_
+ [25 <./Images/Chapter3/Lateral_Y/Positions.png> <./Images/Chapter3/Lateral_Y/L
+inear_velocities.png>]
+
+LaTeX Warning: Text page 26 contains only floats.
+
+ [26 <./Images/Chapter3/Lateral_Y/Euler_Angles.png> <./Images/Chapter3/Lateral_
 Y/Angular_velocities.png>])
 (./Software_Architecture_and_Implementation/Software_Architecture_and_Implement
-ation.tex [26]
+ation.tex [27]
 Chapter 4.
 
 Underfull \hbox (badness 10000) in paragraph at lines 6--7
@@ -1868,7 +1899,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 8--9
 
  []
 
- [27
+
+! LaTeX Error: \headrulewt idthundefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.25 
+     
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+ [28
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 32--33
@@ -1876,32 +1919,32 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
  []
 
 
-<Images/Chapter4/Class_Diagram.png, id=666, 502.87875pt x 594.22pt>
+<Images/Chapter4/Class_Diagram.png, id=672, 502.87875pt x 594.22pt>
 File: Images/Chapter4/Class_Diagram.png Graphic file (type png)
  <use Images/Chapter4/Class_Diagram.png>
-<Images/Chapter4/Class_diagram_implementation.png, id=667, 527.9725pt x 376.406
+<Images/Chapter4/Class_diagram_implementation.png, id=673, 527.9725pt x 376.406
 25pt>
 File: Images/Chapter4/Class_diagram_implementation.png Graphic file (type png)
- <use Images/Chapter4/Class_diagram_implementation.png> [28 <./Images/Chapter4/
+ <use Images/Chapter4/Class_diagram_implementation.png> [29 <./Images/Chapter4/
 Class_Diagram.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
 
- [29 <./Images/Chapter4/Class_diagram_implementation.png (PNG copy)>]
+ [30 <./Images/Chapter4/Class_diagram_implementation.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
 
- [30]
+ [31]
 Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
  []
 
- [31]) (./Results_and_Discussion/Results_and_Discussion.tex [32]
+ [32]) (./Results_and_Discussion/Results_and_Discussion.tex [33]
 Chapter 5.
 
-<Images/Chapter5/tank_system.png, id=695, 120.45pt x 180.675pt>
+<Images/Chapter5/tank_system.png, id=701, 120.45pt x 180.675pt>
 File: Images/Chapter5/tank_system.png Graphic file (type png)
  <use Images/Chapter5/tank_system.png>
 
@@ -2161,7 +2204,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 29--30
 
  []
 
- [33
+
+! LaTeX Error: \headrulewt idthundefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 
+     
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+ [34
 
  <./Images/Chapter5/tank_system.png>]
 ! Missing $ inserted.
@@ -2249,15 +2304,15 @@ I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
 
 
-<Images/Chapter5/tank_system/control_signal.png, id=702, 586.8324pt x 442.2924p
+<Images/Chapter5/tank_system/control_signal.png, id=708, 586.8324pt x 442.2924p
 t>
 File: Images/Chapter5/tank_system/control_signal.png Graphic file (type png)
  <use Images/Chapter5/tank_system/control_signal.png>
-<Images/Chapter5/tank_system/levels_control.png, id=703, 586.8324pt x 442.2924p
+<Images/Chapter5/tank_system/levels_control.png, id=709, 586.8324pt x 442.2924p
 t>
 File: Images/Chapter5/tank_system/levels_control.png Graphic file (type png)
- <use Images/Chapter5/tank_system/levels_control.png> [34 <./Images/Chapter5/ta
-nk_system/control_signal.png>] [35 <./Images/Chapter5/tank_system/levels_contro
+ <use Images/Chapter5/tank_system/levels_control.png> [35 <./Images/Chapter5/ta
+nk_system/control_signal.png>] [36 <./Images/Chapter5/tank_system/levels_contro
 l.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
@@ -2358,26 +2413,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--101
  []
 
 
-<Images/Chapter5/ardrone/position_control.png, id=719, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/position_control.png, id=725, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/position_control.png Graphic file (type png)
- <use Images/Chapter5/ardrone/position_control.png> [36]
-<Images/Chapter5/ardrone/euler_angle_control.png, id=724, 586.8324pt x 442.2924
+ <use Images/Chapter5/ardrone/position_control.png> [37]
+<Images/Chapter5/ardrone/euler_angle_control.png, id=730, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter5/ardrone/euler_angle_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/euler_angle_control.png>
-<Images/Chapter5/ardrone/lin_velocity_control.png, id=725, 586.8324pt x 442.292
+<Images/Chapter5/ardrone/lin_velocity_control.png, id=731, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/lin_velocity_control.png Graphic file (type png)
- <use Images/Chapter5/ardrone/lin_velocity_control.png> [37 <./Images/Chapter5/
+ <use Images/Chapter5/ardrone/lin_velocity_control.png> [38 <./Images/Chapter5/
 ardrone/position_control.png> <./Images/Chapter5/ardrone/euler_angle_control.pn
 g>]
-<Images/Chapter5/ardrone/ang_velocity_control.png, id=732, 586.8324pt x 442.292
+<Images/Chapter5/ardrone/ang_velocity_control.png, id=739, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/ang_velocity_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/ang_velocity_control.png>
-<Images/Chapter5/ardrone/control_signals.png, id=733, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/control_signals.png, id=740, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/control_signals.png Graphic file (type png)
- <use Images/Chapter5/ardrone/control_signals.png> [38 <./Images/Chapter5/ardro
+ <use Images/Chapter5/ardrone/control_signals.png> [39 <./Images/Chapter5/ardro
 ne/lin_velocity_control.png> <./Images/Chapter5/ardrone/ang_velocity_control.pn
 g>]
 Underfull \hbox (badness 10000) in paragraph at lines 139--140
@@ -2399,8 +2454,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 145--146
 
  []
 
- [39 <./Images/Chapter5/ardrone/control_signals.png>])
-(./Conclusions_and_Future_Work/Conclusions_and_Future_Work.tex [40]
+ [40 <./Images/Chapter5/ardrone/control_signals.png>])
+(./Conclusions_and_Future_Work/Conclusions_and_Future_Work.tex [41]
 Chapter 6.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
@@ -2427,7 +2482,19 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
- [41
+
+! LaTeX Error: \headrulewt idthundefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.16 
+     
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+ [42
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 17--18
@@ -2439,7 +2506,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
-) (./Marcus_Hultmark_Thesis_template.bbl [42]
+) (./Marcus_Hultmark_Thesis_template.bbl [43]
 ! Misplaced alignment tab character &.
 l.82 \newblock {\em IEEE Robotics &
                                     Automation Magazine}, 19(3), 2012.
@@ -2450,7 +2517,19 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
- [43
+
+! LaTeX Error: \headrulewt idthundefined.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.96 
+     
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+ [44
 
 ]
 
@@ -2466,7 +2545,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Appendix/Appendix_A.tex [44]
+) (./Appendix/Appendix_A.tex [45]
 Appendix A.
 
 ! Package amsmath Error: Erroneous nesting of equation structures;
@@ -2513,24 +2592,33 @@ l.23 ...6, A_t = 15.52 [$cm^2$], A_d = 0.178 [$cm^
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
- [45
 
-] [46]) [47] (./Marcus_Hultmark_Thesis_template.aux)
+! LaTeX Error: \headrulewt idthundefined.
 
-LaTeX Warning: There were undefined references.
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.68 \end{equation*}
+                    
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
 
+ [46
+
+] [47]) [48] (./Marcus_Hultmark_Thesis_template.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10378 strings out of 493848
- 150043 string characters out of 1152822
+ 10383 strings out of 493848
+ 150099 string characters out of 1152822
  284113 words of memory out of 3000000
- 13113 multiletter control sequences out of 15000+50000
+ 13115 multiletter control sequences out of 15000+50000
  68807 words of font info for 97 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
- 40i,18n,43p,1656b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 40i,18n,43p,1740b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
 ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
 pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
@@ -2542,10 +2630,10 @@ s/type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utm
 b8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/
 texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/
 type1/urw/times/utmri8a.pfb>
-Output written on Marcus_Hultmark_Thesis_template.pdf (52 pages, 1369930 bytes)
+Output written on Marcus_Hultmark_Thesis_template.pdf (53 pages, 1361491 bytes)
 .
 PDF statistics:
- 873 PDF objects out of 1000 (max. 8388607)
- 187 named destinations out of 1000 (max. 500000)
+ 880 PDF objects out of 1000 (max. 8388607)
+ 190 named destinations out of 1000 (max. 500000)
  597 words of extra memory for PDF output out of 10000 (max. 10000000)
 
