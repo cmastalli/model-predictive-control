@@ -1,36 +1,36 @@
 \documentclass[a4paper,11pt]{report}
 \input{./Preambles/Preambles.tex}
 \begin{document}
-	\pagenumbering{roman} 	%Use roman numbering for preface
-	\ititle{\reportTitle}
-	\isubtitle{\reportSubtitle} % Optional
-	\idate{\reportDate}
-	\irefnr{\reportRefNr}
-	\iauthor{\firstname \hspace{0pt} \surname}
-	\makeititle
+\pagenumbering{roman} %Use roman numbering for preface
+\ititle{\reportTitle}
+\isubtitle{\reportSubtitle} % Optional
+\idate{\reportDate}
+\irefnr{\reportRefNr}
+\iauthor{\firstname \hspace{0pt} \surname}
+\makeititle
 
-	\pagebreak
+\pagebreak
 \input{./Abstract/Abstract.tex}
 \pagebreak
-	{\listoffigures}
-	{\tableofcontents}
-	\pagebreak
+{\listoffigures}
+{\tableofcontents}
+\pagebreak
 
-	\cleardoublepage
-	\pagenumbering{arabic}
+\cleardoublepage
+\pagenumbering{arabic}
 
-	\pagestyle{fancy}
-	\fancypagestyle{plain}{%
-	\fancyhf{} % clear all header and footer fields
-	\fancyhead[L]{\slshape \leftmark}        
-	\fancyhead[C]{}
-	\fancyhead[R]{\slshape \rightmark}
-	\fancyfoot[C]{\thepage}
-	\renewcommand{\headrulewt	idth}{0.4pt}
-	\renewcommand{\footrulewidth}{0pt}}
-	\headheight = 14pt
-	
-	\printnomenclature[50pt]
+\pagestyle{fancy}
+\fancypagestyle{plain}{%
+\fancyhf{} % clear all header and footer fields
+\fancyhead[L]{\slshape \leftmark}
+\fancyhead[C]{}
+\fancyhead[R]{\slshape \rightmark}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}}
+\headheight = 14pt
+
+\printnomenclature[50pt]
 \input{./Introduction/Introduction.tex}
 \input{./Model_Predictive_Control/Model_Predictive_Control.tex}
 \input{./Dynamic_Modeling_of_a_Quadrotor/Dynamic_Modeling_of_a_Quadrotor.tex}
