@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  10 MAY 2014 19:35
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  27 MAY 2014 19:22
 entering extended mode
  %&-line parsing enabled.
 **Marcus_Hultmark_Thesis_template.tex
@@ -2478,12 +2478,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 182--183
 
  [43 <./Images/Chapter5/ardrone/ang_velocity_control2.png> <./Images/Chapter5/a
 rdrone/control_signals2.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 194--195
+! Misplaced alignment tab character &.
+l.194 ...ntal $XY$ plane and one in the vertical &
+                                                  XZ& plane.  These were add...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+! Misplaced alignment tab character &.
+l.194 ...l $XY$ plane and one in the vertical &XZ&
+                                                   plane.  These were added ...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
+
+File: Images/Chapter5/ardrone/position_control2.png Graphic file (type png)
+ <use Images/Chapter5/ardrone/position_control2.png>
+File: Images/Chapter5/ardrone/euler_angle_control2.png Graphic file (type png)
+ <use Images/Chapter5/ardrone/euler_angle_control2.png> [44]
+File: Images/Chapter5/ardrone/lin_velocity_control2.png Graphic file (type png)
+
+
+<use Images/Chapter5/ardrone/lin_velocity_control2.png>
+File: Images/Chapter5/ardrone/ang_velocity_control2.png Graphic file (type png)
+
+
+<use Images/Chapter5/ardrone/ang_velocity_control2.png> [45]
+File: Images/Chapter5/ardrone/control_signals2.png Graphic file (type png)
+ <use Images/Chapter5/ardrone/control_signals2.png>
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
 
  []
 
-)
-(./Conclusions_and_Future_Work/Conclusions_and_Future_Work.tex [44]
+ [46])
+(./Conclusions_and_Future_Work/Conclusions_and_Future_Work.tex [47]
 Chapter 6.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
@@ -2510,7 +2544,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 15--16
 
  []
 
- [45
+ [48
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 17--18
@@ -2522,7 +2556,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
 
-) (./Marcus_Hultmark_Thesis_template.bbl [46]
+) (./Marcus_Hultmark_Thesis_template.bbl [49]
 ! Misplaced alignment tab character &.
 l.82 \newblock {\em IEEE Robotics &
                                     Automation Magazine}, 19(3), 2012.
@@ -2533,7 +2567,7 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
- [47
+ [50
 
 ]
 
@@ -2549,7 +2583,7 @@ Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
-) (./Appendix/Appendix_A.tex [48]
+) (./Appendix/Appendix_A.tex [51]
 Appendix A.
 
 ! Package amsmath Error: Erroneous nesting of equation structures;
@@ -2596,36 +2630,39 @@ l.23 ...6, A_t = 15.52 [$cm^2$], A_d = 0.178 [$cm^
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
- [49
+ [52
 
-] [50]) [51] (./Marcus_Hultmark_Thesis_template.aux)
+] [53]) [54] (./Marcus_Hultmark_Thesis_template.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 10419 strings out of 493848
- 151432 string characters out of 1152822
+ 10433 strings out of 493848
+ 151650 string characters out of 1152822
  284113 words of memory out of 3000000
- 13138 multiletter control sequences out of 15000+50000
+ 13143 multiletter control sequences out of 15000+50000
  68807 words of font info for 97 fonts, out of 3000000 for 9000
  714 hyphenation exceptions out of 8191
  40i,18n,43p,1740b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
-ve/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
-cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10
-.pfb></usr/share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/t
-exmf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-texlive/font
-s/type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utm
-b8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/
-texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/
-type1/urw/times/utmri8a.pfb>
-Output written on Marcus_Hultmark_Thesis_template.pdf (56 pages, 1581001 bytes)
+pdfTeX warning (dest): name{section*.32} has been referenced but does not exi
+st, replaced by a fixed one
+
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texlive
+/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type
+1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/am
+sfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
+sy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.p
+fb></usr/share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/tex
+mf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-texlive/fonts/
+type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmb8
+a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/te
+xmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/ty
+pe1/urw/times/utmri8a.pfb>
+Output written on Marcus_Hultmark_Thesis_template.pdf (59 pages, 1585377 bytes)
 .
 PDF statistics:
- 920 PDF objects out of 1000 (max. 8388607)
- 198 named destinations out of 1000 (max. 500000)
+ 940 PDF objects out of 1000 (max. 8388607)
+ 207 named destinations out of 1000 (max. 500000)
  622 words of extra memory for PDF output out of 10000 (max. 10000000)
 
