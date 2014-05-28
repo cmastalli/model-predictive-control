@@ -57,16 +57,20 @@ bool mpc::optimizer::qpOASES::computeOpt(double *H, double *g, double *G, double
 {
 	// solve first QP.
 	int nWSR = nWSR_;
+	double cpu_time;
+	
 	returnValue retval;
 	if (!qpOASES_initialized_) {
-		retval = solver_->init(H, g, G, lb, ub, lbG, ubG, nWSR, &cputime);
+		cpu_time = cputime;
+		retval = solver_->init(H, g, G, lb, ub, lbG, ubG, nWSR, &cpu_time);
 		if (retval == SUCCESSFUL_RETURN) {
 			ROS_INFO("qpOASES problem successfully initialized.");
 			qpOASES_initialized_ = true;
 		}
 	}
 	else {
-		retval = solver_->hotstart(H, g, G, lb, ub, lbG, ubG, nWSR, &cputime);
+		cpu_time = cputime;
+		retval = solver_->hotstart(H, g, G, lb, ub, lbG, ubG, nWSR, &cpu_time);
 	}
 	if (solver_->isInfeasible())
 		ROS_WARN("The quadratic programming is infeasible.");
@@ -83,7 +87,7 @@ bool mpc::optimizer::qpOASES::computeOpt(double *H, double *g, double *G, double
 		return false;
 	}	
 	
-	
+	//std::cout << "cputime = " << cpu_time << std::endl;
 	return true;
 }
 

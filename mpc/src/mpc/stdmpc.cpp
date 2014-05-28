@@ -89,6 +89,8 @@ bool mpc::STDMPC::initMPC()
 	// Obtention of the model parameters
 	if (model_->computeLinearSystem(A_, B_)) {
 		ROS_INFO("Model calculated successfully.");
+		std::cout << "A\n" << A_ << std::endl;
+		std::cout << "B\n" << B_ << std::endl;
 	}
 	
 	// Reading the weight matrices of the cost function
