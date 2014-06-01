@@ -59,7 +59,7 @@ int main(int argc, char **argv)
 	x_bar = new double[12];
 	u_bar = new double[4];
 
-	double simulation_time;
+	double t_sim;
 	
 			
     timespec start_rt, end_rt;
@@ -70,108 +70,34 @@ int main(int argc, char **argv)
 		/*while (ros::ok())*/
 
 		
-		simulation_time = sampling_time * counter;
+		t_sim = sampling_time * counter;
 
-		if (simulation_time < 2){
-			x_ref[0] = 1.0;			// referencia de posicion en X
+		if (t_sim < 8){
+			x_ref[0] = 0.25*t_sim;			// referencia de posicion en X
 			x_ref[1] = 0.;			// referencia de posicion en Y
-			x_ref[3] = 0.125*simulation_time;	// referencia de velocidad en X (rampa ascendente)
+			x_ref[3] = 0.25;	// referencia de velocidad en X (rampa ascendente)
 			x_ref[4] = 0.;
 		}
-		else if (simulation_time >= 2 && simulation_time < 4){
-			x_ref[0] = 1.0;			// referencia de posicion en X
-			x_ref[1] = 0.;			// referencia de posicion en Y
-			x_ref[3] = 0.25;	// referencia de velocidad en X 
+		else if (t_sim >= 8 && t_sim < 16){
+			x_ref[0] = 2.0;			// referencia de posicion en X
+			x_ref[1] = -0.25*t_sim + 2.0;			// referencia de posicion en Y
+			x_ref[3] = 0.;	// referencia de velocidad en X 
+			x_ref[4] = -0.25;
+		}
+		else if (t_sim >= 16 && t_sim < 24){
+			x_ref[0] = -0.25*t_sim + 6.0;			// referencia de posicion en X
+			x_ref[1] = -2.0;			// referencia de posicion en Y
+			x_ref[3] = -0.25;	// referencia de velocidad en X 
 			x_ref[4] = 0.;
 		}
-		else if (simulation_time >= 4 && simulation_time < 6){
-			x_ref[0] = 1.0;			// referencia de posicion en X
-			x_ref[1] = 0.;			// referencia de posicion en Y
-			x_ref[3] = 0.25;	// referencia de velocidad en X 
-			x_ref[4] = 0.;
-		}
-		else if (simulation_time >= 6 && simulation_time < 8){
-			x_ref[0] = 1.0;			// referencia de posicion en X
-			x_ref[1] = 0.;			// referencia de posicion en Y
-			x_ref[3] = 1.0 - 0.125*simulation_time;	// referencia de velocidad en X 
-			x_ref[4] = 0.;
+		else if (t_sim >= 24 && t_sim < 32){
+			x_ref[0] = 0.;			// referencia de posicion en X
+			x_ref[1] = 0.25*t_sim - 8.0;			// referencia de posicion en Y
+			x_ref[3] = 0.;	// referencia de velocidad en X 
+			x_ref[4] = 0.25;
 		}
 		/////////////////////////////////////////////////////////////////////////////////
-		else if (simulation_time >= 8 && simulation_time < 10){
-			x_ref[0] = 1.0;			// referencia de posicion en X
-			x_ref[1] = -1.0;			// referencia de posicion en Y
-			x_ref[3] = 0.;				// referencia de velocidad en X 
-			x_ref[4] = 1.0 - 0.125*simulation_time;
-		}
-		else if (simulation_time >= 10 && simulation_time < 12){
-			x_ref[0] = 1.0;			// referencia de posicion en X
-			x_ref[1] = -1.0;			// referencia de posicion en Y
-			x_ref[3] = 0.;	// referencia de velocidad en X (rampa ascendente)
-			x_ref[4] = -0.25;
-		}
-		else if (simulation_time >= 12 && simulation_time < 14){
-			x_ref[0] = 1.0;			// referencia de posicion en X
-			x_ref[1] = -1.0;			// referencia de posicion en Y
-			x_ref[3] = 0.;	// referencia de velocidad en X (rampa ascendente)
-			x_ref[4] = -0.25;
-		}
-		else if (simulation_time >= 14 && simulation_time < 16){
-			x_ref[0] = 1.0;			// referencia de posicion en X
-			x_ref[1] = -1.0;			// referencia de posicion en Y
-			x_ref[3] = 0.;	// referencia de velocidad en X (rampa ascendente)
-			x_ref[4] = -2.0 + 0.125*simulation_time;
-		}
-		////////////////////////////////////////////////////////////////////////////////
-		else if (simulation_time >= 16 && simulation_time < 18){
-			x_ref[0] = 0.;			// referencia de posicion en X
-			x_ref[1] = -1.0;			// referencia de posicion en Y
-			x_ref[3] = 2.0 - 0.125*simulation_time;				// referencia de velocidad en X 
-			x_ref[4] = 0.;
-		}
-		else if (simulation_time >= 18 && simulation_time < 20){
-			x_ref[0] = 0.;			// referencia de posicion en X
-			x_ref[1] = -1.0;			// referencia de posicion en Y
-			x_ref[3] = -0.25;	// referencia de velocidad en X (rampa ascendente)
-			x_ref[4] = 0.;
-		}
-		else if (simulation_time >= 20 && simulation_time < 22){
-			x_ref[0] = 0.;			// referencia de posicion en X
-			x_ref[1] = -1.0;			// referencia de posicion en Y
-			x_ref[3] = -0.25;	// referencia de velocidad en X (rampa ascendente)
-			x_ref[4] = 0.;
-		}
-		else if (simulation_time >= 22 && simulation_time < 24){
-			x_ref[0] = 0.;			// referencia de posicion en X
-			x_ref[1] = -1.0;			// referencia de posicion en Y
-			x_ref[3] = -3.0 + 0.125*simulation_time;	// referencia de velocidad en X (rampa ascendente)
-			x_ref[4] = 0.;
-		}
-		///////////////////////////////////////////////////////////////////////////////////
-		else if (simulation_time >= 24 && simulation_time < 26){
-			x_ref[0] = 0.;			// referencia de posicion en X
-			x_ref[1] = 0.;			// referencia de posicion en Y
-			x_ref[3] = 0.;				// referencia de velocidad en X 
-			x_ref[4] = -3.0 + 0.125*simulation_time;
-		}
-		else if (simulation_time >= 26 && simulation_time < 28){
-			x_ref[0] = 0.;			// referencia de posicion en X
-			x_ref[1] = 0.;			// referencia de posicion en Y
-			x_ref[3] = 0.;	// referencia de velocidad en X (rampa ascendente)
-			x_ref[4] = 0.25;
-		}
-		else if (simulation_time >= 28 && simulation_time < 30){
-			x_ref[0] = 0.;			// referencia de posicion en X
-			x_ref[1] = 0.;			// referencia de posicion en Y
-			x_ref[3] = 0.;	// referencia de velocidad en X (rampa ascendente)
-			x_ref[4] = 0.25;
-		}
-		else if (simulation_time >= 30 && simulation_time < 32){
-			x_ref[0] = 0.;			// referencia de posicion en X
-			x_ref[1] = 0.;			// referencia de posicion en Y
-			x_ref[3] = 0.;	// referencia de velocidad en X (rampa ascendente)
-			x_ref[4] = 4.0 - 0.125*simulation_time;
-		}
-		///////////////////////////////////////////////////////////////////////////////////
+		
 		else {
 			x_ref[0] = 0.;			
 			x_ref[1] = 0.;			
