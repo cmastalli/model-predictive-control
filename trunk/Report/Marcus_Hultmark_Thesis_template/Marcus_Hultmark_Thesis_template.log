@@ -1,20 +1,15 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.10.10)  27 MAY 2014 19:22
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.6)  10 JUN 2014 22:26
 entering extended mode
+ restricted \write18 enabled.
  %&-line parsing enabled.
 **Marcus_Hultmark_Thesis_template.tex
 (./Marcus_Hultmark_Thesis_template.tex
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
-ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
-9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
-skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
-orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
-, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
-rtuguese, spanish, galician, catalan, swedish, ukenglish, pinyin, loaded.
-(/usr/share/texmf-texlive/tex/latex/base/report.cls
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, lo
+aded.
+(/usr/share/texlive/texmf-dist/tex/latex/base/report.cls
 Document Class: report 2007/10/19 v1.4h Standard LaTeX document class
-(/usr/share/texmf-texlive/tex/latex/base/size11.clo
+(/usr/share/texlive/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 )
 \c@part=\count79
@@ -31,22 +26,20 @@ File: size11.clo 2007/10/19 v1.4h Standard LaTeX file (size option)
 \bibindent=\dimen102
 )
 (./Preambles/Preambles.tex
-(/usr/share/texmf-texlive/tex/latex/tocbibind/tocbibind.sty
-Package: tocbibind 2009/09/04 v1.5i extra ToC listings
-
-
-Package tocbibind Note: The document has chapter divisions.
+(/usr/share/texlive/texmf-dist/tex/latex/tocbibind/tocbibind.sty
+Package: tocbibind 2010/10/13 v1.5k extra ToC listings
+Package tocbibind Info: The document has chapter divisions on input line 50.
 
 
 Package tocbibind Note: Using chapter style headings, unless overridden.
 
-) (/usr/share/texmf-texlive/tex/latex/caption/caption.sty
-Package: caption 2009/10/09 v3.1k Customizing captions (AR)
+) (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2012/02/19 v3.2f Customizing captions (AR)
 
-(/usr/share/texmf-texlive/tex/latex/caption/caption3.sty
-Package: caption3 2009/10/09 v3.1k caption3 kernel (AR)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2012/01/12 v1.4b caption3 kernel (AR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 \KV@toks@=\toks14
 )
@@ -59,25 +52,32 @@ Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
 )
 \c@ContinuedFloat=\count88
 )
-(/usr/share/texmf-texlive/tex/latex/graphics/epsfig.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/epsfig.sty
 Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
 Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
-(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
 )
-(/etc/texmf/tex/latex/config/graphics.cfg
-File: graphics.cfg 2009/08/28 v1.8 graphics configuration of TeX Live
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
 Package graphics Info: Driver file: pdftex.def on input line 91.
 
-(/usr/share/texmf-texlive/tex/latex/pdftex-def/pdftex.def
-File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
+(/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
+File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)
 \Gread@gobject=\count89
 ))
 \Gin@req@height=\dimen109
@@ -86,7 +86,7 @@ File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
 \epsfxsize=\dimen111
 \epsfysize=\dimen112
 )
-(/usr/share/texmf-texlive/tex/latex/float/float.sty
+(/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count90
 \float@exts=\toks15
@@ -94,76 +94,81 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \@float@everytoks=\toks16
 \@floatcapt=\box27
 )
-(/usr/share/texmf-texlive/tex/latex/tools/longtable.sty
+(/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
+Package: subcaption 2012/01/12 v1.1d Sub-captions (AR)
+\c@subfigure=\count91
+\c@subtable=\count92
+)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/longtable.sty
 Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \LTleft=\skip43
 \LTright=\skip44
 \LTpre=\skip45
 \LTpost=\skip46
-\LTchunksize=\count91
+\LTchunksize=\count93
 \LTcapwidth=\dimen113
 \LT@head=\box28
 \LT@firsthead=\box29
 \LT@foot=\box30
 \LT@lastfoot=\box31
-\LT@cols=\count92
-\LT@rows=\count93
-\c@LT@tables=\count94
-\c@LT@chunks=\count95
+\LT@cols=\count94
+\LT@rows=\count95
+\c@LT@tables=\count96
+\c@LT@chunks=\count97
 \LT@p@ftn=\toks17
 )
-(/usr/share/texmf-texlive/tex/latex/fp/fp.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp.sty
 Package: fp 1995/04/02
 
 `Fixed Point Package', Version 0.8, April 2, 1995 (C) Michael Mehlich
-(/usr/share/texmf-texlive/tex/latex/fp/defpattern.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fp/defpattern.sty
 Package: defpattern 1994/10/12
-\actioncount=\count96
+\actioncount=\count98
 )
-(/usr/share/texmf-texlive/tex/latex/fp/fp-basic.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-basic.sty
 Package: fp-basic 1996/05/13
-\FP@xs=\count97
-\FP@xia=\count98
-\FP@xib=\count99
-\FP@xfa=\count100
-\FP@xfb=\count101
-\FP@rega=\count102
-\FP@regb=\count103
-\FP@regs=\count104
-\FP@times=\count105
+\FP@xs=\count99
+\FP@xia=\count100
+\FP@xib=\count101
+\FP@xfa=\count102
+\FP@xfb=\count103
+\FP@rega=\count104
+\FP@regb=\count105
+\FP@regs=\count106
+\FP@times=\count107
 )
-(/usr/share/texmf-texlive/tex/latex/fp/fp-addons.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-addons.sty
 Package: fp-addons 1995/03/15
 )
-(/usr/share/texmf-texlive/tex/latex/fp/fp-snap.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-snap.sty
 Package: fp-snap 1995/04/05
 )
-(/usr/share/texmf-texlive/tex/latex/fp/fp-exp.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-exp.sty
 Package: fp-exp 1995/04/03
 )
-(/usr/share/texmf-texlive/tex/latex/fp/fp-trigo.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-trigo.sty
 Package: fp-trigo 1995/04/14
 )
-(/usr/share/texmf-texlive/tex/latex/fp/fp-pas.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-pas.sty
 Package: fp-pas 1994/08/29
 )
-(/usr/share/texmf-texlive/tex/latex/fp/fp-random.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-random.sty
 Package: fp-random 1995/02/23
-\FPseed=\count106
+\FPseed=\count108
 )
-(/usr/share/texmf-texlive/tex/latex/fp/fp-eqn.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eqn.sty
 Package: fp-eqn 1995/04/03
 )
-(/usr/share/texmf-texlive/tex/latex/fp/fp-upn.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-upn.sty
 Package: fp-upn 1996/10/21
 )
-(/usr/share/texmf-texlive/tex/latex/fp/fp-eval.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fp/fp-eval.sty
 Package: fp-eval 1995/04/03
 ))
-(/usr/share/texmf-texlive/tex/latex/tools/tabularx.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/tabularx.sty
 Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
 
-(/usr/share/texmf-texlive/tex/latex/tools/array.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \col@sep=\dimen114
 \extrarowheight=\dimen115
@@ -176,10 +181,10 @@ Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
 \TX@old@col=\dimen118
 \TX@target=\dimen119
 \TX@delta=\dimen120
-\TX@cols=\count107
+\TX@cols=\count109
 \TX@ftn=\toks19
 )
-(/usr/share/texmf-texlive/tex/latex/comment/comment.sty
+(/usr/share/texlive/texmf-dist/tex/latex/comment/comment.sty
 \CommentStream=\write3
 
 Excluding comment 'comment') (./KTHEEtitlepage.sty
@@ -189,25 +194,25 @@ File: here_the_logos 2004/09/21 KTH logo Swedish, BW
 File: here_the_logos 2004/09/21 KTH logo Swedish, colour
 File: here_the_logos 2004/09/21 KTH logo Swedish, colour
 
-(/usr/share/texmf-texlive/tex/latex/graphics/color.sty
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
 Package: color 2005/11/14 v1.0j Standard LaTeX Color (DPC)
 
-(/etc/texmf/tex/latex/config/color.cfg
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
 File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
 )
 Package color Info: Driver file: pdftex.def on input line 130.
 )
-(/usr/share/texmf-texlive/tex/latex/tools/calc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count108
-\calc@Bcount=\count109
+\calc@Acount=\count110
+\calc@Bcount=\count111
 \calc@Adimen=\dimen121
 \calc@Bdimen=\dimen122
 \calc@Askip=\skip49
 \calc@Bskip=\skip50
 LaTeX Info: Redefining \setlength on input line 76.
 LaTeX Info: Redefining \addtolength on input line 77.
-\calc@Ccount=\count110
+\calc@Ccount=\count112
 \calc@Cskip=\skip51
 )
 \titlep@getextwidth=\skip52
@@ -218,28 +223,34 @@ LaTeX Info: Redefining \addtolength on input line 77.
 \titlep@getopmargin=\skip57
 \tmpl@ngth=\skip58
 )
-(/usr/share/texmf-texlive/tex/latex/geometry/geometry.sty
-Package: geometry 2008/12/21 v4.2 Page Geometry
+(/usr/share/texlive/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2010/09/12 v5.6 Page Geometry
 
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty
-Package: ifpdf 2009/04/10 v2.0 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in pdf mode detected.
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty
-Package: ifvtex 2008/11/04 v1.4 Switches for detecting VTeX and its modes (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifvtex.sty
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
-\Gm@cnth=\count111
-\Gm@cntv=\count112
-\c@Gm@tempcnt=\count113
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+\Gm@cnth=\count113
+\Gm@cntv=\count114
+\c@Gm@tempcnt=\count115
 \Gm@bindingoffset=\dimen123
 \Gm@wd@mp=\dimen124
 \Gm@odd@mp=\dimen125
 \Gm@even@mp=\dimen126
+\Gm@layoutwidth=\dimen127
+\Gm@layoutheight=\dimen128
+\Gm@layouthoffset=\dimen129
+\Gm@layoutvoffset=\dimen130
 \Gm@dimlist=\toks20
-
-(/usr/share/texmf-texlive/tex/xelatex/xetexconfig/geometry.cfg))
-(/usr/share/texmf-texlive/tex/latex/fancyhdr/fancyhdr.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
 \fancy@headwidth=\skip59
 \f@ncyO@elh=\skip60
 \f@ncyO@erh=\skip61
@@ -250,92 +261,92 @@ Package ifvtex Info: VTeX not detected.
 \f@ncyO@olf=\skip66
 \f@ncyO@orf=\skip67
 )
-(/usr/share/texmf-texlive/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen127
-\WF@size=\dimen128
-\c@WF@wrappedlines=\count114
+(/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen131
+\WF@size=\dimen132
+\c@WF@wrappedlines=\count116
 \WF@box=\box32
 \WF@everypar=\toks21
 Package: wrapfig 2003/01/31  v 3.6
 )
-(/usr/share/texmf-texlive/tex/latex/booktabs/booktabs.sty
+(/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
-\heavyrulewidth=\dimen129
-\lightrulewidth=\dimen130
-\cmidrulewidth=\dimen131
-\belowrulesep=\dimen132
-\belowbottomsep=\dimen133
-\aboverulesep=\dimen134
-\abovetopsep=\dimen135
-\cmidrulesep=\dimen136
-\cmidrulekern=\dimen137
-\defaultaddspace=\dimen138
-\@cmidla=\count115
-\@cmidlb=\count116
-\@aboverulesep=\dimen139
-\@belowrulesep=\dimen140
-\@thisruleclass=\count117
-\@lastruleclass=\count118
-\@thisrulewidth=\dimen141
+\heavyrulewidth=\dimen133
+\lightrulewidth=\dimen134
+\cmidrulewidth=\dimen135
+\belowrulesep=\dimen136
+\belowbottomsep=\dimen137
+\aboverulesep=\dimen138
+\abovetopsep=\dimen139
+\cmidrulesep=\dimen140
+\cmidrulekern=\dimen141
+\defaultaddspace=\dimen142
+\@cmidla=\count117
+\@cmidlb=\count118
+\@aboverulesep=\dimen143
+\@belowrulesep=\dimen144
+\@thisruleclass=\count119
+\@lastruleclass=\count120
+\@thisrulewidth=\dimen145
 )
-(/usr/share/texmf-texlive/tex/latex/fancyref/fancyref.sty
+(/usr/share/texlive/texmf-dist/tex/latex/fancyref/fancyref.sty
 Package: fancyref 1999/02/03 v0.9c Fancy cross-referencing
 
-(/usr/share/texmf-texlive/tex/latex/tools/varioref.sty
-Package: varioref 2009/09/13 v1.4w package for extended references (FMi)
-\c@vrcnt=\count119
+(/usr/share/texlive/texmf-dist/tex/latex/tools/varioref.sty
+Package: varioref 2011/10/02 v1.4z package for extended references (FMi)
+\c@vrcnt=\count121
 ))
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2000/07/18 v2.13 AMS math features
 \@mathmargin=\skip68
 
 For additional information on amsmath, use the `?' option.
-(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
 Package: amstext 2000/06/29 v2.01
 
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks22
-\ex@=\dimen142
+\ex@=\dimen146
 ))
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen143
+\pmbraise@=\dimen147
 )
-(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count120
+\inf@bad=\count122
 LaTeX Info: Redefining \frac on input line 211.
-\uproot@=\count121
-\leftroot@=\count122
+\uproot@=\count123
+\leftroot@=\count124
 LaTeX Info: Redefining \overline on input line 307.
-\classnum@=\count123
-\DOTSCASE@=\count124
+\classnum@=\count125
+\DOTSCASE@=\count126
 LaTeX Info: Redefining \ldots on input line 379.
 LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
 \Mathstrutbox@=\box33
 \strutbox@=\box34
-\big@size=\dimen144
+\big@size=\dimen148
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
-\macc@depth=\count125
-\c@MaxMatrixCols=\count126
+\macc@depth=\count127
+\c@MaxMatrixCols=\count128
 \dotsspace@=\muskip10
-\c@parentequation=\count127
-\dspbrk@lvl=\count128
+\c@parentequation=\count129
+\dspbrk@lvl=\count130
 \tag@help=\toks23
-\row@=\count129
-\column@=\count130
-\maxfields@=\count131
+\row@=\count131
+\column@=\count132
+\maxfields@=\count133
 \andhelp@=\toks24
-\eqnshift@=\dimen145
-\alignsep@=\dimen146
-\tagshift@=\dimen147
-\tagwidth@=\dimen148
-\totwidth@=\dimen149
-\lineht@=\dimen150
+\eqnshift@=\dimen149
+\alignsep@=\dimen150
+\tagshift@=\dimen151
+\tagwidth@=\dimen152
+\totwidth@=\dimen153
+\lineht@=\dimen154
 \@envbody=\toks25
 \multlinegap=\skip69
 \multlinetaggap=\skip70
@@ -343,24 +354,24 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 LaTeX Info: Redefining \[ on input line 2666.
 LaTeX Info: Redefining \] on input line 2667.
 )
-(/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2009/06/22 v3.00
 
-(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2009/06/22 v3.00 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 96.
 ))
-(/usr/share/texmf-texlive/tex/latex/base/fontenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-(/usr/share/texmf-texlive/tex/latex/base/t1enc.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.def
 File: t1enc.def 2005/09/27 v1.99g Standard LaTeX file
 LaTeX Font Info:    Redeclaring font encoding T1 on input line 43.
 ))
-(/usr/share/texmf-texlive/tex/latex/pslatex/pslatex.sty
+(/usr/share/texlive/texmf-dist/tex/latex/pslatex/pslatex.sty
 Package: pslatex 1996/07/24 v1.2 pslatex emulation (DPC)
 LaTeX Font Info:    Redeclaring symbol font `operators' on input line 65.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
@@ -395,19 +406,19 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/ptm/m/it on input line 75.
 )
-(/usr/share/texmf-texlive/tex/latex/base/inputenc.sty
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty
 Package: inputenc 2008/03/30 v1.1d Input encoding file
 \inpenc@prehook=\toks27
 \inpenc@posthook=\toks28
 
-(/usr/share/texmf-texlive/tex/latex/base/utf8.def
+(/usr/share/texlive/texmf-dist/tex/latex/base/utf8.def
 File: utf8.def 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OML ...
 ... no UTF-8 mapping file for font encoding OML
 Now handling font encoding T1 ...
 ... processing UTF-8 mapping file for font encoding T1
 
-(/usr/share/texmf-texlive/tex/latex/base/t1enc.dfu
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1enc.dfu
 File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -557,7 +568,7 @@ File: t1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OT1 ...
 ... processing UTF-8 mapping file for font encoding OT1
 
-(/usr/share/texmf-texlive/tex/latex/base/ot1enc.dfu
+(/usr/share/texlive/texmf-dist/tex/latex/base/ot1enc.dfu
 File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A1 (decimal 161)
    defining Unicode char U+00A3 (decimal 163)
@@ -588,7 +599,7 @@ File: ot1enc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
 Now handling font encoding OMS ...
 ... processing UTF-8 mapping file for font encoding OMS
 
-(/usr/share/texmf-texlive/tex/latex/base/omsenc.dfu
+(/usr/share/texlive/texmf-dist/tex/latex/base/omsenc.dfu
 File: omsenc.dfu 2008/04/05 v1.1m UTF-8 support for inputenc
    defining Unicode char U+00A7 (decimal 167)
    defining Unicode char U+00B6 (decimal 182)
@@ -612,167 +623,167 @@ Now handling font encoding U ...
    defining Unicode char U+2122 (decimal 8482)
    defining Unicode char U+2423 (decimal 9251)
 ))
-(/usr/share/texmf-texlive/tex/latex/natbib/natbib.sty
-Package: natbib 2009/07/16 8.31 (PWD, AO)
+(/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip71
 \bibsep=\skip72
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count132
+\c@NAT@ctr=\count134
 )
-(/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
-Package: hyperref 2009/10/09 v6.79a Hypertext links for LaTeX
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2012/05/13 v6.82q Hypertext links for LaTeX
 
-(/usr/share/texmf-texlive/tex/generic/ifxetex/ifxetex.sty
-Package: ifxetex 2009/01/23 v0.5 Provides ifxetex conditional
-)
-(/usr/share/texmf-texlive/tex/latex/oberdiek/hycolor.sty
-Package: hycolor 2009/10/02 v1.5 Code for color options of hyperref/bookmark (H
-O)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
 
-(/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty
-Package: xcolor-patch 2009/10/02 xcolor patch
-))
-\@linkdim=\dimen151
-\Hy@linkcounter=\count133
-\Hy@pagecounter=\count134
 
-(/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def
-File: pd1enc.def 2009/10/09 v6.79a Hyperref: PDFDocEncoding definition (HO)
-Now handling font encoding PD1 ...
-... no UTF-8 mapping file for font encoding PD1
-)
-(/usr/share/texmf-texlive/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2007/12/12 v1.2 Prefix for e-TeX command names (HO)
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2007/09/09 v1.2 Providing info/warning/message (HO)
-)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifvtex' (already loaded).
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
 (etexcmds)             That can mean that you are not using pdfTeX 1.50 or
 (etexcmds)             that some package has redefined \expanded.
 (etexcmds)             In the latter case, load this package earlier.
-)
-(/usr/share/texmf-texlive/tex/latex/latexconfig/hyperref.cfg
-File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
-)
-(/usr/share/texmf-texlive/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2009/08/13 v3.4 Keyval support for LaTeX options (HO)
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2009/07/30 v1.5 Key value parser with default handler suppor
-t (HO)
-))
-Package hyperref Info: Hyper figures OFF on input line 2975.
-Package hyperref Info: Link nesting OFF on input line 2980.
-Package hyperref Info: Hyper index ON on input line 2983.
-Package hyperref Info: Plain pages OFF on input line 2990.
-Package hyperref Info: Backreferencing OFF on input line 2995.
-
-Implicit mode ON; LaTeX internals redefined
-Package hyperref Info: Bookmarks ON on input line 3191.
-(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty
-\Urlmuskip=\muskip11
-Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
-)
-LaTeX Info: Redefining \url on input line 3428.
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/bitset.sty
-Package: bitset 2007/09/28 v1.0 Data type bit set (HO)
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/intcalc.sty
-Package: intcalc 2007/09/27 v1.1 Expandable integer calculations (HO)
-)
-(/usr/share/texmf-texlive/tex/generic/oberdiek/bigintcalc.sty
-Package: bigintcalc 2007/11/11 v1.1 Expandable big integer calculations (HO)
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2009/09/23 v0.6 LuaTeX support for pdfTeX utility functions
- (HO)
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ifluatex.sty
-Package: ifluatex 2009/04/17 v1.2 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
-)
-(/usr/share/texmf-texlive/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2009/08/05 v1.0 Some LaTeX kernel commands for general use (HO
-)
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
 )
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-)))
-\Fld@menulength=\count135
-\Field@Width=\dimen152
-\Fld@charsize=\dimen153
-\Field@toks=\toks29
-Package hyperref Info: Hyper figures OFF on input line 4377.
-Package hyperref Info: Link nesting OFF on input line 4382.
-Package hyperref Info: Hyper index ON on input line 4385.
-Package hyperref Info: backreferencing OFF on input line 4392.
-Package hyperref Info: Link coloring OFF on input line 4397.
-Package hyperref Info: Link coloring with OCG OFF on input line 4402.
-Package hyperref Info: PDF/A mode OFF on input line 4407.
-
-(/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty
-Package: atbegshi 2008/07/31 v1.9 At begin shipout hook (HO)
+Package pdftexcmds Info: \pdfdraftmode found.
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
 )
-\Hy@abspage=\count136
-\c@Item=\count137
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
 )
-*hyperref using default driver hpdftex*
-(/usr/share/texmf-texlive/tex/latex/hyperref/hpdftex.def
-File: hpdftex.def 2009/10/09 v6.79a Hyperref driver for pdfTeX
-\Fld@listcount=\count138
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 65.
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+)
+\@linkdim=\dimen155
+\Hy@linkcounter=\count135
+\Hy@pagecounter=\count136
 
-(/usr/share/texmf-texlive/tex/latex/pdfpages/pdfpages.sty
-Package: pdfpages 2009/02/07 v0.4g Insert pages of external PDF documents (AM)
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2012/05/13 v6.82q Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
+)
+\Hy@SavedSpaceFactor=\count137
 
-(/usr/share/texmf-texlive/tex/latex/base/ifthen.sty
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4062.
+Package hyperref Info: Link nesting OFF on input line 4067.
+Package hyperref Info: Hyper index ON on input line 4070.
+Package hyperref Info: Plain pages OFF on input line 4077.
+Package hyperref Info: Backreferencing OFF on input line 4082.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4300.
+\c@Hy@tempcnt=\count138
+
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4653.
+\Fld@menulength=\count139
+\Field@Width=\dimen156
+\Fld@charsize=\dimen157
+Package hyperref Info: Hyper figures OFF on input line 5773.
+Package hyperref Info: Link nesting OFF on input line 5778.
+Package hyperref Info: Hyper index ON on input line 5781.
+Package hyperref Info: backreferencing OFF on input line 5788.
+Package hyperref Info: Link coloring OFF on input line 5793.
+Package hyperref Info: Link coloring with OCG OFF on input line 5798.
+Package hyperref Info: PDF/A mode OFF on input line 5803.
+LaTeX Info: Redefining \ref on input line 5843.
+LaTeX Info: Redefining \pageref on input line 5847.
+\Hy@abspage=\count140
+\c@Item=\count141
+\c@Hfootnote=\count142
+)
+
+Package hyperref Message: Driver (autodetected): hpdftex.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2012/05/13 v6.82q Hyperref driver for pdfTeX
+\Fld@listcount=\count143
+\c@bookmark@seq@number=\count144
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip73
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 66.
+
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2012/04/03 v0.4s Insert pages of external PDF documents (AM)
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 )
-(/usr/share/texmf-texlive/tex/latex/eso-pic/eso-pic.sty
-Package: eso-pic 2006/07/14 v1.1d eso-pic (RN)
-
-(/usr/share/texmf-texlive/tex/latex/ms/everyshi.sty
-Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
-))
-(/usr/share/texmf-texlive/tex/latex/pdfpages/pppdftex.def
-File: pppdftex.def 2009/02/07 v0.4g Pdfpages driver for pdfTeX (AM)
+(/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2010/10/06 v2.0c eso-pic (RN)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2012/04/03 v0.4s Pdfpages driver for pdfTeX (AM)
 )
 \AM@pagebox=\box35
-\AM@toc@title=\toks30
-\c@AM@survey=\count139
+\AM@toc@title=\toks29
+\c@AM@survey=\count145
 \AM@templatesizebox=\box36
 )
-(/usr/share/texmf-texlive/tex/latex/nomencl/nomencl.sty
+(/usr/share/texlive/texmf-dist/tex/latex/nomencl/nomencl.sty
 Package: nomencl 2005/09/22 v4.2 Nomenclature package (LN)
-\nomlabelwidth=\dimen154
-\nom@tempdim=\dimen155
-\nomitemsep=\skip73
+\nomlabelwidth=\dimen158
+\nom@tempdim=\dimen159
+\nomitemsep=\skip74
 )
-(/usr/share/texmf-texlive/tex/latex/isodate/isodate.sty
-Package: isodate 2005/04/15 v2.28 Print dates with different formats (HH)
+(/usr/share/texlive/texmf-dist/tex/latex/isodate/isodate.sty
+Package: isodate 2010/01/03 v2.30 Print dates with different formats (HH)
 
-(/usr/share/texmf-texlive/tex/latex/substr/substr.sty
-Package: substr 2005/11/29 v1.1 Handle substrings
-\c@su@anzahl=\count140
+(/usr/share/texlive/texmf-dist/tex/latex/substr/substr.sty
+Package: substr 2009/10/20 v1.2 Handle substrings
+\c@su@anzahl=\count146
 )
-(/usr/share/texmf-texlive/tex/latex/isodate/english.idf
-File: english.idf 2005/04/15 v2.28 Language definitions for isodate package (HH
+(/usr/share/texlive/texmf-dist/tex/latex/isodate/english.idf
+File: english.idf 2010/01/03 v2.30 Language definitions for isodate package (HH
 )
 
 Define commands for English date format
 )
-\c@iso@tmpmonth=\count141
-\c@iso@yeartwo=\count142
-\c@iso@slash=\count143
-\c@iso@minus=\count144
-\c@iso@dot=\count145
-\c@iso@@slash=\count146
-\c@iso@@minus=\count147
-\c@iso@@dot=\count148
+\c@iso@tmpmonth=\count147
+\c@iso@yeartwo=\count148
+\c@iso@slash=\count149
+\c@iso@minus=\count150
+\c@iso@dot=\count151
+\c@iso@@slash=\count152
+\c@iso@@minus=\count153
+\c@iso@@dot=\count154
 )
 \@nomenclaturefile=\write4
 \openout4 = `Marcus_Hultmark_Thesis_template.nlo'.
@@ -801,7 +812,7 @@ LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 3.
 LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 3.
 
- (/usr/share/texmf-texlive/tex/latex/psnfss/omspzccm.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omspzccm.fd
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
 LaTeX Font Info:    ... okay on input line 3.
@@ -816,86 +827,94 @@ Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: longtable package is loaded.
 
-(/usr/share/texmf-texlive/tex/latex/caption/ltcaption.sty
-Package: ltcaption 2008/03/28 v1.2 longtable captions (AR)
+(/usr/share/texlive/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2011/09/12 v1.3 longtable captions (AR)
 )
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
 
-(/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
+(/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count149
-\scratchdimen=\dimen156
+\scratchcounter=\count155
+\scratchdimen=\dimen160
 \scratchbox=\box37
-\nofMPsegments=\count150
-\nofMParguments=\count151
-\everyMPshowfont=\toks31
-\MPscratchCnt=\count152
-\MPscratchDim=\dimen157
-\MPnumerator=\count153
-\everyMPtoPDFconversion=\toks32
-)
-*geometry auto-detecting driver*
-*geometry detected driver: pdftex*
--------------------- Geometry parameters
-paper: a4paper
-landscape: --
-twocolumn: --
-twoside: --
-asymmetric: --
-h-parts: 71.13188pt, 455.24411pt, 71.13188pt
-v-parts: 71.13188pt, 702.78308pt, 71.13188pt
-hmarginratio: --
-vmarginratio: --
-lines: --
-heightrounded: --
-bindingoffset: 0.0pt
-truedimen: --
-includehead: --
-includefoot: --
-includemp: --
-driver: pdftex
--------------------- Page layout dimensions and switches
-\paperwidth  597.50787pt
-\paperheight 845.04684pt
-\textwidth  455.24411pt
-\textheight 702.78308pt
-\oddsidemargin  -1.1381pt
-\evensidemargin -1.1381pt
-\topmargin  -38.1381pt
-\headheight 12.0pt
-\headsep    25.0pt
-\footskip   30.0pt
-\marginparwidth 50.0pt
-\marginparsep   10.0pt
-\columnsep  10.0pt
-\skip\footins  10.0pt plus 4.0pt minus 2.0pt
-\hoffset 0.0pt
-\voffset 0.0pt
-\mag 1000
+\nofMPsegments=\count156
+\nofMParguments=\count157
+\everyMPshowfont=\toks30
+\MPscratchCnt=\count158
+\MPscratchDim=\dimen161
+\MPnumerator=\count159
+\makeMPintoPDFobject=\count160
+\everyMPtoPDFconversion=\toks31
+) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
-(1in=72.27pt, 1cm=28.45pt)
------------------------
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: a4paper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(71.13188pt, 455.24411pt, 71.13188pt)
+* v-part:(T,H,B)=(71.13188pt, 702.78308pt, 71.13188pt)
+* \paperwidth=597.50787pt
+* \paperheight=845.04684pt
+* \textwidth=455.24411pt
+* \textheight=702.78308pt
+* \oddsidemargin=-1.1381pt
+* \evensidemargin=-1.1381pt
+* \topmargin=-38.1381pt
+* \headheight=12.0pt
+* \headsep=25.0pt
+* \topskip=11.0pt
+* \footskip=30.0pt
+* \marginparwidth=50.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.0pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+\AtBeginShipoutBox=\box38
 Package hyperref Info: Link coloring ON on input line 3.
-(/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
-Package: nameref 2007/05/29 v2.31 Cross-referencing by name of section
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
-(/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty
-Package: refcount 2008/08/11 v3.1 Data extraction from references (HO)
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count154
-LaTeX Info: Redefining \Ref on input line 396.
+\c@section@level=\count161
+LaTeX Info: Redefining \Ref on input line 498.
 )
 LaTeX Info: Redefining \ref on input line 3.
 LaTeX Info: Redefining \pageref on input line 3.
+LaTeX Info: Redefining \nameref on input line 3.
 
 (./Marcus_Hultmark_Thesis_template.out) (./Marcus_Hultmark_Thesis_template.out)
 \@outlinefile=\write5
 \openout5 = `Marcus_Hultmark_Thesis_template.out'.
 
-\AtBeginShipoutBox=\box38
 LaTeX Info: Redefining \Ref on input line 3.
-ABD: EveryShipout initializing macros
 isodate: babel.sty, (n)german.sty have not been loaded
 \GPT@outputbox=\box39
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
@@ -906,50 +925,51 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 8.99994pt on input line 10.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 12.59991pt on input line 10.
-! Undefined control sequence.
-\reportDate ->\printdayoff 
-                           \today 
-l.10 \makeititle
-                
-? q
-OK, entering \batchmode...
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 9.89993pt on input line 10.
-
-<kth_cmyk_electr_engine.pdf, id=231, 483.8075pt x 439.6425pt>
+<kth_cmyk_electr_engine.pdf, id=233, 483.8075pt x 439.6425pt>
 File: kth_cmyk_electr_engine.pdf Graphic file (type pdf)
- <use kth_cmyk_electr_engine.pdf> [0
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} </usr/share/texmf/tex/latex
-/KTHEEtexfiles/tex/latex/madeAtEE/Logo/kth_cmyk_electr_engine.pdf>] (./Abstract
-/Abstract.tex
+<use kth_cmyk_electr_engine.pdf>
+Package pdftex.def Info: kth_cmyk_electr_engine.pdf used on input line 10.
+(pdftex.def)             Requested size: 91.04881pt x 82.73463pt.
+ [0
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./kth_cmyk_electr_engine.p
+df>] (./Abstract/Abstract.tex
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 1.
  [1])
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 15.
- (./Marcus_Hultmark_Thesis_template.lof
+
+(./Marcus_Hultmark_Thesis_template.lof
 LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 3.
 
- (/usr/share/texmf-texlive/tex/latex/psnfss/ot1ptmcm.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptmcm.fd
 File: ot1ptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ptmcm.
 )
 LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 3.
 
- (/usr/share/texmf-texlive/tex/latex/psnfss/omlptmcm.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptmcm.fd
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
 LaTeX Font Info:    Try loading font information for OMX+psycm on input line 3.
 
- (/usr/share/texmf-texlive/tex/latex/psnfss/omxpsycm.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxpsycm.fd
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
 LaTeX Font Info:    Try loading font information for U+msa on input line 3.
- (/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
 LaTeX Font Info:    Try loading font information for U+msb on input line 3.
- (/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
@@ -958,22 +978,17 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
-)
-\tf@lof=\write6
-\openout6 = `Marcus_Hultmark_Thesis_template.lof'.
-
 pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.16 {\tableofcontents
-                      } [1
-
-] (./Marcus_Hultmark_Thesis_template.toc [2
+l.41 ... platform.\relax }}{46}{figure.caption.33}
+                                                   [1
 
 ])
-\tf@toc=\write7
-\openout7 = `Marcus_Hultmark_Thesis_template.toc'.
+\tf@lof=\write6
+\openout6 = `Marcus_Hultmark_Thesis_template.lof'.
+
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -981,9 +996,22 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
- [3]
+[2] (./Marcus_Hultmark_Thesis_template.toc [3
+
+])
+\tf@toc=\write7
+\openout7 = `Marcus_Hultmark_Thesis_template.toc'.
+
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+[4]
 No file Marcus_Hultmark_Thesis_template.nls.
- (./Introduction/Introduction.tex
+(./Introduction/Introduction.tex
 Chapter 1.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 8.
@@ -1011,7 +1039,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
- [1
+[1
 
 
 ]
@@ -1044,7 +1072,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
- [2]
+[2]
 Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
@@ -1069,7 +1097,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
- [3]
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
@@ -1079,8 +1107,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
-)
-(./Model_Predictive_Control/Model_Predictive_Control.tex [4]
+) (./Model_Predictive_Control/Model_Predictive_Control.tex [4]
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 8.
@@ -1089,7 +1116,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
 
- [5
+[5
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 52--53
@@ -1111,13 +1138,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 69--70
 ! Misplaced alignment tab character &.
 l.71  &
         $\text{Minimization} && \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=...
-I can't figure out why you would want to use a tab mark
-here. If you just want an ampersand, the remedy is
-simple: Just type `I\&' now. But if some right brace
-up above has ended a previous alignment prematurely,
-you're probably due for more error messages, and you
-might try typing `S' now just to see what is salvageable.
 
+? q
+OK, entering \batchmode...
 ! Misplaced alignment tab character &.
 l.71  & $\text{Minimization} &
                               & \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=...
@@ -1244,13 +1267,15 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--94
  []
 
 
-<Images/Chapter2/mpc.png, id=474, 747.79375pt x 480.79625pt>
+<Images/Chapter2/mpc.png, id=490, 747.79375pt x 480.79625pt>
 File: Images/Chapter2/mpc.png Graphic file (type png)
  <use Images/Chapter2/mpc.png>
+Package pdftex.def Info: Images/Chapter2/mpc.png used on input line 109.
+(pdftex.def)             Requested size: 299.1122pt x 192.31508pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- [7] [8 <./Images/Chapter2/mpc.png (PNG copy)>] [9]
+ [7] [8 <./Images/Chapter2/mpc.png>] [9]
 Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
@@ -1269,9 +1294,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 199--200
 (./Dynamic_Modeling_of_a_Quadrotor/Dynamic_Modeling_of_a_Quadrotor.tex [11]
 Chapter 3.
 
-<Images/Chapter3/quad_dynamics.jpg, id=521, 338.01282pt x 191.9672pt>
+<Images/Chapter3/quad_dynamics.jpg, id=537, 338.01282pt x 191.9672pt>
 File: Images/Chapter3/quad_dynamics.jpg Graphic file (type jpg)
  <use Images/Chapter3/quad_dynamics.jpg>
+Package pdftex.def Info: Images/Chapter3/quad_dynamics.jpg used on input line 9
+.
+(pdftex.def)             Requested size: 338.01198pt x 191.96672pt.
+
 Underfull \hbox (badness 10000) in paragraph at lines 19--20
 
  []
@@ -1735,29 +1764,40 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--131
  []
 
  [15]
-<Images/Chapter3/Constant_thrust_upwards/Inputs.png, id=567, 586.8324pt x 442.2
+<Images/Chapter3/Constant_thrust_upwards/Inputs.png, id=583, 586.8324pt x 442.2
 924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Inputs.png Graphic file (type png
 )
 
 <use Images/Chapter3/Constant_thrust_upwards/Inputs.png>
+Package pdftex.def Info: Images/Chapter3/Constant_thrust_upwards/Inputs.png use
+d on input line 142.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+
 Underfull \hbox (badness 10000) in paragraph at lines 147--148
 
  []
 
 
-<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=570, 586.8324pt x 44
+<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=586, 586.8324pt x 44
 2.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Positions.png Graphic file (type 
 png)
 
 <use Images/Chapter3/Constant_thrust_upwards/Positions.png>
-<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=571, 586.832
+Package pdftex.def Info: Images/Chapter3/Constant_thrust_upwards/Positions.png 
+used on input line 151.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+
+<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=587, 586.832
 4pt x 442.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png Graphic fil
 e (type png)
 
 <use Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png>
+Package pdftex.def Info: Images/Chapter3/Constant_thrust_upwards/Linear_velocit
+ies.png used on input line 155.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1772,31 +1812,52 @@ Underfull \hbox (badness 10000) in paragraph at lines 164--165
  []
 
 
-<Images/Chapter3/Lateral_X/Inputs.png, id=589, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Inputs.png, id=606, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Inputs.png>
-<Images/Chapter3/Lateral_X/Torque_inputs.png, id=590, 586.8324pt x 442.2924pt>
+Package pdftex.def Info: Images/Chapter3/Lateral_X/Inputs.png used on input lin
+e 170.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+
+<Images/Chapter3/Lateral_X/Torque_inputs.png, id=607, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Torque_inputs.png Graphic file (type png)
- <use Images/Chapter3/Lateral_X/Torque_inputs.png> [19 <./Images/Chapter3/Later
-al_X/Inputs.png>]
-<Images/Chapter3/Lateral_X/Positions.png, id=598, 586.8324pt x 442.2924pt>
+ <use Images/Chapter3/Lateral_X/Torque_inputs.png>
+Package pdftex.def Info: Images/Chapter3/Lateral_X/Torque_inputs.png used on in
+put line 177.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+ [19 <./Images/Chapter3/Lateral_X/Inputs.png>]
+<Images/Chapter3/Lateral_X/Positions.png, id=616, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Positions.png>
-<Images/Chapter3/Lateral_X/Linear_velocities.png, id=601, 586.8324pt x 442.2924
+Package pdftex.def Info: Images/Chapter3/Lateral_X/Positions.png used on input 
+line 185.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+
+<Images/Chapter3/Lateral_X/Linear_velocities.png, id=619, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_X/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Linear_velocities.png>
+Package pdftex.def Info: Images/Chapter3/Lateral_X/Linear_velocities.png used o
+n input line 189.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_X/Euler_Angles.png, id=604, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Euler_Angles.png, id=622, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Euler_Angles.png>
-<Images/Chapter3/Lateral_X/Angular_velocities.png, id=607, 586.8324pt x 442.292
+Package pdftex.def Info: Images/Chapter3/Lateral_X/Euler_Angles.png used on inp
+ut line 196.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+
+<Images/Chapter3/Lateral_X/Angular_velocities.png, id=625, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_X/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Angular_velocities.png>
+Package pdftex.def Info: Images/Chapter3/Lateral_X/Angular_velocities.png used 
+on input line 200.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1811,31 +1872,52 @@ LaTeX Warning: Text page 22 contains only floats.
 
  [22 <./Images/Chapter3/Lateral_X/Euler_Angles.png> <./Images/Chapter3/Lateral_
 X/Angular_velocities.png>]
-<Images/Chapter3/Lateral_Y/Inputs.png, id=629, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Inputs.png, id=646, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Inputs.png>
-<Images/Chapter3/Lateral_Y/Torque_inputs.png, id=630, 586.8324pt x 442.2924pt>
+Package pdftex.def Info: Images/Chapter3/Lateral_Y/Inputs.png used on input lin
+e 213.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+
+<Images/Chapter3/Lateral_Y/Torque_inputs.png, id=647, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Torque_inputs.png Graphic file (type png)
- <use Images/Chapter3/Lateral_Y/Torque_inputs.png> [23 <./Images/Chapter3/Later
-al_Y/Inputs.png>]
-<Images/Chapter3/Lateral_Y/Positions.png, id=638, 586.8324pt x 442.2924pt>
+ <use Images/Chapter3/Lateral_Y/Torque_inputs.png>
+Package pdftex.def Info: Images/Chapter3/Lateral_Y/Torque_inputs.png used on in
+put line 220.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+ [23 <./Images/Chapter3/Lateral_Y/Inputs.png>]
+<Images/Chapter3/Lateral_Y/Positions.png, id=655, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Positions.png>
-<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=641, 586.8324pt x 442.2924
+Package pdftex.def Info: Images/Chapter3/Lateral_Y/Positions.png used on input 
+line 228.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+
+<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=658, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_Y/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Linear_velocities.png>
+Package pdftex.def Info: Images/Chapter3/Lateral_Y/Linear_velocities.png used o
+n input line 232.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=644, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=661, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Euler_Angles.png>
-<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=647, 586.8324pt x 442.292
+Package pdftex.def Info: Images/Chapter3/Lateral_Y/Euler_Angles.png used on inp
+ut line 239.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+
+<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=664, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_Y/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Angular_velocities.png>
+Package pdftex.def Info: Images/Chapter3/Lateral_Y/Angular_velocities.png used 
+on input line 243.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -1871,19 +1953,26 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
  []
 
 
-<Images/Chapter4/Class_Diagram.png, id=684, 502.87875pt x 594.22pt>
+<Images/Chapter4/Class_Diagram.png, id=701, 502.87875pt x 594.22pt>
 File: Images/Chapter4/Class_Diagram.png Graphic file (type png)
  <use Images/Chapter4/Class_Diagram.png>
-<Images/Chapter4/Class_diagram_implementation.png, id=685, 527.9725pt x 376.406
+Package pdftex.def Info: Images/Chapter4/Class_Diagram.png used on input line 3
+8.
+(pdftex.def)             Requested size: 201.14793pt x 237.68379pt.
+
+<Images/Chapter4/Class_diagram_implementation.png, id=702, 527.9725pt x 376.406
 25pt>
 File: Images/Chapter4/Class_diagram_implementation.png Graphic file (type png)
- <use Images/Chapter4/Class_diagram_implementation.png> [29 <./Images/Chapter4/
-Class_Diagram.png (PNG copy)>]
+ <use Images/Chapter4/Class_diagram_implementation.png>
+Package pdftex.def Info: Images/Chapter4/Class_diagram_implementation.png used 
+on input line 45.
+(pdftex.def)             Requested size: 211.18526pt x 150.55983pt.
+ [29 <./Images/Chapter4/Class_Diagram.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
  []
 
- [30 <./Images/Chapter4/Class_diagram_implementation.png (PNG copy)>]
+ [30 <./Images/Chapter4/Class_diagram_implementation.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 99--100
 
  []
@@ -1896,9 +1985,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 131--132
  [32]) (./Results_and_Discussion/Results_and_Discussion.tex [33]
 Chapter 5.
 
-<Images/Chapter5/tank_system.png, id=713, 120.45pt x 180.675pt>
+<Images/Chapter5/tank_system.png, id=731, 120.45pt x 180.675pt>
 File: Images/Chapter5/tank_system.png Graphic file (type png)
  <use Images/Chapter5/tank_system.png>
+Package pdftex.def Info: Images/Chapter5/tank_system.png used on input line 14.
+
+(pdftex.def)             Requested size: 84.3144pt x 126.47162pt.
 
 ! Package amsmath Error: Erroneous nesting of equation structures;
 (amsmath)                trying to recover with `aligned'.
@@ -2244,10 +2336,13 @@ I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
 
 
-<Images/Chapter5/tank_system/control_signal.png, id=720, 586.8324pt x 442.2924p
+<Images/Chapter5/tank_system/control_signal.png, id=738, 586.8324pt x 442.2924p
 t>
 File: Images/Chapter5/tank_system/control_signal.png Graphic file (type png)
  <use Images/Chapter5/tank_system/control_signal.png>
+Package pdftex.def Info: Images/Chapter5/tank_system/control_signal.png used on
+ input line 51.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 ! Undefined control sequence.
 l.57 \centeringState
                     
@@ -2258,12 +2353,15 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-<Images/Chapter5/tank_system/levels_control.png, id=721, 586.8324pt x 442.2924p
+<Images/Chapter5/tank_system/levels_control.png, id=739, 586.8324pt x 442.2924p
 t>
 File: Images/Chapter5/tank_system/levels_control.png Graphic file (type png)
- <use Images/Chapter5/tank_system/levels_control.png> [35 <./Images/Chapter5/ta
-nk_system/control_signal.png>] [36 <./Images/Chapter5/tank_system/levels_contro
-l.png>]
+ <use Images/Chapter5/tank_system/levels_control.png>
+Package pdftex.def Info: Images/Chapter5/tank_system/levels_control.png used on
+ input line 58.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+ [35 <./Images/Chapter5/tank_system/control_signal.png>] [36 <./Images/Chapter5
+/tank_system/levels_control.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 78--79
 
  []
@@ -2363,28 +2461,46 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--101
  []
 
 
-<Images/Chapter5/ardrone/position_control.png, id=737, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/position_control.png, id=755, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/position_control.png Graphic file (type png)
- <use Images/Chapter5/ardrone/position_control.png> [37]
-<Images/Chapter5/ardrone/euler_angle_control.png, id=742, 586.8324pt x 442.2924
+ <use Images/Chapter5/ardrone/position_control.png>
+Package pdftex.def Info: Images/Chapter5/ardrone/position_control.png used on i
+nput line 104.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+ [37]
+<Images/Chapter5/ardrone/euler_angle_control.png, id=761, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter5/ardrone/euler_angle_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/euler_angle_control.png>
-<Images/Chapter5/ardrone/lin_velocity_control.png, id=743, 586.8324pt x 442.292
+Package pdftex.def Info: Images/Chapter5/ardrone/euler_angle_control.png used o
+n input line 111.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+
+<Images/Chapter5/ardrone/lin_velocity_control.png, id=762, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/lin_velocity_control.png Graphic file (type png)
- <use Images/Chapter5/ardrone/lin_velocity_control.png> [38 <./Images/Chapter5/
-ardrone/position_control.png> <./Images/Chapter5/ardrone/euler_angle_control.pn
-g>]
-<Images/Chapter5/ardrone/ang_velocity_control.png, id=751, 586.8324pt x 442.292
+ <use Images/Chapter5/ardrone/lin_velocity_control.png>
+Package pdftex.def Info: Images/Chapter5/ardrone/lin_velocity_control.png used 
+on input line 118.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+ [38 <./Images/Chapter5/ardrone/position_control.png> <./Images/Chapter5/ardron
+e/euler_angle_control.png>]
+<Images/Chapter5/ardrone/ang_velocity_control.png, id=769, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/ang_velocity_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/ang_velocity_control.png>
-<Images/Chapter5/ardrone/control_signals.png, id=752, 586.8324pt x 442.2924pt>
+Package pdftex.def Info: Images/Chapter5/ardrone/ang_velocity_control.png used 
+on input line 125.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+
+<Images/Chapter5/ardrone/control_signals.png, id=770, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/control_signals.png Graphic file (type png)
- <use Images/Chapter5/ardrone/control_signals.png> [39 <./Images/Chapter5/ardro
-ne/lin_velocity_control.png> <./Images/Chapter5/ardrone/ang_velocity_control.pn
-g>]
+ <use Images/Chapter5/ardrone/control_signals.png>
+Package pdftex.def Info: Images/Chapter5/ardrone/control_signals.png used on in
+put line 132.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+ [39 <./Images/Chapter5/ardrone/lin_velocity_control.png> <./Images/Chapter5/ar
+drone/ang_velocity_control.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 139--140
 
  []
@@ -2405,34 +2521,63 @@ Underfull \hbox (badness 10000) in paragraph at lines 145--146
  []
 
  [40 <./Images/Chapter5/ardrone/control_signals.png>]
-<Images/Chapter5/ardrone/position_control2.png, id=769, 586.8324pt x 442.2924pt
->
-File: Images/Chapter5/ardrone/position_control2.png Graphic file (type png)
- <use Images/Chapter5/ardrone/position_control2.png>
-<Images/Chapter5/ardrone/euler_angle_control2.png, id=770, 586.8324pt x 442.292
-4pt>
-File: Images/Chapter5/ardrone/euler_angle_control2.png Graphic file (type png)
- <use Images/Chapter5/ardrone/euler_angle_control2.png> [41 <./Images/Chapter5/
-ardrone/position_control2.png>]
-<Images/Chapter5/ardrone/lin_velocity_control2.png, id=776, 586.8324pt x 442.29
-24pt>
-File: Images/Chapter5/ardrone/lin_velocity_control2.png Graphic file (type png)
+Underfull \hbox (badness 10000) in paragraph at lines 147--148
+
+ []
 
 
-<use Images/Chapter5/ardrone/lin_velocity_control2.png>
-<Images/Chapter5/ardrone/ang_velocity_control2.png, id=777, 586.8324pt x 442.29
-24pt>
-File: Images/Chapter5/ardrone/ang_velocity_control2.png Graphic file (type png)
+<Images/Chapter5/ardrone/T1_noise/position_control.png, id=789, 586.8324pt x 44
+2.2924pt>
+File: Images/Chapter5/ardrone/T1_noise/position_control.png Graphic file (type 
+png)
 
+<use Images/Chapter5/ardrone/T1_noise/position_control.png>
+Package pdftex.def Info: Images/Chapter5/ardrone/T1_noise/position_control.png 
+used on input line 151.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<use Images/Chapter5/ardrone/ang_velocity_control2.png> [42 <./Images/Chapter5/
-ardrone/euler_angle_control2.png> <./Images/Chapter5/ardrone/lin_velocity_contr
-ol2.png>]
-<Images/Chapter5/ardrone/control_signals2.png, id=784, 586.8324pt x 442.2924pt>
-File: Images/Chapter5/ardrone/control_signals2.png Graphic file (type png)
- <use Images/Chapter5/ardrone/control_signals2.png>
+<Images/Chapter5/ardrone/T1_noise/euler_angle_control.png, id=790, 586.8324pt x
+ 442.2924pt>
+File: Images/Chapter5/ardrone/T1_noise/euler_angle_control.png Graphic file (ty
+pe png)
+
+<use Images/Chapter5/ardrone/T1_noise/euler_angle_control.png>
+Package pdftex.def Info: Images/Chapter5/ardrone/T1_noise/euler_angle_control.p
+ng used on input line 158.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+ [41 <./Images/Chapter5/ardrone/T1_noise/position_control.png>]
+<Images/Chapter5/ardrone/T1_noise/lin_velocity_control.png, id=796, 586.8324pt 
+x 442.2924pt>
+File: Images/Chapter5/ardrone/T1_noise/lin_velocity_control.png Graphic file (t
+ype png)
+
+<use Images/Chapter5/ardrone/T1_noise/lin_velocity_control.png>
+Package pdftex.def Info: Images/Chapter5/ardrone/T1_noise/lin_velocity_control.
+png used on input line 165.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+
+<Images/Chapter5/ardrone/T1_noise/ang_velocity_control.png, id=797, 586.8324pt 
+x 442.2924pt>
+File: Images/Chapter5/ardrone/T1_noise/ang_velocity_control.png Graphic file (t
+ype png)
+
+<use Images/Chapter5/ardrone/T1_noise/ang_velocity_control.png>
+Package pdftex.def Info: Images/Chapter5/ardrone/T1_noise/ang_velocity_control.
+png used on input line 172.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+ [42 <./Images/Chapter5/ardrone/T1_noise/euler_angle_control.png> <./Images/Cha
+pter5/ardrone/T1_noise/lin_velocity_control.png>]
+<Images/Chapter5/ardrone/T1_noise/control_signals.png, id=804, 586.8324pt x 442
+.2924pt>
+File: Images/Chapter5/ardrone/T1_noise/control_signals.png Graphic file (type p
+ng)
+
+<use Images/Chapter5/ardrone/T1_noise/control_signals.png>
+Package pdftex.def Info: Images/Chapter5/ardrone/T1_noise/control_signals.png u
+sed on input line 179.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 ! Misplaced alignment tab character &.
-l.182 ...ude, there is a slight overshoot in the &
+l.184 ...ude, there is a slight overshoot in the &
                                                   X& and &Y& coordinates as ...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2442,7 +2587,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.182 ...e, there is a slight overshoot in the &X&
+l.184 ...e, there is a slight overshoot in the &X&
                                                    and &Y& coordinates as Fi...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2452,7 +2597,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.182 ...re is a slight overshoot in the &X& and &
+l.184 ...re is a slight overshoot in the &X& and &
                                                   Y& coordinates as Figure \...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2462,7 +2607,7 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.182 ... is a slight overshoot in the &X& and &Y&
+l.184 ... is a slight overshoot in the &X& and &Y&
                                                    coordinates as Figure \re...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
@@ -2472,15 +2617,15 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 182--183
+Underfull \hbox (badness 10000) in paragraph at lines 184--185
 
  []
 
- [43 <./Images/Chapter5/ardrone/ang_velocity_control2.png> <./Images/Chapter5/a
-rdrone/control_signals2.png>]
+ [43 <./Images/Chapter5/ardrone/T1_noise/ang_velocity_control.png> <./Images/Ch
+apter5/ardrone/T1_noise/control_signals.png>]
 ! Misplaced alignment tab character &.
-l.194 ...ntal $XY$ plane and one in the vertical &
-                                                  XZ& plane.  These were add...
+l.196 ...ntal $XY$ plane and one in the vertical &
+                                                  XZ& plane.  The results us...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2489,8 +2634,8 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
-l.194 ...l $XY$ plane and one in the vertical &XZ&
-                                                   plane.  These were added ...
+l.196 ...l $XY$ plane and one in the vertical &XZ&
+                                                   plane.  The results using...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2498,26 +2643,58 @@ up above has ended a previous alignment prematurely,
 you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
-File: Images/Chapter5/ardrone/position_control2.png Graphic file (type png)
- <use Images/Chapter5/ardrone/position_control2.png>
-File: Images/Chapter5/ardrone/euler_angle_control2.png Graphic file (type png)
- <use Images/Chapter5/ardrone/euler_angle_control2.png> [44]
-File: Images/Chapter5/ardrone/lin_velocity_control2.png Graphic file (type png)
 
+<Images/Chapter5/ardrone/T2/position.png, id=814, 586.8324pt x 442.2924pt>
+File: Images/Chapter5/ardrone/T2/position.png Graphic file (type png)
+ <use Images/Chapter5/ardrone/T2/position.png>
+Package pdftex.def Info: Images/Chapter5/ardrone/T2/position.png used on input 
+line 200.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<use Images/Chapter5/ardrone/lin_velocity_control2.png>
-File: Images/Chapter5/ardrone/ang_velocity_control2.png Graphic file (type png)
+<Images/Chapter5/ardrone/T2/velocity.png, id=815, 586.8324pt x 442.2924pt>
+File: Images/Chapter5/ardrone/T2/velocity.png Graphic file (type png)
+ <use Images/Chapter5/ardrone/T2/velocity.png>
+Package pdftex.def Info: Images/Chapter5/ardrone/T2/velocity.png used on input 
+line 207.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
+ [44 <./Images/Chapter5/ardrone/T2/position.png>]
+<Images/Chapter5/ardrone/T2/inputs.png, id=821, 586.8324pt x 442.2924pt>
+File: Images/Chapter5/ardrone/T2/inputs.png Graphic file (type png)
+ <use Images/Chapter5/ardrone/T2/inputs.png>
+Package pdftex.def Info: Images/Chapter5/ardrone/T2/inputs.png used on input li
+ne 214.
+(pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
+<Images/Chapter5/ardrone/T2/2Dtrajectory.png, id=822, 586.8324pt x 442.2924pt>
+File: Images/Chapter5/ardrone/T2/2Dtrajectory.png Graphic file (type png)
+ <use Images/Chapter5/ardrone/T2/2Dtrajectory.png>
+Package pdftex.def Info: Images/Chapter5/ardrone/T2/2Dtrajectory.png used on in
+put line 224.
+(pdftex.def)             Requested size: 227.62206pt x 171.55525pt.
 
-<use Images/Chapter5/ardrone/ang_velocity_control2.png> [45]
-File: Images/Chapter5/ardrone/control_signals2.png Graphic file (type png)
- <use Images/Chapter5/ardrone/control_signals2.png>
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
+Underfull \hbox (badness 10000) in paragraph at lines 224--225
 
  []
 
- [46])
-(./Conclusions_and_Future_Work/Conclusions_and_Future_Work.tex [47]
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 225.
+
+<Images/Chapter5/ardrone/T2/3Dtrajectory.png, id=823, 586.8324pt x 442.2924pt>
+File: Images/Chapter5/ardrone/T2/3Dtrajectory.png Graphic file (type png)
+ <use Images/Chapter5/ardrone/T2/3Dtrajectory.png>
+Package pdftex.def Info: Images/Chapter5/ardrone/T2/3Dtrajectory.png used on in
+put line 227.
+(pdftex.def)             Requested size: 227.62206pt x 171.55525pt.
+ [45 <./Images/Chapter5/ardrone/T2/velocity.png> <./Images/Chapter5/ardrone/T2/
+inputs.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 235--236
+
+ []
+
+)
+(./Conclusions_and_Future_Work/Conclusions_and_Future_Work.tex [46 <./Images/Ch
+apter5/ardrone/T2/2Dtrajectory.png> <./Images/Chapter5/ardrone/T2/3Dtrajectory.
+png>] [47]
 Chapter 6.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--5
@@ -2632,37 +2809,46 @@ you left one out. Proceed, with fingers crossed.
 
  [52
 
-] [53]) [54] (./Marcus_Hultmark_Thesis_template.aux)
+] [53])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 44.
+ [54]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 44.
+ (./Marcus_Hultmark_Thesis_template.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 44.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 44.
+Package rerunfilecheck Info: File `Marcus_Hultmark_Thesis_template.out' has not
+ changed.
+(rerunfilecheck)             Checksum: 525228D59EC7CFAEA9BA84FDA2553134;3830.
 
 LaTeX Warning: There were multiply-defined labels.
 
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 44.
  ) 
 Here is how much of TeX's memory you used:
- 10433 strings out of 493848
- 151650 string characters out of 1152822
- 284113 words of memory out of 3000000
- 13143 multiletter control sequences out of 15000+50000
- 68807 words of font info for 97 fonts, out of 3000000 for 9000
- 714 hyphenation exceptions out of 8191
- 40i,18n,43p,1740b,486s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{section*.32} has been referenced but does not exi
-st, replaced by a fixed one
-
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texlive
-/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type
-1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/am
-sfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cm
-sy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/symbols/msbm10.p
-fb></usr/share/texmf-texlive/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/tex
-mf-texlive/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-texlive/fonts/
-type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmb8
-a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/te
-xmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/ty
-pe1/urw/times/utmri8a.pfb>
-Output written on Marcus_Hultmark_Thesis_template.pdf (59 pages, 1585377 bytes)
+ 11555 strings out of 495059
+ 171218 string characters out of 3182031
+ 310889 words of memory out of 3000000
+ 14187 multiletter control sequences out of 15000+200000
+ 74332 words of font info for 101 fonts, out of 3000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 38i,18n,43p,1740b,504s stack positions out of 5000i,500n,10000p,200000b,50000s
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/u
+hvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
+s/utmri8a.pfb>
+Output written on Marcus_Hultmark_Thesis_template.pdf (60 pages, 1731774 bytes)
 .
 PDF statistics:
- 940 PDF objects out of 1000 (max. 8388607)
- 207 named destinations out of 1000 (max. 500000)
- 622 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 967 PDF objects out of 1000 (max. 8388607)
+ 801 compressed objects within 9 object streams
+ 205 named destinations out of 1000 (max. 500000)
+ 647 words of extra memory for PDF output out of 10000 (max. 10000000)
 
