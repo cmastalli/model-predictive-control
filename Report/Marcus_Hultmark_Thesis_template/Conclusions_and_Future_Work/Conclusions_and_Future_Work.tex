@@ -1,0 +1,29 @@
+\chapter{Conclusions and Future Work}
+\label{chap:Conclusions_and_Future_Work}
+
+In this project, a C++ library has been developed in order to work as a quick backbone and template to implement MPC applications, throughout  the different classes and methods described in Chapter 4. The software qpOASES was successfully integrated to the proposed MPC architecture, with some limitations, since the method to achieve hard real-time solving never worked in this particular case. Nevertheless, the proposed architecture uses OOP in order to allow the integration of different quadratic programming solvers and making them available and interchangeable once they are integrated with one call at the main controller function. By the same principles, the models and simulators (if developed) can be exchanged quickly. The integration with the ROS environment allows quick connectivity with the growing collection of devices and drivers available in the ROS development community, transparent communication between devices and the opportunity to integrate the controller to a ROS network of devices via LAN or WLAN.  \\ 
+
+Two models, and therefore two controllers were built: the tank system, which was made from previous identification efforts made here in the Control Lab; and the quadrotor, which did require modeling work. However, the model was only verified and not validated, since no parameter identification experiments were performed. Instead, the parameters were taken from Sun \cite{YueSun2012} (2012), in which the identification efforts for the same quadrotor were made. The validation experiments showed that the model developed for the quadrotor simulator performed satisfactorily as it can be seen in Figures \ref{fig:upwards_inputs} to \ref{fig:LateralY_angvelocities}. From these modeling activities, numerical simulators were also developed as platform tests for both controllers. \\
+
+Each controller was tested in different situations: the tank system simulator was used to regulate to a setpoint and the quadrotor simulator was used to follow a determined trajectory. In both cases, the controllers achieved good time responses, with no overshoot or steady state error. For a fast plant like the quadrotor, a low time response is very important to keep airbourne stability. The tuning of the weight matrices was done by trial and error. Despite that, the tuning procedure was relatively fast, as the weight matrices were obtained in a small number of attempts. In the quadrotor case the difficulty increased, due to the size of the problem and the bigger amount of variables involved. This is why MPC controllers require more modeling work than tuning, which is the inverse situation from classic PID controllers. \\
+
+In the case of MPC controllers for plants with a high number of states such as the quadrotor, the selection of the constraints plays a key role in the solution of the optimization problem that arises in each step. In order to guarantee stability, the active set considered must be feasible first, and an excess on the number of constrained variables or the selection of unrrealistic ranges of operation for some variables might lead to unfeasible problems. Camacho and Bordons \cite{CamachoBordons} book addresses several methods to deal with unfeasibility. In the case of the quadrotor controller, the number of constrained variables was reduced. The strategy to use will depend on the variables involved and the plant that is being controlled, as some constraints can't be redefined in some cases for safety and/or operational reasons. \\
+
+
+\section{Future Work}
+
+In the current report, the MPC proposal is only tested in the simulators that were developed. This was due to several hardware concerned issues that were out of the scope of the project to solve. However, the implementation of the MPC in the real quadrotor has always been the main goal, but some of the proposals made here require a special focus in order to succeed. The following work proposals come from ideas that were attempted, but were unsuccessful during the time lapse of this project.\\
+
+To have a better look at the simulations, Gazebo was tested for these purposes, but the model of the quadrotor that it has includes the internal controller of the drone. A next step on this project could be to explore the use of the MPC over the internal controller of the drone and not directly on the hardware.\\
+
+In the real quadrotor, the states come from the integration of the feedback from the different sensors present in the drone: the IMU, the sonar altitude sensor and the cameras. One of the ideas is to use a program made by students at TUM in Munich that uses Simultaneous Localization And Mapping (SLAM) on the information from the frontal camera, an Extended Kalman filter for state estimation and a PID controller to steer the quadrotor from visual feedback. The point is to use the MPC over the PID controller taking directly the feedback produced by the program via ROS topics to feed the MPC. This was attempted in this project, but the estimated states had an error due to a problem in the calibration process of the drone.\\
+
+
+
+
+
+
+
+
+
+
