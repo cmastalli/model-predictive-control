@@ -140,41 +140,43 @@ The simulations show the performance of the MPC strategy in the simulated quadro
 
 The initial set of restrictions considered was bigger than the one used in the simulations shown, since there were restrictions considered on the roll and pitch angles ($\phi$ and $\theta$) taken in order to assure the stability of the quadrotor. Normally, this would be addressed by a hovering PI control loop in the original AR-Drone control architecture. However, the consideration of the constraints on these angles lead to unfeasibility in the quadratic programming problem, so  the correspondant restrictions were relaxed, and eventually dropped. The stability of the platform was addressed by strenghtening the restrictions on the velocities in the $x$ and $y$ axes, since these velocities are dependant on the roll and pitch angles. \\
 
-Figure \ref{fig:ardrone_inputs} shows the resultant inputs to the simulator, produced by the optimization solver. As it is shown, the control inputs are only responding to the requirements of the simulation trajectory, hence the regular pattern in the signals. The simulator does not take into account environmental perturbations that can arise such as crossed winds that might require more drastic control inputs to the motors.  \\
+The actual version of the library does not include functions to cope with unfeasibility. This must be considered in further stages of development in order to provide a better operation under the presence of more constraints. Some suggested strategies to cope with unfeasibility are referred by Camacho and Bordons \cite{CamachoBordons}: an initial strategy consists of dropping the state constraints at the initial portion of the horizon in order to make the problem feasible; another way is to create soft constraints from the hard constraints stated initially, and then adding a term in the cost function to penalize constraint violation \cite{Molero2011}. Feasibility is important to assure closed-loop stability. One could also use the solution of the unconstrained problem  when unfeasibility appears, but this will not guarantee stability. \\
+
+Figure \ref{fig:ardrone_inputs} shows the resultant inputs to the simulator, produced by the optimization solver. As it is shown, the control inputs are only responding to the requirements of the simulation trajectory, hence the regular pattern in the signals. The simulator does not take into account sensor noise or environmental perturbations that can arise such as crossed winds that might require more drastic control inputs to the motors.  \\
 
 To make a verification of the disturbance rejection capabilities of the controller, a test using a disturbance model with a uniform distribution, bounded in a defined range was performed. This disturbance model can't be considered as white gaussian noise that would arise from the sensing instruments, but it works for the aforementioned purpose. In a future work, tests with a disturbance model of the sensor noise and environmental effects on the quadrotor can be performed. These results in a more realistic simulation scenario, would give a better insight of the behavior of the controller in a future implementation on the drone. The bounds of the disturbances were defined to be in the $[0, 0.01]$ range for each state. This affects differently some states, but in general it introduces a slight disturbance without destabilizing the platform. The results of the aforementioned tests are shown below from Figure \ref{fig:ardrone_pos2} to \ref{fig:ardrone_inputs2}.\\
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{Images/Chapter5/ardrone/position_control2.png}
+\includegraphics[scale=0.7]{Images/Chapter5/ardrone/T1_noise/position_control.png}
 \caption{Trajectory reference and simulated trajectory positions of the platform with the disturbance model.}
 \label{fig:ardrone_pos2}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{Images/Chapter5/ardrone/euler_angle_control2.png}
+\includegraphics[scale=0.7]{Images/Chapter5/ardrone/T1_noise/euler_angle_control.png}
 \caption{Trajectory reference and simulated trajectory orientations ($\psi$) of the platform with the disturbance model.}
 \label{fig:ardrone_ang2}
 \end{figure}
 
 \begin{figure}[H]    
 \centering
-\includegraphics[scale=0.7]{Images/Chapter5/ardrone/lin_velocity_control2.png}
+\includegraphics[scale=0.7]{Images/Chapter5/ardrone/T1_noise/lin_velocity_control.png}
 \caption{Linear velocities of the simulated platform with the disturbance model. }
 \label{fig:ardrone_lin_vel2}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{Images/Chapter5/ardrone/ang_velocity_control2.png}
+\includegraphics[scale=0.7]{Images/Chapter5/ardrone/T1_noise/ang_velocity_control.png}
 \caption{Angular velocities of the simulated platform with the disturbance model.}
 \label{fig:ardrone_ang_vel2}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{Images/Chapter5/ardrone/control_signals2.png}
+\includegraphics[scale=0.7]{Images/Chapter5/ardrone/T1_noise/control_signals.png}
 \caption{Control signals generated by the MPC strategy with the disturbance model.}
 \label{fig:ardrone_inputs2}
 \end{figure}
@@ -191,44 +193,55 @@ The effect of the disturbances is noticeable in Figure \ref{fig:ardrone_inputs2}
     \end{tabular}
 \end{center}
 
-The simulator was tested in two other different trajectories, which are more representative of the kind of motion that the drone would be required to perform in real life applications. Both consist in following square reference of 1 meter of width, one in the horizontal $XY$ plane and one in the vertical &XZ& plane.  These were added to the controller as references and the results are shown below.
+The simulator was tested in a second trajectory, which is more representative of the kind of motion that the drone would be required to perform in real life applications. It consists in following a square reference of 2 meters of width, one in the horizontal $XY$ plane and one in the vertical &XZ& plane.  The results using this reference are shown below.
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{Images/Chapter5/ardrone/position_control2.png}
-\caption{Trajectory reference and simulated trajectory positions of the platform with the disturbance model.}
-\label{fig:ardrone_pos3}
+\includegraphics[scale=0.7]{Images/Chapter5/ardrone/T2/position.png}
+\caption{Positions of the simulated quadrotor with the square trajectory.}
+\label{fig:ardrone_sq_pos}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{Images/Chapter5/ardrone/euler_angle_control2.png}
-\caption{Trajectory reference and simulated trajectory orientations ($\psi$) of the platform with the disturbance model.}
-\label{fig:ardrone_ang3}
+\includegraphics[scale=0.7]{Images/Chapter5/ardrone/T2/velocity.png}
+\caption{Linear velocities of the simulated quadrotor with the square trajectory.}
+\label{fig:ardrone_sq_vel}
 \end{figure}
 
 \begin{figure}[H]    
 \centering
-\includegraphics[scale=0.7]{Images/Chapter5/ardrone/lin_velocity_control2.png}
-\caption{Linear velocities of the simulated platform with the disturbance model. }
-\label{fig:ardrone_lin_vel3}
+\includegraphics[scale=0.7]{Images/Chapter5/ardrone/T2/inputs.png}
+\caption{Calculated inputs from the MPC to the simulated quadrotor when using the square trajectory. }
+\label{fig:ardrone_sq_inp}
 \end{figure}
+
+To improve the visualization of these results, the positions are translated into a 2D and 3D space. 
 
 \begin{figure}[H]
-\centering
-\includegraphics[scale=0.7]{Images/Chapter5/ardrone/ang_velocity_control2.png}
-\caption{Angular velocities of the simulated platform with the disturbance model.}
-\label{fig:ardrone_ang_vel3}
+        \centering
+        \begin{subfigure}[b]{0.5\textwidth}
+            \includegraphics[width=\textwidth]{Images/Chapter5/ardrone/T2/2Dtrajectory.png}   \qquad   
+            \caption{Trajectory of the simulated quadrotor in the XY plane.}
+            \label{fig:ardrone_sq_2D}  
+            \includegraphics[width=\textwidth]{Images/Chapter5/ardrone/T2/3Dtrajectory.png}
+            \caption{Trajectory of the simulated quadrotor in a three dimensional space.}
+            \label{fig:ardrone_sq_3D}
+        \end{subfigure}
+\caption{Visualization of the control trajectories of the simulated platform.}
+\label{fig:ardrone_sq_trajectory}
 \end{figure}
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.7]{Images/Chapter5/ardrone/control_signals2.png}
-\caption{Control signals generated by the MPC strategy with the disturbance model.}
-\label{fig:ardrone_inputs3}
-\end{figure}
+The previous plots show that the controller performance is not satisfactory. An increasing offset from the desired path appears in the simulation. One reason for this is that the MPC's performance is highly dependant on the accuracy of the model. The model used for this controller is a linear state space representation around the hover point for the quadrotor, which changes immediately after the take off. As the model goes further away from the linearization point, the accuracy of the model decreases respect to the non-linear model, and even more from the real quadrotor. This affects directly the performance of the controller, as the behavior predicted by the model in the MPC drifts away from the simulated behavior of the quadrotor. As model uncertainty increases, it is possible to deal with this situation increasing the restrictions on the system and their correspondent ranges.\\
 
-The actual version of the library does not include functions to cope with unfeasibility. This must be considered in further stages of development in order to provide a better operation under the presence of more constraints. Some suggested strategies to cope with unfeasibility are referred by Camacho and Bordons \cite{CamachoBordons}: an initial strategy consists of dropping the state constraints at the initial portion of the horizon in order to make the problem feasible; another way is to create soft constraints from the hard constraints stated initially, and then adding a term in the cost function to penalize constraint violation \cite{Molero2011}. Feasibility is important to assure closed-loop stability. One could also use the solution of the unconstrained problem  when unfeasibility appears, but this will not guarantee stability.\\
+ However, this approach can easily lead to unfeasibility, as the system becomes overconstrained. In order to improve this, several variants of the MPC algorithm have been studied and implemented to increase its robustness against imperfections in the model and stronger sources of disturbance. Tube MPC \cite{RakovicetAl2010}, is one of these efforts to increase the robustness of the MPC algorithm when uncertainty is present. This variation uses feedback to assure that the states are contained in a tube of possible trajectories. Another fact that must be taken into account to analyze the results, is that the model used in the controller does not count for disturbances. This was not done in this report, but it is of interest to measure the influence of the disturbance model in the development of a model for MPC controllers and their performance. 
+
+
+
+
+
+
+
 
   
 
