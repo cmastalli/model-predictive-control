@@ -38,7 +38,7 @@ PROJECT_NUMBER         =
 # for a project that appears at the top of each page and should give viewer 
 # a quick idea about the purpose of the project. Keep the description short.
 
-PROJECT_BRIEF          = "This code implement a Model Predictive Control (MPC) algorithm over Robot Operating System (ROS). The main goal is develop a MPC that will be modularity and easy to implement in any robots under ROS, and it will be reusable to other kind of algorithm like LBMPC. It also have to be implementable in fast dynamics platforms like underwater robots and quadrotor"
+PROJECT_BRIEF          = "This code implements a Model Predictive Control (MPC) algorithm over Robot Operating System (ROS). The main goal is to develop a MPC architecture that will be modular and easy to implement in any robots under ROS, and expandable to other kind of MPC variants like Learning Based MPC."
 
 # With the PROJECT_LOGO tag one can specify an logo or icon that is 
 # included in the documentation. The maximum height of the logo should not 
@@ -733,7 +733,9 @@ RECURSIVE              = YES
 # Note that relative paths are relative to the directory from which doxygen is 
 # run.
 
-EXCLUDE                = 
+EXCLUDE                = \
+*/../include/mpc/example_models/ardrone_hovering.h \
+*/../include/mpc/mpc/lbmpc.h
 
 # The EXCLUDE_SYMLINKS tag can be used to select whether or not files or 
 # directories that are symbolic links (a Unix file system feature) are excluded 
