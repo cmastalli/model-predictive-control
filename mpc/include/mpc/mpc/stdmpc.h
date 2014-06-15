@@ -9,7 +9,12 @@
 #include <cmath>
 
 
+/**
+ *  \addtogroup mpc
+ *  @{
+ */
 
+//! Model Predictives Control interfaces and implementations
 namespace mpc
 {
     /**
@@ -25,7 +30,7 @@ namespace mpc
 		\f}
 		To solve each of these optimal control problems the function mpc::STDMPC::initMPC initialized the control problem. The resulting optimization problem is then solved by a (predefined) minimization routine.\n
 		Then the first value of the computed control is implemented and the optimization horizon is shifted forward in time. This allows the procedure to be applied iteratively and computes a (suboptimal) infinite horizon control.\n
-		Note that the function mpc::STDMPC::updatedMPC can be used to computer a control signal for the next time-step. \n
+		Note that the function mpc::STDMPC::updateMPC() can be used to compute a control signal for the next time-step. \n
      */
 	class STDMPC : public mpc::ModelPredictiveControl
 	{

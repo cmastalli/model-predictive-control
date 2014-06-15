@@ -20,13 +20,7 @@ namespace mpc
 	namespace example_models
 	{
 		/**
-		 @brief Class to define the example model, tanks system, of the process and the optimal control problem to be solved
-		 This class gives an definition of an example model, tanks systems, of process model and the optimal control problem which shall be considered. The model itself is defined via its dynamic
-		 \f{eqnarray*}{
-			 \dot{x}(t) = Ax(t) + Bu(t) \\
-			 y(t) = Cx(t)
-   	     \f}
-		 on the optimization horizon \f$ [t_0, N] \f$ with initial value \f$ x(t_0, x_0) = x_0 \f$ over an optimization criterion.
+		 @brief Class to define the process model of the tank system available at Simon Bolivar University's Automatic Control Lab.
 		 */
 		class TanksSystem : public mpc::model::Model
 		{
@@ -40,13 +34,13 @@ namespace mpc
 
 
 				/**
-			 	@brief After the MPC makes an iteration, this function is used to set the new linearization points for a LTV model into 				global variables for the STDMPC class 
+			 	@brief After the MPC makes an iteration, this function is used to set the new linearization points for a LTV model into 				global variables. 
 			 	@param double* op_states 		new linearization point for the state vector
 			 	*/
 				virtual void setLinearizationPoints(double* op_states);
 				
 				/**
-				 @brief Function to compute the dynamic model of the system
+				 @brief Function to compute the dynamic model of the system.
 				 @param Eigen::MatrixXd& A	State matrix
 				 @param Eigen::MatrixXd& B	Input matrix
 				 @return bool Label that indicates if the computation of the matrices is successful

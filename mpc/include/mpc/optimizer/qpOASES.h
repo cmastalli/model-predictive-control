@@ -10,7 +10,12 @@
 
 USING_NAMESPACE_QPOASES
 
+/**
+ *  \addtogroup mpc
+ *  @{
+ */
 
+//! Model Predictives Control interfaces and implementations
 namespace mpc
 {
 	namespace optimizer
@@ -58,7 +63,7 @@ namespace mpc
 				virtual bool computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbG, double *ubG, double cputime);
 
 				/**
-				 @brief Get the optimal solution vector when it was solve the optimization problem
+				 @brief Get the vector of optimal solutions calculated by qpOASES
 				 @return double* Optimal solution
 				 */
 				double* getOptimalSolution();

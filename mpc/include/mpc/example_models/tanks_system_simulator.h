@@ -3,7 +3,12 @@
 
 #include <mpc/model/model.h>
 #include <mpc/model/simulator.h>
+/**
+ *  \addtogroup mpc
+ *  @{
+ */
 
+//! Model Predictives Control interfaces and implementations
 namespace mpc
 {
 
