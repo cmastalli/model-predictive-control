@@ -3,7 +3,12 @@
 
 
 #include <mpc/model/model.h>
+/**
+ *  \addtogroup mpc
+ *  @{
+ */
 
+//! Model Predictives Control interfaces and implementations
 namespace mpc
 {
 	/**
@@ -15,13 +20,13 @@ namespace mpc
     {
 		/**
 		 @class Optimizer
-		 @brief Abstract class to define the optimization algorithm for Model Predictive Control
-	 	 This class gives an abstract definition of the optimization problem in the context of Model Predictive Control
+		 @brief Abstract class to define the optimization algorithm for Model Predictive Control. This class acts as an interface to use a defined optimization solver software as a part of this library in order to provide different solver options for the end user to solve the basic optimization problem that rises in MPC. As more solvers are adapted to this library with this class, more options to try different optimization methods are available to select the most suitable one depending on each case. The basic  
 	 	 \f{eqnarray*}{
 			\mbox{Minimize} \; F(x) && \\
 			\mbox{subject to} \; G(x) & = & 0 \\
 			H(x) & \geq & 0
 		\f}
+		 As more solvers are adapted to this library with this class, more options to try different optimization methods are available to select the most suitable one depending on each case.
 	 	*/
 		class Optimizer		
 		{
@@ -33,13 +38,13 @@ namespace mpc
 				~Optimizer() {};
 				
 				/**
-				 @brief Function to define the initialization of optimizer
+				 @brief Function to perform the initialization of optimizer, if this applies.
 				 @return Label that indicates if the initialization of the optimizer is successful
 				 */
 				virtual bool init() = 0;
 				
 				/**
-				 @brief Function to compute the optimization algorithm associated to the MPC problem 
+				 @brief Function to compute the optimization algorithm associated to the MPC problem. 
 				 @param double* H Hessian matrix
 				 @param double* g Gradient vector
  				 @param double* G	Constraint matrix
@@ -53,7 +58,7 @@ namespace mpc
 				virtual bool computeOpt(double *H, double *g, double *G, double *lb, double *ub, double *lbG, double *ubG, double cputime) = 0;
 				
 				/**
-				 @brief Get the optimal solution vector when it was solve the optimization problem
+				 @brief Get the vector of optimal or sub-optimal solutions calculated by the mpc::optimizer::Optimizer::computeOpt() function (optimality of the function is defined by the solver that is adapted).
 				 @return double* Optimal solution
 				 */
 				virtual double* getOptimalSolution() = 0;

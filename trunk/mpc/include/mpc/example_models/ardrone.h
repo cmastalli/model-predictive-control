@@ -4,20 +4,23 @@
 #include "mpc/model/model.h"
 #include <Eigen/Dense>
 
+/**
+ *  \addtogroup mpc
+ *  @{
+ */
 
+//! Model Predictives Control interfaces and implementations
 namespace mpc
 {
-
+	/**
+	 *  \addtogroup example_models
+	 *  @{
+	 */
+	 //* Example models implementations
 	namespace example_models
 	{
 		/**
-		 @brief Class to define the example model, tanks system, of the process and the optimal control problem to be solved
-		 This class gives an definition of an example model, tanks systems, of process model and the optimal control problem which shall be considered. The model itself is defined via its dynamic
-		 \f{eqnarray*}{
-			 \dot{x}(t) = Ax(t) + Bu(t) \\
-			 y(t) = Cx(t)
-   	     \f}
-		 on the optimization horizon \f$ [t_0, N] \f$ with initial value \f$ x(t_0, x_0) = x_0 \f$ over an optimization criterion.
+		 @brief Derived class from mpc::model::Model that represents the dynamics of Parrot's ARDrone1 quadrotor.
 		 */
 		class ArDrone : public mpc::model::Model
 		{
@@ -31,7 +34,7 @@ namespace mpc
 				
 				
 				/**
-			 	@brief After the MPC makes an iteration, this function is used to set the new linearization points for a LTV model into 				global variables for the STDMPC class 
+			 	@brief After the MPC completes an iteration, this function is used to set the new linearization points for a LTV model as global variables. 
 			 	@param double* op_states 		new linearization point for the state vector
 			 	*/
 				virtual void setLinearizationPoints(double* op_states);
@@ -79,7 +82,7 @@ namespace mpc
 	} //@namespace example_models
 
 } //@namespace mpc
-
+/** @} End of Doxygen Groups*/
 
 #endif
 

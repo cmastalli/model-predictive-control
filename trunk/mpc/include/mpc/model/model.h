@@ -3,7 +3,12 @@
 
 #include <Eigen/Dense>
 
+/**
+ *  \addtogroup mpc
+ *  @{
+ */
 
+//! Model Predictives Control interfaces and implementations
 namespace mpc
 {
 	/**
@@ -13,25 +18,18 @@ namespace mpc
 	 //! Model interfaces and implementations
     namespace model
     {
-        //TODO: define a cost function
 		/**
-		 @brief Abstract class to define the model of the process and the optimal control problem to be solved
-		 This class gives an abstract definition of the process model and the optimal control problem which shall be considered. The model itself is defined via its dynamic
+		 @brief This is the abstract class used to create and define different process models, in a state space representation. The models can be defined as Linear Time Invariant (LTI) such as 
 		 \f{eqnarray*}{
 			 \dot{x}(t) = Ax(t) + Bu(t) \\
 			 y(t) = Cx(t)
    	     \f}
-		 on the optimization horizon \f$ [t_0, N] \f$ with initial value \f$ x(t_0, x_0) = x_0 \f$. Moreover, the solution of the control system shall satisfy given constraints
-		 \f{eqnarray*}{
-			 x(t, x_0) & \in & X \qquad \forall t \in [t_0, t_N] \\
-			 u(t, x_0) & \in & U \qquad \forall t \in [t_k, t_k)
-		 \f}
-		 Since we suppose at least control law \f$ u(\cdot) \f$ to exist which satisfies all these constraints, i.e. is feasible, an optimization critierion
-		 \f{eqnarray*}{
-			 J_N (x_0, u) & = & \sum\limits_{k=0}^{N - 1} \int\limits_{t_k}^{t_{k + 1}} L \left( \tau, x_{u}(\tau, x_0), u(\tau, x_0) \right) d \tau \\
-			 && + \sum\limits_{k=0}^{N - 1} l \left( t_k, x_{u}(t_k, x_0), u(t_k, x_0) \right) + F(t_N, x_{u}(t_N, x_0))
-		 \f}
-		 is added to measure the quality of feasible solutions.
+		 or Linear Time Variant (LTV) such as
+		\f{eqnarray*}{
+			 \dot{x}(t) = A(t)x(t) + B(t)u(t) \\
+			 y(t) = C(t)x(t)
+   	     \f}
+		A boolean member variable defines the type of model used. The C matrix is not considered in the computation of the system matrices because this matrix is not used by the MPC algorithm, in an effort to reduce computation time.
 		 */
 		class Model
 		{
@@ -43,13 +41,13 @@ namespace mpc
 				~Model() {};
 
 				/**
-			 	@brief After the MPC makes an iteration, this function is used to set the new linearization points for a LTV model into 				global variables for the STDMPC class 
+			 	@brief After the MPC makes an iteration, this function is used to set the current state as the new linearization points for a LTV model into global variables. 
 			 	@param double* op_states 		new linearization point for the state vector
 			 	*/
 				virtual void setLinearizationPoints(double* op_states) = 0;
 			
 				/**
-				 @brief Function to compute the matrices for a Linear model process
+				 @brief Function to compute the matrices for a Linear model process. If the model is a LTI model, the function can be just defined to set the values of the model matrices.
 				 @param Eigen::MatrixXd& A	State or System matrix
 				 @param Eigen::MatrixXd& B	Input matrix
 				 @return bool Label that indicates if the computation of the matrices is successful
@@ -69,6 +67,9 @@ namespace mpc
 
 				virtual bool setInputs(const double* inputs) const;	
 
+				/** @brief Function to identify if the model is LTI or LTV 
+					@return bool True if the model is LTV
+				*/
 				virtual bool getModelType() const;
 
 				/** @brief Function that returns the current value of the operation points for the states */
@@ -100,7 +101,7 @@ namespace mpc
 				/** Pointer to the array of the input operation points **/
 				double* op_point_input_;
 
-				/** @brief Boolean to check if the model is time variant or not */
+				/** @brief Boolean to check if the model is time variant or not (True = LTV) */
 				bool time_variant_;
 
             private:

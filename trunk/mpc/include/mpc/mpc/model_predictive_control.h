@@ -9,34 +9,17 @@
 
 #include <fstream>
 
+/**
+ *  \addtogroup mpc
+ *  @{
+ */
 
+//! Model Predictives Control interfaces and implementations
 namespace mpc
 {
     /**
      @class ModelPredictiveControl
-     @brief Abstract class for solving the model predictive control problem \n
-		The aim of this class is to solve the following optimal control problem with infinite optimization horizon for a given initial value \f$ x(t_0) = x_0 \f$ for fast-dynamic systems such as in robotics applications
-		\f{eqnarray*}{
-			\mbox{Minimize} \; J_\infty(x, u) & = & \sum\limits_{i=0}^{\infty} \int\limits_{t_i}^{t_{i + 1}} L \left( \tau, x_{u}(\tau, x_0), u(\tau, x_0) \right) d \tau + \sum\limits_{i=0}^{\infty} l \left( t_k, x_{u}(t_i, x_0), u(t_i, x_0) \right) \\
-			\dot{x}_{u}(t) & = & f(x_{u}(t, x(t_k)), u(x(t_k), t)) \qquad \forall t \in [t_0, \infty) \\
-			x_{u}(0, x_0) & = & x_0 \\
-			x_{u}(t, x_0) & \in & X \qquad \forall t \in [t_0, \infty] \\
-			u(t, x_0) & \in & U \qquad \forall t \in [t_0, \infty)
-		\f}
-		Since solving this problem usually requires the solution of a Hamilton-Jacobi-Bellman (partial) differential equation, we use a model predictive control approach an approximate the infinite horizon solution by the solution of a sequence of finite horizon optimal control problems:
-		\f{eqnarray*}{
-			\mbox{Find} \; \mu(x(t_k)) & := & u_{[0]} \\
-			\mbox{ST.} \;\; u_{[0, N-1]} & = & \mbox{{\it argmin}}_{u \in \mathcal{U}_N} J_N (x(t_k), u) \\
-			J_N (x(t_k), u) & = & \sum\limits_{i=0}^{N - 1} \int\limits_{t_i^k}^{t_{i + 1}^k} L \left( \tau, x_{u}(\tau, x(t_k)), u(\tau, x(t_k)) \right) d \tau \\
-			&& + \sum\limits_{i=0}^{N - 1} l \left( t_i^k, x_{u}(t_i^k, x(t_k)), u(t_i^k, x(t_k)) \right) + F(t_N^k, x_{u}(t_N^k, x(t_k))) \\
-			\dot{x}_{u}(t) & = & f(t, x_{u}(t, x(t_k)), u(x(t_k), t)) \qquad \forall t \in [t_0^k, t_N^k] \\
-			x_{u}(0, x(t_k)) & = & x(t_k) \\
-			x_{u}(t, x(t_k)) & \in & X \qquad \forall t \in [t_0^k, t_N^k] \\
-			u(x(t_k), t) & \in & U \qquad \forall t \in [t_i^k, t_{i + 1}^k)
-			\f}
-		To solve each of these optimal control problems the function mpc::ModelPredictiveControl::initMPC initialized the control problem. The resulting optimization problem is then solved by a (predefined) minimization routine.\n
-		Then the first value of the computed control is implemented and the optimization horizon is shifted forward in time. This allows the procedure to be applied iteratively and computes a (suboptimal) infinite horizon control.\n
-		Note that the function mpc::ModelPredictiveControl::updatedMPC can be used to computer a control signal for the next time-step. \n
+     @brief This class serves as a base class in order to expand the functionality of the library and implement different sorts of MPC algorithms. The methods defined here are conceived in the simplest way possible to allow different implementations in the derived classes.\n
      */
     class ModelPredictiveControl
     {
@@ -44,11 +27,11 @@ namespace mpc
             /** @brief Constructor function */
             ModelPredictiveControl() {};
 
-            /** @brief Constructor function */
+            /** @brief Destructor function */
             ~ModelPredictiveControl() {};
 
             /**
-             @brief Function to specify the settings of all variables within the MPC problem (optimization library, horizon, etc.)
+             @brief Function to specify and set the settings of all the components within the MPC problem. The mpc::ModelPredictiveControl class can change individual parts of the MPC problem; such as the model (mpc::model::Model and derived classes), the optimizer (mpc::optimizer::Optimizer and derived classes) and, if used, the plant simulator (mpc::model::Simulator and derived classes) in order to allow different combinations of these parts when solving.
              @param mpc::model::Model *model	Pointer to the model of the plant to be used in the algorithm
              @param mpc::optimizer::Optimizer *optimizer	Pointer to the optimization library to be used in the algorithm
              @param mpc::model::Simulator *simulator	Pointer to the simulator class used to predict the states
@@ -56,13 +39,13 @@ namespace mpc
             virtual bool resetMPC(mpc::model::Model *model, mpc::optimizer::Optimizer *optimizer, mpc::model::Simulator *simulator) = 0;
 
             /**
-             @brief Function to initialize the calculation of the MPC algorithm
+             @brief Function to initialize the calculation of the MPC algorithm. The function reads all required parameters from ROS' parameter server that has been previously loaded from a configuration YAML file, and performs all the initial calculations of variables to be used in the optimization problem.
              @return Label that indicates if the MPC is initialized with success
               */
             virtual bool initMPC() = 0;
 
             /**
-             @brief Function to update the MPC algorithm for the next iteration 
+             @brief Function to update the MPC algorithm for the next iteration. The parameters defined and calculated in mpc::ModelPredictiveControl::initMPC() are used together with the methods taken from the MPC class components (mpc::model::Model, mpc::optimizer::Optimizer and mpc::model::Simulator) to find a solution to the optimization problem. This is where the different variants of MPC algorithms can be implemented in a source file from a derived class. 
 			 @param double* x_measured 		State vector
 			 @param double* x_reference		Reference vector
              */
@@ -71,12 +54,12 @@ namespace mpc
 			
 			
 			/**
-			 @brief Function to get the control signal generates for the MPC
-			 @return double* Control signal
+			 @brief Function to get the control signal generated for the MPC. As the MPC algorithm states, the optimization process yields the control signals for a range of times defined by the prediction horizon, but only the current control signal is applied to the plant. This function returns the control signal for the current time.
+			 @return double* Control signal for the current MPC iteration.
 			 */
 			virtual double* getControlSignal() const;
 			
-			/** @brief Function to write the data of the MPC in text file */
+			/** @brief Function to write the data of the MPC in a text file. */
 			virtual void writeToDisc();
 
 
