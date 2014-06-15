@@ -55,3 +55,4 @@
 \contentsline {section}{\numberline {A.2}Quadrotor}{52}{section.A.2}
 \contentsline {subsection}{\numberline {A.2.1}State Space matrices}{52}{subsection.A.2.1}
 \contentsline {subsection}{\numberline {A.2.2}Weight matrices }{53}{subsection.A.2.2}
+\contentsline {chapter}{\numberline {B}Appendix: Library Documentation}{55}{appendix.B}
