@@ -1,4 +1,4 @@
-\contentsline {chapter}{List of Figures}{i}{chapter*.1}
+\contentsline {chapter}{List of Figures}{iii}{chapter*.2}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Purpose}{1}{section.1.2}

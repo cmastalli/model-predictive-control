@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.6)  15 JUN 2014 20:02
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.6)  16 JUN 2014 20:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -943,7 +943,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 15.
 
-(./Marcus_Hultmark_Thesis_template.lof
+(./Marcus_Hultmark_Thesis_template.toc
 LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 3.
 
 
@@ -982,12 +982,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.i}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.41 ... platform.\relax }}{46}{figure.caption.33}
+l.39 ... {5}Results and Discussion}{34}{chapter.5}
                                                    [1
 
 ])
-\tf@lof=\write6
-\openout6 = `Marcus_Hultmark_Thesis_template.lof'.
+\tf@toc=\write6
+\openout6 = `Marcus_Hultmark_Thesis_template.toc'.
 
 
 
@@ -996,11 +996,11 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[2] (./Marcus_Hultmark_Thesis_template.toc [3
+[2] (./Marcus_Hultmark_Thesis_template.lof [3
 
 ])
-\tf@toc=\write7
-\openout7 = `Marcus_Hultmark_Thesis_template.toc'.
+\tf@lof=\write7
+\openout7 = `Marcus_Hultmark_Thesis_template.lof'.
 
 
 
@@ -3205,9 +3205,16 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 45.
  (./Marcus_Hultmark_Thesis_template.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 45.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 45.
-Package rerunfilecheck Info: File `Marcus_Hultmark_Thesis_template.out' has not
- changed.
-(rerunfilecheck)             Checksum: D02CAA4B00584103953C4FC7A1F3136B;3898.
+
+Package rerunfilecheck Warning: File `Marcus_Hultmark_Thesis_template.out' has 
+changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `Marcus_Hultmark_Thesis_template.out
+':
+(rerunfilecheck)             Before: D02CAA4B00584103953C4FC7A1F3136B;3898
+(rerunfilecheck)             After:  ED9768E9279DE56E22F27F6BDCFB87FE;3898.
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -3220,7 +3227,7 @@ Here is how much of TeX's memory you used:
  14271 multiletter control sequences out of 15000+200000
  74332 words of font info for 101 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 43i,18n,46p,1921b,504s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 43i,18n,46p,1924b,504s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -3238,7 +3245,7 @@ symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb>
 live/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist
 /fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
 w/times/utmri8a.pfb>
-Output written on Marcus_Hultmark_Thesis_template.pdf (88 pages, 1870885 bytes)
+Output written on Marcus_Hultmark_Thesis_template.pdf (88 pages, 1870880 bytes)
 .
 PDF statistics:
  1222 PDF objects out of 1440 (max. 8388607)
