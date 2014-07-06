@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.6)  16 JUN 2014 20:22
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.6)  6 JUL 2014 16:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1137,13 +1137,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 69--70
 
 ! Misplaced alignment tab character &.
 l.71  &
-        $\text{Minimization} && \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=...
+        $\text{Minimization} && \nabla_{x} V(\mathbf{x}) + \sum  \limits_{i=...
 
 ? q
 OK, entering \batchmode...
 ! Misplaced alignment tab character &.
 l.71  & $\text{Minimization} &
-                              & \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=...
+                              & \nabla_{x} V(\mathbf{x}) + \sum  \limits_{i=...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1153,7 +1153,7 @@ might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
 l.71  & $\text{Minimization} &&
-                                \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=...
+                                \nabla_{x} V(\mathbf{x}) + \sum  \limits_{i=...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1168,7 +1168,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--72
 
 ! Misplaced alignment tab character &.
 l.73  &
-        $\text{Maximization} && \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=...
+        $\text{Maximization} && \nabla_{x} V(\mathbf{x}) + \sum  \limits_{i=...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1178,7 +1178,7 @@ might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
 l.73  & $\text{Maximization} &
-                              & \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=...
+                              & \nabla_{x} V(\mathbf{x}) + \sum  \limits_{i=...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1188,7 +1188,7 @@ might try typing `S' now just to see what is salvageable.
 
 ! Misplaced alignment tab character &.
 l.73  & $\text{Maximization} &&
-                                \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=...
+                                \nabla_{x} V(\mathbf{x}) + \sum  \limits_{i=...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -1208,7 +1208,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 75--76
 
 ! Misplaced alignment tab character &.
 l.77  &
-        $\nabla_{\lambda} f(\mathbf{x}) + \sum  \limits_{i=1}^{m} \nabla_{\l...
+        $\nabla_{\lambda} V(\mathbf{x}) + \sum  \limits_{i=1}^{m} \nabla_{\l...
 I can't figure out why you would want to use a tab mark
 here. If you just want an ampersand, the remedy is
 simple: Just type `I\&' now. But if some right brace
@@ -2809,398 +2809,9 @@ you left one out. Proceed, with fingers crossed.
 
  [52
 
-] [53]) (./Appendix/Appendix_B.tex [54]
-Appendix B.
- [55
-
-]
-<Appendix/refman.pdf, id=892, page=19, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 19>
-Package pdftex.def Info: Appendix/refman.pdf, page19 used on input line 5.
-(pdftex.def)             Requested size: 614.29349pt x 794.96806pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 19>
-Package pdftex.def Info: Appendix/refman.pdf, page19 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 19>
-Package pdftex.def Info: Appendix/refman.pdf, page19 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 19>
-Package pdftex.def Info: Appendix/refman.pdf, page19 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 19>
-Package pdftex.def Info: Appendix/refman.pdf, page19 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [56 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=947, page=20, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 20>
-Package pdftex.def Info: Appendix/refman.pdf, page20 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 20>
-Package pdftex.def Info: Appendix/refman.pdf, page20 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 20>
-Package pdftex.def Info: Appendix/refman.pdf, page20 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [57 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=973, page=21, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 21>
-Package pdftex.def Info: Appendix/refman.pdf, page21 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 21>
-Package pdftex.def Info: Appendix/refman.pdf, page21 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 21>
-Package pdftex.def Info: Appendix/refman.pdf, page21 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [58 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=978, page=22, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 22>
-Package pdftex.def Info: Appendix/refman.pdf, page22 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 22>
-Package pdftex.def Info: Appendix/refman.pdf, page22 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 22>
-Package pdftex.def Info: Appendix/refman.pdf, page22 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [59 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=983, page=23, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 23>
-Package pdftex.def Info: Appendix/refman.pdf, page23 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 23>
-Package pdftex.def Info: Appendix/refman.pdf, page23 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 23>
-Package pdftex.def Info: Appendix/refman.pdf, page23 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [60 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=998, page=24, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 24>
-Package pdftex.def Info: Appendix/refman.pdf, page24 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 24>
-Package pdftex.def Info: Appendix/refman.pdf, page24 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 24>
-Package pdftex.def Info: Appendix/refman.pdf, page24 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [61 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1004, page=25, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 25>
-Package pdftex.def Info: Appendix/refman.pdf, page25 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 25>
-Package pdftex.def Info: Appendix/refman.pdf, page25 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 25>
-Package pdftex.def Info: Appendix/refman.pdf, page25 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [62 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1009, page=26, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 26>
-Package pdftex.def Info: Appendix/refman.pdf, page26 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 26>
-Package pdftex.def Info: Appendix/refman.pdf, page26 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 26>
-Package pdftex.def Info: Appendix/refman.pdf, page26 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [63 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1014, page=27, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 27>
-Package pdftex.def Info: Appendix/refman.pdf, page27 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 27>
-Package pdftex.def Info: Appendix/refman.pdf, page27 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 27>
-Package pdftex.def Info: Appendix/refman.pdf, page27 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [64 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1019, page=28, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 28>
-Package pdftex.def Info: Appendix/refman.pdf, page28 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 28>
-Package pdftex.def Info: Appendix/refman.pdf, page28 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 28>
-Package pdftex.def Info: Appendix/refman.pdf, page28 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [65 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1024, page=29, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 29>
-Package pdftex.def Info: Appendix/refman.pdf, page29 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 29>
-Package pdftex.def Info: Appendix/refman.pdf, page29 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 29>
-Package pdftex.def Info: Appendix/refman.pdf, page29 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [66 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1029, page=30, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 30>
-Package pdftex.def Info: Appendix/refman.pdf, page30 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 30>
-Package pdftex.def Info: Appendix/refman.pdf, page30 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 30>
-Package pdftex.def Info: Appendix/refman.pdf, page30 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [67 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1035, page=31, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 31>
-Package pdftex.def Info: Appendix/refman.pdf, page31 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 31>
-Package pdftex.def Info: Appendix/refman.pdf, page31 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 31>
-Package pdftex.def Info: Appendix/refman.pdf, page31 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [68 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1040, page=32, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 32>
-Package pdftex.def Info: Appendix/refman.pdf, page32 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 32>
-Package pdftex.def Info: Appendix/refman.pdf, page32 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 32>
-Package pdftex.def Info: Appendix/refman.pdf, page32 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [69 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1045, page=33, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 33>
-Package pdftex.def Info: Appendix/refman.pdf, page33 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 33>
-Package pdftex.def Info: Appendix/refman.pdf, page33 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 33>
-Package pdftex.def Info: Appendix/refman.pdf, page33 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [70 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1058, page=34, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 34>
-Package pdftex.def Info: Appendix/refman.pdf, page34 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 34>
-Package pdftex.def Info: Appendix/refman.pdf, page34 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 34>
-Package pdftex.def Info: Appendix/refman.pdf, page34 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [71 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1063, page=35, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 35>
-Package pdftex.def Info: Appendix/refman.pdf, page35 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 35>
-Package pdftex.def Info: Appendix/refman.pdf, page35 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 35>
-Package pdftex.def Info: Appendix/refman.pdf, page35 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [72 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1068, page=36, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 36>
-Package pdftex.def Info: Appendix/refman.pdf, page36 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 36>
-Package pdftex.def Info: Appendix/refman.pdf, page36 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 36>
-Package pdftex.def Info: Appendix/refman.pdf, page36 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [73 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1074, page=37, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 37>
-Package pdftex.def Info: Appendix/refman.pdf, page37 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 37>
-Package pdftex.def Info: Appendix/refman.pdf, page37 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 37>
-Package pdftex.def Info: Appendix/refman.pdf, page37 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [74 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1079, page=38, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 38>
-Package pdftex.def Info: Appendix/refman.pdf, page38 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 38>
-Package pdftex.def Info: Appendix/refman.pdf, page38 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 38>
-Package pdftex.def Info: Appendix/refman.pdf, page38 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [75 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1084, page=39, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 39>
-Package pdftex.def Info: Appendix/refman.pdf, page39 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 39>
-Package pdftex.def Info: Appendix/refman.pdf, page39 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 39>
-Package pdftex.def Info: Appendix/refman.pdf, page39 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [76 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1089, page=40, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 40>
-Package pdftex.def Info: Appendix/refman.pdf, page40 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 40>
-Package pdftex.def Info: Appendix/refman.pdf, page40 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 40>
-Package pdftex.def Info: Appendix/refman.pdf, page40 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [77 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1094, page=41, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 41>
-Package pdftex.def Info: Appendix/refman.pdf, page41 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 41>
-Package pdftex.def Info: Appendix/refman.pdf, page41 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 41>
-Package pdftex.def Info: Appendix/refman.pdf, page41 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [78 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1099, page=42, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 42>
-Package pdftex.def Info: Appendix/refman.pdf, page42 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 42>
-Package pdftex.def Info: Appendix/refman.pdf, page42 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 42>
-Package pdftex.def Info: Appendix/refman.pdf, page42 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [79 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1113, page=43, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 43>
-Package pdftex.def Info: Appendix/refman.pdf, page43 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 43>
-Package pdftex.def Info: Appendix/refman.pdf, page43 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 43>
-Package pdftex.def Info: Appendix/refman.pdf, page43 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [80 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1118, page=44, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 44>
-Package pdftex.def Info: Appendix/refman.pdf, page44 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 44>
-Package pdftex.def Info: Appendix/refman.pdf, page44 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 44>
-Package pdftex.def Info: Appendix/refman.pdf, page44 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [81 <./Appendix/refman.pdf>]
-<Appendix/refman.pdf, id=1123, page=1, 614.295pt x 794.97pt>
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 1>
-Package pdftex.def Info: Appendix/refman.pdf, page1 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 1>
-Package pdftex.def Info: Appendix/refman.pdf, page1 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
-File: Appendix/refman.pdf Graphic file (type pdf)
- <use Appendix/refman.pdf, page 1>
-Package pdftex.def Info: Appendix/refman.pdf, page1 used on input line 5.
-(pdftex.def)             Requested size: 597.78697pt x 773.60669pt.
- [82 <./Appendix/refman.pdf>])
+] [53])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 45.
+ [54]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 45.
  (./Marcus_Hultmark_Thesis_template.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 45.
@@ -3213,43 +2824,41 @@ changed.
 
 Package rerunfilecheck Info: Checksums for `Marcus_Hultmark_Thesis_template.out
 ':
-(rerunfilecheck)             Before: D02CAA4B00584103953C4FC7A1F3136B;3898
-(rerunfilecheck)             After:  ED9768E9279DE56E22F27F6BDCFB87FE;3898.
+(rerunfilecheck)             Before: ED9768E9279DE56E22F27F6BDCFB87FE;3898
+(rerunfilecheck)             After:  842106DB1018B87F893260B5B3E97EF8;3830.
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 45.
  ) 
 Here is how much of TeX's memory you used:
- 11674 strings out of 495059
- 173934 string characters out of 3182031
+ 11558 strings out of 495059
+ 171257 string characters out of 3182031
  310951 words of memory out of 3000000
- 14271 multiletter control sequences out of 15000+200000
+ 14189 multiletter control sequences out of 15000+200000
  74332 words of font info for 101 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 43i,18n,46p,1924b,504s stack positions out of 5000i,500n,10000p,200000b,50000s
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
-rw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/courier/uc
-rr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhvb8ac.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/urw/helvetic/uhvbo8ac.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/urw/helvetic/uhvro8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
-symbol/usyr.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/ur
-w/times/utmri8a.pfb>
-Output written on Marcus_Hultmark_Thesis_template.pdf (88 pages, 1870880 bytes)
+ 38i,18n,43p,1924b,504s stack positions out of 5000i,500n,10000p,200000b,50000s
+pdfTeX warning (dest): name{appendix.B} has been referenced but does not exis
+t, replaced by a fixed one
+
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
+/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhv
+r8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/sh
+are/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
+utmri8a.pfb>
+Output written on Marcus_Hultmark_Thesis_template.pdf (60 pages, 1732471 bytes)
 .
 PDF statistics:
- 1222 PDF objects out of 1440 (max. 8388607)
- 985 compressed objects within 10 object streams
- 234 named destinations out of 1000 (max. 500000)
- 805 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 972 PDF objects out of 1000 (max. 8388607)
+ 806 compressed objects within 9 object streams
+ 206 named destinations out of 1000 (max. 500000)
+ 655 words of extra memory for PDF output out of 10000 (max. 10000000)
 

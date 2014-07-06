@@ -60,7 +60,7 @@ The Karush-Kuhn-Tucker conditions (a.k.a. KKT conditions) are a set of first ord
 For the given form of the optimization problem shown in \ref{eq:gen_qp}, the Lagrangian $\mathbf{L}$ is defined as the cost function plus penalty functions that take into account the constraints. The $\lambda$ vector is used for the equality constraints and the $\mu$ vector for the inequalities.
 
 \begin{equation} \label{eq:lagrangian}
-\mathbf{L}(\mathbf{x}, \lambda, \mu) = f(x) + \sum \limits_{i=1}^{m} \lambda_{i} h_{i}(\mathbf{x}) + \sum \limits_{i=1}^{n} \mu_{i} f_{i}(\mathbf{x})
+\mathbf{L}(\mathbf{x}, \lambda, \mu) = V(x) + \sum \limits_{i=1}^{m} \lambda_{i} h_{i}(\mathbf{x}) + \sum \limits_{i=1}^{n} \mu_{i} f_{i}(\mathbf{x})
 \end{equation}
 
 If $x^{*}$ is a solution of \ref{eq:gen_qp} that satisfies some regularity conditions, then there are vectors $\lambda^{*}$ and $\mu^{*}$  such that the following conditions are satisfied:
@@ -68,13 +68,13 @@ If $x^{*}$ is a solution of \ref{eq:gen_qp} that satisfies some regularity condi
 \begin{itemize}
 \item{Stationarity} \\
 
- & $\text{Minimization} && \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=1}^{m} \nabla_{x} \lambda_{i} h_{i}(\mathbf{x}) + \sum \limits_{i=1}^{n} \nabla_{x} \mu_{i} f_{i}(\mathbf{x}) = 0$\\
+ & $\text{Minimization} && \nabla_{x} V(\mathbf{x}) + \sum  \limits_{i=1}^{m} \nabla_{x} \lambda_{i} h_{i}(\mathbf{x}) + \sum \limits_{i=1}^{n} \nabla_{x} \mu_{i} f_{i}(\mathbf{x}) = 0$\\
 
- & $\text{Maximization} && \nabla_{x} f(\mathbf{x}) + \sum  \limits_{i=1}^{m} \nabla_{x} \lambda_{i} h_{i}(\mathbf{x}) - \sum \limits_{i=1}^{n} \nabla_{x} \mu_{i} f_{i}(\mathbf{x}) = 0$\\
+ & $\text{Maximization} && \nabla_{x} V(\mathbf{x}) + \sum  \limits_{i=1}^{m} \nabla_{x} \lambda_{i} h_{i}(\mathbf{x}) - \sum \limits_{i=1}^{n} \nabla_{x} \mu_{i} f_{i}(\mathbf{x}) = 0$\\
 
 \item{Equality constraints} \\
 
- & $\nabla_{\lambda} f(\mathbf{x}) + \sum  \limits_{i=1}^{m} \nabla_{\lambda} \lambda_{i} h_{i}(\mathbf{x}) + \sum \limits_{i=1}^{n} \nabla_{\lambda} \mu_{i} f_{i}(\mathbf{x}) = 0$\\
+ & $\nabla_{\lambda} V(\mathbf{x}) + \sum  \limits_{i=1}^{m} \nabla_{\lambda} \lambda_{i} h_{i}(\mathbf{x}) + \sum \limits_{i=1}^{n} \nabla_{\lambda} \mu_{i} f_{i}(\mathbf{x}) = 0$\\
 
 \item{Complementary slackness condition}\\
 
