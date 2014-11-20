@@ -7,7 +7,7 @@ This chapter presents and analyzes the results of the implementation of the deve
 
 \subsection{Simulation settings and parameters}
 
-The tank system's equations were provided with their correspondent identified parameters. The system is made of two tanks that are connected by gravity: one tank provides the inflow for the other and from there to a water deposit. There is also a small pump, its operation voltage represents the input to the system. The states of the system are the two tank level, of which the desired output is the level of the second  tank.  The system is depicted below as in Figure \ref{fig:tank_system}: 
+The tank system's equations were provided with their correspondent identified parameters. The system is made of two tanks that are connected by gravity: one tank provides the inflow for the other and from there to a water deposit. There is also a small pump, its operation voltage represents the input to the system. The states of the system are the two tank level, of which the desired output is the level of the second  tank.  The system is depicted below as in Figure 5.1: 
 
 \begin{figure}[H]
 \centering
@@ -18,29 +18,30 @@ The tank system's equations were provided with their correspondent identified pa
 
 The constraints on the system arise from the size of the tanks, which limit the level of water that the system can handle. The constraints for the levels of the tanks, $H_1$ and $H_2$ respectively, and the input voltage are shown below:
 
-\begin{equation*}
-\begin{align}
-0 \leq H_1 \leq 25 [cm] \\
-0 \leq \H_2 \leq 28 [cm] \\
-0 \leq V \leq 10 [V]\\
-\end{align} 
-\end{equation*}
+\begin{table}[h]
+\centering
+ \begin{tabular}{ l }
+   0 \leq H_1 \leq 25 [cm]   \\
+   0 \leq H_2 \leq 28 [cm]  \\
+   0 \leq V \leq 10 [V]
+ \end{tabular} 
+\end{table}
 
 Regarding the tuning of MPC, the parameters available to adjust are the horizons and the weight matrices in the cost function. The selection of a proper prediction horizon for any MPC application is dependant on the dynamics of the system that is being controlled.  This choice is of great influence in the size of the optimization problem to solve, and therefore in the computational power required to provide deterministic operation. If the horizon is too short, the prediction will not give information about future control signals and might create unstability in the controller \cite{Gabrielsson2012}. On the other hand, if the horizon is too long, the optimization problem to solve could be too large to solve in each time sample, depending on the timing requirements for each case. The selected prediction horizon of 10 samples at a rate of 100 Hz was obtained starting from small values, where the optimization problems were mostly unfeasible, and increasing until feasibility was achieved, as well as a decent control signal. Further tuning is made with the weight matrices. The weight matrices are also selected in a trial and error fashion. \\
 
 The specifications for the simulation of the MPC on the tank system is presented below.
 
-\begin{center}
-    \begin{tabular}{| l | p{7cm} |}
+\begin{table}[h]
+\centering
+\begin{tabular}{| l | l |}
     \hline
-    Prediction horizon & 10 samples at a frequency of 100 Hz \\ \hline
-    Weight matrices & Specified in Appendix A \\ \hline
-    Input constraints & 0 \leq V \leq 10 [V] \\ \hline
-    State constraints & 0 \leq H_1 \leq 25 [cm]  \newline 0 \leq H_2 \leq 28 [cm]  \\ \hline
-    Processor & Intel \textsuperscript{\textregistered} Core\texttrademark 2 Duo @ 3.0 GHz
-    \hline
-    \end{tabular}
-\end{center}
+    Prediction horizon & 10 samples at a frequency of 100 Hz                                                                                                         \\ \hline
+    Weight matrices & Specified in Appendix A                                                                                                                                      \\ \hline
+    Input constraints & 0 \leq V \leq 10 [V]                                                                                                                                               \\ \hline
+    State constraints & \begin{tabular}[c]{@{ }l@{}} 0 \leq H_1 \leq 25 [cm]  \\ 0 \leq H_2 \leq 28 [cm]  \end{tabular} \\ \hline
+    Processor & Intel \textsuperscript{\textregistered} Core\texttrademark 2 Duo @ 3.0 GHz                                            \\ \hline
+\end{tabular}
+\end{table}
 
 \subsection{Results}
 
@@ -81,17 +82,18 @@ In this particular case, the tuning of the MPC is also influenced by the model, 
 
 With the weight matrices, the procedure is also made in a trial and error fashion. A good initial guess for the quadrotor model is taken from previous implementation parameters \cite{Bouffard2012}. The simulation is performed in a computer with an Intel \textsuperscript{\textregistered} Core\texttrademark 2 Duo running at 3.0 GHz. The complete specifications for the simulation are presented in the following table.
 
+\begin{table}[h]
 \begin{center}
-    \begin{tabular}{| l | p{7cm} |}
+    \begin{tabular}{| l | l |}
     \hline
     Prediction horizon & 30 samples at a frequency of 120 Hz \\ \hline
     Weight matrices & Specified in Appendix A \\ \hline
-    Input constraints &  -230 \leq \Delta \omega_{i} \leq 140 [rad/s] \\ \hline
-    State constraints &  -5 \leq V_x \leq 5 [m]  \newline -5 \leq V_y \leq 5 [m] \newline 0 \leq z \leq 5 [m] \\ \hline
-    Processor & Intel \textsuperscript{\textregistered} Core\texttrademark 2 Duo @ 3.0 GHz
-    \hline
+    Input constraints &  -230 \leq \Delta \omega_{i} \leq 140 [rad/s] \\ \hline 
+    State constraints &  \begin{tabular} [c]{ @ {} l @{} } -5 \leq V_x \leq 5 [m] \\  -5 \leq V_y \leq 5 [m] \\ 0 \leq z \leq 5 [m] \end{tabular} \\ \hline
+    Processor & Intel \textsuperscript{\textregistered} Core\texttrademark 2 Duo @ 3.0 GHz \\  \hline
     \end{tabular}
 \end{center}
+\end{table}
 
 The trajectory reference used to test the MPC in the quadrotor simulator is based in simple decoupled movements in each one of the controlled directions, done one at a time. The movement consists in four stages: elevation from the floor, change in orientation (a change in the yaw angle), rotating back to the original orientation, and movements in the $X$ and $Y$ axes, in that order.
 
@@ -129,7 +131,7 @@ The results of the simulation with the mentioned parameters and settings are sho
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{Images/Chapter5/ardrone/control_signals.png}
+\includegraphics[scale=0.7]{Images/Chapter5/ardrone/control_signals_TEST1.png}
 \caption{Control signals generated by the MPC strategy.}
 \label{fig:ardrone_inputs}
 \end{figure}
@@ -176,7 +178,7 @@ To make a verification of the disturbance rejection capabilities of the controll
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{Images/Chapter5/ardrone/T1_noise/control_signals.png}
+\includegraphics[scale=0.7]{Images/Chapter5/ardrone/T1_noise/control_signals_TEST2.png}
 \caption{Control signals generated by the MPC strategy with the disturbance model.}
 \label{fig:ardrone_inputs2}
 \end{figure}
@@ -187,7 +189,7 @@ The effect of the disturbances is noticeable in Figure \ref{fig:ardrone_inputs2}
     \begin{tabular}{| l | l |}
     \hline
     \textbf{Test} & \textbf{Average Time per MPC iteration} \\ \hline
-    Without dissturbances & 0.0331 [s]\\ \hline
+    Without disturbances & 0.0331 [s]\\ \hline
     With disturbances &  0.0337 [s] \\
     \hline
     \end{tabular}
@@ -211,7 +213,7 @@ The simulator was tested in a second trajectory, which is more representative of
 
 \begin{figure}[H]    
 \centering
-\includegraphics[scale=0.7]{Images/Chapter5/ardrone/T2/inputs.png}
+\includegraphics[scale=0.7]{Images/Chapter5/ardrone/T2/inputs_TEST3.png}
 \caption{Calculated inputs from the MPC to the simulated quadrotor when using the square trajectory. }
 \label{fig:ardrone_sq_inp}
 \end{figure}

@@ -22,7 +22,7 @@
 \BOOKMARK [0][-]{chapter.3}{Dynamic Modeling of a Quadrotor}{}% 22
 \BOOKMARK [1][-]{section.3.1}{Theoretical Derivation of the Quadrotor Model}{chapter.3}% 23
 \BOOKMARK [1][-]{section.3.2}{Verification of the Model}{chapter.3}% 24
-\BOOKMARK [2][-]{subsection.3.2.1}{Upward motion along the X axis}{section.3.2}% 25
+\BOOKMARK [2][-]{subsection.3.2.1}{Upward motion along the Z axis}{section.3.2}% 25
 \BOOKMARK [2][-]{subsection.3.2.2}{Lateral movement along the X axis}{section.3.2}% 26
 \BOOKMARK [2][-]{subsection.3.2.3}{Lateral movement along the Y axis}{section.3.2}% 27
 \BOOKMARK [1][-]{section.3.3}{Summary}{chapter.3}% 28
@@ -47,7 +47,7 @@
 \BOOKMARK [2][-]{subsection.5.2.3}{Discussion}{section.5.2}% 47
 \BOOKMARK [0][-]{chapter.6}{Conclusions and Future Work}{}% 48
 \BOOKMARK [1][-]{section.6.1}{Future Work}{chapter.6}% 49
-\BOOKMARK [0][-]{chapter*.34}{Bibliography}{}% 50
+\BOOKMARK [0][-]{chapter*.37}{Bibliography}{}% 50
 \BOOKMARK [0][-]{appendix.A}{Appendix: MPC Parameters}{}% 51
 \BOOKMARK [1][-]{section.A.1}{Tank System}{appendix.A}% 52
 \BOOKMARK [2][-]{subsection.A.1.1}{State Space matrices}{section.A.1}% 53
