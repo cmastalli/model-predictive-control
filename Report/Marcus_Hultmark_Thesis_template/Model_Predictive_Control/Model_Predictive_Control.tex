@@ -41,7 +41,7 @@ Where A is a matrix that represents the group of constraints and it is of size $
 
 Given an optimization problem such as \ref{eq:gen_qp}, an inequality constraint $F_{i}(x) \leq b_{i}$ can be defined as \emph{active} at a point \~{x} in the feasible set when $F_{i} $(\~{x})$ = b_{i}$, and \emph{inactive} otherwise. Equality constraints are active in all its solutions that are as well contained in the region of the allowed possible solutions.\\
 
-Therefore one can define the \emph{active set} at a point \~{x} as the combination of the region that satisfy the equality constraints and inequality constrains that become active at \~{x}. Correspondingly, The region that doesn't satisfy these conditions is called the \emph{inactive set}.
+Therefore one can define the \emph{active set} at a point \~{x} as the combination of the region that satisfy the equality constraints and inequality constrains that become active at \~{x}. Correspondingly, the region that doesn't satisfy these conditions is called the \emph{inactive set}.
 
 \subsection{Feasibility}%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -55,9 +55,9 @@ This property is important because if this holds, the assumptions made for linea
 
 \subsection{Karush-Kuhn-Tucker Conditions}%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-The Karush-Kuhn-Tucker conditions (a.k.a. KKT conditions) are a set of first order conditions that must be satisfied by the solution of nonlinear programming problems in general. It is formulated as an extension of the Lagrange multipliers method to solve optimization problems with equality constraints, as the KKT conditions applies for problems with constraints formulated as equalities and inequalities. These conditions are seldom used to solve directly the optimization problem, instead, they are verified in iterative methods. Before introducing the formal definition of the Karush-Kuhn-Tucker conditions, it is necessary to first define the Lagrangian for an optimization problem.\\
+The Karush-Kuhn-Tucker conditions (a.k.a. KKT conditions) are a set of first order conditions that must be satisfied by the solution of nonlinear programming problems in general. It is formulated as an extension of the Lagrange multipliers method to solve optimization problems with equality constraints, as the KKT conditions applies for problems with constraints formulated as equalities and inequalities. These conditions are seldom used to solve the optimization problem directly, instead, they are verified in iterative methods. Before introducing the formal definition of the Karush-Kuhn-Tucker conditions, it is necessary to first define the Lagrangian for an optimization problem.\\
 
-For the given form of the optimization problem shown in \ref{eq:gen_qp}, the Lagrangian $\mathbf{L}$ is defined as the cost function plus penalty functions that take into account the constraints. The $\lambda$ vector is used for the equality constraints and the $\mu$ vector for the inequalities.
+For the given form of the optimization problem shown in \ref{eq:gen_qp}, the Lagrangian $\mathbf{L}$ is defined as the cost function plus penalty functions that take the constraints into account. The $\lambda$ vector is used for the equality constraints and the $\mu$ vector for the inequalities.
 
 \begin{equation} \label{eq:lagrangian}
 \mathbf{L}(\mathbf{x}, \lambda, \mu) = V(x) + \sum \limits_{i=1}^{m} \lambda_{i} h_{i}(\mathbf{x}) + \sum \limits_{i=1}^{n} \mu_{i} f_{i}(\mathbf{x})
@@ -84,7 +84,7 @@ If $x^{*}$ is a solution of \ref{eq:gen_qp} that satisfies some regularity condi
 
 \end{itemize}
 
-The stationarity conditions come from the derivation of the cost function to find the stationary points used in basic unconstrained optimization problems. The derivatives respect to the $\lambda$ coefficients (Lagrange multipliers) of the cost function lead to equations that restrict the solution of the problem to satisfy the equality constraints. However, due to the fact that the lagrangian also depends on $\mu$, the system is not determined. The complementary slackness conditions arises from the fact that if the optimal solution $x^{*}$ satisfies $f(\mathbf{x}) \leq 0$, its contribution to the cost function is null, and one can set its corresponding $\mu_{i}$ coefficient to cero. If the solution is at the border of the constraint,  $f(\mathbf{x}) = 0$. In both cases, the condition $\mu_{i} f_{i}(\mathbf{x}) = 0$ holds. The $\mu_{i}$ coefficients can take any value, but they are 0 when $f(\mathbf{x}) \leq 0$, and in the other case, $f(\mathbf{x}) = 0$, they can only be positive, since the gradient respect to $x$ of $f_{i}(\mathbf{x})$ and $V(\mathbf{x})$ are opposed in direction.\\
+The stationarity conditions come from the derivation of the cost function to find the stationary points used in basic unconstrained optimization problems. The derivatives with respect to the $\lambda$ coefficients (Lagrange multipliers) of the cost function lead to equations that restrict the solution of the problem to satisfy the equality constraints. However, due to the fact that the Lagrangian also depends on $\mu$, the system is not determined. The complementary slackness conditions arises from the fact that if the optimal solution $x^{*}$ satisfies $f(\mathbf{x}) \leq 0$, its contribution to the cost function is null, and one can set its corresponding $\mu_{i}$ coefficient to zero. If the solution is at the border of the constraint,  $f(\mathbf{x}) = 0$. In both cases, the condition $\mu_{i} f_{i}(\mathbf{x}) = 0$ holds. The $\mu_{i}$ coefficients can take any value, but they are 0 when $f(\mathbf{x}) \leq 0$, and in the other case, $f(\mathbf{x}) = 0$, they can only be positive, since the gradient respect to $x$ of $f_{i}(\mathbf{x})$ and $V(\mathbf{x})$ are opposed in direction.\\
 
 In the particular case of a quadratic programming problem as the ones that arise in Model Predictive Control, the problem becomes a convex optimization problem when the cost function is convex. A convex quadratic cost function is the one where the Hessian matrix $Q$ from \ref{eq:quadproblem} is positive semi-definite, the inequality constraints are convex functions and the equality constraints are linear. In the case of a convex quadratic programming program, the KKT conditions not only are necessary but also sufficient conditions for optimality.
 
@@ -96,7 +96,7 @@ There are several types of MPC controllers, but the basic steps of the algorithm
 
 \begin{itemize}
 
-\item Prediction: at each time instant, the model is used to get the predicted outputs of the process for as many time instants in the future as the prediction horizon states. These predictions depend on the past inputs and outputs and the future control signals to the model.
+\item Prediction: at each time instant, the model is used to get the predicted outputs of the process for as many time instants in the future as the prediction horizon states. These predictions depend on the current state of the plant and the optimizer solutions for the control signals, given a certain prediction horizon.
 
 \item Optimization: the future control signals are calculated by either minimizing a cost index or maximizing a performance index that takes into account the error between the predicted outputs and the reference trajectory (or an approximation to it) and the control effort. This objective function to be optimized is usually a quadratic function, since it assures global minimum or maximum values, smoother control signals and more intuitive response to parameter changes \cite{Hovd2004}.
 
@@ -214,7 +214,7 @@ There are two main type of algorithms used commonly to solve quadratic problems 
 
 \begin{itemize}
 
-\item \textbf{Actiquadratic problem in latexve Set Methods.} 
+\item \textbf{Active Set Methods.} 
 
 %In order to explain how these methods work, a definition for an \emph{active set} must be introduced. An optimization problem:
  
@@ -263,7 +263,7 @@ Which are correspondent with the KKT conditions for linear programming problems 
 
 \subsection{Horizons}
 
-In MPC, the horizons define how far is the controller making a prediction in the future. The typical horizons in MPC are the prediction horizon $N_p$, and the control horizon, $N_c$. The prediction horizon has the basic function described previously: defining the prediction lenght. The selection of $N_p$ is a matter of trial and error but it is highly dependant on the dynamics of the plant being considered. The prediction must be able to take into account the settling time of the system under a disturbance but also must be kept small enough so that it doesn't increase unneccessarily the size of the quadratic problem to solve. In order to have a better way to tune this, the control horizon $N_c$ tells the MPC how much solutions it must calculate, independently of the size of the prediction horizon, keeping the computations at the minimum.
+In MPC, the horizons define how far is the controller making a prediction in the future. The typical horizons in MPC are the prediction horizon $N_p$, and the control horizon, $N_c$. The prediction horizon has the basic function described previously: defining the prediction length. The selection of $N_p$ is a matter of trial and error but it is highly dependant on the dynamics of the plant being considered. The prediction must be able to take into account the settling time of the system under a disturbance but also must be kept small enough so that it doesn't increase unneccessarily the size of the quadratic problem to solve. In order to have a better way to tune this, the control horizon $N_c$ tells the MPC how much solutions it must calculate, independently of the size of the prediction horizon, keeping the computations at the minimum.
 
 \section{Summary}
 
