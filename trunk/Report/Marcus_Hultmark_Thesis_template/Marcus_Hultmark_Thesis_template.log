@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.6)  6 JUL 2014 16:54
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.6)  20 NOV 2014 13:46
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -927,7 +927,7 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 12.59991pt on input line 10.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 9.89993pt on input line 10.
-<kth_cmyk_electr_engine.pdf, id=237, 483.8075pt x 439.6425pt>
+<kth_cmyk_electr_engine.pdf, id=233, 483.8075pt x 439.6425pt>
 File: kth_cmyk_electr_engine.pdf Graphic file (type pdf)
 
 <use kth_cmyk_electr_engine.pdf>
@@ -1097,12 +1097,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--51
 
  []
 
-[3]
+
 Underfull \hbox (badness 10000) in paragraph at lines 52--53
 
  []
 
-
+[3]
 Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
@@ -1267,7 +1267,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--94
  []
 
 
-<Images/Chapter2/mpc.png, id=495, 747.79375pt x 480.79625pt>
+<Images/Chapter2/mpc.png, id=490, 747.79375pt x 480.79625pt>
 File: Images/Chapter2/mpc.png Graphic file (type png)
  <use Images/Chapter2/mpc.png>
 Package pdftex.def Info: Images/Chapter2/mpc.png used on input line 109.
@@ -1275,7 +1275,7 @@ Package pdftex.def Info: Images/Chapter2/mpc.png used on input line 109.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
- [7] [8 <./Images/Chapter2/mpc.png>] [9]
+ [7] [8 <./Images/Chapter2/mpc.png (PNG copy)>] [9]
 Underfull \hbox (badness 10000) in paragraph at lines 185--186
 
  []
@@ -1294,7 +1294,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 199--200
 (./Dynamic_Modeling_of_a_Quadrotor/Dynamic_Modeling_of_a_Quadrotor.tex [11]
 Chapter 3.
 
-<Images/Chapter3/quad_dynamics.jpg, id=542, 338.01282pt x 191.9672pt>
+<Images/Chapter3/quad_dynamics.jpg, id=537, 338.01282pt x 191.9672pt>
 File: Images/Chapter3/quad_dynamics.jpg Graphic file (type jpg)
  <use Images/Chapter3/quad_dynamics.jpg>
 Package pdftex.def Info: Images/Chapter3/quad_dynamics.jpg used on input line 9
@@ -1764,7 +1764,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 129--131
  []
 
  [15]
-<Images/Chapter3/Constant_thrust_upwards/Inputs.png, id=588, 586.8324pt x 442.2
+<Images/Chapter3/Constant_thrust_upwards/Inputs.png, id=583, 586.8324pt x 442.2
 924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Inputs.png Graphic file (type png
 )
@@ -1779,7 +1779,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 147--148
  []
 
 
-<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=591, 586.8324pt x 44
+<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=586, 586.8324pt x 44
 2.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Positions.png Graphic file (type 
 png)
@@ -1789,7 +1789,7 @@ Package pdftex.def Info: Images/Chapter3/Constant_thrust_upwards/Positions.png
 used on input line 151.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=592, 586.832
+<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=587, 586.832
 4pt x 442.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png Graphic fil
 e (type png)
@@ -1812,28 +1812,28 @@ Underfull \hbox (badness 10000) in paragraph at lines 164--165
  []
 
 
-<Images/Chapter3/Lateral_X/Inputs.png, id=611, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Inputs.png, id=606, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Inputs.png>
 Package pdftex.def Info: Images/Chapter3/Lateral_X/Inputs.png used on input lin
 e 170.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter3/Lateral_X/Torque_inputs.png, id=612, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Torque_inputs.png, id=607, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Torque_inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Torque_inputs.png>
 Package pdftex.def Info: Images/Chapter3/Lateral_X/Torque_inputs.png used on in
 put line 177.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
  [19 <./Images/Chapter3/Lateral_X/Inputs.png>]
-<Images/Chapter3/Lateral_X/Positions.png, id=621, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Positions.png, id=616, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Positions.png>
 Package pdftex.def Info: Images/Chapter3/Lateral_X/Positions.png used on input 
 line 185.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter3/Lateral_X/Linear_velocities.png, id=624, 586.8324pt x 442.2924
+<Images/Chapter3/Lateral_X/Linear_velocities.png, id=619, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_X/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Linear_velocities.png>
@@ -1844,14 +1844,14 @@ n input line 189.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_X/Euler_Angles.png, id=627, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Euler_Angles.png, id=622, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Euler_Angles.png>
 Package pdftex.def Info: Images/Chapter3/Lateral_X/Euler_Angles.png used on inp
 ut line 196.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter3/Lateral_X/Angular_velocities.png, id=630, 586.8324pt x 442.292
+<Images/Chapter3/Lateral_X/Angular_velocities.png, id=625, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_X/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Angular_velocities.png>
@@ -1872,28 +1872,28 @@ LaTeX Warning: Text page 22 contains only floats.
 
  [22 <./Images/Chapter3/Lateral_X/Euler_Angles.png> <./Images/Chapter3/Lateral_
 X/Angular_velocities.png>]
-<Images/Chapter3/Lateral_Y/Inputs.png, id=651, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Inputs.png, id=646, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Inputs.png>
 Package pdftex.def Info: Images/Chapter3/Lateral_Y/Inputs.png used on input lin
 e 213.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter3/Lateral_Y/Torque_inputs.png, id=652, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Torque_inputs.png, id=647, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Torque_inputs.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Torque_inputs.png>
 Package pdftex.def Info: Images/Chapter3/Lateral_Y/Torque_inputs.png used on in
 put line 220.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
  [23 <./Images/Chapter3/Lateral_Y/Inputs.png>]
-<Images/Chapter3/Lateral_Y/Positions.png, id=660, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Positions.png, id=655, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Positions.png>
 Package pdftex.def Info: Images/Chapter3/Lateral_Y/Positions.png used on input 
 line 228.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=663, 586.8324pt x 442.2924
+<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=658, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_Y/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Linear_velocities.png>
@@ -1904,14 +1904,14 @@ n input line 232.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=666, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=661, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Euler_Angles.png>
 Package pdftex.def Info: Images/Chapter3/Lateral_Y/Euler_Angles.png used on inp
 ut line 239.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=669, 586.8324pt x 442.292
+<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=664, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_Y/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Angular_velocities.png>
@@ -1953,14 +1953,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
  []
 
 
-<Images/Chapter4/Class_Diagram.png, id=706, 502.87875pt x 594.22pt>
+<Images/Chapter4/Class_Diagram.png, id=701, 502.87875pt x 594.22pt>
 File: Images/Chapter4/Class_Diagram.png Graphic file (type png)
  <use Images/Chapter4/Class_Diagram.png>
 Package pdftex.def Info: Images/Chapter4/Class_Diagram.png used on input line 3
 8.
 (pdftex.def)             Requested size: 201.14793pt x 237.68379pt.
 
-<Images/Chapter4/Class_diagram_implementation.png, id=707, 527.9725pt x 376.406
+<Images/Chapter4/Class_diagram_implementation.png, id=702, 527.9725pt x 376.406
 25pt>
 File: Images/Chapter4/Class_diagram_implementation.png Graphic file (type png)
  <use Images/Chapter4/Class_diagram_implementation.png>
@@ -1985,7 +1985,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 131--132
  [32]) (./Results_and_Discussion/Results_and_Discussion.tex [33]
 Chapter 5.
 
-<Images/Chapter5/tank_system.png, id=736, 120.45pt x 180.675pt>
+<Images/Chapter5/tank_system.png, id=731, 120.45pt x 180.675pt>
 File: Images/Chapter5/tank_system.png Graphic file (type png)
  <use Images/Chapter5/tank_system.png>
 Package pdftex.def Info: Images/Chapter5/tank_system.png used on input line 14.
@@ -2336,7 +2336,7 @@ I expect to see \noalign only after the \cr of
 an alignment. Proceed, and I'll ignore this case.
 
 
-<Images/Chapter5/tank_system/control_signal.png, id=743, 586.8324pt x 442.2924p
+<Images/Chapter5/tank_system/control_signal.png, id=738, 586.8324pt x 442.2924p
 t>
 File: Images/Chapter5/tank_system/control_signal.png Graphic file (type png)
  <use Images/Chapter5/tank_system/control_signal.png>
@@ -2353,7 +2353,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-<Images/Chapter5/tank_system/levels_control.png, id=744, 586.8324pt x 442.2924p
+<Images/Chapter5/tank_system/levels_control.png, id=739, 586.8324pt x 442.2924p
 t>
 File: Images/Chapter5/tank_system/levels_control.png Graphic file (type png)
  <use Images/Chapter5/tank_system/levels_control.png>
@@ -2461,14 +2461,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--101
  []
 
 
-<Images/Chapter5/ardrone/position_control.png, id=760, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/position_control.png, id=755, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/position_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/position_control.png>
 Package pdftex.def Info: Images/Chapter5/ardrone/position_control.png used on i
 nput line 104.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
  [37]
-<Images/Chapter5/ardrone/euler_angle_control.png, id=766, 586.8324pt x 442.2924
+<Images/Chapter5/ardrone/euler_angle_control.png, id=761, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter5/ardrone/euler_angle_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/euler_angle_control.png>
@@ -2476,7 +2476,7 @@ Package pdftex.def Info: Images/Chapter5/ardrone/euler_angle_control.png used o
 n input line 111.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter5/ardrone/lin_velocity_control.png, id=767, 586.8324pt x 442.292
+<Images/Chapter5/ardrone/lin_velocity_control.png, id=762, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/lin_velocity_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/lin_velocity_control.png>
@@ -2485,7 +2485,7 @@ on input line 118.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
  [38 <./Images/Chapter5/ardrone/position_control.png> <./Images/Chapter5/ardron
 e/euler_angle_control.png>]
-<Images/Chapter5/ardrone/ang_velocity_control.png, id=774, 586.8324pt x 442.292
+<Images/Chapter5/ardrone/ang_velocity_control.png, id=769, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/ang_velocity_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/ang_velocity_control.png>
@@ -2493,7 +2493,7 @@ Package pdftex.def Info: Images/Chapter5/ardrone/ang_velocity_control.png used
 on input line 125.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter5/ardrone/control_signals.png, id=775, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/control_signals.png, id=770, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/control_signals.png Graphic file (type png)
  <use Images/Chapter5/ardrone/control_signals.png>
 Package pdftex.def Info: Images/Chapter5/ardrone/control_signals.png used on in
@@ -2526,7 +2526,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 147--148
  []
 
 
-<Images/Chapter5/ardrone/T1_noise/position_control.png, id=794, 586.8324pt x 44
+<Images/Chapter5/ardrone/T1_noise/position_control.png, id=789, 586.8324pt x 44
 2.2924pt>
 File: Images/Chapter5/ardrone/T1_noise/position_control.png Graphic file (type 
 png)
@@ -2536,7 +2536,7 @@ Package pdftex.def Info: Images/Chapter5/ardrone/T1_noise/position_control.png
 used on input line 151.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter5/ardrone/T1_noise/euler_angle_control.png, id=795, 586.8324pt x
+<Images/Chapter5/ardrone/T1_noise/euler_angle_control.png, id=790, 586.8324pt x
  442.2924pt>
 File: Images/Chapter5/ardrone/T1_noise/euler_angle_control.png Graphic file (ty
 pe png)
@@ -2546,7 +2546,7 @@ Package pdftex.def Info: Images/Chapter5/ardrone/T1_noise/euler_angle_control.p
 ng used on input line 158.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
  [41 <./Images/Chapter5/ardrone/T1_noise/position_control.png>]
-<Images/Chapter5/ardrone/T1_noise/lin_velocity_control.png, id=801, 586.8324pt 
+<Images/Chapter5/ardrone/T1_noise/lin_velocity_control.png, id=796, 586.8324pt 
 x 442.2924pt>
 File: Images/Chapter5/ardrone/T1_noise/lin_velocity_control.png Graphic file (t
 ype png)
@@ -2556,7 +2556,7 @@ Package pdftex.def Info: Images/Chapter5/ardrone/T1_noise/lin_velocity_control.
 png used on input line 165.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter5/ardrone/T1_noise/ang_velocity_control.png, id=802, 586.8324pt 
+<Images/Chapter5/ardrone/T1_noise/ang_velocity_control.png, id=797, 586.8324pt 
 x 442.2924pt>
 File: Images/Chapter5/ardrone/T1_noise/ang_velocity_control.png Graphic file (t
 ype png)
@@ -2567,7 +2567,7 @@ png used on input line 172.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
  [42 <./Images/Chapter5/ardrone/T1_noise/euler_angle_control.png> <./Images/Cha
 pter5/ardrone/T1_noise/lin_velocity_control.png>]
-<Images/Chapter5/ardrone/T1_noise/control_signals.png, id=809, 586.8324pt x 442
+<Images/Chapter5/ardrone/T1_noise/control_signals.png, id=804, 586.8324pt x 442
 .2924pt>
 File: Images/Chapter5/ardrone/T1_noise/control_signals.png Graphic file (type p
 ng)
@@ -2644,28 +2644,28 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-<Images/Chapter5/ardrone/T2/position.png, id=819, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/T2/position.png, id=814, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/T2/position.png Graphic file (type png)
  <use Images/Chapter5/ardrone/T2/position.png>
 Package pdftex.def Info: Images/Chapter5/ardrone/T2/position.png used on input 
 line 200.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter5/ardrone/T2/velocity.png, id=820, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/T2/velocity.png, id=815, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/T2/velocity.png Graphic file (type png)
  <use Images/Chapter5/ardrone/T2/velocity.png>
 Package pdftex.def Info: Images/Chapter5/ardrone/T2/velocity.png used on input 
 line 207.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
  [44 <./Images/Chapter5/ardrone/T2/position.png>]
-<Images/Chapter5/ardrone/T2/inputs.png, id=826, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/T2/inputs.png, id=821, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/T2/inputs.png Graphic file (type png)
  <use Images/Chapter5/ardrone/T2/inputs.png>
 Package pdftex.def Info: Images/Chapter5/ardrone/T2/inputs.png used on input li
 ne 214.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter5/ardrone/T2/2Dtrajectory.png, id=827, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/T2/2Dtrajectory.png, id=822, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/T2/2Dtrajectory.png Graphic file (type png)
  <use Images/Chapter5/ardrone/T2/2Dtrajectory.png>
 Package pdftex.def Info: Images/Chapter5/ardrone/T2/2Dtrajectory.png used on in
@@ -2679,7 +2679,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 224--225
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 225.
 
-<Images/Chapter5/ardrone/T2/3Dtrajectory.png, id=828, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/T2/3Dtrajectory.png, id=823, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/T2/3Dtrajectory.png Graphic file (type png)
  <use Images/Chapter5/ardrone/T2/3Dtrajectory.png>
 Package pdftex.def Info: Images/Chapter5/ardrone/T2/3Dtrajectory.png used on in
@@ -2816,49 +2816,39 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 45.
  (./Marcus_Hultmark_Thesis_template.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 45.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 45.
-
-Package rerunfilecheck Warning: File `Marcus_Hultmark_Thesis_template.out' has 
-changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `Marcus_Hultmark_Thesis_template.out
-':
-(rerunfilecheck)             Before: ED9768E9279DE56E22F27F6BDCFB87FE;3898
-(rerunfilecheck)             After:  842106DB1018B87F893260B5B3E97EF8;3830.
+Package rerunfilecheck Info: File `Marcus_Hultmark_Thesis_template.out' has not
+ changed.
+(rerunfilecheck)             Checksum: 842106DB1018B87F893260B5B3E97EF8;3830.
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 45.
  ) 
 Here is how much of TeX's memory you used:
- 11558 strings out of 495059
- 171257 string characters out of 3182031
- 310951 words of memory out of 3000000
- 14189 multiletter control sequences out of 15000+200000
+ 11555 strings out of 495059
+ 171218 string characters out of 3182031
+ 310894 words of memory out of 3000000
+ 14187 multiletter control sequences out of 15000+200000
  74332 words of font info for 101 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  38i,18n,43p,1924b,504s stack positions out of 5000i,500n,10000p,200000b,50000s
-pdfTeX warning (dest): name{appendix.B} has been referenced but does not exis
-t, replaced by a fixed one
-
-{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
-/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/uhv
-r8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/
-utmri8a.pfb>
-Output written on Marcus_Hultmark_Thesis_template.pdf (60 pages, 1732471 bytes)
+{/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/u
+rw/courier/ucrr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/helvetic/u
+hvr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
+s/utmri8a.pfb>
+Output written on Marcus_Hultmark_Thesis_template.pdf (60 pages, 1728665 bytes)
 .
 PDF statistics:
- 972 PDF objects out of 1000 (max. 8388607)
- 806 compressed objects within 9 object streams
- 206 named destinations out of 1000 (max. 500000)
- 655 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 967 PDF objects out of 1000 (max. 8388607)
+ 801 compressed objects within 9 object streams
+ 205 named destinations out of 1000 (max. 500000)
+ 647 words of extra memory for PDF output out of 10000 (max. 10000000)
 
