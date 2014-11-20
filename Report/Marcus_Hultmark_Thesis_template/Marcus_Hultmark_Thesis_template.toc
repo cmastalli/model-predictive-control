@@ -22,7 +22,7 @@
 \contentsline {chapter}{\numberline {3}Dynamic Modeling of a Quadrotor}{12}{chapter.3}
 \contentsline {section}{\numberline {3.1}Theoretical Derivation of the Quadrotor Model}{12}{section.3.1}
 \contentsline {section}{\numberline {3.2}Verification of the Model}{15}{section.3.2}
-\contentsline {subsection}{\numberline {3.2.1}Upward motion along the X axis}{16}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.1}Upward motion along the Z axis}{16}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Lateral movement along the X axis}{19}{subsection.3.2.2}
 \contentsline {subsection}{\numberline {3.2.3}Lateral movement along the Y axis}{23}{subsection.3.2.3}
 \contentsline {section}{\numberline {3.3}Summary}{27}{section.3.3}
@@ -47,7 +47,7 @@
 \contentsline {subsection}{\numberline {5.2.3}Discussion}{40}{subsection.5.2.3}
 \contentsline {chapter}{\numberline {6}Conclusions and Future Work}{48}{chapter.6}
 \contentsline {section}{\numberline {6.1}Future Work}{49}{section.6.1}
-\contentsline {chapter}{Bibliography}{50}{chapter*.34}
+\contentsline {chapter}{Bibliography}{50}{chapter*.37}
 \contentsline {chapter}{\numberline {A}Appendix: MPC Parameters}{52}{appendix.A}
 \contentsline {section}{\numberline {A.1}Tank System}{52}{section.A.1}
 \contentsline {subsection}{\numberline {A.1.1}State Space matrices}{52}{subsection.A.1.1}

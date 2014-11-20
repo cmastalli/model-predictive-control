@@ -131,7 +131,7 @@ There will be two simulations performed: one with the linearized model and one w
 
 The following experiments show the outputs of the systems when a predefined set of inputs is given. These inputs are designed to obtain a specific movement pattern characteristic of the quadrotor in order to be able to analyze the outputs and assess the correctness of the outputs.These movements are the following: upwards motion along the $Z$ axis, lateral and frontal movement around the $X,Y$ axes respectively, and yaw rotation. 
 
-\subsection{Upward motion along the X axis}
+\subsection{Upward motion along the Z axis}
 
 In order to generate the thrust to elevate the quadrotor, the rotors must be all operating at the same speed, above the equilibrium rotational speed (which is around 360 rad/s). 
 \begin{equation} \label{eq:statevector}
@@ -139,7 +139,7 @@ In order to generate the thrust to elevate the quadrotor, the rotors must be all
 \end{equation} 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.7]{Images/Chapter3/Constant_thrust_upwards/Inputs.png}
+\includegraphics[scale=0.7]{Images/Chapter3/Constant_thrust_upwards/Inputs_UP.png}
 \caption{Inputs to generate an upward motion of the quadrotor.}
 \label{fig:upwards_inputs}
 \end{figure}
@@ -167,14 +167,14 @@ The resultant signal is a collection of pulses in opposite directions to counter
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.7]{Images/Chapter3/Lateral_X/Inputs.png}
+\includegraphics[scale=0.7]{Images/Chapter3/Lateral_X/Inputs_X.png}
 \caption{Rotor speed inputs to generate a lateral movement along the X axis on the quadrotor.}
 \label{fig:lateralX_inputs}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{Images/Chapter3/Lateral_X/Torque_inputs.png}
+\includegraphics[scale=0.7]{Images/Chapter3/Lateral_X/Torque_inputs_X.png}
 \caption{Rotor speed inputs from Figure \ref{fig:lateralX_inputs} mapped into forces and torques acting in the quadrotor frame.}
 \label{fig:lateralX_torqueinputs}
 \end{figure}
@@ -210,14 +210,14 @@ The same input signals designed for the previous test are used in this case, onl
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{Images/Chapter3/Lateral_Y/Inputs.png}
+\includegraphics[scale=0.7]{Images/Chapter3/Lateral_Y/Inputs_Y.png}
 \caption{Rotor speed inputs to generate a lateral movement along the Y axis on the quadrotor.}
 \label{fig:lateralY_inputs}
 \end{figure}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.7]{Images/Chapter3/Lateral_Y/Torque_inputs.png}
+\includegraphics[scale=0.7]{Images/Chapter3/Lateral_Y/Torque_inputs_Y.png}
 \caption{Rotor speed inputs from Figure \ref{fig:lateralY_inputs} mapped into forces and torques acting in the quadrotor frame.}
 \label{fig:lateralY_torqueinputs}
 \end{figure}
