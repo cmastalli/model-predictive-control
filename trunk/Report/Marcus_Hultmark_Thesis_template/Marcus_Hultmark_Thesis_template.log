@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.6)  3 DEC 2014 00:57
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.6)  3 DEC 2014 17:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -86,6 +86,9 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \epsfxsize=\dimen111
 \epsfysize=\dimen112
 )
+(/usr/share/texlive/texmf-dist/tex/latex/multirow/multirow.sty
+\bigstrutjot=\dimen113
+)
 (/usr/share/texlive/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count90
@@ -106,7 +109,7 @@ Package: longtable 2004/02/01 v4.11 Multi-page Table package (DPC)
 \LTpre=\skip45
 \LTpost=\skip46
 \LTchunksize=\count93
-\LTcapwidth=\dimen113
+\LTcapwidth=\dimen114
 \LT@head=\box28
 \LT@firsthead=\box29
 \LT@foot=\box30
@@ -170,17 +173,17 @@ Package: tabularx 1999/01/07 v2.07 `tabularx' package (DPC)
 
 (/usr/share/texlive/texmf-dist/tex/latex/tools/array.sty
 Package: array 2008/09/09 v2.4c Tabular extension package (FMi)
-\col@sep=\dimen114
-\extrarowheight=\dimen115
+\col@sep=\dimen115
+\extrarowheight=\dimen116
 \NC@list=\toks18
 \extratabsurround=\skip47
 \backup@length=\skip48
 )
-\TX@col@width=\dimen116
-\TX@old@table=\dimen117
-\TX@old@col=\dimen118
-\TX@target=\dimen119
-\TX@delta=\dimen120
+\TX@col@width=\dimen117
+\TX@old@table=\dimen118
+\TX@old@col=\dimen119
+\TX@target=\dimen120
+\TX@delta=\dimen121
 \TX@cols=\count109
 \TX@ftn=\toks19
 )
@@ -206,8 +209,8 @@ Package color Info: Driver file: pdftex.def on input line 130.
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count110
 \calc@Bcount=\count111
-\calc@Adimen=\dimen121
-\calc@Bdimen=\dimen122
+\calc@Adimen=\dimen122
+\calc@Bdimen=\dimen123
 \calc@Askip=\skip49
 \calc@Bskip=\skip50
 LaTeX Info: Redefining \setlength on input line 76.
@@ -240,14 +243,14 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \Gm@cnth=\count113
 \Gm@cntv=\count114
 \c@Gm@tempcnt=\count115
-\Gm@bindingoffset=\dimen123
-\Gm@wd@mp=\dimen124
-\Gm@odd@mp=\dimen125
-\Gm@even@mp=\dimen126
-\Gm@layoutwidth=\dimen127
-\Gm@layoutheight=\dimen128
-\Gm@layouthoffset=\dimen129
-\Gm@layoutvoffset=\dimen130
+\Gm@bindingoffset=\dimen124
+\Gm@wd@mp=\dimen125
+\Gm@odd@mp=\dimen126
+\Gm@even@mp=\dimen127
+\Gm@layoutwidth=\dimen128
+\Gm@layoutheight=\dimen129
+\Gm@layouthoffset=\dimen130
+\Gm@layoutvoffset=\dimen131
 \Gm@dimlist=\toks20
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyhdr/fancyhdr.sty
@@ -262,8 +265,8 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 \f@ncyO@orf=\skip67
 )
 (/usr/share/texlive/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen131
-\WF@size=\dimen132
+\wrapoverhang=\dimen132
+\WF@size=\dimen133
 \c@WF@wrappedlines=\count116
 \WF@box=\box32
 \WF@everypar=\toks21
@@ -271,23 +274,23 @@ Package: wrapfig 2003/01/31  v 3.6
 )
 (/usr/share/texlive/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2005/04/14 v1.61803 publication quality tables
-\heavyrulewidth=\dimen133
-\lightrulewidth=\dimen134
-\cmidrulewidth=\dimen135
-\belowrulesep=\dimen136
-\belowbottomsep=\dimen137
-\aboverulesep=\dimen138
-\abovetopsep=\dimen139
-\cmidrulesep=\dimen140
-\cmidrulekern=\dimen141
-\defaultaddspace=\dimen142
+\heavyrulewidth=\dimen134
+\lightrulewidth=\dimen135
+\cmidrulewidth=\dimen136
+\belowrulesep=\dimen137
+\belowbottomsep=\dimen138
+\aboverulesep=\dimen139
+\abovetopsep=\dimen140
+\cmidrulesep=\dimen141
+\cmidrulekern=\dimen142
+\defaultaddspace=\dimen143
 \@cmidla=\count117
 \@cmidlb=\count118
-\@aboverulesep=\dimen143
-\@belowrulesep=\dimen144
+\@aboverulesep=\dimen144
+\@belowrulesep=\dimen145
 \@thisruleclass=\count119
 \@lastruleclass=\count120
-\@thisrulewidth=\dimen145
+\@thisrulewidth=\dimen146
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fancyref/fancyref.sty
 Package: fancyref 1999/02/03 v0.9c Fancy cross-referencing
@@ -307,11 +310,11 @@ Package: amstext 2000/06/29 v2.01
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
 \@emptytoks=\toks22
-\ex@=\dimen146
+\ex@=\dimen147
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d
-\pmbraise@=\dimen147
+\pmbraise@=\dimen148
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
@@ -328,7 +331,7 @@ LaTeX Info: Redefining \dots on input line 382.
 LaTeX Info: Redefining \cdots on input line 467.
 \Mathstrutbox@=\box33
 \strutbox@=\box34
-\big@size=\dimen148
+\big@size=\dimen149
 LaTeX Font Info:    Redeclaring font encoding OML on input line 567.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \macc@depth=\count127
@@ -341,12 +344,12 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 568.
 \column@=\count132
 \maxfields@=\count133
 \andhelp@=\toks24
-\eqnshift@=\dimen149
-\alignsep@=\dimen150
-\tagshift@=\dimen151
-\tagwidth@=\dimen152
-\totwidth@=\dimen153
-\lineht@=\dimen154
+\eqnshift@=\dimen150
+\alignsep@=\dimen151
+\tagshift@=\dimen152
+\tagwidth@=\dimen153
+\totwidth@=\dimen154
+\lineht@=\dimen155
 \@envbody=\toks25
 \multlinegap=\skip69
 \multlinetaggap=\skip70
@@ -679,7 +682,7 @@ Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
-\@linkdim=\dimen155
+\@linkdim=\dimen156
 \Hy@linkcounter=\count135
 \Hy@pagecounter=\count136
 
@@ -708,8 +711,8 @@ Package: url 2006/04/12  ver 3.3  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4653.
 \Fld@menulength=\count139
-\Field@Width=\dimen156
-\Fld@charsize=\dimen157
+\Field@Width=\dimen157
+\Fld@charsize=\dimen158
 Package hyperref Info: Hyper figures OFF on input line 5773.
 Package hyperref Info: Link nesting OFF on input line 5778.
 Package hyperref Info: Hyper index ON on input line 5781.
@@ -738,7 +741,7 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip73
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 66.
+Package hyperref Info: Option `colorlinks' set `true' on input line 67.
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
 Package: pdfpages 2012/04/03 v0.4s Insert pages of external PDF documents (AM)
@@ -759,8 +762,8 @@ File: pppdftex.def 2012/04/03 v0.4s Pdfpages driver for pdfTeX (AM)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/nomencl/nomencl.sty
 Package: nomencl 2005/09/22 v4.2 Nomenclature package (LN)
-\nomlabelwidth=\dimen158
-\nom@tempdim=\dimen159
+\nomlabelwidth=\dimen159
+\nom@tempdim=\dimen160
 \nomitemsep=\skip74
 )
 (/usr/share/texlive/texmf-dist/tex/latex/isodate/isodate.sty
@@ -799,6 +802,17 @@ Package: suffix 2006/07/15 1.5 Variant command support
 Writing nomenclature file Marcus_Hultmark_Thesis_template.nlo
 ) (./Marcus_Hultmark_Thesis_template.aux
 
+! Package babel Error: You haven't defined the language swedish yet.
+
+See the babel package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 \select@language{swedish}
+                              
+? q
+OK, entering \batchmode...
+
 LaTeX Warning: Label `fourth' multiply defined.
 
 
@@ -819,7 +833,8 @@ LaTeX Font Info:    ... okay on input line 3.
 LaTeX Font Info:    Checking defaults for OMS/pzccm/m/n on input line 3.
 LaTeX Font Info:    Try loading font information for OMS+pzccm on input line 3.
 
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omspzccm.fd
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omspzccm.fd
 File: omspzccm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/pzccm.
 )
 LaTeX Font Info:    ... okay on input line 3.
@@ -843,17 +858,18 @@ Package caption Info: End \AtBeginDocument code.
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count155
-\scratchdimen=\dimen160
+\scratchdimen=\dimen161
 \scratchbox=\box37
 \nofMPsegments=\count156
 \nofMParguments=\count157
 \everyMPshowfont=\toks31
 \MPscratchCnt=\count158
-\MPscratchDim=\dimen161
+\MPscratchDim=\dimen162
 \MPnumerator=\count159
 \makeMPintoPDFobject=\count160
 \everyMPtoPDFconversion=\toks32
-) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
@@ -904,6 +920,7 @@ e
 
 \AtBeginShipoutBox=\box38
 Package hyperref Info: Link coloring ON on input line 3.
+
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
@@ -916,8 +933,8 @@ LaTeX Info: Redefining \Ref on input line 498.
 LaTeX Info: Redefining \ref on input line 3.
 LaTeX Info: Redefining \pageref on input line 3.
 LaTeX Info: Redefining \nameref on input line 3.
-
-(./Marcus_Hultmark_Thesis_template.out) (./Marcus_Hultmark_Thesis_template.out)
+ (./Marcus_Hultmark_Thesis_template.out) (./Marcus_Hultmark_Thesis_template.out
+)
 \@outlinefile=\write5
 \openout5 = `Marcus_Hultmark_Thesis_template.out'.
 
@@ -934,92 +951,521 @@ LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 12.59991pt on input line 10.
 LaTeX Font Info:    Font shape `T1/phv/m/n' will be
 (Font)              scaled to size 9.89993pt on input line 10.
-<kth_cmyk_electr_engine.pdf, id=233, 483.8075pt x 439.6425pt>
-File: kth_cmyk_electr_engine.pdf Graphic file (type pdf)
-
-<use kth_cmyk_electr_engine.pdf>
-Package pdftex.def Info: kth_cmyk_electr_engine.pdf used on input line 10.
-(pdftex.def)             Requested size: 91.04881pt x 82.73463pt.
+ <KTH-pic-en.jpg, id=233, 96.72134pt x 93.951pt>
+File: KTH-pic-en.jpg Graphic file (type jpg)
+ <use KTH-pic-en.jpg>
+Package pdftex.def Info: KTH-pic-en.jpg used on input line 10.
+(pdftex.def)             Requested size: 91.04881pt x 88.44298pt.
  [0
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./kth_cmyk_electr_engine.p
-df>]pdfTeX warning (ext4): destination with the same identifier (name{page.}) h
-as been already used, duplicate ignored
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./KTH-pic-en.jpg>]pdfTeX w
+arning (ext4): destination with the same identifier (name{page.}) has been alre
+ady used, duplicate ignored
 <to be read again> 
                    \relax 
 l.10 \makeititle
                  [0
 
-] (./Abstract/Abstract.tex
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 1.
- [1])
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 15.
-
-(./Marcus_Hultmark_Thesis_template.toc
-LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 3.
+] (./Abstract/kth-abs.tex
+LaTeX Font Info:    Try loading font information for OT1+ptmcm on input line 6.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptmcm.fd
 File: ot1ptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 3.
+LaTeX Font Info:    Try loading font information for OML+ptmcm on input line 6.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptmcm.fd
 File: omlptmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ptmcm.
 )
-LaTeX Font Info:    Try loading font information for OMX+psycm on input line 3.
+LaTeX Font Info:    Try loading font information for OMX+psycm on input line 6.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxpsycm.fd
 File: omxpsycm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/psycm.
 )
-LaTeX Font Info:    Try loading font information for U+msa on input line 3.
+LaTeX Font Info:    Try loading font information for U+msa on input line 6.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 3.
+LaTeX Font Info:    Try loading font information for U+msb on input line 6.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 6.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 6.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 6.
+
+Underfull \hbox (badness 10000) in alignment at lines 8--10
+[] 
+ []
+
+
+<./Abstract/KTH-pic-en.jpg, id=243, 96.72134pt x 93.951pt>
+File: ./Abstract/KTH-pic-en.jpg Graphic file (type jpg)
+ <use ./Abstract/KTH-pic-en.jpg>
+Package pdftex.def Info: ./Abstract/KTH-pic-en.jpg used on input line 12.
+(pdftex.def)             Requested size: 96.7211pt x 93.95078pt.
+
+Overfull \vbox (57.23083pt too high) detected at line 12
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 11--16
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 17--24
+[][][] 
+ []
+
+
+Overfull \hbox (7.50914pt too wide) in paragraph at lines 8--25
+|[]
+ []
+
+
+Overfull \hbox (7.50914pt too wide) in paragraph at lines 8--25
+[]
+ []
+
+
+Overfull \hbox (7.50914pt too wide) in paragraph at lines 8--25
+[]| 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 6--25
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--26
+
+ []
+
+! Undefined control sequence.
+l.27 \justify
+             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 28.
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
+
+ []
+
+)
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+ [1 <./Abstract/KTH-pic-en.jpg>] (./Abstract/kth-abs-sv.tex
+
+! Package babel Error: You haven't defined the language swedish yet.
+
+See the babel package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2 \selectlanguage{swedish}
+                            
+Your command will be ignored, type <return> to proceed
+
+
+Underfull \hbox (badness 10000) in alignment at lines 8--10
+[] 
+ []
+
+
+<./Abstract/KTH-pic.jpg, id=250, 79.61745pt x 93.951pt>
+File: ./Abstract/KTH-pic.jpg Graphic file (type jpg)
+ <use ./Abstract/KTH-pic.jpg>
+Package pdftex.def Info: ./Abstract/KTH-pic.jpg used on input line 12.
+(pdftex.def)             Requested size: 79.61723pt x 93.95078pt.
+
+Overfull \vbox (57.23083pt too high) detected at line 12
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 11--16
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 17--24
+[][][] 
+ []
+
+
+Overfull \hbox (7.50914pt too wide) in paragraph at lines 8--25
+|[]
+ []
+
+
+Overfull \hbox (7.50914pt too wide) in paragraph at lines 8--25
+[]
+ []
+
+
+Overfull \hbox (7.50914pt too wide) in paragraph at lines 8--25
+[]| 
+ []
+
+
+Underfull \hbox (badness 10000) in alignment at lines 6--25
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 6--26
+
+ []
+
+! Undefined control sequence.
+l.27 \justify
+             
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 28--29
+
+ []
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 Att estimera ett batteris laddstatus ï¿½
+                                             r av stor vikt nï¿½r det gï¿½ll...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 ...batteris laddstatus ï¿½r av stor vikt nï¿½
+                                                  r det gï¿½ller att fï¿½rlï...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 ...addstatus ï¿½r av stor vikt nï¿½r det gï¿½
+                                                  ller att fï¿½rlï¿½nga livs...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 ...r av stor vikt nï¿½r det gï¿½ller att fï¿½
+                                                  rlï¿½nga livslï¿½ngden hos...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 ...stor vikt nï¿½r det gï¿½ller att fï¿½rlï¿½
+                                                  nga livslï¿½ngden hos batt...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 ...¿½r det gï¿½ller att fï¿½rlï¿½nga livslï¿½
+                                                  ngden hos batteriet och at...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 ...mensarbete utvecklades en hybridmetod fï¿½
+                                                  r laddstatusestimering som...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 ...terades i en motorstyrning. Metoden anvï¿½
+                                                  nder en kombination av imp...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 ... anvï¿½nder en kombination av impedansmï¿½
+                                                  tningar och en linjï¿½r re...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 ...tion av impedansmï¿½tningar och en linjï¿½
+                                                  r regressionsmodell fï¿½r ...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 ...gar och en linjï¿½r regressionsmodell fï¿½
+                                                  r estimering. Mï¿½tningar ...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 ...r regressionsmodell fï¿½r estimering. Mï¿½
+                                                  tningar gï¿½rs vid stillas...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 ...smodell fï¿½r estimering. Mï¿½tningar gï¿½
+                                                  rs vid stillastï¿½ende. Me...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 ...mering. Mï¿½tningar gï¿½rs vid stillastï¿½
+                                                  ende. Metoden krï¿½ver ing...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 ... gï¿½rs vid stillastï¿½ende. Metoden krï¿½
+                                                  ver inga externa sensorer ...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+! Package inputenc Error: Unicode char \u8:ï¿½ not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.30 ...nsorer eller andra batterianslutningar ï¿½
+                                                  n terminalanslutningarna. ...
+
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
  [2
+
+ <./Abstract/KTH-pic.jpg>]
+
+! LaTeX Error: \begin{document} ended by \end{abstract}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.32 \end{abstract}
+                   
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+! Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.32 \end{abstract}
+                   
+Things are pretty mixed up, but I think the worst is over.
+
+) (./Abstract/Abstract.texpdfTeX warning (ext4): destination with the same iden
+tifier (name{page.i}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.6 \end{abstract}
+                   [1])
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 24.
+ (./Marcus_Hultmark_Thesis_template.toc
+
+! Package babel Error: You haven't defined the language swedish yet.
+
+See the babel package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \select@language {swedish}
+                              
+Your command will be ignored, type <return> to proceed
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.ii}) has
+ been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.40 ... {5}Results and Discussion}{36}{chapter.5}
+                                                   [2
 
 ])
 \tf@toc=\write6
 \openout6 = `Marcus_Hultmark_Thesis_template.toc'.
 
 
-
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[3] (./Marcus_Hultmark_Thesis_template.lof [4
+ [3] (./Marcus_Hultmark_Thesis_template.lof
+
+! Package babel Error: You haven't defined the language swedish yet.
+
+See the babel package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.1 \select@language {swedish}
+                              
+Your command will be ignored, type <return> to proceed
+
+ [4
 
 ])
 \tf@lof=\write7
 \openout7 = `Marcus_Hultmark_Thesis_template.lof'.
 
-
-(./Marcus_Hultmark_Thesis_template.nls
+ (./Marcus_Hultmark_Thesis_template.nls
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-[5]) [6
+ [5]) [6
 
 ] (./Introduction/Introduction.tex
 Chapter 1.
@@ -1049,7 +1495,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 24--25
 
  []
 
-[1
+ [1
 
 
 ]
@@ -1082,7 +1528,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 40--41
 
  []
 
-[2]
+ [2]
 Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
@@ -1120,7 +1566,8 @@ Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
 
-) (./Model_Predictive_Control/Model_Predictive_Control.tex [4]
+)
+(./Model_Predictive_Control/Model_Predictive_Control.tex [4]
 Chapter 2.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 8.
@@ -1129,7 +1576,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 42--43
 
  []
 
-[5
+ [5
 
 ]
 Underfull \hbox (badness 10000) in paragraph at lines 52--53
@@ -1151,9 +1598,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 69--70
 ! Misplaced alignment tab character &.
 l.71  &
         $\text{Minimization} && \nabla_{x} V(\mathbf{x}) + \sum  \limits_{i=...
+I can't figure out why you would want to use a tab mark
+here. If you just want an ampersand, the remedy is
+simple: Just type `I\&' now. But if some right brace
+up above has ended a previous alignment prematurely,
+you're probably due for more error messages, and you
+might try typing `S' now just to see what is salvageable.
 
-? q
-OK, entering \batchmode...
 ! Misplaced alignment tab character &.
 l.71  & $\text{Minimization} &
                               & \nabla_{x} V(\mathbf{x}) + \sum  \limits_{i=...
@@ -1280,7 +1731,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 93--94
  []
 
 
-<Images/Chapter2/mpc.png, id=506, 747.79375pt x 480.79625pt>
+<Images/Chapter2/mpc.png, id=511, 747.79375pt x 480.79625pt>
 File: Images/Chapter2/mpc.png Graphic file (type png)
  <use Images/Chapter2/mpc.png>
 Package pdftex.def Info: Images/Chapter2/mpc.png used on input line 109.
@@ -1307,7 +1758,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 199--200
 (./Dynamic_Modeling_of_a_Quadrotor/Dynamic_Modeling_of_a_Quadrotor.tex [11]
 Chapter 3.
 
-<Images/Chapter3/quad_dynamics.jpg, id=553, 338.01282pt x 191.9672pt>
+<Images/Chapter3/quad_dynamics.jpg, id=558, 338.01282pt x 191.9672pt>
 File: Images/Chapter3/quad_dynamics.jpg Graphic file (type jpg)
  <use Images/Chapter3/quad_dynamics.jpg>
 Package pdftex.def Info: Images/Chapter3/quad_dynamics.jpg used on input line 9
@@ -1770,7 +2221,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 130--131
  []
 
  [15]
-<Images/Chapter3/Constant_thrust_upwards/Inputs_UP.png, id=599, 611.28375pt x 4
+<Images/Chapter3/Constant_thrust_upwards/Inputs_UP.png, id=605, 611.28375pt x 4
 60.72125pt>
 File: Images/Chapter3/Constant_thrust_upwards/Inputs_UP.png Graphic file (type 
 png)
@@ -1780,7 +2231,7 @@ Package pdftex.def Info: Images/Chapter3/Constant_thrust_upwards/Inputs_UP.png
 used on input line 142.
 (pdftex.def)             Requested size: 427.8957pt x 322.50267pt.
 
-<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=602, 586.8324pt x 44
+<Images/Chapter3/Constant_thrust_upwards/Positions.png, id=608, 586.8324pt x 44
 2.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Positions.png Graphic file (type 
 png)
@@ -1790,7 +2241,7 @@ Package pdftex.def Info: Images/Chapter3/Constant_thrust_upwards/Positions.png
 used on input line 151.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=603, 586.832
+<Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png, id=609, 586.832
 4pt x 442.2924pt>
 File: Images/Chapter3/Constant_thrust_upwards/Linear_velocities.png Graphic fil
 e (type png)
@@ -1816,14 +2267,14 @@ Underfull \vbox (badness 1048) has occurred while \output is active []
 
  [17 <./Images/Chapter3/Constant_thrust_upwards/Positions.png> <./Images/Chapte
 r3/Constant_thrust_upwards/Linear_velocities.png>]
-<Images/Chapter3/Lateral_X/Inputs_X.png, id=618, 611.28375pt x 460.72125pt>
+<Images/Chapter3/Lateral_X/Inputs_X.png, id=623, 611.28375pt x 460.72125pt>
 File: Images/Chapter3/Lateral_X/Inputs_X.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Inputs_X.png>
 Package pdftex.def Info: Images/Chapter3/Lateral_X/Inputs_X.png used on input l
 ine 170.
 (pdftex.def)             Requested size: 427.8957pt x 322.50267pt.
 
-<Images/Chapter3/Lateral_X/Torque_inputs_X.png, id=619, 611.28375pt x 460.72125
+<Images/Chapter3/Lateral_X/Torque_inputs_X.png, id=624, 611.28375pt x 460.72125
 pt>
 File: Images/Chapter3/Lateral_X/Torque_inputs_X.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Torque_inputs_X.png>
@@ -1834,14 +2285,14 @@ input line 177.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [18 <./Images/Chapter3/Lateral_X/Inputs_X.png>]
-<Images/Chapter3/Lateral_X/Positions.png, id=627, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Positions.png, id=632, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Positions.png>
 Package pdftex.def Info: Images/Chapter3/Lateral_X/Positions.png used on input 
 line 185.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter3/Lateral_X/Linear_velocities.png, id=630, 586.8324pt x 442.2924
+<Images/Chapter3/Lateral_X/Linear_velocities.png, id=635, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_X/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Linear_velocities.png>
@@ -1852,14 +2303,14 @@ n input line 189.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_X/Euler_Angles.png, id=633, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_X/Euler_Angles.png, id=638, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_X/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Euler_Angles.png>
 Package pdftex.def Info: Images/Chapter3/Lateral_X/Euler_Angles.png used on inp
 ut line 196.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter3/Lateral_X/Angular_velocities.png, id=636, 586.8324pt x 442.292
+<Images/Chapter3/Lateral_X/Angular_velocities.png, id=641, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_X/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_X/Angular_velocities.png>
@@ -1870,7 +2321,7 @@ on input line 200.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_Y/Inputs_Y.png, id=640, 611.28375pt x 460.72125pt>
+<Images/Chapter3/Lateral_Y/Inputs_Y.png, id=645, 611.28375pt x 460.72125pt>
 File: Images/Chapter3/Lateral_Y/Inputs_Y.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Inputs_Y.png>
 Package pdftex.def Info: Images/Chapter3/Lateral_Y/Inputs_Y.png used on input l
@@ -1896,7 +2347,7 @@ Underfull \vbox (badness 1048) has occurred while \output is active []
 
  [21 <./Images/Chapter3/Lateral_X/Euler_Angles.png> <./Images/Chapter3/Lateral_
 X/Angular_velocities.png>]
-<Images/Chapter3/Lateral_Y/Torque_inputs_Y.png, id=658, 611.28375pt x 460.72125
+<Images/Chapter3/Lateral_Y/Torque_inputs_Y.png, id=664, 611.28375pt x 460.72125
 pt>
 File: Images/Chapter3/Lateral_Y/Torque_inputs_Y.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Torque_inputs_Y.png>
@@ -1907,14 +2358,14 @@ input line 220.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [22 <./Images/Chapter3/Lateral_Y/Inputs_Y.png>]
-<Images/Chapter3/Lateral_Y/Positions.png, id=666, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Positions.png, id=672, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Positions.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Positions.png>
 Package pdftex.def Info: Images/Chapter3/Lateral_Y/Positions.png used on input 
 line 228.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=669, 586.8324pt x 442.2924
+<Images/Chapter3/Lateral_Y/Linear_velocities.png, id=675, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter3/Lateral_Y/Linear_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Linear_velocities.png>
@@ -1925,14 +2376,14 @@ n input line 232.
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
 
-<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=672, 586.8324pt x 442.2924pt>
+<Images/Chapter3/Lateral_Y/Euler_Angles.png, id=678, 586.8324pt x 442.2924pt>
 File: Images/Chapter3/Lateral_Y/Euler_Angles.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Euler_Angles.png>
 Package pdftex.def Info: Images/Chapter3/Lateral_Y/Euler_Angles.png used on inp
 ut line 239.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=675, 586.8324pt x 442.292
+<Images/Chapter3/Lateral_Y/Angular_velocities.png, id=681, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter3/Lateral_Y/Angular_velocities.png Graphic file (type png)
  <use Images/Chapter3/Lateral_Y/Angular_velocities.png>
@@ -1980,14 +2431,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 32--33
  []
 
 
-<Images/Chapter4/Class_Diagram.png, id=712, 502.87875pt x 594.22pt>
+<Images/Chapter4/Class_Diagram.png, id=718, 502.87875pt x 594.22pt>
 File: Images/Chapter4/Class_Diagram.png Graphic file (type png)
  <use Images/Chapter4/Class_Diagram.png>
 Package pdftex.def Info: Images/Chapter4/Class_Diagram.png used on input line 3
 8.
 (pdftex.def)             Requested size: 201.14793pt x 237.68379pt.
 
-<Images/Chapter4/Class_diagram_implementation.png, id=713, 527.9725pt x 376.406
+<Images/Chapter4/Class_diagram_implementation.png, id=719, 527.9725pt x 376.406
 25pt>
 File: Images/Chapter4/Class_diagram_implementation.png Graphic file (type png)
  <use Images/Chapter4/Class_diagram_implementation.png>
@@ -2018,14 +2469,14 @@ Underfull \hbox (badness 10000) in paragraph at lines 136--137
  []
 
 
-<Images/Chapter4/resetMPCflowchart.png, id=737, 450.68375pt x 638.385pt>
+<Images/Chapter4/resetMPCflowchart.png, id=742, 450.68375pt x 638.385pt>
 File: Images/Chapter4/resetMPCflowchart.png Graphic file (type png)
  <use Images/Chapter4/resetMPCflowchart.png>
 Package pdftex.def Info: Images/Chapter4/resetMPCflowchart.png used on input li
 ne 142.
 (pdftex.def)             Requested size: 360.54747pt x 510.70868pt.
  [32 <./Images/Chapter4/resetMPCflowchart.png>]
-<Images/Chapter4/initMPCflowchart.png, id=743, 455.7025pt x 544.0325pt>
+<Images/Chapter4/initMPCflowchart.png, id=748, 455.7025pt x 544.0325pt>
 File: Images/Chapter4/initMPCflowchart.png Graphic file (type png)
  <use Images/Chapter4/initMPCflowchart.png>
 Package pdftex.def Info: Images/Chapter4/initMPCflowchart.png used on input lin
@@ -2042,7 +2493,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 158--159
  []
 
  [33 <./Images/Chapter4/initMPCflowchart.png>]
-<Images/Chapter4/updateMPCflowchart.png, id=749, 446.66875pt x 645.41125pt>
+<Images/Chapter4/updateMPCflowchart.png, id=755, 446.66875pt x 645.41125pt>
 File: Images/Chapter4/updateMPCflowchart.png Graphic file (type png)
  <use Images/Chapter4/updateMPCflowchart.png>
 Package pdftex.def Info: Images/Chapter4/updateMPCflowchart.png used on input l
@@ -2055,7 +2506,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ults_and_Discussion.tex [35]
 Chapter 5.
 
-<Images/Chapter5/tank_system.png, id=759, 120.45pt x 180.675pt>
+<Images/Chapter5/tank_system.png, id=764, 120.45pt x 180.675pt>
 File: Images/Chapter5/tank_system.png Graphic file (type png)
  <use Images/Chapter5/tank_system.png>
 Package pdftex.def Info: Images/Chapter5/tank_system.png used on input line 14.
@@ -2184,7 +2635,7 @@ really didn't forget anything, try typing `2' now; then
 my insertion and my current dilemma will both disappear.
 
 
-<Images/Chapter5/tank_system/control_signal.png, id=767, 611.28375pt x 460.7212
+<Images/Chapter5/tank_system/control_signal.png, id=772, 611.28375pt x 460.7212
 5pt>
 File: Images/Chapter5/tank_system/control_signal.png Graphic file (type png)
  <use Images/Chapter5/tank_system/control_signal.png>
@@ -2201,7 +2652,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-<Images/Chapter5/tank_system/levels_control.png, id=768, 611.28375pt x 460.7212
+<Images/Chapter5/tank_system/levels_control.png, id=773, 611.28375pt x 460.7212
 5pt>
 File: Images/Chapter5/tank_system/levels_control.png Graphic file (type png)
  <use Images/Chapter5/tank_system/levels_control.png>
@@ -2304,7 +2755,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 102--103
  []
 
 
-<Images/Chapter5/ardrone/position_control.png, id=785, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/position_control.png, id=790, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/position_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/position_control.png>
 Package pdftex.def Info: Images/Chapter5/ardrone/position_control.png used on i
@@ -2314,7 +2765,7 @@ nput line 106.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [39]
-<Images/Chapter5/ardrone/euler_angle_control.png, id=791, 586.8324pt x 442.2924
+<Images/Chapter5/ardrone/euler_angle_control.png, id=797, 586.8324pt x 442.2924
 pt>
 File: Images/Chapter5/ardrone/euler_angle_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/euler_angle_control.png>
@@ -2322,7 +2773,7 @@ Package pdftex.def Info: Images/Chapter5/ardrone/euler_angle_control.png used o
 n input line 113.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter5/ardrone/lin_velocity_control.png, id=792, 586.8324pt x 442.292
+<Images/Chapter5/ardrone/lin_velocity_control.png, id=798, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/lin_velocity_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/lin_velocity_control.png>
@@ -2334,7 +2785,7 @@ Underfull \vbox (badness 2293) has occurred while \output is active []
 
  [40 <./Images/Chapter5/ardrone/position_control.png> <./Images/Chapter5/ardron
 e/euler_angle_control.png>]
-<Images/Chapter5/ardrone/ang_velocity_control.png, id=799, 586.8324pt x 442.292
+<Images/Chapter5/ardrone/ang_velocity_control.png, id=805, 586.8324pt x 442.292
 4pt>
 File: Images/Chapter5/ardrone/ang_velocity_control.png Graphic file (type png)
  <use Images/Chapter5/ardrone/ang_velocity_control.png>
@@ -2342,7 +2793,7 @@ Package pdftex.def Info: Images/Chapter5/ardrone/ang_velocity_control.png used
 on input line 127.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter5/ardrone/control_signals_TEST1.png, id=800, 611.28375pt x 460.7
+<Images/Chapter5/ardrone/control_signals_TEST1.png, id=806, 611.28375pt x 460.7
 2125pt>
 File: Images/Chapter5/ardrone/control_signals_TEST1.png Graphic file (type png)
 
@@ -2381,7 +2832,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 149--150
  []
 
 
-<Images/Chapter5/ardrone/T1_noise/position_control.png, id=820, 586.8324pt x 44
+<Images/Chapter5/ardrone/T1_noise/position_control.png, id=825, 586.8324pt x 44
 2.2924pt>
 File: Images/Chapter5/ardrone/T1_noise/position_control.png Graphic file (type 
 png)
@@ -2391,7 +2842,7 @@ Package pdftex.def Info: Images/Chapter5/ardrone/T1_noise/position_control.png
 used on input line 153.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter5/ardrone/T1_noise/euler_angle_control.png, id=821, 586.8324pt x
+<Images/Chapter5/ardrone/T1_noise/euler_angle_control.png, id=826, 586.8324pt x
  442.2924pt>
 File: Images/Chapter5/ardrone/T1_noise/euler_angle_control.png Graphic file (ty
 pe png)
@@ -2404,7 +2855,7 @@ ng used on input line 160.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [43 <./Images/Chapter5/ardrone/T1_noise/position_control.png>]
-<Images/Chapter5/ardrone/T1_noise/lin_velocity_control.png, id=827, 586.8324pt 
+<Images/Chapter5/ardrone/T1_noise/lin_velocity_control.png, id=832, 586.8324pt 
 x 442.2924pt>
 File: Images/Chapter5/ardrone/T1_noise/lin_velocity_control.png Graphic file (t
 ype png)
@@ -2414,7 +2865,7 @@ Package pdftex.def Info: Images/Chapter5/ardrone/T1_noise/lin_velocity_control.
 png used on input line 167.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter5/ardrone/T1_noise/ang_velocity_control.png, id=828, 586.8324pt 
+<Images/Chapter5/ardrone/T1_noise/ang_velocity_control.png, id=833, 586.8324pt 
 x 442.2924pt>
 File: Images/Chapter5/ardrone/T1_noise/ang_velocity_control.png Graphic file (t
 ype png)
@@ -2425,7 +2876,7 @@ png used on input line 174.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
  [44 <./Images/Chapter5/ardrone/T1_noise/euler_angle_control.png> <./Images/Cha
 pter5/ardrone/T1_noise/lin_velocity_control.png>]
-<Images/Chapter5/ardrone/T1_noise/control_signals_TEST2.png, id=835, 611.28375p
+<Images/Chapter5/ardrone/T1_noise/control_signals_TEST2.png, id=840, 611.28375p
 t x 460.72125pt>
 File: Images/Chapter5/ardrone/T1_noise/control_signals_TEST2.png Graphic file (
 type png)
@@ -2502,14 +2953,14 @@ you're probably due for more error messages, and you
 might try typing `S' now just to see what is salvageable.
 
 
-<Images/Chapter5/ardrone/T2/position.png, id=844, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/T2/position.png, id=850, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/T2/position.png Graphic file (type png)
  <use Images/Chapter5/ardrone/T2/position.png>
 Package pdftex.def Info: Images/Chapter5/ardrone/T2/position.png used on input 
 line 202.
 (pdftex.def)             Requested size: 410.77988pt x 309.60257pt.
 
-<Images/Chapter5/ardrone/T2/velocity.png, id=845, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/T2/velocity.png, id=851, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/T2/velocity.png Graphic file (type png)
  <use Images/Chapter5/ardrone/T2/velocity.png>
 Package pdftex.def Info: Images/Chapter5/ardrone/T2/velocity.png used on input 
@@ -2519,7 +2970,7 @@ line 209.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [46 <./Images/Chapter5/ardrone/T2/position.png>]
-<Images/Chapter5/ardrone/T2/inputs_TEST3.png, id=851, 611.28375pt x 460.72125pt
+<Images/Chapter5/ardrone/T2/inputs_TEST3.png, id=857, 611.28375pt x 460.72125pt
 >
 File: Images/Chapter5/ardrone/T2/inputs_TEST3.png Graphic file (type png)
  <use Images/Chapter5/ardrone/T2/inputs_TEST3.png>
@@ -2530,7 +2981,7 @@ put line 216.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [47 <./Images/Chapter5/ardrone/T2/velocity.png>]
-<Images/Chapter5/ardrone/T2/2Dtrajectory.png, id=859, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/T2/2Dtrajectory.png, id=864, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/T2/2Dtrajectory.png Graphic file (type png)
  <use Images/Chapter5/ardrone/T2/2Dtrajectory.png>
 Package pdftex.def Info: Images/Chapter5/ardrone/T2/2Dtrajectory.png used on in
@@ -2544,7 +2995,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 226--227
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 227.
 
-<Images/Chapter5/ardrone/T2/3Dtrajectory.png, id=860, 586.8324pt x 442.2924pt>
+<Images/Chapter5/ardrone/T2/3Dtrajectory.png, id=865, 586.8324pt x 442.2924pt>
 File: Images/Chapter5/ardrone/T2/3Dtrajectory.png Graphic file (type png)
  <use Images/Chapter5/ardrone/T2/3Dtrajectory.png>
 Package pdftex.def Info: Images/Chapter5/ardrone/T2/3Dtrajectory.png used on in
@@ -2680,28 +3131,40 @@ you left one out. Proceed, with fingers crossed.
  [54
 
 ] [55])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 76.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
  [56]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 76.
- (./Marcus_Hultmark_Thesis_template.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 76.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 76.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
+ (./Marcus_Hultmark_Thesis_template.aux
+
+! Package babel Error: You haven't defined the language swedish yet.
+
+See the babel package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.18 \select@language{swedish}
+                              
+Your command will be ignored, type <return> to proceed
+
+)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 85.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 85.
 Package rerunfilecheck Info: File `Marcus_Hultmark_Thesis_template.out' has not
  changed.
 (rerunfilecheck)             Checksum: 33A681A3E34E725F64144F78913512FC;3830.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 76.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 85.
  ) 
 Here is how much of TeX's memory you used:
- 11834 strings out of 495059
- 176077 string characters out of 3182031
- 313920 words of memory out of 3000000
- 14438 multiletter control sequences out of 15000+200000
- 74332 words of font info for 101 fonts, out of 3000000 for 9000
+ 11865 strings out of 495059
+ 176681 string characters out of 3182031
+ 314088 words of memory out of 3000000
+ 14457 multiletter control sequences out of 15000+200000
+ 77054 words of font info for 103 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 38i,18n,43p,1924b,536s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 38i,22n,43p,1925b,536s stack positions out of 5000i,500n,10000p,200000b,50000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -2714,11 +3177,11 @@ share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
 /type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
 s/utmri8a.pfb>
-Output written on Marcus_Hultmark_Thesis_template.pdf (64 pages, 1817603 bytes)
+Output written on Marcus_Hultmark_Thesis_template.pdf (66 pages, 2365664 bytes)
 .
 PDF statistics:
- 999 PDF objects out of 1000 (max. 8388607)
- 826 compressed objects within 9 object streams
+ 1004 PDF objects out of 1200 (max. 8388607)
+ 827 compressed objects within 9 object streams
  216 named destinations out of 1000 (max. 500000)
- 662 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 672 words of extra memory for PDF output out of 10000 (max. 10000000)
 
