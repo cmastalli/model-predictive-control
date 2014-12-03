@@ -24,7 +24,7 @@ There are three elements to identify in this structure: the cost function $V(x)$
 
 \subsection{Quadratic programming problem}%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-A quadratic programming problem (QP) is a special case of an optimization problem where the cost function is a quadratic function and the constraints are linear. Given the variable  and gradient vector correspondingly $\mathbf{x}, \mathbf{g} \in \mathbb{R}^{n}$, both column vectors and Q a symmetric matrix of size $n \times n$, the quadratic problem can be formulated as follows: 
+A quadratic programming problem or quadratic program (\nom{QP}{Quadratic Problem}) is a special case of an optimization problem where the cost function is a quadratic function and the constraints are linear. Given the variable  and gradient vector correspondingly $\mathbf{x}, \mathbf{g} \in \mathbb{R}^{n}$, both column vectors and Q a symmetric matrix of size $n \times n$, the quadratic problem can be formulated as follows: 
 
 \begin{equation} \label{eq:quadproblem}
  \begin{aligned}
@@ -55,7 +55,7 @@ This property is important because if this holds, the assumptions made for linea
 
 \subsection{Karush-Kuhn-Tucker Conditions}%-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-The Karush-Kuhn-Tucker conditions (a.k.a. KKT conditions) are a set of first order conditions that must be satisfied by the solution of nonlinear programming problems in general. It is formulated as an extension of the Lagrange multipliers method to solve optimization problems with equality constraints, as the KKT conditions applies for problems with constraints formulated as equalities and inequalities. These conditions are seldom used to solve the optimization problem directly, instead, they are verified in iterative methods. Before introducing the formal definition of the Karush-Kuhn-Tucker conditions, it is necessary to first define the Lagrangian for an optimization problem.\\
+The Karush-Kuhn-Tucker conditions (a.k.a. (\nom{KKT}{Karush-Kuhn-Tucker}) conditions) are a set of first order conditions that must be satisfied by the solution of nonlinear programming problems in general. It is formulated as an extension of the Lagrange multipliers method to solve optimization problems with equality constraints, as the KKT conditions applies for problems with constraints formulated as equalities and inequalities. These conditions are seldom used to solve the optimization problem directly, instead, they are verified in iterative methods. Before introducing the formal definition of the Karush-Kuhn-Tucker conditions, it is necessary to first define the Lagrangian for an optimization problem.\\
 
 For the given form of the optimization problem shown in \ref{eq:gen_qp}, the Lagrangian $\mathbf{L}$ is defined as the cost function plus penalty functions that take the constraints into account. The $\lambda$ vector is used for the equality constraints and the $\mu$ vector for the inequalities.
 
@@ -157,7 +157,7 @@ where $H(z^{-1})$ is a polynomial of the backward shift operator, $z^{-1}$. For 
 y(k) = \frac{B(z^{-1})}{A(z^{-1})}u(k)
 \end{equation}
 
-These models give a good physical insight and the resultant controller is of a low order and compact. However, to develop a good transfer function model some information of the system is required beforehand, more specifically about the order of the polynomials. Also, it is best suited for SISO systems.
+These models give a good physical insight and the resultant controller is of a low order and compact. However, to develop a good transfer function model some information of the system is required beforehand, more specifically about the order of the polynomials. Also, it is best suited for single variable systems, also known as Single Input, Single Output (\nom{SISO}{Single Input, Single Output}) systems.
 
 \item \textbf{State Space.} The states of the system are described as a linear combination of the previous states and inputs, and the output as a mapping of the states. The general form of state space models is as follows:
 
@@ -166,7 +166,7 @@ These models give a good physical insight and the resultant controller is of a l
 \end{cases}
 \end{equation}
 
-Where $A$ is the system matrix, $B$ is the input matrix and $C$ is the output matrix. The big advantage of this type of model is that it straightforward to use for MIMO systems, and the control law will always be a linear combination of the state vector. 
+Where $A$ is the system matrix, $B$ is the input matrix and $C$ is the output matrix. The big advantage of this type of model is that it straightforward to use for multivariable systems or Multiple Input, Multiple Output (\nom{MIMO}{Multiple Inputs, Multiple Outputs}), and the control law will always be a linear combination of the state vector. 
 
 \end{itemize}
 

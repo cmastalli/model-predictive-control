@@ -1,0 +1,18 @@
+\nomenclatureentry{aAI@[{AI}]\begingroup Artificial Inteligence\nomeqref {1.0}|nompageref}{1}
+\nomenclatureentry{aMPC@[{MPC}]\begingroup Model Predictive Control\nomeqref {1.0}|nompageref}{1}
+\nomenclatureentry{aROS@[{ROS}]\begingroup Robot Operating System\nomeqref {1.0}|nompageref}{1}
+\nomenclatureentry{aROV@[{ROV}]\begingroup Remotely Operated Vehicle\nomeqref {1.0}|nompageref}{3}
+\nomenclatureentry{aGUI@[{GUI}]\begingroup Graphical User Interface\nomeqref {1.0}|nompageref}{3}
+\nomenclatureentry{aPID@[{PID}]\begingroup Proportional Integral Derivative\nomeqref {1.0}|nompageref}{3}
+\nomenclatureentry{aOOP@[{OOP}]\begingroup Object Oriented Programming\nomeqref {1.0}|nompageref}{4}
+\nomenclatureentry{aQP@[{QP}]\begingroup Quadratic Problem\nomeqref {2.1}|nompageref}{5}
+\nomenclatureentry{aKKT@[{KKT}]\begingroup Karush-Kuhn-Tucker\nomeqref {2.2}|nompageref}{6}
+\nomenclatureentry{aSISO@[{SISO}]\begingroup Single Input, Single Output\nomeqref {2.5}|nompageref}{9}
+\nomenclatureentry{aMIMO@[{MIMO}]\begingroup Multiple Inputs, Multiple Outputs\nomeqref {2.6}|nompageref}{9}
+\nomenclatureentry{aLAN@[{LAN}]\begingroup Local Area Network\nomeqref {4.0}|nompageref}{27}
+\nomenclatureentry{aIDL@[{IDL}]\begingroup Interface Definition Language\nomeqref {4.0}|nompageref}{27}
+\nomenclatureentry{aYAML@[{YAML}]\begingroup YAML (Yet Another Markup Language) Ain't Markup Language\nomeqref {4.0}|nompageref}{28}
+\nomenclatureentry{aPI@[{PI}]\begingroup Proportional Integral\nomeqref {5.0}|nompageref}{42}
+\nomenclatureentry{aWLAN@[{WLAN}]\begingroup Wireless Local Area Network\nomeqref {6.0}|nompageref}{50}
+\nomenclatureentry{aIMU@[{IMU}]\begingroup Inertial Measurement Unit\nomeqref {6.0}|nompageref}{51}
+\nomenclatureentry{aSLAM@[{SLAM}]\begingroup Simultaneous Localization And Mapping\nomeqref {6.0}|nompageref}{51}

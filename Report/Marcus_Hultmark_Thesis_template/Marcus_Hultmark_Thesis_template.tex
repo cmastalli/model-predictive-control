@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt]{report}
+\documentclass[a4paper,11pt,twoside]{report}
 \input{./Preambles/Preambles.tex}
 \begin{document}
 \pagenumbering{roman} %Use roman numbering for preface
@@ -14,23 +14,54 @@
 \pagebreak
 {\tableofcontents}
 {\listoffigures}
-\pagebreak
+{\printnomenclature}
+%\section*{List of Abbreviations}
+%\begin{acronym}
+% \acro{MPC}{Model Predictive Control}
+% \acro{GUI}{Graphical User Interface}
+% \acro{PID}{Proportional Integral Derivative}
+% \acro{ROV}{Remotely Operated Vehicle}
+% \acro{ROS}{Robot Operating System}
+% \acro{OOP}{Object Oriented Programming}
+% \acro{KKT}{Karush-Kuhn-Tucker}
+% \acro{SISO}{Single Input, Single Output}
+% \acro{MIMO}{Multiple Inputs, Multiple Outputs}
+% \acro{QP}{Quadratic Problem}
+% \acro{AI}{Artificial Inteligence}
+% \acro{LAN}{Local Area Network}
+% \acro{WLAN}{Wireless Local Area Network}
+% \acro{IDL}{Interface Definition Language}
+% \acro{YAML}{YAML (Yet Another Markup Language) Ain't Markup Language}
+% \acro{PI}{Proportional Integral}
+% \acro{SLAM}{Simultaneous Localization And Mapping}
+% \acro{IMU}{Inertial Measurement Unit}
+%\end{acronym} 
+%\pagebreak
 
 \cleardoublepage
 \pagenumbering{arabic}
 
 \pagestyle{fancy}
+%\renewcommand{\chaptermark}[1]{  \markboth{#1}{}  }
+%\renewcommand{\sectionmark}[1]{  \markright{#1}{}  }
+\fancyhf{}
+\fancyhead[LE]{\slshape \leftmark}
+\fancyhead[C]{}
+\fancyhead[RO]{\slshape \rightmark}
+\fancyfoot[C]{\thepage}
+
+
 \fancypagestyle{plain}{%
 \fancyhf{} % clear all header and footer fields
-\fancyhead[L]{\slshape \leftmark}
-\fancyhead[C]{}
-\fancyhead[R]{\slshape \rightmark}
+%\fancyhead[LE]{\slshape \leftmark}
+%\fancyhead[C]{}
+%\fancyhead[RO]{\slshape \rightmark}
 \fancyfoot[C]{\thepage}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0pt}}
 \headheight = 14pt
 
-\printnomenclature[50pt]
+%\printnomenclature[50pt]
 \input{./Introduction/Introduction.tex}
 \input{./Model_Predictive_Control/Model_Predictive_Control.tex}
 \input{./Dynamic_Modeling_of_a_Quadrotor/Dynamic_Modeling_of_a_Quadrotor.tex}

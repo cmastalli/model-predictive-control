@@ -5,9 +5,9 @@
 
 In robotics, the amount of code required to get functional robots is quite big, since the coding goes from a driver level of the components to more higher level AI algorithms and routines. Usually, it is difficult to write code that can be adapted to several platforms or robots, and the persons in charge of this may have different choices of languages, depending on the expertise. These reasons make the integration of the different applications required to get the robot up and running a challenging work.\\
 
-ROS is a response to these necessities, and the result is an meta-operative system designed to build a framework that provides an abstract communication layer between robotic applications in order to minimize integration efforts and reuse code. This will allow to use the same program with different platforms, accross different languages and different levels of the software, simplifying a lot the work required to develop an experimental set and making it possible to expand easily the experiments. ROS can also run in a distributed way, so that different processes can run in different computers accross a Local Area Network (LAN) \cite{Quigley}.\\
+ROS is a response to these necessities, and the result is an meta-operative system designed to build a framework that provides an abstract communication layer between robotic applications in order to minimize integration efforts and reuse code. This will allow to use the same program with different platforms, accross different languages and different levels of the software, simplifying a lot the work required to develop an experimental set and making it possible to expand easily the experiments. ROS can also run in a distributed way, so that different processes can run in different computers accross a Local Area Network (\nom{LAN}{Local Area Network}) \cite{Quigley}.\\
 
-The ROS architecture is built in a peer-to-peer topology, where a number of processes can be running in a single host or in several hosts and communicate to each other. The coordination of the communication tasks is done by a \emph{master} process that can run in any computer in the network. The ability to run several nodes in different languages is achieved by a language-neutral interface definition language (IDL), that specifies each field of the message for the code generators and compilers of each language to generate an implementation native to the correspondent language. 
+The ROS architecture is built in a peer-to-peer topology, where a number of processes can be running in a single host or in several hosts and communicate to each other. The coordination of the communication tasks is done by a \emph{master} process that can run in any computer in the network. The ability to run several nodes in different languages is achieved by a language-neutral Interface Definition Language (\nom{IDL}{Interface Definition Language}), that specifies each field of the message for the code generators and compilers of each language to generate an implementation native to the correspondent language. 
 
 \subsection{Nomenclature}
 
@@ -23,7 +23,7 @@ ROS functionality can be distributed in the following elements:
 
 \item \textbf{Services} In case of requiring syncronous communication between nodes, ROS offers services. A service consists of three elements: a string that defines the name and two strictly typed messages, one for the request and one for the response. Unlike topics, only one node can advertise a particular service with a unique name. 
 
-\item \textbf{Parameter Server} This is a very useful resource that ROS provides. It stores variable values of different types and used for different purposes while ROS is up and running. Some of these variables can be parameters for the running applications or configuration settings. These parameters can be loaded each time through a \emph{launch} file and a configuration file written in YAML format \cite{Ben-kiki2004}. The launch file initiates ROS, specifies the nodes that should be running for a particular application, and loads the parameter server with the information provided by the YAML file. One big advantage of this way of launching nodes is that the configuration file does not need to be compiled each time, so one can change parameters without the downtime used compiling. 
+\item \textbf{Parameter Server} This is a very useful resource that ROS provides. It stores variable values of different types and used for different purposes while ROS is up and running. Some of these variables can be parameters for the running applications or configuration settings. These parameters can be loaded each time through a \emph{launch} file and a configuration file written in (\nom{YAML}{YAML (Yet Another Markup Language) Ain't Markup Language}) format, which is an acronym for YAML (Yet Another Markup Language) Ain't Markup Language \cite{Ben-kiki2004}. The launch file initiates ROS, specifies the nodes that should be running for a particular application, and loads the parameter server with the information provided by the YAML file. One big advantage of this way of launching nodes is that the configuration file does not need to be compiled each time, so one can change parameters without the downtime used compiling. 
 
 \end{itemize}
 
@@ -128,19 +128,43 @@ This class is a frame for methods to simulate numerically a determined system. I
 
 \subsection{ModelPredictiveControl}
 
-This is the main class that unifies all the functionality of the previous ones to actually solve the quadratic problem posed by each MPC iteration. In the end, the methods from this class are the main methods to be used by the end user in the MPC implementation. This class also allows developers to work in their own variety of MPC, as they are a lot of varieties existing and also being developed. For example, there is currently ongoing work on developing a class to implement Learning Based Model Predictive Control, in which statistical learning algorithms are used to "learn" the non-linearities and imperfections of the model and continue updating it as time goes by, thus allowing to reduce the initial modeling effort to obtain a model that is as accurate as possible. \\
+This is the main class that unifies all the functionality of the previous ones to actually solve the quadratic problem posed by each MPC iteration. In the end, the methods from this class are the main methods to be used by the end user in the MPC implementation. This class also allows developers to work in their own variety of MPC, as they are a lot of varieties existing and also being developed. For example, there is currently ongoing work on developing a class to implement Learning Based Model Predictive Control, in which statistical learning algorithms are used to "learn" the non-linearities and imperfections of the model and continue updating it as time goes by, thus allowing to reduce the initial modeling effort to obtain a model that is as accurate as possible. The class developed in this project solves the standard Model Predictive Control problem. \\
 
-All of these classes would have to adapt their main functionality to the following three methods to keep the ease of use of the library. Any additional functionality should be added in that particular class.
+All of these classes would have to adapt their main functionality to the following three methods to keep the ease of use of the library. Any additional functionality should be added within one of these three methods. A flowchart for each method will be provided to facilitate the understanding of each method. \newpage
 
 \begin{itemize}
+\item resetMPC function: this function takes a pointer to an object of the Model and Optimizer classes and sets them into the ModelPredictiveControl object, therefore providing the class with all the information and methods from these.This is used to obtain information about the model, and the optimization problem, also stored in the Parameter Server as configuration files written in YAML format. The benefit from this is that the information in the Parameter Server can be modified and used in the program without the need to recompile.\\
 
+Here is where the benefits of using interface classes comes into play: because of this, the pointers to the aforementioned objects can be instantiated as interface classes despite what object it is, as long as they are derived from them. This makes the implementation in the main function easily interchangeable between systems, solvers and simulators as long as they are provided.
 
-\item resetMPC function: this function takes a pointer to an object of the Model, Optimizer and Simulator classes and sets the into the ModelPredictiveControl object, therefore providing the class with all the information and methods from these. Here is where the benefits of using interface classes comes into play: because of this, the pointers to the aforementioned objects can be instantiated as interface classes despite what object it is, as long as they are derived from them. This makes the implementation in the main function easily interchangeable between systems, solvers and simulators as longs as they are provided.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{Images/Chapter4/resetMPCflowchart.png}
+\caption{Flowchart for the \emph{resetMPC} function.}
+\label{fig:resetMPC_flowchart}
+\end{figure}
 
-\item initMPC function: all the parameters required to define the problem are read and all the initial calculations are performed in this function. The parameters are read from ROS's parameter server, which can be modified without compiling afterwards using configuration files written in YAML format. This allows quick modifications without the time consuming compilation process.
+\item initMPC function: in this function the variables that will store critical information of the MPC will be initialized. The state-space representation is taken from the Model class provided and the extended $A$ and $B$ matrices are calculated. The extended matrices refer to the matrices that result from the reorganization of all the recursive expressions for the system at any time in the future until the number of steps specified by the prediction horizon \cite{Ferreau2006}. Then the function reads all the remaining information required to set the MPC problem from the parameter server.
 
-\item updateMPC function: this function is where the actual MPC problem is solved. The function takes the current state of the system and the desired reference for the system as inputs, and uses all the previously computed variables and parameters required to assemble the quadratic problem, then it summons the functionality from the optimizer class in order to solve the problem and provide a solution.   
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{Images/Chapter4/initMPCflowchart.png}
+\caption{Flowchart for the \emph{initMPC} function.}
+\label{fig:initMPC_flowchart}
+\end{figure}
 
+\item updateMPC function: this function is where the actual MPC problem is solved. The function takes the current state of the system and the desired reference for the system as inputs, and uses all the previously computed variables and parameters required to assemble the quadratic problem, then it summons the functionality from the optimizer class in order to solve the problem and provide a solution. \\
+
+Due to the linearization process, the model is now expressed in terms of variations around the linearization point given in the previous chapter. Therefore, the calculation of the control signal comprises two steps: a steady state solution, which will be the control signal required to keep the platform in its current state; and the variation, that will be calculated by the MPC controller. This is done in the software by a Jacobi decomposition to solve the $Ax = b$ system, where $b = x_{ref}(A - \mathbb{I})$. This comes from the manipulation of the state space representation of the system to solve for $u_{ref}$ assuming that $x_{ref} = x_{ref + 1}$, since the system is supposed to stay in the same state.\\
+
+Then the function computes the Hessian matrix and the gradient vector stated in equation \ref{eq:quadproblem} to use the optimizer functionality and solve the MPC problem. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{Images/Chapter4/updateMPCflowchart.png}
+\caption{Flowchart for the \emph{updateMPC} function.}
+\label{fig:updateMPC_flowchart}
+\end{figure}
 \end{itemize}
 
 \section{Summary}
