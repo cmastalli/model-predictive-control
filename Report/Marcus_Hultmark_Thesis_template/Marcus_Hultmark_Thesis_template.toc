@@ -1,5 +1,5 @@
 \select@language {swedish}
-\contentsline {chapter}{List of Figures}{iv}{chapter*.2}
+\contentsline {chapter}{List of Figures}{vi}{chapter*.2}
 \contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}
 \contentsline {section}{\numberline {1.1}Background}{1}{section.1.1}
 \contentsline {section}{\numberline {1.2}Purpose}{1}{section.1.2}
